@@ -54,6 +54,20 @@ Page({
     curentImg: 0,
   },
 
+  jumpToBe(e) {
+    var _this = this
+    let tp = e.currentTarget.dataset.type
+    if (tp===2) {
+      wx.navigateTo({
+        url: '../applyRoom/applyRoom'
+      })
+    } else{
+      wx.navigateTo({
+        url: '../apply/apply'
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
