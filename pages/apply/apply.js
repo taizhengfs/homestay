@@ -5,13 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pindex:0,
+    rindex:0,
     platform: ['微博', '微信', '知乎', 'segmentfault'],
     reco: ['企业级', '专家级', '资深级', '完美级'],
+    isShowCard:false
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
+    })
+  },
+  showPaneCard(){
+    let _this = this;
+    _this.setData({
+      isShowCard: !_this.data.isShowCard
     })
   },
 

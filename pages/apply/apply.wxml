@@ -1,5 +1,5 @@
 <!--pages/apply/apply.wxml-->
-<view class='container'>
+<view class='container {{isShowCard?"blur__mask":""}}'>
   <view class='top__header'>
     <image src='../../images/bg_header.png'></image>
   </view>
@@ -31,46 +31,75 @@
       </view>
     </view>
     <view class='inflution__cnt'>
-        <view class='form__single'>
-          <view class='form__single__left'>
-            平台名
-          </view>
-          <view class='form__single__right'>
-           <picker bindchange="bindPickerChange" value="{{index}}" range="{{platform}}">
-              <view class="form__single__picker">
-                {{platform[index]||'请选择您的活跃平台'}}<view class="icon__arrow__down"></view>
-              </view>
-            </picker>
-          </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          平台名
         </view>
-        <view class='form__single'>
-          <view class='form__single__left'>
-            平台昵称
-          </view>
-          <view class='form__single__right'>
-            <input placeholder="请填写您的昵称"></input>
-          </view>
-        </view>
-        <view class='form__single'>
-          <view class='form__single__left'>
-            平台粉丝数量
-          </view>
-          <view class='form__single__right'>
-            <input placeholder="请填写您的粉丝数量"></input>
-          </view>
-        </view>
-        <view class='form__single'>
-          <view class='form__single__left'>
-            平台认证类型
-          </view>
-          <view class='form__single__right'>
-           <picker bindchange="bindPickerChange" value="{{index}}" range="{{reco}}">
-              <view class="form__single__picker">
-                {{reco[index]||'请选择平台认证类型'}}<view class="icon__arrow__down"></view>
-              </view>
-            </picker>
-          </view>
+        <view class='form__single__right'>
+          <picker bindchange="bindPickerChange" value="{{pindex}}" range="{{platform}}">
+            <view class="form__single__picker">
+              {{platform[pindex]||'请选择您的活跃平台'}}
+              <view class="icon__arrow__down"></view>
+            </view>
+          </picker>
         </view>
       </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          平台昵称
+        </view>
+        <view class='form__single__right'>
+          <input placeholder="请填写您的昵称"></input>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          平台粉丝数量
+        </view>
+        <view class='form__single__right'>
+          <input placeholder="请填写您的粉丝数量"></input>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          平台认证类型
+        </view>
+        <view class='form__single__right'>
+          <picker bindchange="bindPickerChange" value="{{rindex}}" range="{{reco}}">
+            <view class="form__single__picker">
+              {{reco[rindex]||'请选择平台认证类型'}}
+              <view class="icon__arrow__down"></view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          上传截图
+        </view>
+        <view class='form__single__right'>
+          <view class='form__add__image'>
+            <view class="icon__plus__add"></view>平台主页截图</view>
+        </view>
+      </view>
+      <view class="form__single pla">
+        <view class="form__add__platform">
+          <view class="icon__plus__add__gold"></view>添加其他平台
+        </view>
+      </view>
+    </view>
   </view>
+  <view class="form__submit" bindtap='showPaneCard'>
+    提交申请
+  </view>
+</view>
+<view class='pane__success' wx:if="{{isShowCard}}">
+  <view class='pane__icon__success'>
+    <image src='../../images/icon_success.svg'></image>
+  </view>
+  <view class='pane__title'>申请提交成功</view>
+  <text class='pane__desc'>申请结果将在7日内,\n以推送通知的方式告知您。</text>
+  <view class='pane__button' bindtap='showPaneCard'>确定</view>
+</view>
+<view class='pane__mask' wx:if="{{isShowCard}}">
 </view>

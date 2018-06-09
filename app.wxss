@@ -81,6 +81,22 @@
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAgFJREFUWAntVcFKw0AU3Le14Cf05ElP3uxNvBTSXyiJoCgKIiiICdiDIN4UWkUUQcQqFKkW/6CFHv0Pf8M265to6ramW6slvWSh7O6btzPDZNMIkYwkgSSBJIEkgZ4EqFU/m223/Xsl1CIjsgeNaUNESgnxmk6Ljal2p1PhzVJM2pEySiliYPH9ne6kEjQf2TWRopqTbK0+Ee0IUSlkRU5lsruC6CUCj7fEHlKZhUOZy+Xa6UzW4Yv1HK+DbzVowwO84DIFQ9XrqWbnrcoXzAlrccxspmalZlaoUOhAr/uaoxAAgh7jMAINYi3dzGetT50Tks1aif+XxGofNNYtJ1O1bHeNZ18n7iYUFtFgOd46X/SHsDb2mbmjzEDnhyEUYSpvuxs8V7Af5wDnF3dPMqFGpCGAQVK2u0kkbsPm/87g4mSYs/cx6bwDDaGJDyrL9rZ4eaMf+uP6BlzgNJ03GsJBEOQdb5vfiGsTkQnD2YBjiJlAz0TUjzVq5Uul/J3+umlPJK/yjrtr6tGxoQnpzSCWgi70mmmN3lHMgGskQzhgLXt7/BjPsTYN9KDX1BOFjWwIJHwf9vmNKUURogYMPYNwU737LTM1DcKatfKJr/wDHZckTy3HLeq1Udb/MgShxlOpyJ+bY6z5MR3lbe8E64mOVut+Gr+JmkjEkwSSBH6ZwAcWf4Yl4acfYAAAAABJRU5ErkJggg==') no-repeat;
   background-size: 100% 100%;
 }
+.icon__plus__add {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 16rpx;
+  display: inline-flex;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAAN1JREFUWAntVgsKwjAMXcWreA49h7vMTrNz6Dk8TPc6EgyD8VojWiWFkaz5NH0J9A1DZyt568k5lxxXyTOnlLI3pyseBY34dI2uZAg+eBMg/mRyWN1s16vvKKj+tArPKIiBFAgFQgwBZo8ZCoQYAsze3Qyt9ANPtVKIVx7HM259kZvfIO+it4gHnJ/UBQVZCqFU4tNypS7dtewouM4iv9qylh7v+qKvk+nttOtYaeiuZVEQ61wgFAgxBJg9ZigQYggw+1/OUCFXuqyue01S6UdT0MZZqUvZtvrG7Ud/F2aeuKNy20FaAAAAAElFTkSuQmCC') no-repeat;
+  background-size: 100% 100%;
+}
+.icon__plus__add__gold {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 16rpx;
+  display: inline-flex;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAABGdBTUEAALGPC/xhBQAAASJJREFUWAntWMENgkAQvD2JPfCwAvuwBB4+7MLgy4c/Yhc+fFCCfViBD3owkZONuQCyx4a7gCQuH2D2dncYltwEUAHHPc+XxetxKo3ZYRkNcIkXq+M6SZ6+ZSPfRMz7kClTW6MillYY3h4sNvSshyY011tlOKwZ566DCCll4m4DCuuuciGBhFxl/XEhxGknColCnAJcXGZIFOIU4OLQthBh+xDXzB2HwlqX6NtCuJPGjJjYWhdNWYgxW/fVRi7z++zx3fWxnjKGXDR6YA06UwqKKZu3e+FQ6wy5QDsw7O52PRsqY7Pde9ed3wxRT/hLTBTi1BeFRCFOAS4uM/RvClEbMoVxutTxoBmirAuF1e34q6A/aGgX8I+ZdZ1IBjG+rXvFG3yBWISq873iAAAAAElFTkSuQmCC') no-repeat;
+  background-size: 100% 100%;
+}
 .wx-swiper-dot-active{
   width:32rpx!important;
   border-radius:50rpx!important;

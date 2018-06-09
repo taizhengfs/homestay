@@ -42,6 +42,8 @@
   display: flex;
   flex: 1;
   position: relative;
+  align-items: center;
+  justify-content: flex-end;
 }
 .form__single__right input {
   font-size: 24rpx;
@@ -55,6 +57,7 @@
   margin-left: 90rpx;
   padding-left: 6rpx;
   margin-top: 18rpx;
+  padding-right: 35rpx;
   border-left: 1rpx solid rgba(234,234,234,1)
 }
 .form__single__picker {
@@ -70,4 +73,112 @@
 }
 .form__single__right picker {
   width: 100%;
+}
+.form__add__image {
+  color:#fff;
+  background: #BAA68B;
+  border-radius: 6rpx;
+  padding: 0 20rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+}
+.form__add__platform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 536rpx;
+  height: 64rpx;
+  margin: 44rpx 0 10rpx 30rpx;
+  line-height: 64rpx;
+  font-size: 28rpx;
+  color: #BAA68B;
+  border-radius:8rpx;
+  border:2rpx solid rgba(186,166,139,1);
+}
+.form__single.pla {
+  height: 120rpx;
+  border-bottom: none;
+}
+.form__submit {
+  width: 100%;
+  height: 120rpx;
+  background:rgba(186,166,139,1);
+  font-size:32rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(255,255,255,1);
+  line-height:120rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center
+}
+.pane__icon__success {
+  width: 156rpx;
+  height: 156rpx;
+  position: relative;
+  margin-bottom: 26rpx;
+}
+.pane__icon__success image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.pane__button {
+  color: #fff;
+  width:348rpx;
+  height:84rpx;
+  background:rgba(186,166,139,1);
+  border-radius:8rpx;
+  text-align: center;
+  line-height: 84rpx;
+  font-size: 36rpx;
+}
+.pane__desc {
+  font-size: 24rpx;
+  line-height: 44rpx;
+  color: #333;
+  margin-bottom: 44rpx;
+  text-align: center;
+}
+.pane__title {
+  font-size:40rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(186,166,139,1);
+  line-height:56rpx;
+  margin-bottom: 16rpx;
+}
+.pane__success {
+  position: fixed;
+  width: 534rpx;
+  min-height: 600rpx;
+  background: #fff;
+  left: 50%;
+  top: 50%;
+  border-radius: 8rpx;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+}
+.pane__mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 39;
+  background:rgba(0,0,0,1);
+  opacity:0.7;
+}
+.blur__mask {
+  filter: blur(6px);
+  overflow-x: hidden;
+  zoom: 1;
 }
