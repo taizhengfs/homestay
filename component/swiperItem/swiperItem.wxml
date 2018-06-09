@@ -9,6 +9,9 @@
         <view class='swiper__bottom' wx:if="{{isShowTitle}}">
           {{item.title}}
         </view>
+        <view class='red__tag' wx:if="{{isShowRedTag}}">
+          试睡体验
+        </view>
         <view class='calc' wx:if="{{isShowPage}}">
           <view class='clac__now'>{{index+1}}</view>/{{swiperimage.length}}
         </view>

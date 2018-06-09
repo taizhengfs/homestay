@@ -24,6 +24,10 @@ Component({
       type: Boolean,
       value: false
     },
+    isShowRedTag: {
+      type: Boolean,
+      value: false
+    },
   },
 
   /**
