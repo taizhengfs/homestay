@@ -1,15 +1,9 @@
 <!--pages/experience/experience.wxml-->
 <view class="container">
-  <view class="experience__swiper">
-    <swiper indicator-dots="{{indicatorDots}}" indicator-color="#D8D8D8" indicator-active-color="#BAA68B" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{curentImg}}">
-      <block wx:for="{{swiperimage}}" wx:key>
-        <swiper-item class="top-img" data-type="{{item.type}}" bindtap="jumpToDetail">
-          <view class="header-mask"></view>
-          <image src="{{item.thumb}}" class="slide-image"> </image>
-        </swiper-item>
-      </block> 
-    </swiper>
-  </view>
+  <swiperItem class="w__100"
+    isShowDots="{{true}}"
+    swiperimage="{{swiperimage}}"
+  ></swiperItem>
   <view class="experience__lists">
     <view class="experience__list" wx:for="{{experenceList}}" wx:key="{{index}}">
       <view class="experience__list__l">

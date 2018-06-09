@@ -1,25 +1,11 @@
 <!--pages/homestaydetail/homestaydetail.wxml-->
 <view class='container'>
-  <view class="experience__swiper">
-    <view class="icon_share">
-      <image src="../../images/icon_share.png"></image>
-    </view>
-    <swiper indicator-dots="{{indicatorDots}}" indicator-color="#D8D8D8" indicator-active-color="#BAA68B" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{curentImg}}">
-      <block wx:for="{{swiperimage}}" wx:key>
-        <swiper-item class="top-img" data-type="{{item.type}}" bindtap="jumpToDetail">
-          <view class='swiper__bottom'>
-            {{item.title}}
-          </view>
-          <view class='calc'>
-            <view class='clac__now'>{{index+1}}</view>/{{swiperimage.length}}
-          </view>
-          <view class="single__mask">
-          </view>
-          <image src="{{item.thumb}}" class="slide-image"> </image>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
+  <swiperItem class="w__100"
+    isShowPage="{{true}}" 
+    isShowTitle="{{true}}" 
+    isShowShare="{{true}}"
+    swiperimage="{{swiperimage}}"
+  ></swiperItem>
   <view class='detail__tags'>
     <view class="suji__tags">
       <view wx:for="{{tags}}" wx:key="{{index}}" class="suji__tag">

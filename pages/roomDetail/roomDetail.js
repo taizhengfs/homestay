@@ -5,11 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    indicatorDots: false,
-    autoplay: true,
-    interval: 3000,
-    duration: 1500,
-    isLoadAll: false,
     swiperimage: [
       {
         type: '1',

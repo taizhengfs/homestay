@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "detailCard": "../../component/detailCard/detailCard"
+    "detailCard": "../../component/detailCard/detailCard",
+    "swiperItem": "../../component/swiperItem/swiperItem"
   }
 }

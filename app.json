@@ -6,7 +6,8 @@
     "pages/user/user",
     "component/sujiBlock/sujiBlock",
     "pages/homestaydetail/homestaydetail",
-    "pages/roomDetail/roomDetail"
+    "pages/roomDetail/roomDetail",
+    "pages/experienceDetail/experienceDetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
