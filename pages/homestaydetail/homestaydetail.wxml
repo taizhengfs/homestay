@@ -83,7 +83,7 @@
   </view>
   <detailCard title="可选房型" isShowArrow="{{true}}" class="w__100">
     <view class='detail__card__roomlist detail__card_pad'>
-      <view class='room__list' wx:for="{{roomlist}}">
+      <view class='room__list' bindtap='jumpToRoomDetail' wx:for="{{roomlist}}">
         <view class='room__list__l'>
           <view class='room__list__l__t'>{{item.type}}</view>
           <view class='room__list__l__m'>{{item.desc}}</view>

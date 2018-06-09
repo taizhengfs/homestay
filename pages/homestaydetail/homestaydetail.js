@@ -95,6 +95,13 @@ Page({
     wx.setNavigationBarTitle({ title: '民宿详情' });
   },
 
+  jumpToRoomDetail() {
+    var _this = this
+    wx.redirectTo({
+      url: '../roomDetail/roomDetail'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -27,13 +27,24 @@ Page({
         title: '禾凤鸣书，南湖边四合院'
       }
     ],
+    decList:[
+      { support:'上网:', detail:'wifi高速连接'},
+      { support:'卫浴:', detail:'独立卫浴'},
+      { support:'窗户:', detail:'有'},
+      { support:'床型:', detail:'有大床1.8米*2.0米 1张'},
+      { support:'早餐:', detail:'无早餐'},
+      { support:'可住:', detail:'2人'},
+      { support:'面积:', detail:'18平米'},
+      { support:'楼层:', detail:'3-6楼'},
+      { support:'其他:', detail:'有阳台'},
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.setNavigationBarTitle({ title: '可选房型' });
   },
 
   /**
