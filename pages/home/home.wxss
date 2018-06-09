@@ -1,0 +1,50 @@
+/* pages/home.wxss */
+.home__header {
+  width: 750rpx;
+  height: 400rpx;
+}
+.home__header image {
+  width: 100%;
+  height: 100%;
+}
+.comp__search {
+  width: 100%;
+  height: 72rpx;
+  position: relative;
+  margin-top: -36rpx;
+}
+.home__tabs {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 26rpx;
+  padding-bottom: 0;
+}
+.home__tab {
+  color: #999797;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-right: 78rpx;
+  width: 130rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.home__tab:first-child {
+  margin-left: 26rpx;
+}
+.home__tab.isActive {
+  color: #C12121;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  padding-bottom: 6rpx;
+  margin-top:10rpx;
+  border-bottom: 4rpx solid #C12121;
+}
+.home__activity__group {
+  width: 100%;
+  padding: 18rpx 25rpx 18rpx 25rpx;
+  box-sizing: border-box;
+}

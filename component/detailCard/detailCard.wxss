@@ -1,0 +1,25 @@
+/* component/detailCard/detailCard.wxss */
+.detail__card {
+  width: 100%;
+  position: relative;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2rpx solid #EAEAEA;
+}
+.detail__card__title {
+  text-align: center;
+  color: #333333;
+  font-size: 32rpx;
+  line-height: 44rpx;
+}
+.detail__arrow {
+  display: flex;
+  justify-content: center
+}
+.detail__arrow image {
+  width: 37rpx;
+  height: 37rpx;
+  margin: 0 auto
+}

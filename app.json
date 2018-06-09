@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/suji/suji",
+    "pages/experience/experience",
+    "pages/user/user",
+    "component/sujiBlock/sujiBlock",
+    "pages/homestaydetail/homestaydetail",
+    "pages/roomDetail/roomDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "隐心民宿",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#4C4C4C",
+    "selectedColor": "#C12121",
+    "backgroundColor": "#fff",
+    "borderStyle": "#ccc",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "./images/icon_home_d.png",
+        "selectedIconPath": "./images/icon_home_a.png"
+      },
+      {
+        "pagePath": "pages/suji/suji",
+        "text": "宿集",
+        "iconPath": "./images/icon_suji_d.png",
+        "selectedIconPath": "./images/icon_suji_a.png"
+      },
+      {
+        "pagePath": "pages/experience/experience",
+        "text": "体验",
+        "iconPath": "./images/icon_tiyan_d.png",
+        "selectedIconPath": "./images/icon_tiyan_a.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "./images/icon_user_d.png",
+        "selectedIconPath": "./images/icon_user_a.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,228 @@
+/* pages/user/user.wxss */
+page {
+  background: #F4F4F4;
+}
+.user__top {
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  padding: 35rpx 26rpx;
+  box-sizing: border-box;
+  background: #333;
+}
+.user__top__left {
+  width: 130rpx;
+  height: 130rpx;
+  min-width: 130rpx;
+  position: relative;
+  border-radius: 90rpx;
+  overflow: hidden;
+}
+.user__top__left image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 90rpx;
+}
+.user__top__right {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 28rpx;
+}
+.user__top__name {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.user__top__name__l {
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 32rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.tag__lavel {
+  font-size: 16rpx;
+  line-height: 20rpx;
+  padding: 0 16rpx;
+  display: inline-flex;
+  height: 20rpx;
+  background: #BAA68B;
+  border-radius: 4rpx;
+  margin-left: 12rpx;
+
+}
+.btn__how {
+  color: #BAA68B;
+  font-size: 16rpx;
+  line-height: 22rpx;
+  padding: 5rpx 12rpx;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  border-radius:6rpx;
+  border:2rpx solid rgba(186,166,139,1)
+}
+.icon__question {
+  width: 20rpx;
+  height: 20rpx;
+  position: relative;
+  margin-right: 5rpx;
+
+}
+.icon__question image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.user__progress {
+  margin-top: 24rpx;
+  width: 100%;
+}
+.user__progress__main {
+  width: 100%;
+  height: 24rpx;
+  background: #F4F4F4;
+  border-radius: 50rpx;
+  position: relative;
+}
+.user__progress__now {
+  width: 50%;
+  background: #BAA68B;
+  position: absolute;
+  border-radius: 50rpx;
+  left: 0;
+  top: 0;
+  height: 24rpx;
+}
+.user__experience {
+  padding-top: 12rpx;
+  display: flex;
+  flex-direction: row;
+}
+.user__experience__list {
+  font-size: 20rpx;
+  line-height: 28rpx;
+  margin-right: 34rpx;
+  color: #9B9B9B;
+}
+.text_gold {
+  color: #BAA68B;
+  display: inline;
+}
+.user__cells {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 28rpx;
+  background: #fff;
+}
+.user__cell {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:2rpx solid rgba(234,234,234,1);
+}
+.user__cell:last-child {
+  border-bottom: none;
+}
+.user__cell__icon {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center
+}
+.user__cell__icon image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 26rpx;
+}
+.user__cell__right {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  color: #BAA68B;
+  font-size: 24rpx;
+  line-height: 34rpx;
+}
+.user__ticket__content {
+  width: 100vw;
+  height: 200rpx;
+}
+.user__ticket__scroll {
+  width: 100%;
+  height: 200rpx;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.user__ticket__block {
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #f2f0ec;
+  border-radius: 6rpx;
+}
+.user__ticket__top {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 66rpx;
+  align-items: center;
+}
+.user__ticket__top image {
+  width: 43rpx;
+  height: 43rpx;
+}
+.user__ticket__bottom {
+  width: 100%;
+  height: 34rpx;
+  text-align: center;
+  background: #BAA68B;
+  color: #fff;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  border-bottom-right-radius: 6rpx;
+  border-bottom-left-radius: 6rpx;
+}
+.user__ticket__maim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 40rpx;
+  min-width: 150rpx;
+}
+.user__ticket__title {
+  margin-top: 18rpx;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #333;
+}
+.user__cells__2 {
+  border-top:2rpx solid rgba(234,234,234,1);
+}
+.mt_24 {
+  margin-top: 24rpx
+}

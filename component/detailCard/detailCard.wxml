@@ -1,0 +1,12 @@
+<!--component/detailCard/detailCard.wxml-->
+<view class='detail__card'>
+  <view class='detail__card__title'>
+    {{title}}
+  </view>
+  <view class='detail__card__content'>
+    <slot></slot>
+  </view>
+  <view class='detail__arrow' wx:if="{{isShowArrow}}">
+    <image src='../../images/icon_more.png'></image>
+  </view>
+</view>

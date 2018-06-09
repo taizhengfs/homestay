@@ -1,0 +1,94 @@
+/* component/sujiBlock/sujiBlock.wxss */
+
+.suji__single {
+  position: relative;
+  margin-bottom: 34rpx;
+}
+.suji__single__top {
+  width: 100%;
+  height: 420rpx;
+  position: relative;
+}
+.suji__single__bottom {
+  padding-bottom: 10rpx;
+  border-bottom: 2rpx solid rgba(234,234,234,1);
+}
+.suji__single__top image {
+  width: 100%;
+  height: 100%;
+}
+.single__mask {
+  width: 100%;
+  height: 116rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,1));
+  opacity:0.3934;
+}
+.suji__single__header {
+  color: #333333;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 20rpx 0
+}
+.suji__tags{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%
+}
+.suji__tag {
+  color: #9F8A60;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  padding: 3rpx 16rpx;
+  border-radius: 6rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  border:2rpx solid rgba(186,166,139,1);
+}
+.suji__location {
+  display: flex;
+  justify-content: space-between;
+}
+.icon__cnt {
+  width: 26rpx;
+  height: 26rpx;
+  position: relative;
+  margin-right: 14rpx
+}
+.icon__cnt image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.suji__location__block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #7F7F7F;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.suji__single__price {
+  position: absolute;
+  top: 38rpx;
+  left: 0;
+  font-size: 40rpx;
+  line-height: 48rpx;
+  color: #fff;
+  background: #C12121;
+  padding: 0 25rpx;
+  border-top-right-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}

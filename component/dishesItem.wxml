@@ -1,0 +1,63 @@
+<template name="dishesItem">
+    <view class="dishesItem">
+        <view wx:if="{{item.video_id == 0}}" class="item-img" style="height:421rpx;">
+            <image catchtap="tapNavigator" data-url="../shopDishes/dishes?shop_id={{item.shop.id}}&dishes_id={{item.id}}" class="cover stat_to_shop" src="https:{{item.cover}}?x-oss-process=image/resize,m_fill,h_421,w_750"></image>
+        </view>
+
+        <view wx:if="{{item.video_id !== 0}}" class="item-img" style="height:{{item.imgHeight}}rpx;">
+            <form name='video_{{item.video_id}}' wx:if="{{item.video_id !== 0 && item.is_play == false}}" report-submit='true' catch:submit="getFormId">
+                <button class="fake-btn" form-type="submit"  bindtap="videoPlay" data-id="{{item.id}}" data-index="{{index}}">
+                    <!-- 有视频 -->
+                    <image class="cover" src="https:{{item.cover}}?x-oss-process=image/resize,m_fill,h_{{item.imgHeight}},w_750"
+                           style="height: {{item.imgHeight}}rpx;" ></image>
+                    <!-- 视频播放按钮 -->
+                    <view class="playBut">
+                        <image src="../../images/ic_play@2x.png"></image>
+                    </view>
+                </button>
+            </form>
+            <!-- 视频 -->
+            <video id="dishes_video_{{index}}" class="video" src="{{item.video.url}}" wx:if="{{item.video_id !== 0 && item.is_play == true}}" 
+                style="height: {{item.imgHeight}}rpx;" data-id="{{item.id}}" data-index="{{index}}"
+                bindended="videoPlayEnd" bindtimeupdate="videoPlayTime"
+                autoplay="{{item.is_autoplay}}">
+                <cover-view wx:if="{{item.is_payBut == true && item.ticket_id > 0}}" class="buy_to" catchtap='ticketNavigator' data-shopId="{{item.shop.id}}" data-ticketId="{{item.ticket_id}}">
+                    <cover-view class="limitTikect">{{item.ticket.name}}</cover-view> 
+                    <cover-view>{{item.ticket.pay}}元 抢购 ></cover-view>
+                </cover-view>
+            </video>
+        </view>
+
+        <view class="item-info">
+            <view class="item-title stat_to_shop" catchtap="tapNavigator" data-url="../shopDishes/dishes?shop_id={{item.shop.id}}&dishes_id={{item.id}}">
+                <view class="title">{{item.name}}</view>
+                <view wx:if="{{item.recom_word.length > 0}}" class="label">
+                    <view class="label-item">
+                        <view class="item">{{item.recom_word[0]}}</view>
+                    </view>
+                </view>
+            </view>
+          <view class="item-addr stat_to_shop" catchtap="tapNavigator" data-url="../shopDishes/dishes?shop_id={{item.shop.id}}&dishes_id={{item.id}}">
+          <!-- <view wx:if="{{item.shop.district !== ''}}"> -->
+              <image class="icon" wx:if="{{item.shop.distance !== -1 || item.shop.district !== ''}}" src='../../images/ic_place@2x.png'></image>
+              <text class="distance" wx:if="{{item.shop.distance == -1 && item.shop.district !== ''}}">{{item.shop.district}}</text>
+              <text class="distance" wx:if="{{item.shop.distance != -1}}">{{item.shop.distance}}km</text>
+              <text class="line" wx:if="{{item.shop.distance !== -1 || item.shop.district !== ''}}" >|</text>
+              <text class="address">{{item.shop.name}}</text>
+          </view> 
+          <!-- </view> -->
+            <view class="but">
+                <form name='pushMsgFm' report-submit='true' catch:submit="getFormId" class="btn_single_home">
+                    <button class="btn_single_home fake-btn" data-dishesID="{{item.id}}" data-index="{{index}}" data-status="{{item.toeat.status}}" catch:tap="handleDishes" class="btn_single_home" form-type="submit">
+                        <view class="{{item.toeat.status == 1 ? 'icon_want_e' : 'icon_want'}} mr_20"></view>
+                        想吃
+                    </button>  
+                </form>
+                <button class="share_icon" catchtap="showShareDialog" data-shop_id="{{item.shop.id}}" data-cover="{{item.cover}}" data-title="{{item.name}}" data-id="{{item.id}}">
+                    <image class="share_icon_img" src='../../images/ic_share@2x.png'></image>
+                    <view>分享</view>
+                </button>     
+            </view>
+        </view>
+    </view>
+</template>

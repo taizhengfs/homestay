@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "search": "../../component/search/search",
+    "activityBlock": "../../component/activityBlock/activityBlock"
+  }
+}

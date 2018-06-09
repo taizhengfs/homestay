@@ -1,0 +1,31 @@
+<!--pages/roomDetail/roomDetail.wxml-->
+<view class='container'>
+  <view class="experience__swiper">
+    <view class="icon_share">
+      <image src="../../images/icon_share.png"></image>
+    </view>
+    <swiper indicator-dots="{{indicatorDots}}" indicator-color="#D8D8D8" indicator-active-color="#BAA68B" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{curentImg}}">
+      <block wx:for="{{swiperimage}}" wx:key>
+        <swiper-item class="top-img" data-type="{{item.type}}" bindtap="jumpToDetail">
+          <view class='calc'>
+            <view class='clac__now'>{{index+1}}</view>/{{swiperimage.length}}
+          </view>
+          <view class="single__mask">
+          </view>
+          <image src="{{item.thumb}}" class="slide-image"> </image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='detail__desc'>
+    <view class='detail__desc__title'>
+      【开业特惠】大床房
+    </view>
+    <view class='detail__desc__main'>
+      <view class='detail__desc__single'>
+        <view class='detail'>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

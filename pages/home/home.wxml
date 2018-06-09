@@ -1,0 +1,27 @@
+<!--pages/home.wxml-->
+<view class="container">
+  <view class="home__header">
+    <image src='../../images/home_bg_header.png'></image>
+  </view>
+  <search class="comp__search"></search>
+  <view class="home__tabs">
+    <view class="home__tab {{currentTab == 0 ? 'isActive' :''}}" data-index = "0" bindtap = "changeTab">
+      今日活动
+    </view>
+    <view class="home__tab {{currentTab == 1 ? 'isActive' :''}}" data-index = "1" bindtap = "changeTab">
+      明日预告
+    </view>
+  </view>
+  <view class="home__activity__group">
+    <activityBlock wx:for="{{activityList}}" wx:key="{{index}}"
+      type="{{item.type}}"
+      startTime="{{item.startTime}}"
+      endTime="{{item.endTime}}"
+      price="{{item.price}}"
+      realPrice="{{item.realPrice}}"
+      participateNum="{{item.participateNum}}"
+      activityDesc="{{item.activityDesc}}"
+      cover="{{item.cover}}"
+      ></activityBlock>
+  </view>
+</view>

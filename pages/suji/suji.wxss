@@ -1,0 +1,139 @@
+/* pages/suji/suji.wxss */
+.suji__top {
+  width: 100%;
+  height: 180rpx;
+  position: fixed;
+  box-sizing: border-box;
+  padding-top: 32rpx;
+  z-index: 30;
+  background: RGBA(234, 234, 234, 0.7)
+}
+.suji__bottom {
+  z-index: 28;
+  margin-top: 180rpx;
+}
+.suji__bottom__pomask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 29;
+  background:rgba(8,8,8,0.21);
+}
+.suji__search {
+  position: relative;
+}
+.suji__sort {
+  display: flex;
+  flex-direction: row;
+  height: 72rpx;
+  padding: 0 35rpx;
+  box-sizing: border-box;
+  line-height: 72rpx;
+  margin-top: 5rpx;
+  position: relative;
+}
+.suji__sort__left {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  flex: 1;
+}
+.suji__sort__right {
+  width: 150rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.icon_filter {
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+}
+.icon_filter image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.suji__sort__block.filter {
+  width: 150rpx;
+  line-height: 34rpx;
+  text-align: right;
+  border-left: 2rpx solid #D6D6D6;
+}
+.suji__sort__block {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 72rpx;
+  color: #333
+}
+.icon_tran_up {
+  width:0;
+  height:0;
+  border-width:0 8rpx 8rpx;
+  border-style:solid;
+  border-color:transparent transparent #333;
+  position:relative;
+  margin-left: 8rpx;
+}
+.icon_tran_down {
+  width:0;
+  height:0;
+  border-width:8rpx 8rpx 0;
+  border-style:solid;
+  border-color:#333 transparent transparent;
+  position:relative;
+  margin-left: 8rpx;
+}
+.suji__list {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 25rpx;
+
+}
+.suji__sort__main {
+  position: absolute;
+  top: 180rpx;
+  box-sizing: border-box;
+  padding: 34rpx 24rpx;
+  width: 100%;
+  z-index: 30;
+  height: 280rpx;
+  background: #fff;
+  box-shadow:0px 16rpx 20rpx 0 rgba(47,47,47,0.58);
+}
+.suji__sort__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  margin-right: -28rpx;
+
+}
+.suji__sort__tag {
+  width: 152rpx;
+  text-align: center;
+  color: #2C2C2C;
+  box-sizing: border-box;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  background: #FAFAFA;
+  font-weight: 300;
+  border-radius: 6rpx;
+  border:2rpx solid rgba(237,237,237,1);
+  margin-right: 28rpx;
+  margin-bottom: 28rpx;
+}
+.is__selected {
+  color: #BAA68B;
+  background: #fff;
+  border:2rpx solid rgba(186,166,139,1);
+}

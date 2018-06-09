@@ -1,0 +1,37 @@
+<template name="shareDialog">
+    <view class="dialog">
+        <view class="cur_mask"></view>
+        <view class="dialog_center">
+         <view class="share-card">
+            <image src="http:{{info.cover}}?x-oss-process=image/resize,m_fill,h_360,w_610"></image>
+            <view class="share-title">{{info.title}}</view>
+            <view class="share-list">
+                <view class="share-icon">
+                    <button class="share-btn" open-type="share" >
+                        <view class="share-icon-wechat">
+                            <image src="../../images/ic_share_wechat@3x.png"></image>
+                        </view>
+                        分享好友
+                    </button>
+                </view>
+                <view class="share-icon" bindtap="postShare" data-id="{{info.id}}">
+                    <view class="share-icon-wechat">
+                        <image src="../../images/ic_share_wechat_friends@3x.png"></image>
+                    </view>
+                    分享朋友圈
+                </view>
+                <view class="share-icon" bindtap="postShare" data-id="{{info.id}}">
+                    <view class="share-icon-wechat">
+                        <image src="../../images/ic_share_banner@3x.png"></image>
+                    </view>
+                    制作海报
+                </view>
+            </view>
+        </view>
+        <view class="btn_close_2" bindtap="closeShareDialog">
+            <!--<icon type="cancel" size="30" color="#fff" />-->
+        </view>
+        </view>
+       
+    </view>
+</template>
