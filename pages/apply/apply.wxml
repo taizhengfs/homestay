@@ -1,0 +1,76 @@
+<!--pages/apply/apply.wxml-->
+<view class='container'>
+  <view class='top__header'>
+    <image src='../../images/bg_header.png'></image>
+  </view>
+  <view class='form__cnt'>
+    <view class='form__single'>
+      <view class='form__single__left'>
+        <view class='icon__user'></view>
+        姓名
+      </view>
+      <view class='form__single__right'>
+        <input placeholder="请填写您的姓名"></input>
+      </view>
+    </view>
+    <view class='form__single'>
+      <view class='form__single__left'>
+        <view class='icon__connect'></view>
+        联系方式
+      </view>
+      <view class='form__single__right'>
+        <input placeholder="请填写您的联系方式"></input>
+      </view>
+    </view>
+    <view class='form__single' style='border:none'>
+      <view class='form__single__left'>
+        <view class='icon__inflution'></view>
+        影响力介绍
+      </view>
+      <view class='form__single__right'>
+      </view>
+    </view>
+    <view class='inflution__cnt'>
+        <view class='form__single'>
+          <view class='form__single__left'>
+            平台名
+          </view>
+          <view class='form__single__right'>
+           <picker bindchange="bindPickerChange" value="{{index}}" range="{{platform}}">
+              <view class="form__single__picker">
+                {{platform[index]||'请选择您的活跃平台'}}<view class="icon__arrow__down"></view>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class='form__single'>
+          <view class='form__single__left'>
+            平台昵称
+          </view>
+          <view class='form__single__right'>
+            <input placeholder="请填写您的昵称"></input>
+          </view>
+        </view>
+        <view class='form__single'>
+          <view class='form__single__left'>
+            平台粉丝数量
+          </view>
+          <view class='form__single__right'>
+            <input placeholder="请填写您的粉丝数量"></input>
+          </view>
+        </view>
+        <view class='form__single'>
+          <view class='form__single__left'>
+            平台认证类型
+          </view>
+          <view class='form__single__right'>
+           <picker bindchange="bindPickerChange" value="{{index}}" range="{{reco}}">
+              <view class="form__single__picker">
+                {{reco[index]||'请选择平台认证类型'}}<view class="icon__arrow__down"></view>
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+  </view>
+</view>
