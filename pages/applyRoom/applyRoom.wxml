@@ -1,0 +1,26 @@
+<!--pages/applyRoom/applyRoom.wxml-->
+<view class='container'>
+  <view class='top__header'>
+    <image src='../../images/bg_header.png'></image>
+  </view>
+  <view class='edit__area'>
+    <view class='icon__deit'></view>
+    <view class='edit__area__main'>
+      <textarea maxlength="1000" bindinput='tapToEdit' placeholder='请输入报名内容' class='edit__area__main'></textarea>
+      <view class='text__num'>
+        {{currentLength}}/1000
+      </view>
+    </view>
+  </view>
+  <view class='add__image__cnt'>
+    <view class='add__image' bindtap='selectPic'>
+      <view class='add__image__top'>
+        <view class='icon__plus__add__gold'></view>
+      </view>
+      <view class='add__image__bottom'>添加照片(0/5)</view>
+    </view>
+  </view>
+  <view class="form__submit" bindtap='showPaneCard'>
+    提交申请
+  </view>
+</view>

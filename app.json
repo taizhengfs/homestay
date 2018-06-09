@@ -8,7 +8,8 @@
     "pages/homestaydetail/homestaydetail",
     "pages/roomDetail/roomDetail",
     "pages/experienceDetail/experienceDetail",
-    "pages/apply/apply"
+    "pages/apply/apply",
+    "pages/applyRoom/applyRoom"
   ],
   "window": {
     "backgroundTextStyle": "dark",

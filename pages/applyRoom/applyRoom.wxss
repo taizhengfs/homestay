@@ -1,0 +1,87 @@
+/* pages/applyRoom/applyRoom.wxss */
+.top__header {
+  width: 100%;
+  height: 200rpx;
+  position: relative;
+}
+.top__header image {
+  width: 100%;
+  height: 200rpx;
+}
+page {
+  background:rgba(244,244,244,1);
+}
+.edit__area {
+  width: 100%;
+  padding: 34rpx;
+  box-sizing: border-box;
+  position: relative;
+  border-radius:8rpx;
+}
+.edit__area__main {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height:686rpx;
+  background: #fff;
+  border-radius:8rpx;
+}
+.edit__area textarea {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 40rpx 30rpx;
+  padding-left: 102rpx;
+  color: #7F7F7F;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.text__num {
+  width: 100%;
+  font-size:24rpx;
+  font-family:PingFangSC-Thin;
+  color:rgba(51,51,51,1);
+  line-height:34rpx;
+  text-align: right;
+  box-sizing: border-box;
+  padding-bottom: 28rpx;
+  padding-right: 34rpx;
+}
+.add__image {
+  width: 240rpx;
+  height: 120rpx;
+  border-radius:8rpx;
+  border:2rpx solid rgba(186,166,139,1);
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(186,166,139,1);
+  line-height:40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+.add__image__cnt {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 38rpx;
+  box-sizing: border-box;
+  margin-bottom: 150rpx;
+}
+
+.form__submit {
+  width: 100%;
+  height: 120rpx;
+  background:rgba(186,166,139,1);
+  font-size:32rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(255,255,255,1);
+  line-height:120rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center
+}

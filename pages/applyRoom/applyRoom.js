@@ -1,34 +1,34 @@
-// pages/apply/apply.js
+// pages/applyRoom/applyRoom.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pindex:0,
-    rindex:0,
-    platform: ['微博', '微信', '知乎', 'segmentfault'],
-    reco: ['企业级', '专家级', '资深级', '完美级'],
-    isShowCard:false
-  },
-  bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
-  },
-  showPaneCard(){
-    let _this = this;
-    _this.setData({
-      isShowCard: !_this.data.isShowCard
-    })
+    currentLength:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({ title: '申请成为体验师' });
+    wx.setNavigationBarTitle({ title: '体验活动' });
+  },
+  tapToEdit(e){
+    this.setData({
+      currentLength: e.detail.value.length
+    })
+  },
+  selectPic(){
+    wx.chooseImage({
+      count: 5, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var tempFilePaths = res.tempFilePaths
+      }
+    })
   },
 
   /**
