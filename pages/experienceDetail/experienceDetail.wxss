@@ -202,11 +202,11 @@
   font-size: 28rpx;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid rgba(217,217,217,1);
+  border-top: 1rpx solid rgba(217,217,217,1);
   line-height: 90rpx;
 }
 .bottom__ba__block:first-child {
-  border-right: 1px solid rgba(217,217,217,1)
+  border-right: 1rpx solid rgba(217,217,217,1)
 }
 .bottom__ba__block.join {
   width: 300rpx;

@@ -9,7 +9,8 @@
     "pages/roomDetail/roomDetail",
     "pages/experienceDetail/experienceDetail",
     "pages/apply/apply",
-    "pages/applyRoom/applyRoom"
+    "pages/applyRoom/applyRoom",
+    "pages/lottery/lottery"
   ],
   "window": {
     "backgroundTextStyle": "dark",
