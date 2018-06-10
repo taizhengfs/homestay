@@ -10,7 +10,8 @@
     "pages/experienceDetail/experienceDetail",
     "pages/apply/apply",
     "pages/applyRoom/applyRoom",
-    "pages/lottery/lottery"
+    "pages/lottery/lottery",
+    "pages/rulesDetail/rulesDetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

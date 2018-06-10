@@ -30,7 +30,7 @@
   <view class='lottery__detail__block'>
     <view class='lottery__detail__title'>
       <view class='lottery__detail__title__l'>抽奖规则</view>
-      <view class='lottery__detail__title__r'>
+      <view class='lottery__detail__title__r' bindtap='jumpToRuleDetail'>
         规则详情
         <view class='icon__arrow__right'></view>
       </view>

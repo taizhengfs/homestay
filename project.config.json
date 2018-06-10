@@ -87,6 +87,12 @@
 					"name": "抽奖",
 					"pathName": "pages/lottery/lottery",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "规则详情",
+					"pathName": "pages/rulesDetail/rulesDetail",
+					"query": ""
 				}
 			]
 		}

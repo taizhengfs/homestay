@@ -1,0 +1,9 @@
+<!--pages/rulesDetail/rulesDetail.wxml-->
+<view class='container'>
+  <view class='rules__content'>
+    <view class='rules__block' wx:for="{{rules}}">
+      <view class='rules__titles'>{{item.type}}</view>
+      <view class='disp__inline'>{{item.desc}}</view>
+    </view>
+  </view>
+</view>

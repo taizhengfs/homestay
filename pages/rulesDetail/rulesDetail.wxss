@@ -1,0 +1,16 @@
+/* pages/rulesDetail/rulesDetail.wxss */
+.rules__block {
+  font-size:24rpx;
+  font-family:PingFangSC-Light;
+  color:rgba(51,51,51,1);
+  line-height:44rpx;
+  margin-bottom: 36rpx;
+}
+.rules__titles {
+  font-size: 28rpx;
+  line-height: 44rpx;
+}
+.rules__content {
+  padding: 42rpx;
+  box-sizing: border-box;
+}

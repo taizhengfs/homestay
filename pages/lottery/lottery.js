@@ -51,6 +51,12 @@ Page({
     ]
   },
 
+  jumpToRuleDetail() {
+    var _this = this
+    wx.navigateTo({
+      url: '../rulesDetail/rulesDetail'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
