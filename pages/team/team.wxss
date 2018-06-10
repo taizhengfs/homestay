@@ -1,0 +1,235 @@
+/* pages/team/team.wxss */
+.bg_header {
+  width: 100%;
+  height: 160rpx;
+  position: relative;
+}
+.bg_header image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.icon__button {
+  width:460rpx;
+  height:72rpx;
+  background:rgba(193,33,33,1);
+  border-radius:16rpx;
+  text-align: center;
+  line-height: 72rpx;
+  font-size:28rpx;
+  left: 146rpx;
+  top: 44rpx;
+  position: absolute;
+  z-index: 50;
+  font-family:PingFangSC-Regular;
+  color:rgba(255,255,255,1);
+}
+.team__card {width: 100%;}
+.team__card__content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding:0 40rpx 40rpx 40rpx;
+  box-sizing: border-box;
+  justify-content: space-between
+}
+.team__card__block {
+  width: 190rpx;
+  min-height: 240rpx;
+  border-radius: 16rpx;
+  overflow: hidden
+}
+.team__card__top {
+  padding: 18rpx 10rpx;
+  font-size:22rpx;
+  box-sizing: border-box;
+  font-family:PingFangSC-Light;
+  color:rgba(140,118,88,1);
+  line-height:32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 196rpx;
+  background: #F3F0EB;
+}
+.team__card__bottom {
+  width: 100%;
+  background:rgba(186,166,139,1);
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size:28rpx;
+  text-align: center;
+  font-family:PingFangSC-Regular;
+  color:rgba(255,255,255,1);
+  border-bottom-left-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+}
+.team__card__title {
+  text-align: center;
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(51,51,51,1);
+  line-height:44rpx;
+  margin: 40rpx 0;
+}
+.team__card_problem {
+  width: 100%;
+  height: 300rpx;
+  padding:0 40rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.team__card_problem image {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.item__problem__single {
+  font-size:24rpx;
+  min-width: 146rpx;
+  font-family:PingFangSC-Light;
+  color:rgba(51,51,51,1);
+  height: 44rpx;
+  margin-right: 40rpx;
+  line-height:44rpx;
+}
+.item__content {
+  position: absolute;
+  width: 670rpx;
+  height: 100%;
+  padding: 62rpx 56rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.team__cate__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding:0rpx 40rpx;
+  box-sizing: border-box;
+  justify-content: space-between
+}
+.team__cate__block {
+  width: 190rpx;
+  min-height: 600rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin-bottom: 36rpx;
+}
+.team__cate__top {
+  padding: 18rpx 10rpx;
+  font-size:22rpx;
+  box-sizing: border-box;
+  font-family:PingFangSC-Light;
+  color:rgba(140,118,88,1);
+  line-height:45rpx;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 540rpx;
+  background: #F3F0EB;
+}
+.team__cate__bottom {
+  width: 100%;
+  background:rgba(186,166,139,1);
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size:28rpx;
+  text-align: center;
+  font-family:PingFangSC-Regular;
+  color:rgba(255,255,255,1);
+}
+.islast {
+  width: 432rpx;
+}
+.sp__1 {
+  width: 152rpx;
+  margin-right: 72rpx;
+}
+.sp__2 {
+  width: 152rpx;
+}
+
+.form__single__left {
+  color: #333;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  min-width: 200rpx;
+  padding-left: 35rpx;
+}
+.form__single {
+  display: flex;
+  flex-direction: row;
+  height: 108rpx;
+  border-bottom: 1px solid rgba(234,234,234,1);
+}
+.inflution__cnt .form__single {
+  height: 93rpx;
+}
+.inflution__cnt .form__single__left {
+  padding-left: 20rpx;
+}
+.inflution__cnt .form__single__right input {
+  height: 93rpx;
+  padding-right: 44rpx;
+}
+.form__single__right {
+  display: flex;
+  flex: 1;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+}
+.form__single__right input {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #333;
+  height: 108rpx;
+  text-align: right;
+  width: 100%;
+}
+.inflution__cnt {
+  padding: 0 25rpx;
+  box-sizing: border-box;
+  border-left: 1rpx solid rgba(234,234,234,1)
+}
+.form__single__picker {
+  font-size: 24rpx;
+  line-height: 72rpx;
+  text-align: right;
+  color: #333;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  width: 100%;
+  align-items: center;
+}
+.form__single__right picker {
+  width: 100%;
+}
+.btn__consult {
+  width: 536rpx;
+  height: 64rpx;
+  background:rgba(186,166,139,1);
+  border-radius:8rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(255,255,255,1);
+  line-height:64rpx;
+  text-align: center;
+  margin-top: 36rpx;
+  margin: 50rpx auto;
+}
+.team__card__title.consult {
+  margin: 0;
+}

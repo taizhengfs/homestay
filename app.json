@@ -11,7 +11,9 @@
     "pages/apply/apply",
     "pages/applyRoom/applyRoom",
     "pages/lottery/lottery",
-    "pages/rulesDetail/rulesDetail"
+    "pages/rulesDetail/rulesDetail",
+    "pages/discount/discount",
+    "pages/team/team"
   ],
   "window": {
     "backgroundTextStyle": "dark",

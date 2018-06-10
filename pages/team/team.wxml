@@ -1,0 +1,119 @@
+<!--pages/team/team.wxml-->
+<view class='container'>
+  <view class='bg_header'>
+    <view class='icon__button'>立即咨询</view>
+    <image src='../../images/bg_consult.png'></image>
+  </view>
+  <view class='team__card'>
+    <view class='team__card__title'>隐心团建服务特色</view>
+    <view class='team__card__content'>
+      <view class='team__card__block' wx:for="{{specialList}}">
+        <view class='team__card__top'>{{item.desc}}</view>
+        <view class='team__card__bottom'>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='team__card'>
+    <view class='team__card__title'>隐心团建解决的问题</view>
+    <view class='team__card_problem'>
+      <view class='item__content'>
+        <view class='item__problem__single' wx:for="{{problemList}}">{{item}}</view>
+      </view>
+      <image src='../../images/bg_problems.png'></image>
+    </view>
+  </view>
+  <view class='team__card'>
+    <view class='team__card__title'>隐心团建产品类型</view>
+    <view class='team__cate__content'>
+      <view class='team__cate__block {{index===4?"islast":""}}' wx:for="{{category}}">
+        <view class='team__cate__bottom'>{{item.name}}</view>
+        <view wx:if="{{index!==4}}" class='team__cate__top'>
+          <text>{{item.desc}}</text>
+        </view>
+        <view wx:if="{{index===4}}" class='team__cate__top'>
+          <text class='sp__1'>{{sp_1}}</text>
+          <text class='sp__2'>{{sp_2}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='team__card'>
+    <view class='team__card__title consult'>在线咨询</view>
+    <view class='inflution__cnt'>
+
+      <view class='form__single'>
+        <view class='form__single__left'>
+          公司
+        </view>
+        <view class='form__single__right'>
+          <input placeholder="请填写您的公司名称"></input>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          时间
+        </view>
+        <view class='form__single__right'>
+          <picker mode="date"  value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <view class="form__single__picker">
+              {{date||'请选择计划开展时间'}}
+              <view class="icon__arrow__down"></view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          地区
+        </view>
+        <view class='form__single__right'>
+          <picker bindchange="bindPickerChange" mode="region" value="{{region}}" custom-item="{{customItem}}">
+            <view class="form__single__picker">
+              {{region[0]}}，{{region[1]}}，{{region[2]}}
+              <view class="icon__arrow__down"></view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          规模
+        </view>
+        <view class='form__single__right'>
+          <input placeholder="请选择您的举办规模"></input>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          联系方式
+        </view>
+        <view class='form__single__right'>
+          <input placeholder="请填写您的联系方式"></input>
+        </view>
+      </view>
+
+      <view class='form__single'>
+        <view class='form__single__left'>
+          民宿(选填)
+        </view>
+        <view class='form__single__right'>
+          <picker bindchange="bindPickerChange" value="{{rindex}}" range="{{reco}}">
+            <view class="form__single__picker">
+              {{reco[rindex]||'请选择您心仪的民宿'}}
+              <view class="icon__arrow__down"></view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          备注(选填)
+        </view>
+        <view class='form__single__right'>
+          <input placeholder="请填写备注信息"></input>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='btn__consult'>立即提交咨询</view>
+</view>
