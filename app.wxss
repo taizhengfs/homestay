@@ -7,6 +7,13 @@
   display: inline;
   color: #BAA68B
 }
+image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 .disp__inline__red {
   display: inline;
   color: #C12121

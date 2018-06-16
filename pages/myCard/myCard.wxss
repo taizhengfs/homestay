@@ -1,0 +1,97 @@
+/* pages/myCard/myCard.wxss */
+page {
+  background: #F4F4F4;
+}
+.card__content {
+  width: 100%;
+  padding: 25rpx;
+  box-sizing: border-box
+}
+.card__block {
+  width: 100%;
+  height: 220rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow:0 4rpx 12rpx 0 rgba(0,0,0,0.12);
+  border-radius:8rpx;
+}
+.card__block__top {
+  display: flex;
+  background: #fff;
+  width: 100%;
+  min-height: 166rpx;
+}
+.card__block__top__left {
+  display: flex;
+  flex: 1;
+  border-right:2rpx solid rgba(230,230,230,1);
+  flex-direction: column;
+  font-family:PingFangSC-Regular;
+  padding: 25rpx;
+  box-sizing: border-box;
+}
+.card__block__top__lt {
+  font-size:28rpx;
+  color:rgba(102,102,102,1);
+  line-height:40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 12rpx;
+}
+.card__block__top__lb {
+  font-size:20rpx;
+  font-family:PingFangSC-Light;
+  color:rgba(155,155,155,1);
+  line-height:32rpx;
+}
+.card__block__bottom {
+  background: RGBA(155, 155, 155, 0.15);
+  font-size:24rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(155,155,155,1);
+  padding: 0 26rpx;
+  border-bottom-left-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
+}
+.card__block__top__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 152rpx;
+}
+.card__block__top__price {
+  color: RGBA(193, 33, 33, 1);
+  font-size: 32rpx;
+  line-height: 44rpx;
+}
+.card__block__top__btn {
+  font-size: 24rpx;
+  line-height: 36rpx;
+  width: 120rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(186,166,139,1);
+  background:rgba(245,242,238,1);
+  border-radius:6px;
+  margin-top: 8rpx;
+  text-align: center
+}
+.card__block__tag {
+  font-size:16rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(186,166,139,1);
+  line-height:24rpx;
+  height: 24rpx;
+  margin-left: 12rpx;
+  padding: 0 6rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:2rpx solid rgba(186,166,139,1); 
+  border-radius: 4rpx;
+}

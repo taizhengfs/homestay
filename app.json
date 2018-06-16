@@ -13,7 +13,9 @@
     "pages/lottery/lottery",
     "pages/rulesDetail/rulesDetail",
     "pages/discount/discount",
-    "pages/team/team"
+    "pages/team/team",
+    "pages/experiencer/experiencer",
+    "pages/myCard/myCard"
   ],
   "window": {
     "backgroundTextStyle": "dark",
