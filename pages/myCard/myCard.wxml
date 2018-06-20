@@ -5,14 +5,16 @@
       <view class='card__block__top'>
         <view class='card__block__top__left'>
           <view class='card__block__top__lt'>
-            和风民宿旅馆家庭套房一晚房券<view class="card__block__tag">房券</view>
+            和风民宿旅馆家庭套房一晚房券<view>房券</view>
           </view>
           <view class='card__block__top__lb'>
             属于隐心人的最佳好礼，感受生活，享受带来的一切。回 归最本质的居住体验……
           </view>
         </view>
         <view class='card__block__top__right'>
-          <view class='card__block__top__price'>¥398</view>
+          <view class='card__block__top__price'>
+            ¥398
+          </view>
           <view class='card__block__top__btn'>
             暂不可用
           </view>

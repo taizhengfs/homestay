@@ -18,6 +18,8 @@
 }
 .experiencer__top__left image{
   border-radius: 100rpx;
+  width: 100%;
+  height: 100%;
 }
 .experiencer__top__right {
   display: flex;

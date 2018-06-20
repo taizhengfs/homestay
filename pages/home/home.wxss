@@ -2,6 +2,7 @@
 .home__header {
   width: 750rpx;
   height: 400rpx;
+  position: relative;
 }
 .home__header image {
   width: 100%;
