@@ -1,28 +1,15 @@
 <!--pages/myCard/myCard.wxml-->
 <view class='container'>
   <view class='card__content'>
-    <view class='card__block'>
-      <view class='card__block__top'>
-        <view class='card__block__top__left'>
-          <view class='card__block__top__lt'>
-            和风民宿旅馆家庭套房一晚房券<view>房券</view>
-          </view>
-          <view class='card__block__top__lb'>
-            属于隐心人的最佳好礼，感受生活，享受带来的一切。回 归最本质的居住体验……
-          </view>
-        </view>
-        <view class='card__block__top__right'>
-          <view class='card__block__top__price'>
-            ¥398
-          </view>
-          <view class='card__block__top__btn'>
-            暂不可用
-          </view>
-        </view>
-      </view>
-      <view class='card__block__bottom'>
-        2018.5.24 12：00 - 2018.6.24 12：00
-      </view>
-    </view>
+    <ticket
+      wx:for = "{{ticketList}}"
+      wx:key = "{{index}}"
+      title = "{{item.title}}"
+      desc = "{{item.desc}}"
+      startTime = "{{item.startTime}}"
+      endTime = "{{item.endTime}}"
+      ticketCate = "{{item.ticketCate}}"
+      price = "{{item.price}}"
+    ></ticket>
   </view>
 </view>

@@ -1,0 +1,24 @@
+<!--component/ticket/ticket.wxml-->
+<view class='card__block'>
+  <view class='card__block__top'>
+    <view class='card__block__top__left'>
+      <view class='card__block__top__lt'>
+        {{title}}<view class='card__block__tag tag_type_{{ticketType}}'>房券</view>
+      </view>
+      <view class='card__block__top__lb'>
+        {{desc}}
+      </view>
+    </view>
+    <view class='card__block__top__right'>
+      <view class='card__block__top__price price_color_type_{{ticketType}}'>
+        ¥{{price}}
+      </view>
+      <view class='card__block__top__btn btn_type_{{ticketType}}'>
+        {{ticketCate}}
+      </view>
+    </view>
+  </view>
+  <view class='card__block__bottom text_type_{{ticketType}}'>
+    {{startTime}} - {{endTime}}
+  </view>
+</view>

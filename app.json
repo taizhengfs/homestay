@@ -15,7 +15,8 @@
     "pages/discount/discount",
     "pages/team/team",
     "pages/experiencer/experiencer",
-    "pages/myCard/myCard"
+    "pages/myCard/myCard",
+    "component/ticket/ticket"
   ],
   "window": {
     "backgroundTextStyle": "dark",
