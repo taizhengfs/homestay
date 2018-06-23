@@ -128,6 +128,21 @@ Page({
       isShowSortCard:!this.data.isShowSortCard
     })
   },
+  getKeyword(e) {
+    if(e.detail.isClear) {
+      this.setData({
+        'filters.keyword':e.detail.inputVal
+      })
+      this.getSujiDetail(false)
+    } else {
+      if(e.detail.inputVal!=='') {
+        this.setData({
+          'filters.keyword':e.detail.inputVal
+        })
+        this.getSujiDetail(false)
+      }
+    }
+  },
   tapToSort(e){
     let _this = this
     let tar = e.currentTarget.dataset.type
@@ -153,9 +168,10 @@ Page({
         })
         break;
     }
+    let isSameTar = tar===_this.data.currentPane
     _this.setData({
+      isShowSortCard: isSameTar?!this.data.isShowSortCard:true,
       currentPane: tar,
-      isShowSortCard: !this.data.isShowSortCard,
       sortObj:_this.data.sortObj.map((v)=>{
         if(v.type === tar) {
           v.isPositive = !v.isPositive
@@ -267,22 +283,11 @@ Page({
     let id = e.currentTarget.dataset.id
     _this.setData({
       sortDetail:_this.data.sortDetail.map(v => {
-        if(_this.data.currentPane == 'tags') {
-          if (v.id === id) {
-            v.isSelected = !v.isSelected
-          }
-        } else {
-          if (v.id === id) {
-            v.isSelected = !v.isSelected
-          } else {
-            v.isSelected = false
-          }
-        }
-        // v.isSelected = v.id === id
-        //   ? !v.isSelected
-        //   : _this.data.currentPane == 'tags'
-        //     ? v.isSelected
-        //     : false
+        v.isSelected = v.id === id
+          ? !v.isSelected
+          : _this.data.currentPane == 'tags'
+            ? v.isSelected
+            : false
         return v
       })
     })

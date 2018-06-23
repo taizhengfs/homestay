@@ -11,10 +11,12 @@ Component({
     inputVal: ''
   },
   methods: {
-    onTap: function(){
-      this.triggerEvent('customevent', {}) // 只会触发 pageEventListener2
-      this.triggerEvent('customevent', {}, { bubbles: true }) // 会依次触发 pageEventListener2 、 pageEventListener1
-      this.triggerEvent('customevent', {}, { bubbles: true, composed: true }) // 会依次触发 pageEventListener2 、 anotherEventListener 、 pageEventListener1
+    searchSubmit: function(){
+      var myEventDetail = {
+        inputVal: this.data.inputVal
+      } // detail对象，提供给事件监听函数
+      var myEventOption = {} // 触发事件的选项
+      this.triggerEvent('getKeyword', myEventDetail, myEventOption)
     },
     // 跳转搜索
     jumpToSearch() {
@@ -26,6 +28,12 @@ Component({
         inputVal: '',
         isShowDel: false
       });
+      var myEventDetail = {
+        inputVal: _this.data.inputVal,
+        isClear: true
+      } 
+      var myEventOption = {} 
+      _this.triggerEvent('getKeyword', myEventDetail, myEventOption)
     },
     inputTyping(e) {
       var _this = this;
