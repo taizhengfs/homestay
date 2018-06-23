@@ -31,7 +31,7 @@
     </view>
     <view class='detail__bottom__r'>
       <view class='icon__call'>
-        <image src='../../images/icon_call.png'></image>
+        <image src='//file.yinxinlife.com/images/icon_call.png'></image>
       </view>
       电话预定
     </view>

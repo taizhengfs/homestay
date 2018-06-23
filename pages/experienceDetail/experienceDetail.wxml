@@ -16,7 +16,7 @@
     </view>
     <view class='exp__detail__cnt'>
       <view class='exp__detail__cnt__l'>
-        <image src='../../images/img_item_1.png'></image>
+        <image src='//file.yinxinlife.com/images/img_item_1.png'></image>
       </view>
       <view class='exp__detail__cnt__r'>
         <view class='exp__detail__cnt__r__t'>
@@ -26,7 +26,7 @@
         </view>
         <view class='exp__detail__cnt__r__m'>
           <view class="icon__cnt">
-            <image src="../../images/icon_location.png"></image>
+            <image src="//file.yinxinlife.com/images/icon_location.png"></image>
           </view>
           杨公堤27号-距我17公里
         </view>
@@ -42,7 +42,7 @@
   <view class='exp__detail__block'>
     <view class='exp__detail__title'>体验详情</view>
     <view class='exp__detail__image'>
-      <image src='../../images/bg_detail.png'></image>
+      <image src='//file.yinxinlife.com/images/bg_detail.png'></image>
     </view>
   </view>
   <view class='exp__detail__block last'>

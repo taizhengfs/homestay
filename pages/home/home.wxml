@@ -2,12 +2,9 @@
 <view class="container">
   <view class="home__header">
     <swiperItem class="w__100"
-      isShowPage="{{false}}" 
-      isShowTitle="{{false}}" 
-      isShowShare="{{false}}"
       swiperimage="{{swiper}}"
     ></swiperItem>
-    <!-- <image src='../../images/home_bg_header.png'></image> -->
+    <!-- <image src='//file.yinxinlife.com/images/home_bg_header.png'></image> -->
   </view>
   <search class="comp__search"></search>
   <view class="home__tabs">
@@ -19,7 +16,7 @@
     </view>
   </view>
   <view class="home__activity__group">
-    <activityBlock wx:for="{{activityList}}" wx:key="{{index}}"
+    <activityBlock wx:for="{{today}}" wx:key="{{index}}"
       type="{{item.type}}"
       startTime="{{item.startTime}}"
       endTime="{{item.endTime}}"

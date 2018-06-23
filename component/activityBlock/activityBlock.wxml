@@ -5,7 +5,7 @@
         <view class="home__type__tips">
           <view class="home__type__tips__top">
             <image class="home__type__tips__top__icon" 
-              src='../../images/home_icon_{{type===0?"gift":type===1?"cheap_type_2":"cheap_type_1"}}.png'></image>
+              src='//file.yinxinlife.com/images/home_icon_{{type===0?"gift":type===1?"cheap_type_2":"cheap_type_1"}}.png'></image>
             <text class="home__type__tips__top__text">{{type!==0?'拼团砍价':'0元住'}}</text>
           </view>
           <view class="home__type__tips__bottom" wx:if="{{type!==0}}">

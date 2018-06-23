@@ -62,7 +62,7 @@
     </view>
     <view class='detail__arrow'>
       <view class='disp__inline'>查看全部</view>
-      <image src='../../images/icon_more.png'></image>
+      <image src='//file.yinxinlife.com/images/icon_more.png'></image>
     </view>
   </view>
   <view class='lottery__detail__block last'>
@@ -71,7 +71,7 @@
     <view class='lottery__record__content' bindtap='jumpToPrizeDetail'>
       <view class='lottery__record__img'>
         <view class='lottery__tag__red'>价值<view class='lottery_price'>¥158</view></view>
-        <image src='../../images/bg_lottory_item.png'></image>
+        <image src='//file.yinxinlife.com/images/bg_lottory_item.png'></image>
       </view>
       <view class='lottery__desc'>
         <view class='lottery__desc__top'>和风民宿旅馆家庭套房试睡体验一晚</view>

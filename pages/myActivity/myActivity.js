@@ -13,7 +13,7 @@ Page({
         price: 832,
         realPrice: 0.01,
         participateNum: 0,
-        cover: '../../images/home_bg_item_1.png',
+        cover: '//file.yinxinlife.com/images/home_bg_item_1.png',
         activityDesc: '夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
       },
       {
@@ -23,7 +23,7 @@ Page({
         price: 200,
         realPrice: 0.01,
         participateNum: 100,
-        cover: '../../images/home_bg_item_2.png',
+        cover: '//file.yinxinlife.com/images/home_bg_item_2.png',
         activityDesc: '这个民宿可以说是业界良心了'
       },
       {
@@ -33,7 +33,7 @@ Page({
         price: 832,
         realPrice: 0.01,
         participateNum: 5671,
-        cover: '../../images/home_bg_item_3.png',
+        cover: '//file.yinxinlife.com/images/home_bg_item_3.png',
         activityDesc: '夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
       },
     ]

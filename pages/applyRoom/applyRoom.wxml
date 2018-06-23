@@ -1,7 +1,7 @@
 <!--pages/applyRoom/applyRoom.wxml-->
 <view class='container'>
   <view class='top__header'>
-    <image src='../../images/bg_header.png'></image>
+    <image src='//file.yinxinlife.com/images/bg_header.png'></image>
   </view>
   <view class='edit__area'>
     <view class='icon__deit'></view>

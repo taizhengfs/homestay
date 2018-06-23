@@ -7,17 +7,17 @@ Page({
     swiperimage: [
       {
         type: '1',
-        thumb: '../../images/bg_scroll_1.png',
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
         title:'禾凤鸣书，西湖边四合院'
       },
       {
         type: '2',
-        thumb: '../../images/bg_scroll_1.png',
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
         title: '禾凤鸣书，冬湖边四合院'
       },
       {
         type: '3',
-        thumb: '../../images/bg_scroll_1.png',
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
         title: '禾凤鸣书，南湖边四合院'
       }
     ],
@@ -28,19 +28,19 @@ Page({
       {
         type:'拼团',
         title:'和风民宿旅馆家庭套房一晚',
-        url:'../../images/icon_tuan.png',
+        url:'//file.yinxinlife.com/images/icon_tuan.png',
         number:3875,
       },
       {
         type:'砍价',
         title:'和风民宿旅馆情侣房一晚',
-        url:'../../images/icon_cut.png',
+        url:'//file.yinxinlife.com/images/icon_cut.png',
         number:1888,
       },
       {
         type:'体验',
         title:'和风民宿旅馆家庭套房一晚',
-        url:'../../images/icon_tiyan.png',
+        url:'//file.yinxinlife.com/images/icon_tiyan.png',
         number:2100,
       }
     ],
@@ -75,10 +75,10 @@ Page({
       { tag:'信用卡结算',special:false },
     ],
     dishList:[
-      { cover: '../../images/img_disher_1.png', title:'宋嫂鱼羹'},
-      { cover: '../../images/img_disher_2.png', title:'西湖藕韵'},
-      { cover: '../../images/img_disher_3.png', title:'青菜油豆腐'},
-      { cover: '../../images/img_disher_4.png', title:'珍珠娃娃菜'},
+      { cover: '//file.yinxinlife.com/images/img_disher_1.png', title:'宋嫂鱼羹'},
+      { cover: '//file.yinxinlife.com/images/img_disher_2.png', title:'西湖藕韵'},
+      { cover: '//file.yinxinlife.com/images/img_disher_3.png', title:'青菜油豆腐'},
+      { cover: '//file.yinxinlife.com/images/img_disher_4.png', title:'珍珠娃娃菜'},
     ]
   },
 
@@ -91,7 +91,7 @@ Page({
 
   jumpToRoomDetail() {
     var _this = this
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../roomDetail/roomDetail'
     })
   },

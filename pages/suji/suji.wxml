@@ -11,7 +11,7 @@
       <view class="suji__sort__right">
         <view class="suji__sort__block filter" bindtap="showSelect">
           筛选<view class="icon_filter">
-            <image src="../../images/icon_sort.png"></image>
+            <image src="//file.yinxinlife.com/images/icon_sort.png"></image>
           </view>
         </view>
       </view>

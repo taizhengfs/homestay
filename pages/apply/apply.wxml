@@ -1,7 +1,7 @@
 <!--pages/apply/apply.wxml-->
 <view class='container {{isShowCard?"blur__mask":""}}'>
   <view class='top__header'>
-    <image src='../../images/bg_header.png'></image>
+    <image src='//file.yinxinlife.com/images/bg_header.png'></image>
   </view>
   <view class='form__cnt'>
     <view class='form__single'>
@@ -95,7 +95,7 @@
 </view>
 <view class='pane__success' wx:if="{{isShowCard}}">
   <view class='pane__icon__success'>
-    <image src='../../images/icon_success.svg'></image>
+    <image src='//file.yinxinlife.com/images/icon_success.svg'></image>
   </view>
   <view class='pane__title'>申请提交成功</view>
   <text class='pane__desc'>申请结果将在7日内,\n以推送通知的方式告知您。</text>

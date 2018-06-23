@@ -8,20 +8,20 @@ Page({
     swiperimage: [
       {
         type: '1',
-        thumb: '../../images/bg_scroll_1.png'
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
       },
       {
         type: '2',
-        thumb: '../../images/bg_scroll_1.png'
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
       },
       {
         type: '3',
-        thumb: '../../images/bg_scroll_1.png'
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
       }
     ],
     newSign:[
       {
-        profile:'../../images/bg_profile_1.png',
+        profile:'//file.yinxinlife.com/images/bg_profile_1.png',
         name:'有点痴心',
         isLike:false,
         likeMum:280,
@@ -29,7 +29,7 @@ Page({
         desc:'从事美妆行业18年，对于这种民宿最有感情了'
       },
       {
-        profile:'../../images/bg_profile_2.png',
+        profile:'//file.yinxinlife.com/images/bg_profile_2.png',
         name:'窗口快递',
         isLike:false,
         likeMum:480,
@@ -37,7 +37,7 @@ Page({
         desc:'喜欢这种设计感十足的民宿'
       },
       {
-        profile:'../../images/bg_profile_3.png',
+        profile:'//file.yinxinlife.com/images/bg_profile_3.png',
         name:'Silly',
         isLike:false,
         likeMum:220,

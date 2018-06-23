@@ -3,7 +3,7 @@
   <view class='user-info__content'>
     <view class='user-info__block'>
       <view class='user-info__block__left'>头像</view>
-      <view class='user-info__block__right'><image src='../../images/bg_profile.png'></image></view>
+      <view class='user-info__block__right'><image src='//file.yinxinlife.com/images/bg_profile.png'></image></view>
     </view>
     <view class='user-info__block'>
       <view class='user-info__block__left'>昵称</view>

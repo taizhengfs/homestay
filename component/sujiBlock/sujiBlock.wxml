@@ -19,13 +19,13 @@
     <view class="suji__location">
       <view class="suji__location__block">
         <view class="icon__cnt">
-          <image src="../../images/icon_location.png"></image>
+          <image src="//file.yinxinlife.com/images/icon_location.png"></image>
         </view>
         {{locationName}}
       </view>
       <view class="suji__location__block">
         <view class="icon__cnt">
-          <image src="../../images/icon_board.png"></image>
+          <image src="//file.yinxinlife.com/images/icon_board.png"></image>
         </view>
         距我{{distance}}千米
       </view>

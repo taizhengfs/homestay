@@ -8,46 +8,46 @@ Page({
     swiperimage: [
       {
         type: '1',
-        thumb: '../../images/bg_header_gift.png'
+        thumb: '//file.yinxinlife.com/images/bg_header_gift.png'
       },
       {
         type: '2',
-        thumb: '../../images/bg_scroll_1.png'
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
       },
       {
         type: '3',
-        thumb: '../../images/bg_scroll_1.png'
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
       }
     ],
     activity:[
       {
-        icon:'../../images/icon_lottory_1.png',
+        icon:'//file.yinxinlife.com/images/icon_lottory_1.png',
         title:'一人发团',
       },
       {
-        icon:'../../images/icon_lottory_2.png',
+        icon:'//file.yinxinlife.com/images/icon_lottory_2.png',
         title:'邀友助力',
       },
       {
-        icon:'../../images/icon_lottory_3.png',
+        icon:'//file.yinxinlife.com/images/icon_lottory_3.png',
         title:'团满可抽奖',
       },
       {
-        icon:'../../images/icon_lottory_4.png',
+        icon:'//file.yinxinlife.com/images/icon_lottory_4.png',
         title:'大奖揭晓',
       },
     ],
     friends:[
-      { profile:'../../images/bg_profile.png', name:'咪呀' },
-      { profile:'../../images/bg_profile_1.png', name:'咪ya呀' },
-      { profile:'../../images/bg_profile_2.png', name:'小王' },
-      { profile:'../../images/bg_profile_3.png', name:'妞妞' },
-      { profile:'../../images/bg_profile.png', name:'小灰' },
-      { profile:'../../images/bg_profile_3.png', name:'咪呀' },
-      { profile:'../../images/bg_profile_2.png', name:'牛牛' },
-      { profile:'../../images/bg_profile_1.png', name:'豆豆' },
-      { profile:'../../images/bg_profile.png', name:'皮皮虾' },
-      { profile:'../../images/bg_profile_2.png', name:'咪呀' },
+      { profile:'//file.yinxinlife.com/images/bg_profile.png', name:'咪呀' },
+      { profile:'//file.yinxinlife.com/images/bg_profile_1.png', name:'咪ya呀' },
+      { profile:'//file.yinxinlife.com/images/bg_profile_2.png', name:'小王' },
+      { profile:'//file.yinxinlife.com/images/bg_profile_3.png', name:'妞妞' },
+      { profile:'//file.yinxinlife.com/images/bg_profile.png', name:'小灰' },
+      { profile:'//file.yinxinlife.com/images/bg_profile_3.png', name:'咪呀' },
+      { profile:'//file.yinxinlife.com/images/bg_profile_2.png', name:'牛牛' },
+      { profile:'//file.yinxinlife.com/images/bg_profile_1.png', name:'豆豆' },
+      { profile:'//file.yinxinlife.com/images/bg_profile.png', name:'皮皮虾' },
+      { profile:'//file.yinxinlife.com/images/bg_profile_2.png', name:'咪呀' },
     ]
   },
 

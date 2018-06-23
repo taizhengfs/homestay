@@ -7,6 +7,6 @@
     <slot></slot>
   </view>
   <view class='detail__arrow' wx:if="{{isShowArrow}}">
-    <image src='../../images/icon_more.png'></image>
+    <image src='//file.yinxinlife.com/images/icon_more.png'></image>
   </view>
 </view>

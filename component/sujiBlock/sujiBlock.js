@@ -38,7 +38,7 @@ Component({
     },
     jumpToDetail() {
       var _this = this
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../homestaydetail/homestaydetail'
       })
     },

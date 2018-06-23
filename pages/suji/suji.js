@@ -25,7 +25,7 @@ Page({
     sujiList:[
       {
         price: '588',
-        cover: '../../images/bg_suji_item.png',
+        cover: '//file.yinxinlife.com/images/bg_suji_item.png',
         title: '和风民宿，西湖边的四合院',
         tags: [
           '四星酒店', '招募体验', '拼团', '促销', '断桥','宝石山','西湖','优惠疯抢'
@@ -35,7 +35,7 @@ Page({
       },
       {
         price: '588',
-        cover: '../../images/bg_suji_item.png',
+        cover: '//file.yinxinlife.com/images/bg_suji_item.png',
         title: '和风民宿，西湖边的四合院',
         tags: [
           '四星酒店', '招募体验', '拼团', '促销', '断桥','宝石山','西湖','优惠疯抢'
@@ -45,7 +45,7 @@ Page({
       },
       {
         price: '588',
-        cover: '../../images/bg_suji_item.png',
+        cover: '//file.yinxinlife.com/images/bg_suji_item.png',
         title: '和风民宿，西湖边的四合院',
         tags: [
           '四星酒店', '招募体验', '拼团', '促销', '断桥','宝石山','西湖','优惠疯抢'
@@ -55,7 +55,7 @@ Page({
       },
       {
         price: '588',
-        cover: '../../images/bg_suji_item.png',
+        cover: '//file.yinxinlife.com/images/bg_suji_item.png',
         title: '和风民宿，西湖边的四合院',
         tags: [
           '四星酒店', '招募体验', '拼团', '促销', '断桥','宝石山','西湖','优惠疯抢'
@@ -65,7 +65,7 @@ Page({
       },
       {
         price: '588',
-        cover: '../../images/bg_suji_item.png',
+        cover: '//file.yinxinlife.com/images/bg_suji_item.png',
         title: '和风民宿，西湖边的四合院',
         tags: [
           '四星酒店', '招募体验', '拼团', '促销', '断桥','宝石山','西湖','优惠疯抢'

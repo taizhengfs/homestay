@@ -8,17 +8,17 @@ Page({
     swiperimage: [
       {
         type: '1',
-        thumb: '../../images/bg_scroll_1.png',
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
         title: '禾凤鸣书，西湖边四合院'
       },
       {
         type: '2',
-        thumb: '../../images/bg_scroll_1.png',
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
         title: '禾凤鸣书，冬湖边四合院'
       },
       {
         type: '3',
-        thumb: '../../images/bg_scroll_1.png',
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
         title: '禾凤鸣书，南湖边四合院'
       }
     ],

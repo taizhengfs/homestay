@@ -12,17 +12,17 @@ Page({
     swiper: [
       {
         type: '1',
-        thumb: '../../images/bg_scroll_1.png',
+        thumb: '//file.yinxinlife.com/images/home_bg_header.png',
         title:'禾凤鸣书，西湖边四合院'
       },
       {
         type: '2',
-        thumb: '../../images/bg_scroll_1.png',
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
         title: '禾凤鸣书，冬湖边四合院'
       },
       {
         type: '3',
-        thumb: '../../images/bg_scroll_1.png',
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
         title: '禾凤鸣书，南湖边四合院'
       }
     ],
@@ -34,7 +34,7 @@ Page({
         price: 832,
         realPrice: 0.01,
         participateNum: 0,
-        cover:'../../images/home_bg_item_1.png',
+        cover:'//file.yinxinlife.com/images/home_bg_item_1.png',
         activityDesc:'夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
       },
       {
@@ -44,7 +44,7 @@ Page({
         price: 200,
         realPrice: 0.01,
         participateNum: 100,
-        cover:'../../images/home_bg_item_2.png',
+        cover:'//file.yinxinlife.com/images/home_bg_item_2.png',
         activityDesc:'这个民宿可以说是业界良心了'
       },
       {
@@ -54,20 +54,20 @@ Page({
         price: 832,
         realPrice: 0.01,
         participateNum: 5671,
-        cover:'../../images/home_bg_item_3.png',
+        cover:'//file.yinxinlife.com/images/home_bg_item_3.png',
         activityDesc:'夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
       },
     ]
   },
-  getHomeDetail() {
-    var _this = this
-    util._get(Api.getHomeHome(), {}, res => {
-      const {swiper, today, tommorrow} = res.data
-      _this.setData({
-        today: today,
-        tommorrow: tommorrow,
-        swiper: swiper
-      })
+  // getHomeDetail() {
+  //   var _this = this
+  //   util._get(Api.getHomeHome(), {}, res => {
+  //     const {swiper, today, tommorrow} = res.data
+  //     _this.setData({
+  //       today: today,
+  //       tommorrow: tommorrow,
+  //       swiper: swiper
+  //     })
       // _this.setData({
       //   scrollList: res.data.data.list
       // })
@@ -82,9 +82,9 @@ Page({
       //     _this.startScroll()
       //   }, Api.scrollTime())
       // }
-    }, error => {
-    })
-  },
+  //   }, error => {
+  //   })
+  // },
   // 跳转搜索
   jumpToSearch() {
     console.log('let\'s go search')

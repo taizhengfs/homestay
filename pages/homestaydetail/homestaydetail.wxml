@@ -16,7 +16,7 @@
   <view class='detail__location'>
     <view class="detail__cell">
       <view class="detail__cell__icon">
-        <image src="../../images/icon_location.png"></image>
+        <image src="//file.yinxinlife.com/images/icon_location.png"></image>
         <view class='detail__cell__display'>
           <view class='detail__cell__display__top'>
           西湖区杨公堤27号
@@ -33,7 +33,7 @@
     </view>
     <view class="detail__cell phone">
       <view class="detail__cell__icon">
-        <image src="../../images/icon_phone.png"></image>
+        <image src="//file.yinxinlife.com/images/icon_phone.png"></image>
         <view class='detail__phone'>0577-88775566</view>
       </view>
       <view class="detail__cell__right">

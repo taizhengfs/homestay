@@ -2,7 +2,7 @@
 <view class='user__edit'>
   <view class='user__edit__profile'>
     <view class='user__profile'>
-      <image src='../../images/bg_profile.png'></image>
+      <image src='//file.yinxinlife.com/images/bg_profile.png'></image>
     </view>
      <view class='user__profile__tip'>点击更换头像</view>
   </view>

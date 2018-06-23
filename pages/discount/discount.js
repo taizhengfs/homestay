@@ -8,26 +8,26 @@ Page({
     swiperimage: [
       {
         type: '1',
-        thumb: '../../images/bg_header_gift.png'
+        thumb: '//file.yinxinlife.com/images/bg_header_gift.png'
       },
       {
         type: '2',
-        thumb: '../../images/bg_scroll_1.png'
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
       },
       {
         type: '3',
-        thumb: '../../images/bg_scroll_1.png'
+        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
       }
     ],
     friends: [
-      { profile: '../../images/bg_profile.png', name: '咪呀', number:'3.5' },
-      { profile: '../../images/bg_profile_1.png', name: '咪ya呀', number: '13.1' },
-      { profile: '../../images/bg_profile_2.png', name: '小王', number: '3.85' },
-      { profile: '../../images/bg_profile_3.png', name: '妞妞', number: '1.75' },
-      { profile: '../../images/bg_profile_2.png', name: '牛牛', number: '0.5' },
-      { profile: '../../images/bg_profile_1.png', name: '豆豆', number: '1.5' },
-      { profile: '../../images/bg_profile.png', name: '皮皮虾', number: '3.5' },
-      { profile: '../../images/bg_profile_2.png', name: '咪呀', number: '2.5' },
+      { profile: '//file.yinxinlife.com/images/bg_profile.png', name: '咪呀', number:'3.5' },
+      { profile: '//file.yinxinlife.com/images/bg_profile_1.png', name: '咪ya呀', number: '13.1' },
+      { profile: '//file.yinxinlife.com/images/bg_profile_2.png', name: '小王', number: '3.85' },
+      { profile: '//file.yinxinlife.com/images/bg_profile_3.png', name: '妞妞', number: '1.75' },
+      { profile: '//file.yinxinlife.com/images/bg_profile_2.png', name: '牛牛', number: '0.5' },
+      { profile: '//file.yinxinlife.com/images/bg_profile_1.png', name: '豆豆', number: '1.5' },
+      { profile: '//file.yinxinlife.com/images/bg_profile.png', name: '皮皮虾', number: '3.5' },
+      { profile: '//file.yinxinlife.com/images/bg_profile_2.png', name: '咪呀', number: '2.5' },
     ]
   },
 
