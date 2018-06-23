@@ -109,7 +109,7 @@ Page({
     isShowSortCard:false,
     filters: {
       page: 1,
-      pageSize: 10,
+      pageSize: 2,
       keyword: '',
       distance: '',
       price: '',
@@ -121,7 +121,8 @@ Page({
     price: [],
     tags: [],
     type: [],
-    currentPane: ''
+    currentPane: '',
+    isLoadAll:false
   },
   showSelect(){
     this.setData({
@@ -202,22 +203,40 @@ Page({
   },
   getSujiDetail(isFirst=true) {
     var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
     util._get(Api.getSearchHomestay(), this.data.filters, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
       const {distance, list, price, tags, type} = res.data.data
+      if (list.length < _this.data.filters.pageSize) {
+        _this.setData({
+          isLoadAll: true
+        });
+      }
       if (isFirst) {
         _this.setData({
-          distance: this.formate(distance),
+          distance: _this.formate(distance),
           list: list,
-          price: this.formate(price),
-          tags: this.formateArray(tags),
-          type: this.formate(type)
+          price: _this.formate(price),
+          tags: _this.formateArray(tags),
+          type: _this.formate(type)
         })
       } else {
-        _this.setData({
-          list: list
-        })
+        if(_this.data.filters.page>1) {
+          _this.setData({
+            list: _this.data.list.concat(list)
+          })
+        } else {
+          _this.setData({
+            list: list
+          })
+        }
       }
     }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
       console.log()
     })
   },
@@ -290,6 +309,10 @@ Page({
             : false
         return v
       })
+    })
+    _this.setData({
+      'filters.page': 1,
+      isLoadAll:false
     })
     switch(_this.data.currentPane) {
       case 'distance':
@@ -373,7 +396,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    var _this = this;
+    if (_this.data.isLoadAll == false) {
+      _this.setData({
+        'filters.page': _this.data.filters.page + 1
+      })
+      _this.getSujiDetail(false);
+    }
   },
 
   /**
