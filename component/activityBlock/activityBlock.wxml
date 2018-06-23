@@ -6,24 +6,24 @@
           <view class="home__type__tips__top">
             <image class="home__type__tips__top__icon" 
               src='//file.yinxinlife.com/images/home_icon_{{type===0?"gift":type===1?"cheap_type_2":"cheap_type_1"}}.png'></image>
-            <text class="home__type__tips__top__text">{{type!==0?'拼团砍价':'0元住'}}</text>
+            <text class="home__type__tips__top__text">{{type_name}}</text>
           </view>
           <view class="home__type__tips__bottom" wx:if="{{type!==0}}">
             已有{{participateNum}}人参与
           </view>
         </view>
         <view class="home__type__duration" wx:if="{{type===0}}">
-          今日{{startTime}}开抢
+          还有{{duration}}开抢
         </view>
         <view class="home__type__duration" wx:elif="{{type===1}}">
-          距离活动结束仅剩{{endTime}}
+          距离活动结束仅剩{{duration}}
         </view>
         <view class="home__type__duration {{type===2?'is__grey':''}}" wx:else>
           已抢完
         </view>
       </view>
       <view class="home__activity__main__bottom">
-        <view class="text__type_red">¥ {{realPrice}}</view>
+        <view class="text__type_red">¥ 0</view>
         <view class="text__type_grey">
           原价：¥ {{price}}
         </view>

@@ -1,4 +1,6 @@
 // component/swiper/swiper.js
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
 Component({
   /**
    * 组件的属性列表
@@ -45,6 +47,21 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    jumpToDetail(e) {
+      const dataset = e.currentTarget.dataset
+      const {link, wxa_link, id} = dataset
 
+      if (wxa_link!=='') {
+        if (util.isTabBar(wxa_link)) {
+          wx.switchTab({
+              url: wxa_link
+          })
+        } else {
+          wx.navigateTo({
+              url: wxa_link
+          })
+        }
+      }
+    }
   }
 })

@@ -15,16 +15,30 @@
       明日预告
     </view>
   </view>
-  <view class="home__activity__group">
+  <view class="home__activity__group" wx:if="{{currentTab==0}}">
     <activityBlock wx:for="{{today}}" wx:key="{{index}}"
-      type="{{item.type}}"
-      startTime="{{item.startTime}}"
-      endTime="{{item.endTime}}"
+      type="{{item.time_status}}"
+      startTime="{{item.starttime}}"
+      endTime="{{item.endtime}}"
       price="{{item.price}}"
-      realPrice="{{item.realPrice}}"
-      participateNum="{{item.participateNum}}"
-      activityDesc="{{item.activityDesc}}"
-      cover="{{item.cover}}"
+      realPrice="{{item.price}}"
+      participateNum="{{item.part_no}}"
+      activityDesc="{{item.description}}"
+      cover="{{item.image}}"
+      type_name="{{item.type_name}}"
+      ></activityBlock>
+  </view>
+  <view class="home__activity__group" wx:if="{{currentTab==1}}">
+    <activityBlock wx:for="{{tomorrow}}" wx:key="{{index}}"
+      type="{{item.time_status}}"
+      startTime="{{item.starttime}}"
+      endTime="{{item.endtime}}"
+      price="{{item.price}}"
+      realPrice="{{item.price}}"
+      participateNum="{{item.part_no}}"
+      activityDesc="{{item.description}}"
+      cover="{{item.image}}"
+      type_name="{{item.type_name}}"
       ></activityBlock>
   </view>
 </view>

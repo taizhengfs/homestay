@@ -57,34 +57,21 @@ Page({
         cover:'//file.yinxinlife.com/images/home_bg_item_3.png',
         activityDesc:'夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
       },
-    ]
+    ],
+    tomorrow: []
   },
-  // getHomeDetail() {
-  //   var _this = this
-  //   util._get(Api.getHomeHome(), {}, res => {
-  //     const {swiper, today, tommorrow} = res.data
-  //     _this.setData({
-  //       today: today,
-  //       tommorrow: tommorrow,
-  //       swiper: swiper
-  //     })
-      // _this.setData({
-      //   scrollList: res.data.data.list
-      // })
-      // if (res.data.data.list.length > 0) {
-      //   let timer = setInterval(() => {
-      //     if (_this.data.scrollLength >= _this.data.scrollList.length-1) {
-      //       clearInterval(timer)
-      //     }
-      //     _this.setData({
-      //       showScroll: true
-      //     })
-      //     _this.startScroll()
-      //   }, Api.scrollTime())
-      // }
-  //   }, error => {
-  //   })
-  // },
+  getHomeDetail() {
+    var _this = this
+    util._get(Api.getHomeHome(), {}, res => {
+      const {swiper, today, tomorrow} = res.data.data
+      _this.setData({
+        today: today,
+        tomorrow: tomorrow,
+        swiper: swiper
+      })
+    }, error => {
+    })
+  },
   // 跳转搜索
   jumpToSearch() {
     console.log('let\'s go search')
@@ -99,7 +86,9 @@ Page({
   },
 
   changeTab(e) {
-    this.setData({
+    let _this = this
+    let cur = e.currentTarget.dataset.index
+    _this.setData({
       currentTab: e.currentTarget.dataset.index
     })
   },
@@ -107,15 +96,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getHomeDetail()  
+    this.getHomeDetail()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示

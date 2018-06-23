@@ -191,10 +191,12 @@ function isTabBar (url) {
   var tabBarArr = [
     'pages/home/home',
     '/pages/home/home',
-    'pages/activity/activity',
-    '/pages/activity/activity',
-    'pages/vip/vip',
-    '/pages/vip/vip'
+    'pages/suji/suji',
+    '/pages/suji/suji',
+    'pages/experience/experience',
+    '/pages/experience/experience',
+    '/pages/user/user',
+    'pages/user/user'
   ];
   if (tabBarArr.indexOf(url) != -1) {
     return true;
