@@ -1,4 +1,6 @@
 // pages/suji/suji.js
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
 Page({
 
   /**
@@ -8,7 +10,7 @@ Page({
     sortObj: [
       {
         title: '距离',
-        type:'distant',
+        type:'distance',
         isPositive: false
       },
       {
@@ -18,7 +20,7 @@ Page({
       },
       {
         title: '类型',
-        type:'category',
+        type:'type',
         isPositive: false
       },
     ],
@@ -104,7 +106,22 @@ Page({
         title: '优惠疯抢'
       }
     ],
-    isShowSortCard:false
+    isShowSortCard:false,
+    filters: {
+      page: 1,
+      pageSize: 10,
+      keyword: '',
+      distance: '',
+      price: '',
+      tag: '',
+      type: ''
+    },
+    distance: [],
+    list: [],
+    price: [],
+    tags: [],
+    type: [],
+    currentPane: ''
   },
   showSelect(){
     this.setData({
@@ -114,24 +131,188 @@ Page({
   tapToSort(e){
     let _this = this
     let tar = e.currentTarget.dataset.type
+    switch(tar) {
+      case 'distance':
+        _this.setData({
+          sortDetail:_this.data.distance
+        })
+        break;
+      case 'price':
+        _this.setData({
+          sortDetail:_this.data.price
+        })
+        break;
+      case 'tags':
+        _this.setData({
+          sortDetail:_this.data.tags
+        })
+        break;
+      case 'type':
+        _this.setData({
+          sortDetail:_this.data.type
+        })
+        break;
+    }
     _this.setData({
+      currentPane: tar,
+      isShowSortCard: !this.data.isShowSortCard,
       sortObj:_this.data.sortObj.map((v)=>{
-        v.isPositive = v.type === tar
+        if(v.type === tar) {
+          v.isPositive = !v.isPositive
+        } else {
+          v.isPositive = false
+        }
         return v
       })
     })
+  },
+  formateArray(val) {
+    let m = []
+    for (let i in val) {
+      m.push(
+        {
+          name: val[i],
+          isSelected: false,
+          id: parseInt(i)
+        })
+    }
+    return m
+  },
+  formate(val) {
+    return val.map(v=>{
+      v.isSelected = false
+      return v
+    })
+  },
+  getSujiDetail(isFirst=true) {
+    var _this = this
+    util._get(Api.getSearchHomestay(), this.data.filters, res => {
+      const {distance, list, price, tags, type} = res.data.data
+      if (isFirst) {
+        _this.setData({
+          distance: this.formate(distance),
+          list: list,
+          price: this.formate(price),
+          tags: this.formateArray(tags),
+          type: this.formate(type)
+        })
+      } else {
+        _this.setData({
+          list: list
+        })
+      }
+    }, error => {
+      console.log()
+    })
+  },
+  sortDistance() {
+    let _this = this;
+    let distance=_this.data.distance.find(element => {
+      return element.isSelected == true
+    })
+    if(typeof distance !== 'undefined') {
+      _this.setData({
+        'filters.distance':distance.id
+      })
+    } else {
+      _this.setData({
+        'filters.distance':''
+      })
+    }
+  },
+  sortPrice() {
+    let _this = this;
+    let price=_this.data.price.find(element => {
+      return element.isSelected == true
+    })
+    if(typeof price !== 'undefined') {
+      _this.setData({
+        'filters.price':price.id
+      })
+    } else {
+      _this.setData({
+        'filters.price':''
+      })
+    }
+  },
+  sortTags() {
+    let _this = this;
+    let arr =[]
+    _this.data.tags.find(element => {
+      if(element.isSelected == true) {
+        arr.push(element.name)
+      }
+    })
+    _this.setData({
+      'filters.tags':arr.join(',')
+    })
+  },
+  sortType() {
+    let _this = this;
+    let type=_this.data.type.find(element => {
+      return element.isSelected == true
+    })
+    if(typeof type !== 'undefined') {
+      _this.setData({
+        'filters.type':type.id
+      })
+    } else {
+      _this.setData({
+        'filters.type':''
+      })
+    }
   },
   tapToSelect(e) {
     let _this = this
     let id = e.currentTarget.dataset.id
     _this.setData({
       sortDetail:_this.data.sortDetail.map(v => {
-        v.isSelected = v.id === id
-          ? !v.isSelected
-          : v.isSelected
+        if(_this.data.currentPane == 'tags') {
+          if (v.id === id) {
+            v.isSelected = !v.isSelected
+          }
+        } else {
+          if (v.id === id) {
+            v.isSelected = !v.isSelected
+          } else {
+            v.isSelected = false
+          }
+        }
+        // v.isSelected = v.id === id
+        //   ? !v.isSelected
+        //   : _this.data.currentPane == 'tags'
+        //     ? v.isSelected
+        //     : false
         return v
       })
     })
+    switch(_this.data.currentPane) {
+      case 'distance':
+        _this.setData({
+          distance:_this.data.sortDetail
+        })
+        _this.sortDistance()
+        break;
+      case 'price':
+        _this.setData({
+          price:_this.data.sortDetail
+        })
+        _this.sortPrice()
+        break;
+      case 'tags':
+        _this.setData({
+          tags:_this.data.sortDetail
+        })
+        _this.sortTags()
+        break;
+      case 'type':
+        _this.setData({
+          type:_this.data.sortDetail
+        })
+        _this.sortType()
+        break;
+    }
+    this.getSujiDetail(false)
   },
 
   /**
@@ -139,6 +320,7 @@ Page({
    */
   onLoad: function (options) {
     let _this = this
+    this.getSujiDetail()
     _this.setData({
       sortDetail:_this.data.sortDetail.map(v => {
         v.isSelected = false

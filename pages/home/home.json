@@ -3,6 +3,7 @@
   "usingComponents": {
     "search": "../../component/search/search",
     "activityBlock": "../../component/activityBlock/activityBlock",
-    "swiperItem": "../../component/swiperItem/swiperItem"
+    "swiperItem": "../../component/swiperItem/swiperItem",
+    "authBox": "../../component/authBox/authBox"
   }
 }

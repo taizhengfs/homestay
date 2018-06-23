@@ -1,7 +1,9 @@
 const HOST_URI = 'https://api.yinxinlife.com';
 // const HOST_URI = 'https://api.test.yinxinlife.com';
 const VERSION = '0.3';
-
+const GET_UPDATA_USER_INFO = '/wxapp/update';//更新用户TOKEN
+const POST_USER_INFO = '/wxapp/setUserInfo'
+const GET_USER_INFO = '/wxapp/login'
 const POST_USER_TICKET_LIST = '/user/ticketList'
 const POST_USER_EDIT = '/user/edit'
 const GET_USER_HOME = '/user/home'
@@ -34,6 +36,12 @@ module.exports = {
       }
     })
     return type;
+  },
+  getUserInfo() {
+    return HOST_URI + GET_USER_INFO
+  },
+  postUserInfo() {
+    return HOST_URI + POST_USER_INFO
   },
   getVersionNum() {
     return '0.0.1'

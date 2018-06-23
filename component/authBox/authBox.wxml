@@ -1,0 +1,11 @@
+<!--component/authBox/authBox.wxml-->
+  <view class="auth__box" wx:if="{{isShowBox}}">
+    <view class="auth__box__top">
+      <view class="auth__box__title">微信授权</view>
+      <view class="auth__box__desc">需要获取到您的公开信息（昵称、头像等）是否确认授权</view>
+    </view>
+    <view class="auth__box__bottom">
+      <button type="default" bindtap="tapToCancel">取消</button>
+      <button type="default" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+    </view>
+  </view>

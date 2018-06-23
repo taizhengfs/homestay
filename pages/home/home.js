@@ -9,6 +9,7 @@ Page({
     isShowDel: false,
     inputVal: '',
     currentTab: 0,
+    isShowBox: false,
     swiper: [
       {
         type: '1',
@@ -60,6 +61,11 @@ Page({
     ],
     tomorrow: []
   },
+  closeBox() {
+    this.setData({
+      isShowBox: false
+    })
+  },
   getHomeDetail() {
     var _this = this
     util._get(Api.getHomeHome(), {}, res => {
@@ -97,6 +103,10 @@ Page({
    */
   onLoad: function (options) {
     this.getHomeDetail()
+    this.setData({
+      isLogin: wx.getStorageSync('isLogin'),
+      isShowBox: wx.getStorageSync('isLogin')==0
+    })
   },
 
   /**

@@ -229,7 +229,7 @@ const wxAuthorize = function (callback) {
         code: res.code
       }, function (res) {
         if (res.data.code == 200) {
-          var isLogin = res.data.data.is_login;
+          var isLogin = res.data.data.login;
           wx.setStorageSync('isLogin', isLogin);
           wx.setStorageSync('token', res.data.data.token);
           if (isLogin !==1) {
@@ -237,14 +237,16 @@ const wxAuthorize = function (callback) {
               lang: 'zh_CN',
               withCredentials: true,
               success: function (res) {
+                console.log('res: ', res);
                 // 请求用户信息接口
                 setMember(res)
               },
               fail: function (fail) {
+                console.log(fail)
                 requestStatus = 0
                 // 写入缓存
                 // 弹出“授权说明”弹窗
-                openWxAuth()
+                // openWxAuth()
               }
             })           
           }else {
@@ -257,9 +259,9 @@ const wxAuthorize = function (callback) {
 }
 // 设置用户信息
 const setMember = function (res, callback) {
-  _post(Api.postUserInfo, {
+  _post(Api.postUserInfo(), {
     rawData: res.rawData,
-    signatrue: res.signature,
+    signature: res.signature,
     encryptedData: res.encryptedData,
     iv: res.iv
   }, function (res) {
@@ -268,12 +270,12 @@ const setMember = function (res, callback) {
       requestStatus = 2
       // 写入缓存
       wx.setStorageSync('isLogin', 1);
-      wx.setStorageSync('info', z.data.data.info);
-      wx.setStorageSync('token', res.data)
+      wx.setStorageSync('info', res.userInfo);
     } else {
       requestStatus = 3
     }
   }, (err) => {
+    console.log(err)
     wx.hideLoading()
     requestStatus = 3
   })

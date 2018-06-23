@@ -11,6 +11,8 @@
 .suji__bottom {
   z-index: 28;
   margin-top: 180rpx;
+  width: 100%;
+  position: relative;
 }
 .suji__bottom__pomask {
   width: 100%;
@@ -117,14 +119,17 @@
 
 }
 .suji__sort__tag {
-  width: 152rpx;
+  min-width: 152rpx;
   text-align: center;
   color: #2C2C2C;
   box-sizing: border-box;
   height: 48rpx;
   line-height: 48rpx;
   font-size: 28rpx;
-  line-height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rpx 10rpx;
   background: #FAFAFA;
   font-weight: 300;
   border-radius: 6rpx;

@@ -9,7 +9,7 @@
         </view>
       </view>
       <view class="suji__sort__right">
-        <view class="suji__sort__block filter" bindtap="showSelect">
+        <view class="suji__sort__block filter" bindtap="tapToSort" data-type="tags">
           筛选<view class="icon_filter">
             <image src="//file.yinxinlife.com/images/icon_sort.png"></image>
           </view>
@@ -18,21 +18,21 @@
     </view>
     <view class="suji__sort__main" wx:if="{{isShowSortCard}}">
       <view class="suji__sort__content">
-        <view class="suji__sort__tag {{item.isSelected?'is__selected':''}}" bindtap="tapToSelect" data-id="{{item.id}}" wx:for="{{sortDetail}}" wx:key="{{index}}">{{item.title}}</view>
+        <view class="suji__sort__tag {{item.isSelected?'is__selected':''}}" bindtap="tapToSelect" data-id="{{item.id}}" wx:for="{{sortDetail}}" wx:key="{{index}}">{{item.name}}</view>
       </view>
     </view>
   </view>
   <view class="suji__bottom">
     <view class="suji__bottom__pomask" bindtap="showSelect" wx:if="{{isShowSortCard}}"></view>
     <view class="suji__list">
-      <sujiBlock 
-        wx:for="{{sujiList}}" 
+      <sujiBlock
+        wx:for="{{list}}" 
         wx:key="{{index}}"
         price="{{item.price}}"
-        cover="{{item.cover}}"
-        title="{{item.title}}"
+        cover="{{item.image}}"
+        title="{{item.name}}"
         tags="{{item.tags}}"
-        locationName="{{item.locationName}}"
+        locationName="{{item.address}}"
         distance="{{item.distance}}"
       ></sujiBlock>
     </view>

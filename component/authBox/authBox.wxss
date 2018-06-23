@@ -1,0 +1,57 @@
+/* component/authBox/authBox.wxss */
+
+.auth__box {
+  width: 600rpx;
+  height: 300rpx;
+  background: #fff;
+  z-index: 1000;
+  border-radius: 8rpx;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.auth__box__top {
+  width: 100%;
+  padding: 20rpx 40rpx 15rpx;
+  box-sizing: border-box;
+}
+.auth__box__title {
+  font-size: 38rpx;
+  color: #333;
+  margin-top: 15rpx;
+}
+.auth__box__desc {
+  font-size: 28rpx;
+  color: #888;
+}
+.auth__box__bottom {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30rpx;
+  border-top: 1rpx solid #eee;
+}
+.auth__box__bottom button {
+  flex: 1;
+  display: flex;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  text-align: center;
+  font-size: 36rpx;
+  background: #fff;
+  border-radius: 0rpx;
+  justify-content: center;
+}
+.auth__box__bottom button:first-of-type {
+  color: #333;
+  border-right: 1rpx solid #eee;
+}
+.auth__box__bottom button:last-of-type {
+  color: #3ec521
+}
+.auth__box__bottom button::after {
+    border-radius: 0;
+    border: none;
+}
