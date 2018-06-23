@@ -1,0 +1,11 @@
+<!--pages/meetingDetail/meetingDetail.wxml-->
+<view class='meeting-detail'>
+  <view class='meeting-detail__content'>
+    <view class='meeting-detail__block' wx:for="{{mettingInfo}}">
+      <view class='meeting-detail__block__left'>{{item.category}}</view>
+      <view class='meeting-detail__block__right'>
+      {{item.info}}
+      </view>
+    </view>
+  </view>
+</view>

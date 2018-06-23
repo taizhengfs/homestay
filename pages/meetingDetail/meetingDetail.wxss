@@ -1,0 +1,35 @@
+/* pages/meetingDetail/meetingDetail.wxss */
+
+.meeting-detail__content {
+  padding: 25rpx;
+  box-sizing: border-box;
+}
+.meeting-detail__block {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 96rpx;
+  border-bottom:2rpx solid rgba(234,234,234,1);
+  justify-content: space-between;
+}
+.meeting-detail__block:last-of-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 224rpx;
+  justify-content: center;
+}
+.meeting-detail__block:last-of-type .meeting-detail__block__left {
+  margin-bottom: 26rpx;
+}
+.meeting-detail__block__left {
+  font-size:28rpx;
+  color:rgba(51,51,51,1);
+  line-height:40rpx;
+}
+.meeting-detail__block__right {
+  font-size:28rpx;
+  color:rgba(186,166,139,1);
+  line-height:40rpx;
+}

@@ -18,7 +18,9 @@
     "pages/myCard/myCard",
     "component/ticket/ticket",
     "pages/userEdit/userEdit",
-    "pages/userInfo/userInfo"
+    "pages/userInfo/userInfo",
+    "pages/meeting/meeting",
+    "pages/meetingDetail/meetingDetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

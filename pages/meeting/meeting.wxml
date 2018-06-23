@@ -1,0 +1,15 @@
+<!--pages/meeting/meeting.wxml-->
+<view class='meeting'>
+  <view class='meeting__content'>
+    <view class='meeting__block' bindtap='jumpToDetail' wx:for="{{meetings}}">
+      <view class='meeting__left'>
+        <image src='../../images/meeting/icon_progress_{{item.type}}.png'></image>
+      </view>
+      <view class='meeting__right'>
+        <view class='meeting__right__top'>{{item.title}}</view>
+        <view class='meeting__right__middle'>{{item.time}}</view>
+        <view class='meeting__right__bottom'>{{item.createtime}}</view>
+      </view>
+    </view>
+  </view>
+</view>
