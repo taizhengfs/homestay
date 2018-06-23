@@ -1,0 +1,56 @@
+<!--pages/userEdit/userEdit.wxml-->
+<view class='user__edit'>
+  <view class='user__edit__profile'>
+    <view class='user__profile'>
+      <image src='../../images/bg_profile.png'></image>
+    </view>
+     <view class='user__profile__tip'>点击更换头像</view>
+  </view>
+  <view class='user__edit__main'>
+    <view class='user__edit__block'>
+      <view class='user__edit__block__left'>昵称</view>
+      <view class='user__edit__block__right'>
+        <input type='text' class='user__edit__input' placeholder-class="input__style" placeholder='请填写您的姓名'></input>
+      </view>
+    </view>
+    <view class='user__edit__block'>
+      <view class='user__edit__block__left'>性别</view>
+      <view class='user__edit__block__right'>
+        <picker mode = 'selector' range='{{sexs}}' value="{{sex}}" class='user__edit__input' bindchange="bindSexChange" placeholder-class="input__style">
+         <view class="user__picker">
+          {{sex!==''?sexs[sex]:'请选择您的性别'}}
+        </view>
+        </picker>
+      </view>
+    </view>
+    <view class='user__edit__block'>
+      <view class='user__edit__block__left'>地区</view>
+      <view class='user__edit__block__right'>
+        <picker mode = 'region' value="{{region}}" class='user__edit__input' custom-item="{{customItem}}" bindchange="bindRegionChange" placeholder-class="input__style">
+         <view class="user__picker">
+         {{region[0]}}，{{region[1]}}，{{region[2]}}
+        </view>
+        </picker>
+      </view>
+    </view>
+    <view class='user__edit__block'>
+      <view class='user__edit__block__left'>生日</view>
+      <view class='user__edit__block__right'>
+        <picker mode = 'date' start="1990-09-01" end="2017-09-01" value="{{birthday}}" class='user__edit__input' bindchange="bindDateChange" placeholder-class="input__style">
+         <view class="user__picker">
+         {{birthday}}
+        </view>
+        </picker>
+      </view>
+    </view>
+    <view class='user__edit__block'>
+      <view class='user__edit__block__left'>手机号</view>
+      <view class='user__edit__block__right'>
+        <input type='text' class='user__edit__input' placeholder-class="input__style" placeholder='请填写您的手机号'></input>
+      </view>
+    </view>
+  </view>
+  <view class='user__submit__form'>
+    <button>保存</button>
+  </view>
+</view>

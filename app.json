@@ -16,7 +16,9 @@
     "pages/team/team",
     "pages/experiencer/experiencer",
     "pages/myCard/myCard",
-    "component/ticket/ticket"
+    "component/ticket/ticket",
+    "pages/userEdit/userEdit",
+    "pages/userInfo/userInfo"
   ],
   "window": {
     "backgroundTextStyle": "dark",

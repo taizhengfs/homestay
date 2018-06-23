@@ -1,0 +1,32 @@
+<!--pages/userInfo/userInfo.wxml-->
+<view class='user—info'>
+  <view class='user-info__content'>
+    <view class='user-info__block'>
+      <view class='user-info__block__left'>头像</view>
+      <view class='user-info__block__right'><image src='../../images/bg_profile.png'></image></view>
+    </view>
+    <view class='user-info__block'>
+      <view class='user-info__block__left'>昵称</view>
+      <view class='user-info__block__right'>Warden</view>
+    </view>
+    <view class='user-info__block'>
+      <view class='user-info__block__left'>性别</view>
+      <view class='user-info__block__right'>男</view>
+    </view>
+    <view class='user-info__block'>
+      <view class='user-info__block__left'>地区</view>
+      <view class='user-info__block__right'>浙江-杭州</view>
+    </view>
+    <view class='user-info__block'>
+      <view class='user-info__block__left'>生日</view>
+      <view class='user-info__block__right'>1993-02-14</view>
+    </view>
+    <view class='user-info__block'>
+      <view class='user-info__block__left'>手机号</view>
+      <view class='user-info__block__right'>13567111111</view>
+    </view>
+  </view>
+  <view class='user__submit__form'>
+    <button>保存</button>
+  </view>
+</view>
