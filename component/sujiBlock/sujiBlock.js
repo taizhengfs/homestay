@@ -25,6 +25,14 @@ Component({
       type: String,
       value: ''
     },
+    lat: {
+      type: Number,
+      value: ''
+    },
+    long: {
+      type: Number,
+      value: ''
+    }
   },
   data:{
     isShowDel: false,
@@ -40,6 +48,12 @@ Component({
       var _this = this
       wx.navigateTo({
         url: '../homestaydetail/homestaydetail'
+      })
+    },
+    goToMap: function (e) {
+      wx.openLocation({
+        latitude: this.properties.lat,
+        longitude: this.properties.long
       })
     },
   }

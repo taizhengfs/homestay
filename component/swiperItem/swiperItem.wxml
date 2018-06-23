@@ -5,7 +5,7 @@
   </view>
   <swiper indicator-dots="{{isShowDots}}" indicator-color="#D8D8D8" indicator-active-color="#BAA68B" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{curentImg}}">
     <block wx:for="{{swiperimage}}" wx:key>
-      <swiper-item class="top-img" data-link="{{item.link}}" data-wxa_link="{{item.wxa_link}}" bindtap="jumpToDetail">
+      <swiper-item class="top-img" data-link="{{item.link}}" data-id="{{item.id}}" data-wxa_link="{{item.wxa_link}}" bindtap="jumpToDetail">
         <view class='swiper__bottom' wx:if="{{isShowTitle}}">
           {{item.title}}
         </view>

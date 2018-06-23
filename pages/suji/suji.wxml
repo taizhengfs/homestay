@@ -34,6 +34,8 @@
         tags="{{item.tags}}"
         locationName="{{item.address}}"
         distance="{{item.distance}}"
+        lat="{{item.location[1]}}"
+        long="{{item.location[0]}}"
       ></sujiBlock>
     </view>
   </view>
