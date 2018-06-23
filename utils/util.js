@@ -140,7 +140,6 @@ function _get(url, data, success, fail) {
       'content-type': 'application/json',
       'token': wx.getStorageSync('token'),
       'cityid': wx.getStorageSync('cityid'),
-      'platid': '24',
       'version': Api.getVersionNum(),
       'os': Api.getOsType(),
       'position': pos,

@@ -1,4 +1,6 @@
 // pages/home.js
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
 Page({
   /**
    * 页面的初始数据
@@ -7,7 +9,24 @@ Page({
     isShowDel: false,
     inputVal: '',
     currentTab: 0,
-    activityList: [
+    swiper: [
+      {
+        type: '1',
+        thumb: '../../images/bg_scroll_1.png',
+        title:'禾凤鸣书，西湖边四合院'
+      },
+      {
+        type: '2',
+        thumb: '../../images/bg_scroll_1.png',
+        title: '禾凤鸣书，冬湖边四合院'
+      },
+      {
+        type: '3',
+        thumb: '../../images/bg_scroll_1.png',
+        title: '禾凤鸣书，南湖边四合院'
+      }
+    ],
+    today: [
       {
         type: 0, // 0 未开始 1 进行中 2 已结束
         startTime: '10:00',
@@ -40,6 +59,32 @@ Page({
       },
     ]
   },
+  getHomeDetail() {
+    var _this = this
+    util._get(Api.getHomeHome(), {}, res => {
+      const {swiper, today, tommorrow} = res.data
+      _this.setData({
+        today: today,
+        tommorrow: tommorrow,
+        swiper: swiper
+      })
+      // _this.setData({
+      //   scrollList: res.data.data.list
+      // })
+      // if (res.data.data.list.length > 0) {
+      //   let timer = setInterval(() => {
+      //     if (_this.data.scrollLength >= _this.data.scrollList.length-1) {
+      //       clearInterval(timer)
+      //     }
+      //     _this.setData({
+      //       showScroll: true
+      //     })
+      //     _this.startScroll()
+      //   }, Api.scrollTime())
+      // }
+    }, error => {
+    })
+  },
   // 跳转搜索
   jumpToSearch() {
     console.log('let\'s go search')
@@ -62,7 +107,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getHomeDetail()  
   },
 
   /**

@@ -1,5 +1,5 @@
-// const HOST_URI = 'https://cate.ergengtv.com';
-const HOST_URI = 'https://api.test.yinxinlife.com';
+const HOST_URI = 'https://api.yinxinlife.com';
+// const HOST_URI = 'https://api.test.yinxinlife.com';
 const VERSION = '0.3';
 
 const POST_USER_TICKET_LIST = '/user/ticketList'

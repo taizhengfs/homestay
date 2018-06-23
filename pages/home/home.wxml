@@ -1,7 +1,13 @@
 <!--pages/home.wxml-->
 <view class="container">
   <view class="home__header">
-    <image src='../../images/home_bg_header.png'></image>
+    <swiperItem class="w__100"
+      isShowPage="{{false}}" 
+      isShowTitle="{{false}}" 
+      isShowShare="{{false}}"
+      swiperimage="{{swiper}}"
+    ></swiperItem>
+    <!-- <image src='../../images/home_bg_header.png'></image> -->
   </view>
   <search class="comp__search"></search>
   <view class="home__tabs">
