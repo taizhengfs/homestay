@@ -1,4 +1,4 @@
-<view class="home__activity__block">
+<view class="home__activity__block" bindtap='onTap'>
     <view class="home__activity__main">
       <image class="home__activity__main__cover" src="{{cover}}"></image>
       <view class="home__activity__main__top">
@@ -6,7 +6,7 @@
           <view class="home__type__tips__top">
             <image class="home__type__tips__top__icon" 
               src='../../images/home_icon_{{type===0?"gift":type===1?"cheap_type_2":"cheap_type_1"}}.png'></image>
-            <text class="home__type__tips__top__text">拼团抽奖</text>
+            <text class="home__type__tips__top__text">{{type!==0?'拼团砍价':'0元住'}}</text>
           </view>
           <view class="home__type__tips__bottom" wx:if="{{type!==0}}">
             已有{{participateNum}}人参与
@@ -33,10 +33,17 @@
       <view class="home__activity__sub__left">
           {{activityDesc}}
       </view>
-      <view class="home__activity__sub__right">
+      <view wx:if="{{!isJoin}}" class="home__activity__sub__right">
           {{type===0
-            ? '开抢提醒':type===1
-            ? '马上抢' :'去看看'}}
+            ? '开抢提醒'
+            :type===1
+              ?'马上抢':'去看看'}}
+      </view>
+      <view wx:else class="home__activity__sub__right {{type===0?'':type===1?'is__color__gold':'is__color__grey'}}">
+          {{type===0
+            ? '去看看'
+            :type===1
+              ?'恭喜中奖':'未中奖'}}
       </view>
     </view>
   </view>

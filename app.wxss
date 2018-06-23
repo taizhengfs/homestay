@@ -7,6 +7,10 @@
   display: inline;
   color: #BAA68B
 }
+.disp__breakline {
+  display: block;
+  color: #BAA68B
+}
 .disp__inline__red {
   display: inline;
   color: #C12121

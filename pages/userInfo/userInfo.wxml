@@ -27,6 +27,6 @@
     </view>
   </view>
   <view class='user__submit__form'>
-    <button>保存</button>
+    <button data-url='../userEdit/userEdit' bindtap='jumpToPage'>修改</button>
   </view>
 </view>

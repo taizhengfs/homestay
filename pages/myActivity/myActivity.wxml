@@ -1,0 +1,16 @@
+<!--pages/myActivity/myActivity.wxml-->
+<view class='my__activity'>
+  <view class="activity__group">
+    <activityBlock wx:for="{{activityList}}" wx:key="{{index}}"
+      type="{{item.type}}"
+      startTime="{{item.startTime}}"
+      endTime="{{item.endTime}}"
+      price="{{item.price}}"
+      realPrice="{{item.realPrice}}"
+      participateNum="{{item.participateNum}}"
+      activityDesc="{{item.activityDesc}}"
+      cover="{{item.cover}}"
+      isJoin="true"
+      ></activityBlock>
+  </view>
+</view>

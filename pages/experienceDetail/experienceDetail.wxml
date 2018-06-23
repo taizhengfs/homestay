@@ -9,7 +9,7 @@
   <view class='exp__title'>
     和风民宿旅馆家庭套房试睡体验一晚
   </view>
-  <view class='exp__detail__block'>
+  <view class='exp__detail__block' bindtap="jumpToSuji">
     <view class='exp__detail__title'>商家详情</view>
     <view class='exp__detail__sub'>
       西湖边的别墅5#房-“浙江最美民宿”第一名-如果小院 

@@ -67,7 +67,7 @@
       </view>
     </view>
     <view class="user__cells__2">
-      <view class="user__cell">
+      <view class="user__cell" data-url='../userInfo/userInfo' bindtap='jumpToPage'>
         <view class="user__cell__icon">
           <image src="../../images/icon_user.png"></image>
           <view>我的信息</view>
@@ -77,7 +77,7 @@
           <view class="icon__arrow__right"></view>
         </view>
       </view>
-      <view class="user__cell">
+      <view class="user__cell" data-url='../myCard/myCard' bindtap='jumpToPage'>
         <view class="user__cell__icon">
           <image src="../../images/icon_purse.png"></image>
           <view>我的卡包</view>
@@ -87,7 +87,7 @@
           <view class="icon__arrow__right"></view>
         </view>
       </view>
-      <view class="user__cell">
+      <view class="user__cell" data-url='../myActivity/myActivity' bindtap='jumpToPage'>
         <view class="user__cell__icon">
           <image src="../../images/icon_flag.png"></image>
           <view>我的活动</view>
@@ -97,7 +97,7 @@
           <view class="icon__arrow__right"></view>
         </view>
       </view>
-      <view class="user__cell">
+      <view class="user__cell" data-url='../meeting/meeting' bindtap='jumpToPage'>
         <view class="user__cell__icon">
           <image src="../../images/icon_meeting.png"></image>
           <view>我的团建活动</view>
@@ -110,7 +110,7 @@
     </view>
   </view>
   <view class="user__cells mt_24">
-    <view class="user__cell">
+    <view class="user__cell" data-url='../experiencer/experiencer' bindtap='jumpToPage'>
       <view class="user__cell__icon">
         <image src="../../images/icon_experiencer.png"></image>
         <view>隐心体验师(S2体验师)</view>

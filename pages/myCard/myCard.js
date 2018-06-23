@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isShowCard: false,
     ticketList: [
       {
         ticketType: 1,
@@ -43,6 +44,12 @@ Page({
         price: 380
       },
     ]
+  },
+  showCard(e) {
+    console.log(e)
+    this.setData({
+      isShowCard: !this.data.isShowCard
+    })
   },
 
   /**

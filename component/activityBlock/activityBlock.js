@@ -32,6 +32,10 @@ Component({
     cover: {
       type: String,
       value: ''
+    },
+    isJoin: {
+      type: Boolean,
+      value: false
     }
   },
   data:{
@@ -39,10 +43,21 @@ Component({
     inputVal: ''
   },
   methods: {
-    onTap: function(){
-      this.triggerEvent('customevent', {}) // 只会触发 pageEventListener2
-      this.triggerEvent('customevent', {}, { bubbles: true }) // 会依次触发 pageEventListener2 、 pageEventListener1
-      this.triggerEvent('customevent', {}, { bubbles: true, composed: true }) // 会依次触发 pageEventListener2 、 anotherEventListener 、 pageEventListener1
+    onTap: function () {
+      var myEventDetail = {} // detail对象，提供给事件监听函数
+      var myEventOption = {} // 触发事件的选项
+      if (this.properties.type===0) {
+        let url = '../discount/discount'
+        wx.navigateTo({
+          url: url
+        })
+      } else {
+        let url = '../lottery/lottery'
+        wx.navigateTo({
+          url: url
+        })
+      }
+      this.triggerEvent('myevent', myEventDetail, myEventOption)
     },
   }
 })

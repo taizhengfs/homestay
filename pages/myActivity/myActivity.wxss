@@ -1,0 +1,6 @@
+/* pages/myActivity/myActivity.wxss */
+.activity__group {
+  width: 100%;
+  padding: 18rpx 25rpx 18rpx 25rpx;
+  box-sizing: border-box;
+}

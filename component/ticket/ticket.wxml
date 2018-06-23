@@ -1,5 +1,5 @@
 <!--component/ticket/ticket.wxml-->
-<view class='card__block'>
+<view class='card__block' bindtap='showCard'>
   <view class='card__block__top'>
     <view class='card__block__top__left'>
       <view class='card__block__top__lt'>

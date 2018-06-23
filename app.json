@@ -20,7 +20,8 @@
     "pages/userEdit/userEdit",
     "pages/userInfo/userInfo",
     "pages/meeting/meeting",
-    "pages/meetingDetail/meetingDetail"
+    "pages/meetingDetail/meetingDetail",
+    "pages/myActivity/myActivity"
   ],
   "window": {
     "backgroundTextStyle": "dark",

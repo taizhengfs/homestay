@@ -1,6 +1,5 @@
 // pages/experience/experience.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -59,7 +58,7 @@ Page({
     let tp = e.currentTarget.dataset.type
     if (tp===2) {
       wx.navigateTo({
-        url: '../applyRoom/applyRoom'
+        url: '../experienceDetail/experienceDetail'
       })
     } else{
       wx.navigateTo({

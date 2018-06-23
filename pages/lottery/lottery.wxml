@@ -68,7 +68,7 @@
   <view class='lottery__detail__block last'>
     <view class='lottery__detail__title'>奖品详情
     </view>
-    <view class='lottery__record__content'>
+    <view class='lottery__record__content' bindtap='jumpToPrizeDetail'>
       <view class='lottery__record__img'>
         <view class='lottery__tag__red'>价值<view class='lottery_price'>¥158</view></view>
         <image src='../../images/bg_lottory_item.png'></image>

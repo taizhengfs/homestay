@@ -57,6 +57,11 @@ Page({
       url: '../rulesDetail/rulesDetail'
     })
   },
+  jumpToPrizeDetail() {
+    wx.navigateTo({
+      url: '../experienceDetail/experienceDetail'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
