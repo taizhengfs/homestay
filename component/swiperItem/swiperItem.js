@@ -34,13 +34,16 @@ Component({
       type: Boolean,
       value: false
     },
+    isAutoPlay: {
+      type: Boolean,
+      value: true
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    autoplay: true,
     interval: 3000,
     duration: 1500,
     isLoadAll: false,

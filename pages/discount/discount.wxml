@@ -1,15 +1,15 @@
 <!--pages/discount/discount.wxml-->
 <view class='container'>
-  <swiperItem class="w__100" isShowDots="{{true}}" isShowRedTag="{{true}}" isShowShare="{{true}}" swiperimage="{{swiperimage}}"></swiperItem>
+  <swiperItem class="w__100" isAutoPlay="{{false}}" isShowDots="{{false}}" isShowRedTag="{{true}}" isShowShare="{{true}}" swiperimage="{{swiperimage}}"></swiperItem>
   <view class='discount__title'>
     <view class='discount__title__top'>
       <view class='discount__title__top__l'>
-        和风民宿家庭套房试睡体验一晚
+        {{detail.name}}
       </view>
       <view class='discount__title__top__r'>总共
-        <view class='disp__inline'>38</view>张</view>
+        <view class='disp__inline'>{{detail.ticket_no}}</view>张</view>
     </view>
-    <view class='discount__title__bottom'>感受全杭州最棒的民宿体验</view>
+    <view class='discount__title__bottom'>{{detail.description}}</view>
     <view class='discount__detail__title__r' bindtap='jumpToRuleDetail'>
       活动详情
       <view class='icon__arrow__right'></view>
@@ -17,14 +17,14 @@
     <view class='discount__cut__line'>
       <view class='discount__cut__line__top'>
         <view class='discount__line__main'>
-          <view class='discount__line__current'></view>
-          <view class='discount__line__tag'>已砍36.00元</view>
+          <view class='discount__line__current' style='width:{{detail.chop_price/ticket.price*100}}%'></view>
+          <view class='discount__line__tag'>已砍{{detail.chop_price}}元</view>
           <view class='discount__line__default'></view>
         </view>
       </view>
       <view class='discount__cut__line__bottom'>
-        <view class='discount__line__desc'>原价420.00元</view>
-        <view class='discount__line__desc'>最低159.00元</view>
+        <view class='discount__line__desc'>原价{{ticket.price}}元</view>
+        <view class='discount__line__desc'>最低0元</view>
       </view>
     </view>
   </view>
@@ -33,15 +33,15 @@
     <view class='discount__detail__title'>砍价帮
     </view>
     <view class='discount__friends__content'>
-      <view class='discount__friends__single' wx:for="{{friends}}">
+      <view class='discount__friends__single' wx:for="{{members}}">
         <view class='discount__friend_l'>
           <view class='discount__rank'>{{index+1}}、</view>
           <view class='discount__friend_profile'>
-            <image src='{{item.profile}}'></image>
+            <image src='http:{{item.avatar}}'></image>
           </view>
-          <view>{{item.name}}</view>
+          <view>{{item.nickname}}</view>
         </view>
-        <view class='discount__friend_r'>砍掉<view class='disp__inline__red'>{{item.number}}</view>元</view>
+        <view class='discount__friend_r'>砍掉<view class='disp__inline__red'>{{item.chop_price}}</view>元</view>
       </view>
     </view>
     <view class='detail__arrow'>
@@ -55,13 +55,13 @@
     <view class='discount__record__content'>
       <view class='discount__record__img'>
         <view class='discount__tag__red'>价值
-          <view class='discount_price'>¥158</view>
+          <view class='discount_price'>¥{{ticket.price}}</view>
         </view>
-        <image src='//file.yinxinlife.com/images/bg_lottory_item.png'></image>
+        <image src='{{ticket.image}}'></image>
       </view>
       <view class='discount__desc'>
-        <view class='discount__desc__top'>和风民宿旅馆家庭套房试睡体验一晚</view>
-        <view class='discount__desc__bottom'>感受全杭州最棒的民宿体验</view>
+        <view class='discount__desc__top'>{{ticket.name}}</view>
+        <view class='discount__desc__bottom'>{{ticket.theme}}</view>
       </view>
     </view>
   </view>
