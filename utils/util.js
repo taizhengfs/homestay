@@ -365,6 +365,13 @@ const pageOnShowFn = function (callback) {
 
 //----------------------------重写授权结束---------------------------------------
 
+const callPhone = function(e) {
+  var tel = e.currentTarget.dataset.tel
+  wx.makePhoneCall({
+    phoneNumber: tel
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
   _get: _get,
@@ -379,5 +386,6 @@ module.exports = {
   setMember: setMember,
   openWxAuth: openWxAuth,
   pageOnShowFn: pageOnShowFn,
-  getToken: getToken
+  getToken: getToken,
+  callPhone: callPhone
 }

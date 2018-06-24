@@ -20,6 +20,8 @@
   padding: 28rpx 34rpx 8rpx 34rpx;
   box-sizing: border-box;
   border-bottom: 2rpx solid #EAEAEA;
+  width: 100%;
+  position: relative;
 }
 .detail__cell {
   width: 100%;

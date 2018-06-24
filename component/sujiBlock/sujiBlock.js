@@ -27,11 +27,15 @@ Component({
     },
     lat: {
       type: Number,
-      value: ''
+      value: 0
     },
     long: {
       type: Number,
-      value: ''
+      value: 0
+    },
+    sujiId: {
+      type: Number,
+      value: 0
     }
   },
   data:{
@@ -45,9 +49,8 @@ Component({
       this.triggerEvent('customevent', {}, { bubbles: true, composed: true }) // 会依次触发 pageEventListener2 、 anotherEventListener 、 pageEventListener1
     },
     jumpToDetail() {
-      var _this = this
       wx.navigateTo({
-        url: '../homestaydetail/homestaydetail'
+        url: `../homestaydetail/homestaydetail?id=${this.properties.sujiId}`
       })
     },
     goToMap: function (e) {

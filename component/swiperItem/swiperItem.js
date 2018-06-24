@@ -30,6 +30,10 @@ Component({
       type: Boolean,
       value: false
     },
+    isShowCenterTitle: {
+      type: Boolean,
+      value: false
+    },
   },
 
   /**
@@ -49,6 +53,7 @@ Component({
   methods: {
     jumpToDetail(e) {
       const dataset = e.currentTarget.dataset
+      console.log(dataset)
       const {link, wxa_link, id} = dataset
 
       if (wxa_link!=='') {
@@ -61,6 +66,8 @@ Component({
               url: wxa_link
           })
         }
+      } else {
+        return
       }
     }
   }

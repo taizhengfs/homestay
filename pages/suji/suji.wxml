@@ -28,6 +28,7 @@
       <sujiBlock
         wx:for="{{list}}" 
         wx:key="{{index}}"
+        sujiId="{{item.id}}"
         price="{{item.price}}"
         cover="{{item.image}}"
         title="{{item.name}}"

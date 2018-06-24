@@ -77,3 +77,28 @@
   border-top-right-radius: 16rpx;
   border-bottom-right-radius: 16rpx;
 }
+.swiper__desc {
+  position: absolute;
+  top: 220rpx;
+  width: 100%;
+  background: transparent;
+  text-align: center;
+  font-size:36rpx;
+  color:rgba(0,0,0,1);
+  line-height:50rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 0 80rpx;
+  align-items: center;
+  box-sizing: border-box;
+}
+.swiper__desc__c {
+  padding: 0 10rpx;
+  color: #333;
+}
+.swiper__desc__l {
+  flex: 1;
+  display: flex;
+  height: 2rpx;
+  border-top:2rpx solid #9B9B9B;
+}

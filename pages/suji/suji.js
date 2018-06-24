@@ -234,6 +234,7 @@ Page({
           })
         }
       }
+      console.log(_this.data.list)
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()

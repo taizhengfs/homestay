@@ -8,21 +8,21 @@
   ></swiperItem>
   <view class='detail__tags'>
     <view class="suji__tags">
-      <view wx:for="{{tags}}" wx:key="{{index}}" class="suji__tag">
+      <view wx:for="{{detail.tags}}" wx:key="{{index}}" class="suji__tag">
           {{item}}
       </view>
     </view>
   </view>
   <view class='detail__location'>
-    <view class="detail__cell">
+    <view class="detail__cell" data-lat="{{detail.location[1]}}" data-long="{{detail.location[0]}}" bindtap="goToMap">
       <view class="detail__cell__icon">
         <image src="//file.yinxinlife.com/images/icon_location.png"></image>
         <view class='detail__cell__display'>
           <view class='detail__cell__display__top'>
-          西湖区杨公堤27号
+          {{detail.district}}{{detail.address}}
           </view>
           <view class='detail__cell__display__bottom'>
-          杭州爱丁堡国际大酒店，距我17km
+          {{detail.city}}{{detail.name}}距我{{detail.distance}}km
           </view>
         </view>
       </view>
@@ -31,10 +31,10 @@
         <view class="icon__arrow__right"></view>
       </view>
     </view>
-    <view class="detail__cell phone">
+    <view class="detail__cell phone" bindtap="makePhoneCall" data-tel="{{detail.order_phone}}">
       <view class="detail__cell__icon">
         <image src="//file.yinxinlife.com/images/icon_phone.png"></image>
-        <view class='detail__phone'>0577-88775566</view>
+        <view class='detail__phone'>{{detail.order_phone}}</view>
       </view>
       <view class="detail__cell__right">
         <view>团建/会议咨询 | 立即预订</view>
@@ -43,23 +43,23 @@
     </view>
   </view>
   <view class='detail__experience'>
-    <view class='detail__ex__block' wx:for="{{activitys}}">
+    <view class='detail__ex__block' wx:for="{{activity}}">
       <view class='detail__ex__block_l'>
         <view class="detail__ticket__block">
           <view class="detail__ticket__top">
-            <image src="{{item.url}}"></image>
+            <image src="{{iconList[item.type]}}"></image>
           </view>
           <view class="detail__ticket__bottom">
-            {{item.type}}
+            {{item.type_name}}
           </view>
         </view>
       </view>
       <view class='detail__ex__block_c'>
         <view class='detail__ex__block_title'>
-        {{item.title}}
+        {{item.name}}
         </view>
         <view class='detail__ex__block_part'>
-        已有<view class='disp__inline'>{{item.number}}</view>人参与
+        已有<view class='disp__inline'>{{item.part_no}}</view>人参与
         </view>
       </view>
       <view class='detail__ex__block_r'>
@@ -69,52 +69,52 @@
   </view>
   <detailCard title="可选房型" isShowArrow="{{true}}" class="w__100">
     <view class='detail__card__roomlist detail__card_pad'>
-      <view class='room__list' bindtap='jumpToRoomDetail' wx:for="{{roomlist}}">
+      <view class='room__list' bindtap='jumpToRoomDetail' wx:for="{{house}}">
         <view class='room__list__l'>
-          <view class='room__list__l__t'>{{item.type}}</view>
-          <view class='room__list__l__m'>{{item.desc}}</view>
-          <view class='room__list__l__b'>{{item.area}}</view>
+          <view class='room__list__l__t'>{{item.name}}</view>
+          <view class='room__list__l__m'>{{item.breakfast==1?'含早':'不含早'}}{{item.window==1?'有窗':'无窗'}}</view>
+          <view class='room__list__l__b'>{{item.space}}</view>
         </view>
         <view class='room__list__r'>
           <view class='room__list__r__t'>参考价</view>
-          <view class='room__list__r__b'>¥{{item.price}}</view>
+          <view class='room__list__r__b'>¥{{item.open_price}}</view>
         </view>
       </view>
     </view>
   </detailCard>
-  <detailCard title="房源介绍" isShowArrow="{{true}}">
+  <detailCard title="房源介绍" isShowArrow="{{true}}" class="w__100">
     <view class='detail__card__desc detail__card_pad'>
-    杭州古韵庭院民宿地处西湖风景名胜区三台山路，环境清幽、交通便利。酒店价格实惠，服务优质，盛产杭州特产西湖龙井茶。民宿还带有经营餐饮，可以喝到自家茶园产的西湖龙井茶，是入住的理想选择。
+    {{detail.description}}
     </view>
   </detailCard>
   <detailCard title="配套设施" isShowArrow="{{false}}" class="w__100">
     <view class='detail__card__support detail__card_pad'>
-      <view class="support__single {{item.special?'cls__gold':''}}" wx:for="{{support}}">
-        {{item.tag}}  |
+      <view class="support__single {{item.special?'cls__gold':''}}" wx:for="{{detail.support_facility}}">
+        {{item}}  |
       </view>
     </view>
   </detailCard>
   <detailCard title="餐饮信息" isShowArrow="{{false}}" class="w__100">
     <view class='detail__card__info detail__card_pad'>
       <view class='detail__info__block'>
-        菜系：<view class='disp__inline'>杭帮菜、四川菜</view>
+        菜系：<view class='disp__inline'>{{detail.dine_style}}</view>
       </view>
       <view class='detail__info__block'>
-        人均消费：<view class='disp__inline'>198元</view>
+        人均消费：<view class='disp__inline'>{{detail.dine_price}}元</view>
       </view>
       <view class='detail__info__block'>
-        特色菜：<view class='disp__inline'>一品东坡肉、龙井虾仁、西湖醋鱼、叫花鸡、手撕笋、 芒果土豆泥、杭州虾爆鳝、宋嫂鱼羹、鲜肉跳跳虾、 干炸臭豆腐、清炒杭白菜、 糖醋里脊、杭椒牛柳、西湖牛肉羹 </view>
+        特色菜：<view class='disp__inline'>{{detail.dine_dishes}} </view>
       </view>
     </view>
     <view class='detail__info__dishes'>
       <view class='detail__disher__content'>
-        <view class='detail__disher__block' wx:for="{{dishList}}">
+        <view class='detail__disher__block' wx:for="{{detail.dine_atlas}}">
           <view class='detail__disher__block_t'>
-            <image src='{{item.cover}}'></image>
+            <image src='{{item}}'></image>
           </view>
-          <view class='detail__disher__block_b'>
+          <!-- <view class='detail__disher__block_b'>
             {{item.title}}
-          </view>
+          </view> -->
         </view>
       </view>
     </view>
@@ -122,16 +122,16 @@
   <detailCard title="其他介绍" isShowArrow="{{false}}" class="w__100">
     <view class='detail__card__info detail__card_pad'>
       <view class='detail__info__block'>
-        特色项目：<view class='disp__inline'>泰式按摩</view>
+        特色项目：<view class='disp__inline'>{{detail.special_project}}</view>
       </view>
       <view class='detail__info__block'>
-        入驻隐心时间：<view class='disp__inline'>2018年3月</view>
+        入驻隐心时间：<view class='disp__inline'>{{detail.create_at}}</view>
       </view>
       <view class='detail__info__block'>
-        会议室：<view class='disp__inline'>40人圆桌会议室</view>
+        会议室：<view class='disp__inline'>{{detail.meeting_room}}</view>
       </view>
       <view class='detail__info__block'>
-        活动空间：<view class='disp__inline'>儿童活动区，滑滑梯、亲子乐园等</view>
+        活动空间：<view class='disp__inline'>{{detail.activity_space}}</view>
       </view>
     </view>
   </detailCard>

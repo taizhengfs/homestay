@@ -9,6 +9,11 @@
         <view class='swiper__bottom' wx:if="{{isShowTitle}}">
           {{item.title}}
         </view>
+        <view class="swiper__desc" wx:if="{{isShowCenterTitle}}">
+          <view class="swiper__desc__l"></view>
+          <view class="swiper__desc__c">{{item.title}}</view>
+          <view class="swiper__desc__l"></view>
+        </view>
         <view class='red__tag' wx:if="{{isShowRedTag}}">
           试睡体验
         </view>

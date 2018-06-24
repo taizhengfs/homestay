@@ -1,28 +1,36 @@
 // pages/homestaydetail/homestaydetail.js
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
+import {formatDate} from '../../utils/date.js';
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    swiperimage: [
-      {
-        type: '1',
-        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
-        title:'禾凤鸣书，西湖边四合院'
-      },
-      {
-        type: '2',
-        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
-        title: '禾凤鸣书，冬湖边四合院'
-      },
-      {
-        type: '3',
-        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
-        title: '禾凤鸣书，南湖边四合院'
-      }
-    ],
+    // swiperimage: [
+    //   {
+    //     type: '1',
+    //     thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
+    //     title:'禾凤鸣书，西湖边四合院'
+    //   },
+    //   {
+    //     type: '2',
+    //     thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
+    //     title: '禾凤鸣书，冬湖边四合院'
+    //   },
+    //   {
+    //     type: '3',
+    //     thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
+    //     title: '禾凤鸣书，南湖边四合院'
+    //   }
+    // ],
     tags: [
       '四星酒店', '招募体验', '拼团', '促销', '断桥', '宝石山', '西湖', '优惠疯抢'
+    ],
+    iconList: [
+      '//file.yinxinlife.com/images/icon_tiyan.png',
+      '//file.yinxinlife.com/images/icon_tuan.png',
+      '//file.yinxinlife.com/images/icon_cut.png'
     ],
     activitys: [
       {
@@ -79,13 +87,25 @@ Page({
       { cover: '//file.yinxinlife.com/images/img_disher_2.png', title:'西湖藕韵'},
       { cover: '//file.yinxinlife.com/images/img_disher_3.png', title:'青菜油豆腐'},
       { cover: '//file.yinxinlife.com/images/img_disher_4.png', title:'珍珠娃娃菜'},
-    ]
+    ],
+    filters: {
+      id: 0
+    },
+    activity: [],
+    detail: {},
+    house: [],
+    swiperimage: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    this.setData({
+      'filters.id': parseInt(options.id)
+    })
+    this.getHomestayDetail()
     wx.setNavigationBarTitle({ title: '民宿详情' });
   },
 
@@ -93,6 +113,47 @@ Page({
     var _this = this
     wx.navigateTo({
       url: '../roomDetail/roomDetail'
+    })
+  },
+  goToMap: function (e) {
+    const dataset = e.currentTarget.dataset
+    wx.openLocation({
+      latitude: dataset.lat,
+      longitude: dataset.long
+    })
+  },
+  makePhoneCall(e) {
+    util.callPhone(e)
+  },
+  getHomestayDetail() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(Api.getHomestayDetail(), this.data.filters, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      ex.detail.atlas.forEach(e => {
+      _this.data.swiperimage.push(
+        {
+          image:e,
+          title: ex.detail.name
+        })
+      });
+      ex.detail.create_at = formatDate(ex.detail.create_at * 1000, 'yyyy-MM-dd') 
+      const {activity, detail, house} = ex
+      _this.setData({
+        swiperimage: _this.data.swiperimage,
+        activity: activity,
+        detail: detail,
+        house: house
+      })
+      
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      console.log()
     })
   },
 
