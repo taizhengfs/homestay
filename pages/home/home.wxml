@@ -7,7 +7,7 @@
     ></swiperItem>
     <!-- <image src='//file.yinxinlife.com/images/home_bg_header.png'></image> -->
   </view>
-  <search class="comp__search"></search>
+  <search class="comp__search" bindgetKeyword="goSearch"></search>
   <view class="home__tabs">
     <view class="home__tab {{currentTab == 0 ? 'isActive' :''}}" data-index = "0" bindtap = "changeTab">
       今日活动

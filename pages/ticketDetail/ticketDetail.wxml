@@ -18,20 +18,20 @@
     {{detail.name}}
   </view>
   <view class="ticket__sub">{{detail.theme}}</view>
-  <view class='exp__detail__block' bindtap="jumpToSuji">
+  <view class='exp__detail__block'>
     <view class='exp__detail__title'>商家详情</view>
     <view class='exp__detail__sub'>
       {{homestay.name}} 
     </view>
     <view class='exp__detail__cnt'>
       <view class='exp__detail__cnt__l'>
-        <image src='{{detail.image}}'></image>
+        <image src='{{homestay.image}}'></image>
       </view>
       <view class='exp__detail__cnt__r'>
         <view class='exp__detail__cnt__r__t'>
           <view class='exp__detail__tag' wx:for="{{homestay.tags}}">{{item}}</view>
         </view>
-        <view class='exp__detail__cnt__r__m'>
+        <view class='exp__detail__cnt__r__m' data-lat="{{homestay.location[1]}}" data-long="{{homestay.location[0]}}" bindtap="goToMap">
           <view class="icon__cnt">
             <image src="//file.yinxinlife.com/images/icon_location.png"></image>
           </view>

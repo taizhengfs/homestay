@@ -1,6 +1,7 @@
 // pages/home.js
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -64,6 +65,17 @@ Page({
   closeBox() {
     this.setData({
       isShowBox: false
+    })
+  },
+  goSearch(e){
+    let key = e.detail.inputVal
+    app.globalData.keyword=key;
+    wx.switchTab({
+      url: '../suji/suji',
+      success: function(res){
+        console.log(res)
+        // success
+      },
     })
   },
   getHomeDetail() {

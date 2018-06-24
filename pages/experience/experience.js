@@ -105,10 +105,10 @@ Page({
 
   jumpToBe(e) {
     var _this = this
-    let tp = e.currentTarget.dataset.type
-    if (tp===2) {
+    let tp = e.currentTarget.dataset
+    if (tp.time_status===0) {
       wx.navigateTo({
-        url: '../experienceDetail/experienceDetail'
+        url: `../experienceDetail/experienceDetail?id=${tp.id}`
       })
     } else{
       wx.navigateTo({

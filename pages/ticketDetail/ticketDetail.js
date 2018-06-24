@@ -57,6 +57,7 @@ Page({
       wx.stopPullDownRefresh()
       let ex = res.data.data
       console.log(ex)
+      ex.detail.content = ex.detail.content.replace(/<img /g, '<img style="max-width:100%;"');
       ex.detail.u_starttime = formatDate(ex.detail.u_starttime*1000, 'yyyy-MM-dd HH:mm:ss') 
       ex.detail.u_endtime = formatDate(ex.detail.u_endtime*1000, 'yyyy-MM-dd HH:mm:ss') 
       _this.data.swiperimage.push({image: ex.detail.image})
@@ -70,6 +71,14 @@ Page({
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
+    })
+  },
+
+  goToMap: function (e) {
+    const dataset = e.currentTarget.dataset
+    wx.openLocation({
+      latitude: dataset.lat,
+      longitude: dataset.long
     })
   },
 

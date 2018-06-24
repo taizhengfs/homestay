@@ -1,24 +1,14 @@
 // pages/experienceDetail/experienceDetail.js
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
+import {formatDate} from '../../utils/date.js';
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    swiperimage: [
-      {
-        type: '1',
-        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
-      },
-      {
-        type: '2',
-        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
-      },
-      {
-        type: '3',
-        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
-      }
-    ],
+    swiperimage: [],
     newSign:[
       {
         profile:'//file.yinxinlife.com/images/bg_profile_1.png',
@@ -44,7 +34,13 @@ Page({
         lasttime:'12小时前',
         desc:'非常棒的名宿'
       },
-    ]
+    ],
+    detail:{},
+    homestay: {},
+    apply: [],
+    win: [],
+    btnText:'',
+    btnColor:''
   },
 
   jumpToSuji() {
@@ -52,11 +48,79 @@ Page({
       url: '../suji/suji'
     })
   },
+  goToMap: function (e) {
+    const dataset = e.currentTarget.dataset
+    wx.openLocation({
+      latitude: dataset.lat,
+      longitude: dataset.long
+    })
+  },
+  getExperienceActivity() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(Api.getExperienceActivity(), this.data.filters, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      console.log(ex)
+      ex.detail.content = ex.detail.content.replace(/<img /g, '<img style="max-width:100%;"');
+      ex.detail.e_starttime = formatDate(ex.detail.e_starttime*1000, 'yyyy-MM-dd HH:mm:ss') 
+      ex.detail.e_endtime = formatDate(ex.detail.e_endtime*1000, 'yyyy-MM-dd HH:mm:ss') 
+      ex.detail.a_starttime = formatDate(ex.detail.a_starttime*1000, 'yyyy-MM-dd HH:mm:ss') 
+      ex.detail.a_endtime = formatDate(ex.detail.a_endtime*1000, 'yyyy-MM-dd HH:mm:ss') 
+      _this.data.swiperimage.push({image: ex.detail.image})
+      const {detail, homestay, apply, win} = ex
+      if (detail.time_status==1) {
+        if (detail.is_apply==0) {
+          _this.data.btnText='立即报名'
+          _this.data.btnColor = '#C12121'
+        } else {
+          _this.data.btnText='已报名'
+          _this.data.btnColor = '#DDA3A3'
+        }
+      } else if(detail.time_status==2) {
+        if (detail.is_apply==0) {
+          _this.data.btnText='报名结束'
+          _this.data.btnColor = '#7F7F7F'
+        } else {
+          _this.data.btnText='已报名'
+          _this.data.btnColor = '#DDA3A3'
+        }
+      } else if(detail.time_status==3) {
+        _this.data.btnText='活动已结束'
+        _this.data.btnColor = '#7F7F7F'
+      }
+      _this.setData({
+        btnText:_this.data.btnText,
+        btnColor:_this.data.btnColor,
+        swiperimage: _this.data.swiperimage,
+        detail: detail,
+        homestay: homestay,
+        apply: apply,
+        win: win
+      })
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
+  },
+
+  jumpToHome() {
+    wx.switchTab({
+      url: '../home/home'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      'filters.id':parseInt(options.id)
+    })
+    this.getExperienceActivity()
     wx.setNavigationBarTitle({ title: '体验活动' });
   },
 

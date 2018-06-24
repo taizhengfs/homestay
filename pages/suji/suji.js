@@ -1,6 +1,7 @@
 // pages/suji/suji.js
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
+const app = getApp();
 Page({
 
   /**
@@ -132,16 +133,18 @@ Page({
   getKeyword(e) {
     if(e.detail.isClear) {
       this.setData({
-        'filters.keyword':e.detail.inputVal
+        'filters.keyword':e.detail.inputVal,
+        isLoadAll:false
       })
       this.getSujiDetail(false)
     } else {
-      if(e.detail.inputVal!=='') {
+      // if(e.detail.inputVal!=='') {
         this.setData({
-          'filters.keyword':e.detail.inputVal
+          'filters.keyword':e.detail.inputVal,
+          isLoadAll:false
         })
         this.getSujiDetail(false)
-      }
+      // }
     }
   },
   tapToSort(e){
@@ -234,11 +237,9 @@ Page({
           })
         }
       }
-      console.log(_this.data.list)
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
-      console.log()
     })
   },
   sortDistance() {
@@ -348,6 +349,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(app.globalData.keyword!=='') {
+      this.setData(
+        {'filters.keyword':app.globalData.keyword}
+      )
+    }
     let _this = this
     this.getSujiDetail()
     _this.setData({

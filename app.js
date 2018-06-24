@@ -10,6 +10,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    gloabalFomIds:[]
+    gloabalFomIds:[],
+    keyword:''
   }
 })

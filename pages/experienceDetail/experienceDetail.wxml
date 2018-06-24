@@ -1,38 +1,35 @@
 <!--pages/experienceDetail/experienceDetail.wxml-->
 <view class='container'>
   <swiperItem class="w__100"
-    isShowDots="{{true}}" 
     isShowShare="{{true}}"
     isShowRedTag="{{true}}"
     swiperimage="{{swiperimage}}"
   ></swiperItem>
   <view class='exp__title'>
-    和风民宿旅馆家庭套房试睡体验一晚
+    {{detail.name}}
   </view>
   <view class='exp__detail__block' bindtap="jumpToSuji">
     <view class='exp__detail__title'>商家详情</view>
     <view class='exp__detail__sub'>
-      西湖边的别墅5#房-“浙江最美民宿”第一名-如果小院 
+      {{homestay.name}}
     </view>
     <view class='exp__detail__cnt'>
       <view class='exp__detail__cnt__l'>
-        <image src='//file.yinxinlife.com/images/img_item_1.png'></image>
+        <image src='{{homestay.image}}'></image>
       </view>
       <view class='exp__detail__cnt__r'>
         <view class='exp__detail__cnt__r__t'>
-          <view class='exp__detail__tag'>四星酒店</view>
-          <view class='exp__detail__tag'>拼团</view>
-          <view class='exp__detail__tag'>促销</view>
+            <view class='exp__detail__tag' wx:for="{{homestay.tags}}">{{item}}</view>
         </view>
-        <view class='exp__detail__cnt__r__m'>
+        <view class='exp__detail__cnt__r__m' data-lat="{{homestay.location[1]}}" data-long="{{homestay.location[0]}}" bindtap="goToMap">
           <view class="icon__cnt">
             <image src="//file.yinxinlife.com/images/icon_location.png"></image>
           </view>
-          杨公堤27号-距我17公里
+          {{homestay.district}}{{homestay.address}}-距我{{homestay.distance}}公里
         </view>
         <view class='exp__detail__cnt__r__b'>
           <view class="disp_red">
-            ¥588
+            ¥{{homestay.price}}
           </view>
           起
         </view>
@@ -41,32 +38,32 @@
   </view>
   <view class='exp__detail__block'>
     <view class='exp__detail__title'>体验详情</view>
-    <view class='exp__detail__image'>
-      <image src='//file.yinxinlife.com/images/bg_detail.png'></image>
+    <view class='exp__detail__cnt'>
+      <rich-text nodes="{{detail.content}}"></rich-text>
     </view>
   </view>
   <view class='exp__detail__block last'>
     <view class='exp__detail__title'>最新报名</view>
     <view class='new__sign__list'>
-      <view class='new__sign__block' wx:for="{{newSign}}">
+      <view class='new__sign__block' wx:for="{{apply}}">
         <view class="new__sign__block__l">
-          <image src="{{item.profile}}"></image>
+          <image src="{{item.avatar}}"></image>
         </view>
         <view class="new__sign__block__r">
           <view class="new__sign__block__r__t">
-            <view class="new__sign__name">{{item.name}}</view>
-            <view class="new__sign__like">{{item.likeMum}}
+            <view class="new__sign__name">{{item.nickname}}</view>
+            <view class="new__sign__like">122
               <view class="icon__heart"></view>
             </view>
           </view>
-          <view class="new__sign__block__r__m">{{item.lasttime}}</view>
-          <view class="new__sign__block__r__b">{{item.desc}}</view>
+          <view class="new__sign__block__r__m">{{item.time}}</view>
+          <view class="new__sign__block__r__b">{{item.content}}</view>
         </view>
       </view>
     </view>
   </view>
   <view class='bottom__bar'>
-    <view class='bottom__ba__block'><view class="icon__home"></view>首页</view>
+    <view class='bottom__ba__block' bindtap="jumpToHome"><view class="icon__home"></view>首页</view>
     <view class='bottom__ba__block'><view class="icon__share"></view>分享</view>
     <view class='bottom__ba__block join'>立即报名</view>
   </view>

@@ -18,7 +18,7 @@
         <view class="experience__list__date">
             体验时间：{{item.starttime}}
         </view>
-        <view bindtap='jumpToBe' data-type="{{item.time_status}}" class="experience__list__btn {{item.time_status===0?'':'is_over'}}">
+        <view bindtap='jumpToBe' data-time_status="{{item.time_status}}" data-id="{{item.id}}" class="experience__list__btn {{item.time_status===0?'':'is_over'}}">
           {{item.time_status===2?'活动结束':item.time_status===1?'报名结束':'立即参与'}}
         </view>
       </view>
