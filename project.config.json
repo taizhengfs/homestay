@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -153,6 +153,12 @@
 					"name": "房间详情",
 					"pathName": "pages/roomDetail/roomDetail",
 					"query": "id=3"
+				},
+				{
+					"id": 20,
+					"name": "票券详情",
+					"pathName": "pages/ticketDetail/ticketDetail",
+					"query": "id=1"
 				}
 			]
 		}

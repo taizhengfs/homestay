@@ -33,6 +33,12 @@ Page({
       url: '../home/home'
     })
   },
+  jumpToPrizeDetail(e) {
+    let dataset = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `../ticketDetail/ticketDetail?id=${dataset.id}`
+    })
+  },
 
   getActivityChop() {
     var _this = this

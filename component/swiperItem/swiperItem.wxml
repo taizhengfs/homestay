@@ -15,7 +15,7 @@
           <view class="swiper__desc__l"></view>
         </view>
         <view class='red__tag' wx:if="{{isShowRedTag}}">
-          试睡体验
+          {{tagName}}
         </view>
         <view class='calc' wx:if="{{isShowPage}}">
           <view class='clac__now'>{{index+1}}</view>/{{swiperimage.length}}

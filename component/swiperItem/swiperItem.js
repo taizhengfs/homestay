@@ -37,7 +37,11 @@ Component({
     isAutoPlay: {
       type: Boolean,
       value: true
-    }
+    },
+    tagName: {
+      type: String,
+      value: '试睡体验'
+    },
   },
 
   /**

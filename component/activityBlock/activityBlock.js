@@ -3,7 +3,7 @@ Component({
   properties: {
     // 这里定义了innerText属性，属性值可以在组件使用时指定
     // "time_status": 1 //活动状态 0未开始 1进行中 2已结束
-    type: {
+    timeStatus: {
       type: [String,Number],
       value: 0,
     },
@@ -42,6 +42,14 @@ Component({
     isJoin: {
       type: Boolean,
       value: false
+    },
+    type: {
+      type: [String, Number],
+      value: 1
+    },
+    activityId: {
+      type: [String, Number],
+      value: 0
     }
   },
   data:{
@@ -59,13 +67,13 @@ Component({
     onTap: function () {
       var myEventDetail = {} // detail对象，提供给事件监听函数
       var myEventOption = {} // 触发事件的选项
-      if (this.properties.type===0) {
-        let url = '../discount/discount'
+      if (this.properties.type===2) {
+        let url = `../discount/discount?id=${this.properties.activityId}`
         wx.navigateTo({
           url: url
         })
       } else {
-        let url = '../lottery/lottery'
+        let url = `../lottery/lottery?id=${this.properties.activityId}`
         wx.navigateTo({
           url: url
         })
@@ -80,9 +88,9 @@ Component({
     endFormatTime () {
       let now = Date.now()
       let duration = {}
-      if (this.properties.type === 0 ) {
+      if (this.properties.timeStatus === 0 ) {
         duration = distanceDate(this.properties.startTime*1000, now)
-      } else if(this.properties.type === 1) {
+      } else if(this.properties.timeStatus === 1) {
         duration = distanceDate(this.properties.endTime*1000, now)
       }
       let { day, hour, min, second } = duration

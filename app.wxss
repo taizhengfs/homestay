@@ -5,7 +5,8 @@
 }
 .disp__inline {
   display: inline;
-  color: #BAA68B
+  color: #BAA68B;
+  padding-left: 10rpx;
 }
 .disp__breakline {
   display: block;

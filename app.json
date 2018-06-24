@@ -22,7 +22,8 @@
     "pages/meeting/meeting",
     "pages/meetingDetail/meetingDetail",
     "pages/myActivity/myActivity",
-    "component/authBox/authBox"
+    "component/authBox/authBox",
+    "pages/ticketDetail/ticketDetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

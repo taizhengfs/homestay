@@ -83,9 +83,10 @@ Page({
       url: '../rulesDetail/rulesDetail'
     })
   },
-  jumpToPrizeDetail() {
+  jumpToPrizeDetail(e) {
+    let dataset = e.currentTarget.dataset
     wx.navigateTo({
-      url: '../experienceDetail/experienceDetail'
+      url: `../ticketDetail/ticketDetail?id=${dataset.id}`
     })
   },
   /**

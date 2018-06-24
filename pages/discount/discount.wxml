@@ -52,7 +52,7 @@
   <view class='discount__detail__block last'>
     <view class='discount__detail__title'>奖品详情
     </view>
-    <view class='discount__record__content'>
+    <view class='discount__record__content' data-id="{{ticket.id}}" bindtap='jumpToPrizeDetail'>
       <view class='discount__record__img'>
         <view class='discount__tag__red'>价值
           <view class='discount_price'>¥{{ticket.price}}</view>
@@ -66,10 +66,9 @@
     </view>
   </view>
   <view class='bottom__bar'>
-
     <view class='bottom__ba__block home' bindtap="jumpToHome">
       <view class="icon__home"></view>首页</view>
     <view class='bottom__ba__block invite'><view class="icon__invite"></view>邀请砍价</view>
-    <view class='bottom__ba__block share'>394.00元拿下</view>
+    <view class='bottom__ba__block share'>{{ticket.price-detail.chop_price}}元拿下</view>
   </view>
 </view>

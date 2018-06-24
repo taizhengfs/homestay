@@ -8,17 +8,17 @@
               src='//file.yinxinlife.com/images/home_icon_{{type===0?"gift":type===1?"cheap_type_2":"cheap_type_1"}}.png'></image>
             <text class="home__type__tips__top__text">{{type_name}}</text>
           </view>
-          <view class="home__type__tips__bottom" wx:if="{{type!==0}}">
+          <view class="home__type__tips__bottom" wx:if="{{timeStatus!==0}}">
             已有{{participateNum}}人参与
           </view>
         </view>
-        <view class="home__type__duration" wx:if="{{type===0}}">
+        <view class="home__type__duration" wx:if="{{timeStatus===0}}">
           还有{{duration}}开抢
         </view>
-        <view class="home__type__duration" wx:elif="{{type===1}}">
+        <view class="home__type__duration" wx:elif="{{timeStatus===1}}">
           距离活动结束仅剩{{duration}}
         </view>
-        <view class="home__type__duration {{type===2?'is__grey':''}}" wx:else>
+        <view class="home__type__duration {{timeStatus===2?'is__grey':''}}" wx:else>
           已抢完
         </view>
       </view>
@@ -34,15 +34,15 @@
           {{activityDesc}}
       </view>
       <view wx:if="{{!isJoin}}" class="home__activity__sub__right">
-          {{type===0
+          {{timeStatus===0
             ? '开抢提醒'
-            :type===1
+            :timeStatus===1
               ?'马上抢':'去看看'}}
       </view>
-      <view wx:else class="home__activity__sub__right {{type===0?'':type===1?'is__color__gold':'is__color__grey'}}">
-          {{type===0
+      <view wx:else class="home__activity__sub__right {{timeStatus===0?'':timeStatus===1?'is__color__gold':'is__color__grey'}}">
+          {{timeStatus===0
             ? '去看看'
-            :type===1
+            :timeStatus===1
               ?'恭喜中奖':'未中奖'}}
       </view>
     </view>

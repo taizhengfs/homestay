@@ -18,7 +18,7 @@
   </view>
   <view class="home__activity__group" wx:if="{{currentTab==0}}">
     <activityBlock wx:for="{{today}}" wx:key="{{index}}"
-      type="{{item.time_status}}"
+      timeStatus="{{item.time_status}}"
       startTime="{{item.starttime}}"
       endTime="{{item.endtime}}"
       price="{{item.price}}"
@@ -26,6 +26,8 @@
       participateNum="{{item.part_no}}"
       activityDesc="{{item.description}}"
       cover="{{item.image}}"
+      type="{{item.type}}"
+      activityId="{{item.id}}"
       type_name="{{item.type_name}}"
       ></activityBlock>
   </view>
