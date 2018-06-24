@@ -1,16 +1,16 @@
 <!--pages/lottery/lottery.wxml-->
 <view class='container'>
-  <swiperItem class="w__100" isShowDots="{{true}}" isShowShare="{{true}}" swiperimage="{{swiperimage}}"></swiperItem>
+  <swiperItem class="w__100" isShowShare="{{true}}" isAutoScroll="{{false}}" swiperimage="{{swiperimage}}"></swiperItem>
   <view class='lottery__title'>
     <view class='lottery__title__top'>
       <view class='lottery__title__top__l'>
-        ¥588
-        <view class='delete__line'>¥1288</view>
+        ¥0
+        <view class='delete__line'>¥{{ticket.price}}</view>
       </view>
       <view class='lottery__title__top__r'>总共
-        <view class='disp__inline'>38</view>张</view>
+        <view class='disp__inline'>{{detail.ticket_no}}</view>张</view>
     </view>
-    <view class='lottery__title__bottom'>和风民宿旅馆家庭套房试睡体验一晚</view>
+    <view class='lottery__title__bottom'>{{detail.name}}</view>
   </view>
   <view class='lottery__detail__block'>
     <view class='lottery__detail__title'>活动流程</view>
@@ -37,13 +37,13 @@
     </view>
     <view class='lottery__rules__content'>
       <view class='lottery__rules__single'>活动时间：
-        <view class='disp__inline'>2018年5月4日00：00至5月10日12：00</view>
+        <view class='disp__inline'>{{detail.starttime}}</view>
       </view>
       <view class='lottery__rules__single'>开奖时间：
-        <view class='disp__inline'>2018年5月4日至5月10日，每日12：00</view>
+        <view class='disp__inline'>{{detail.endtime}}</view>
       </view>
       <view class='lottery__rules__single'>活动参与方式：
-        <view class='disp__inline'>支付一分钱发起抽奖团，并需在规定时间内邀请 4位好友助力成团(5人成团)，发起人(团长)即可获抽奖活动资格， 并直接参与抽奖；成团有效时间为该团发起后24小时，成团有效 期前未达助力人数则拼团失败，无抽奖机会……</view>
+        <text class='disp__inline'>{{detail.part_desc}}</text>
       </view>
     </view>
   </view>
@@ -51,16 +51,16 @@
     <view class='lottery__detail__title'>成团好友
     </view>
     <view class='lottery__friends__content'>
-      <view class='lottery__friends__single' wx:for="{{friends}}">
+      <view class='lottery__friends__single' wx:for="{{members}}">
         <view class='lottery__friends__s_top'>
-          <image src='{{item.profile}}'></image>
+          <image src='{{item.avatar}}'></image>
         </view>
         <view class='lottery__friends__s_bottom'>
-          {{item.name}}
+          {{item.nickname}}
         </view>
       </view>
     </view>
-    <view class='detail__arrow'>
+    <view class='detail__arrow' wx:if="{{members.length>10}}">
       <view class='disp__inline'>查看全部</view>
       <image src='//file.yinxinlife.com/images/icon_more.png'></image>
     </view>
@@ -70,17 +70,17 @@
     </view>
     <view class='lottery__record__content' bindtap='jumpToPrizeDetail'>
       <view class='lottery__record__img'>
-        <view class='lottery__tag__red'>价值<view class='lottery_price'>¥158</view></view>
-        <image src='//file.yinxinlife.com/images/bg_lottory_item.png'></image>
+        <view class='lottery__tag__red'>价值<view class='lottery_price'>¥{{ticket.price}}</view></view>
+        <image src='{{ticket.image}}'></image>
       </view>
       <view class='lottery__desc'>
-        <view class='lottery__desc__top'>和风民宿旅馆家庭套房试睡体验一晚</view>
-        <view class='lottery__desc__bottom'>感受全杭州最棒的民宿体验</view>
+        <view class='lottery__desc__top'>{{ticket.name}}</view>
+        <view class='lottery__desc__bottom'>{{ticket.theme}}</view>
       </view>
     </view>
   </view>
   <view class='bottom__bar'>
-    <view class='bottom__ba__block home'><view class="icon__home"></view>首页</view>
+    <view class='bottom__ba__block home' bindtap="jumpToHome"><view class="icon__home"></view>首页</view>
     <view class='bottom__ba__block share'>分享好友（0/10）</view>
   </view>
 </view>

@@ -28,6 +28,12 @@ Page({
     members: []
   },
 
+  jumpToHome() {
+    wx.switchTab({
+      url: '../home/home'
+    })
+  },
+
   getActivityChop() {
     var _this = this
     wx.showLoading({

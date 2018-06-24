@@ -1,24 +1,13 @@
 // pages/lottery/lottery.js
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
+import {formatDate} from '../../utils/date.js';
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    swiperimage: [
-      {
-        type: '1',
-        thumb: '//file.yinxinlife.com/images/bg_header_gift.png'
-      },
-      {
-        type: '2',
-        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
-      },
-      {
-        type: '3',
-        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png'
-      }
-    ],
+    swiperimage: [],
     activity:[
       {
         icon:'//file.yinxinlife.com/images/icon_lottory_1.png',
@@ -48,11 +37,48 @@ Page({
       { profile:'//file.yinxinlife.com/images/bg_profile_1.png', name:'豆豆' },
       { profile:'//file.yinxinlife.com/images/bg_profile.png', name:'皮皮虾' },
       { profile:'//file.yinxinlife.com/images/bg_profile_2.png', name:'咪呀' },
-    ]
+    ],
+    filters:{
+      id: 0,
+      user_id: 0,
+      form_id: ''
+    },
+    detail: [],
+    ticket: {},
+    members: []
+  },
+
+  getActivityGroup() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(Api.getActivityGroup(), this.data.filters, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      ex.detail.starttime = formatDate(ex.detail.starttime*1000, 'yyyy-MM-dd HH:mm:ss') 
+      ex.detail.endtime = formatDate(ex.detail.endtime*1000, 'yyyy-MM-dd HH:mm:ss') 
+      _this.data.swiperimage.push({image: ex.detail.image})
+      const {detail, ticket, members} = ex
+      _this.setData({
+        swiperimage: _this.data.swiperimage,
+        detail: detail,
+        ticket: ticket,
+        members: members
+      })
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
+  },
+  jumpToHome() {
+    wx.switchTab({
+      url: '../home/home'
+    })
   },
 
   jumpToRuleDetail() {
-    var _this = this
     wx.navigateTo({
       url: '../rulesDetail/rulesDetail'
     })
@@ -66,7 +92,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('options: ', options);
+    this.setData({
+      'filters.id':parseInt(options.id)
+    })
     wx.setNavigationBarTitle({ title: '拼团抽奖' });
+    this.getActivityGroup()
   },
 
   /**

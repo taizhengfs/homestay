@@ -44,7 +44,7 @@
         <view class='discount__friend_r'>砍掉<view class='disp__inline__red'>{{item.chop_price}}</view>元</view>
       </view>
     </view>
-    <view class='detail__arrow'>
+    <view class='detail__arrow' wx:if="{{members.lenth>10}}">
       <view class='disp__inline'>查看全部</view>
       <image src='//file.yinxinlife.com/images/icon_more.png'></image>
     </view>
@@ -67,7 +67,7 @@
   </view>
   <view class='bottom__bar'>
 
-    <view class='bottom__ba__block home'>
+    <view class='bottom__ba__block home' bindtap="jumpToHome">
       <view class="icon__home"></view>首页</view>
     <view class='bottom__ba__block invite'><view class="icon__invite"></view>邀请砍价</view>
     <view class='bottom__ba__block share'>394.00元拿下</view>
