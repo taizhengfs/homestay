@@ -53,21 +53,21 @@ Component({
   methods: {
     jumpToDetail(e) {
       const dataset = e.currentTarget.dataset
-      console.log(dataset)
-      const {link, wxa_link, id} = dataset
-
-      if (wxa_link!=='') {
-        if (util.isTabBar(wxa_link)) {
-          wx.switchTab({
-              url: wxa_link
-          })
+      if(Object.keys(dataset).length!==0) {
+        const {link, wxa_link, id} = dataset
+        if (wxa_link!=='') {
+          if (util.isTabBar(wxa_link)) {
+            wx.switchTab({
+                url: wxa_link
+            })
+          } else {
+            wx.navigateTo({
+                url: wxa_link
+            })
+          }
         } else {
-          wx.navigateTo({
-              url: wxa_link
-          })
+          return
         }
-      } else {
-        return
       }
     }
   }

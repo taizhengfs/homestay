@@ -7,7 +7,7 @@
   font-size: 36rpx;
   line-height: 50rpx;
   text-align: left;
-  padding: 30rpx 10rpx 22rpx 10rpx;
+  padding: 30rpx 20rpx 22rpx 20rpx;
   border-bottom:2rpx solid rgba(234,234,234,1);
 }
 .detail__desc__single {
@@ -60,6 +60,7 @@
 }
 .detail__room__type {
   margin-bottom: 100rpx;
+  width: 100%;
 }
 .detail__bottom {
   width: 100%;

@@ -7,7 +7,7 @@
   ></swiperItem>
   <view class='detail__desc'>
     <view class='detail__desc__title'>
-      【开业特惠】大床房
+      {{detail.name}}
     </view>
     <view class='detail__desc__main'>
       <view class='detail__desc__single' wx:for="{{decList}}">
@@ -20,16 +20,14 @@
   <view class='detail__room__type'>
     <view class='detail__room__type__title'>房型说明</view>
     <view class='detail__room__type__main'>
-      <view class='room__type'>入住时间：15:00以后 离店时间：12:00以前 酒店早餐为自助早餐或套式早餐，可选中式餐点。</view>
-      <view class='room__type'>加床政策、儿童人数请参见您选定的客房政策，若超过房型限定人数，可能需收取额外费用。提出的任何要求均需获得酒店的确认，所有服务详情以酒店的告知为准。</view>
-      <view class='room__type'>每间客房最多容纳1名18岁以下儿童，和成人共用现有床铺。</view>
+      <view class='room__type'>{{detail.description}}</view>
     </view>
   </view>
   <view class='detail__bottom'>
     <view class='detail__bottom__l'>
-    参考价：<view class='single__red'>¥588</view>
+    参考价：<view class='single__red'>¥{{detail.open_price}}</view>
     </view>
-    <view class='detail__bottom__r'>
+    <view class='detail__bottom__r' data-tel="{{detail.order_phone}}" bindtap="makePhoneCall">
       <view class='icon__call'>
         <image src='//file.yinxinlife.com/images/icon_call.png'></image>
       </view>

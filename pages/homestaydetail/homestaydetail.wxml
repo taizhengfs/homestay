@@ -1,6 +1,8 @@
 <!--pages/homestaydetail/homestaydetail.wxml-->
 <view class='container'>
-  <swiperItem class="w__100"
+  <swiperItem
+    wx:if="{{swiperimage.length>0}}"
+    class="w__100"
     isShowPage="{{true}}" 
     isShowTitle="{{true}}" 
     isShowShare="{{true}}"
@@ -67,9 +69,9 @@
       </view>
     </view>
   </view>
-  <detailCard title="可选房型" isShowArrow="{{true}}" class="w__100">
+  <detailCard title="可选房型" isShowArrow="{{true}}" wx:if="{{house.length>0}}" class="w__100">
     <view class='detail__card__roomlist detail__card_pad'>
-      <view class='room__list' bindtap='jumpToRoomDetail' wx:for="{{house}}">
+      <view class='room__list' bindtap='jumpToRoomDetail' data-id="{{item.id}}" wx:for="{{house}}">
         <view class='room__list__l'>
           <view class='room__list__l__t'>{{item.name}}</view>
           <view class='room__list__l__m'>{{item.breakfast==1?'含早':'不含早'}}{{item.window==1?'有窗':'无窗'}}</view>
@@ -106,7 +108,7 @@
         特色菜：<view class='disp__inline'>{{detail.dine_dishes}} </view>
       </view>
     </view>
-    <view class='detail__info__dishes'>
+    <view class='detail__info__dishes' wx:if="{{detail.dine_atlas.length>0}}">
       <view class='detail__disher__content'>
         <view class='detail__disher__block' wx:for="{{detail.dine_atlas}}">
           <view class='detail__disher__block_t'>
@@ -121,16 +123,16 @@
   </detailCard>
   <detailCard title="其他介绍" isShowArrow="{{false}}" class="w__100">
     <view class='detail__card__info detail__card_pad'>
-      <view class='detail__info__block'>
+      <view class='detail__info__block' wx:if="{{!!detail.special_project}}">
         特色项目：<view class='disp__inline'>{{detail.special_project}}</view>
       </view>
-      <view class='detail__info__block'>
+      <view class='detail__info__block' wx:if="{{!!detail.create_at}}">
         入驻隐心时间：<view class='disp__inline'>{{detail.create_at}}</view>
       </view>
-      <view class='detail__info__block'>
+      <view class='detail__info__block' wx:if="{{!!detail.meeting_room}}">
         会议室：<view class='disp__inline'>{{detail.meeting_room}}</view>
       </view>
-      <view class='detail__info__block'>
+      <view class='detail__info__block' wx:if="{{!!detail.activity_space}}">
         活动空间：<view class='disp__inline'>{{detail.activity_space}}</view>
       </view>
     </view>

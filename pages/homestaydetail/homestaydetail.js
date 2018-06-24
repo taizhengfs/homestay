@@ -109,10 +109,10 @@ Page({
     wx.setNavigationBarTitle({ title: '民宿详情' });
   },
 
-  jumpToRoomDetail() {
-    var _this = this
+  jumpToRoomDetail(e) {
+    const dataset = e.currentTarget.dataset
     wx.navigateTo({
-      url: '../roomDetail/roomDetail'
+      url: `../roomDetail/roomDetail?id=${dataset.id}`
     })
   },
   goToMap: function (e) {
@@ -153,7 +153,6 @@ Page({
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
-      console.log()
     })
   },
 
