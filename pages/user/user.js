@@ -32,7 +32,8 @@ Page({
     userDetail: {},
     user_info: {},
     operations: [],
-    welfare: []
+    welfare: [],
+    detail:{}
   },
   jumpToPage(e) {
     let url = e.currentTarget.dataset.url
@@ -52,6 +53,7 @@ Page({
       let ex = res.data.data
       const {user_info, operations, welfare} = ex
       _this.setData({
+        detail: ex,
         user_info: user_info,
         operations: operations,
         welfare: welfare

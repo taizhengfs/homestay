@@ -90,7 +90,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    util._get(Api.postUserEdit(), _this.data.filters, res => {
+    util._post(Api.postUserEdit(), _this.data.filters, res => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data

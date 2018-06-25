@@ -4,7 +4,7 @@ const VERSION = '0.3';
 const GET_UPDATA_USER_INFO = '/wxapp/update';//更新用户TOKEN
 const POST_USER_INFO = '/wxapp/setUserInfo'
 const GET_USER_INFO = '/wxapp/login'
-const POST_USER_TICKET_LIST = '/user/ticketList'
+const GET_USER_TICKET_LIST = '/user/ticketList'
 const POST_USER_EDIT = '/user/edit'
 const GET_USER_HOME = '/user/home'
 const GET_TICKET_DETAIL = '/ticket/detail'
@@ -48,8 +48,8 @@ module.exports = {
     return '0.0.1'
   },
   // 我的票券
-  postUserTicketList() {
-    return HOST_URI + POST_USER_TICKET_LIST
+  getUserTicketList() {
+    return HOST_URI + GET_USER_TICKET_LIST
   },
   // 编辑个人信息
   postUserEdit() {

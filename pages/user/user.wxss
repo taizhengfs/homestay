@@ -95,7 +95,6 @@ page {
   position: relative;
 }
 .user__progress__now {
-  width: 50%;
   background: #BAA68B;
   position: absolute;
   border-radius: 50rpx;

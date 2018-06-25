@@ -3,22 +3,22 @@
   <view class='card__block__top'>
     <view class='card__block__top__left'>
       <view class='card__block__top__lt'>
-        {{title}}<view class='card__block__tag tag_type_{{ticketType}}'>房券</view>
+        {{title}}<view class='card__block__tag tag_type_{{type}}'>房券</view>
       </view>
       <view class='card__block__top__lb'>
         {{desc}}
       </view>
     </view>
     <view class='card__block__top__right'>
-      <view class='card__block__top__price price_color_type_{{ticketType}}'>
+      <view class='card__block__top__price price_color_type_{{type}}'>
         ¥{{price}}
       </view>
-      <view class='card__block__top__btn btn_type_{{ticketType}}'>
+      <view class='card__block__top__btn btn_type_{{type}}'>
         {{ticketCate}}
       </view>
     </view>
   </view>
-  <view class='card__block__bottom text_type_{{ticketType}}'>
+  <view class='card__block__bottom text_type_{{type}}'>
     {{startTime}} - {{endTime}}
   </view>
 </view>

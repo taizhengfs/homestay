@@ -1,6 +1,9 @@
 // pages/myCard/myCard.js
+// postUserTicketList
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
+import {formatDate} from '../../utils/date.js';
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -43,7 +46,26 @@ Page({
         ticketCate: '已过期',
         price: 380
       },
-    ]
+    ],
+    filters:{
+      page:1,
+      pageSize:10
+    }
+  },
+  getUserTicketList() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(Api.getUserTicketList(), _this.data.filters, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      console.log(ex)
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
   },
   showCard(e) {
     console.log(e)
@@ -56,6 +78,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getUserTicketList()
     wx.setNavigationBarTitle({ title: '我的卡包' });
   },
 

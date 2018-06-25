@@ -6,6 +6,7 @@
       wx:key = "{{index}}"
       title = "{{item.title}}"
       desc = "{{item.desc}}"
+      type = "{{item.ticketType}}"
       startTime = "{{item.startTime}}"
       endTime = "{{item.endTime}}"
       ticketCate = "{{item.ticketCate}}"

@@ -24,7 +24,7 @@
       </view>
       <view class="user__progress">
         <view class="user__progress__main">
-          <view class="user__progress__now">
+          <view class="user__progress__now" style="width:{{user_info.exp/user_info.next_exp*100}}%">
           </view>
         </view>
       </view>
@@ -83,7 +83,7 @@
           <view>我的卡包</view>
         </view>
         <view class="user__cell__right">
-          <view>有<view style="color: #C12121;display: inline;">1</view>张券将过期</view>
+          <view>有<view style="color: #C12121;display: inline;">{{detail.expire_ticket_no}}</view>张券将过期</view>
           <view class="icon__arrow__right"></view>
         </view>
       </view>
@@ -93,7 +93,7 @@
           <view>我的活动</view>
         </view>
         <view class="user__cell__right">
-          <view>2个进行中</view>
+          <view>{{detail.activity_no}}个进行中</view>
           <view class="icon__arrow__right"></view>
         </view>
       </view>
@@ -103,7 +103,7 @@
           <view>我的团建活动</view>
         </view>
         <view class="user__cell__right">
-          <view style="color: #C12121">有新进展</view>
+          <view wx:if="{{detail.require_no>0}}" style="color: #C12121">有新进展</view>
           <view class="icon__arrow__right"></view>
         </view>
       </view>
