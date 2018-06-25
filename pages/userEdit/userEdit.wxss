@@ -55,19 +55,21 @@
   line-height: 96rpx;
   font-size:28rpx;
 }
+input.user__edit__input {
+  padding-left: 15rpx;
+}
 .user__edit__input {
   line-height: 96rpx;
   height: 96rpx;
   font-size:28rpx;
   margin-left: 10rpx;
-  padding-left: 15rpx;
+  color:rgba(186,166,139,1);
 }
 .input__style {
   font-size:28rpx;
   color:rgba(186,166,139,1);
   line-height:40rpx;
   margin-left: 10rpx;
-  padding-left: 15rpx;
 }
 .user__picker {
   font-size:28rpx;

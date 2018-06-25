@@ -231,8 +231,9 @@ const wxAuthorize = function (callback) {
         if (res.data.code == 200) {
           var isLogin = res.data.data.login;
           wx.setStorageSync('isLogin', isLogin);
+          wx.setStorageSync('userInfo', res.data.data.user);
           wx.setStorageSync('token', res.data.data.token);
-          if (isLogin !==1) {
+          if (isLogin!==1) {
             wx.getUserInfo({
               lang: 'zh_CN',
               withCredentials: true,
@@ -250,7 +251,7 @@ const wxAuthorize = function (callback) {
               }
             })           
           }else {
-            wx.setStorageSync('unionId', res.data.data.info.union_id);
+            // wx.setStorageSync('unionId', res.data.data.info.union_id);
           }
         }
       })      
@@ -265,8 +266,10 @@ const setMember = function (res, callback) {
     encryptedData: res.encryptedData,
     iv: res.iv
   }, function (res) {
+    console.log('res: ', res);
     // 更新用户过期时间
-    if (res.code === 200) {
+    if (res.data.code === 200) {
+      console.log(2222)
       requestStatus = 2
       // 写入缓存
       wx.setStorageSync('isLogin', 1);

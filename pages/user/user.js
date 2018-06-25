@@ -1,4 +1,6 @@
 // pages/user/user.js
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
 Page({
 
   /**
@@ -26,7 +28,11 @@ Page({
         id:5,
         ticket_name:'和风民宿房券'
       }
-    ]
+    ],
+    userDetail: {},
+    user_info: {},
+    operations: [],
+    welfare: []
   },
   jumpToPage(e) {
     let url = e.currentTarget.dataset.url
@@ -35,11 +41,35 @@ Page({
     })
   },
 
+  getUserHome() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(Api.getUserHome(), {}, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      const {user_info, operations, welfare} = ex
+      _this.setData({
+        user_info: user_info,
+        operations: operations,
+        welfare: welfare
+      })
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      userDetail: wx.getStorageSync('userInfo')
+    })
+    this.getUserHome()
   },
 
   /**

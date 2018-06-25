@@ -24,6 +24,7 @@ const POST_ACTIVITY_ADD_GROUP = '/activity/addGroup'
 const GET_HOME_HOME = '/home/home'
 const GET_ACTIVITY_CHOP = '/activity/chop'
 const GET_ACTIVITY_GROUP = '/activity/group'
+const GET_USER_INFO_DETAIL = '/user/info'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -126,4 +127,8 @@ module.exports = {
   getActivityGroup() {
     return HOST_URI + GET_ACTIVITY_GROUP
   },
+  // 获取个人信息详情
+  getUserInfoDetail() {
+    return HOST_URI + GET_USER_INFO_DETAIL
+  }
 };

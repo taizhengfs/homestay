@@ -1,11 +1,13 @@
 // pages/userInfo/userInfo.js
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-  
+    userDetail: {},
+    userInfo: {}
   },
   jumpToPage(e) {
     let url = e.currentTarget.dataset.url
@@ -14,10 +16,33 @@ Page({
     })
   },
 
+  getUserInfoDetail() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(Api.getUserInfoDetail(), {}, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      console.log(ex)
+      _this.setData({
+        userInfo: ex
+      })
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getUserInfoDetail()
+    this.setData({
+      userDetail: wx.getStorageSync('userInfo')
+    })
     wx.setNavigationBarTitle({ title: '个人信息' });
   },
 

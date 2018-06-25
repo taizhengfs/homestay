@@ -18,7 +18,7 @@
   <view class='detail__location'>
     <view class="detail__cell" data-lat="{{detail.location[1]}}" data-long="{{detail.location[0]}}" bindtap="goToMap">
       <view class="detail__cell__icon">
-        <image src="//file.yinxinlife.com/images/icon_location.png"></image>
+        <image src="http://file.yinxinlife.com/images/icon_location.png"></image>
         <view class='detail__cell__display'>
           <view class='detail__cell__display__top'>
           {{detail.district}}{{detail.address}}
@@ -35,7 +35,7 @@
     </view>
     <view class="detail__cell phone" bindtap="makePhoneCall" data-tel="{{detail.order_phone}}">
       <view class="detail__cell__icon">
-        <image src="//file.yinxinlife.com/images/icon_phone.png"></image>
+        <image src="http://file.yinxinlife.com/images/icon_phone.png"></image>
         <view class='detail__phone'>{{detail.order_phone}}</view>
       </view>
       <view class="detail__cell__right">
@@ -49,7 +49,7 @@
       <view class='detail__ex__block_l'>
         <view class="detail__ticket__block">
           <view class="detail__ticket__top">
-            <image src="{{iconList[item.type]}}"></image>
+            <image src="http:{{iconList[item.type]}}"></image>
           </view>
           <view class="detail__ticket__bottom">
             {{item.type_name}}

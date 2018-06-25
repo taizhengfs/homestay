@@ -24,7 +24,7 @@
       price="{{item.price}}"
       realPrice="{{item.price}}"
       participateNum="{{item.part_no}}"
-      activityDesc="{{item.description}}"
+      activityDesc="{{item.name}}"
       cover="{{item.image}}"
       type="{{item.type}}"
       activityId="{{item.id}}"
