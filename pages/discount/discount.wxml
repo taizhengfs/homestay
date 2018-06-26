@@ -37,7 +37,7 @@
         <view class='discount__friend_l'>
           <view class='discount__rank'>{{index+1}}、</view>
           <view class='discount__friend_profile'>
-            <image src='https:{{item.avatar}}'></image>
+            <image src='http:{{item.avatar}}'></image>
           </view>
           <view>{{item.nickname}}</view>
         </view>

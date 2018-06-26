@@ -1,6 +1,6 @@
 <view class="home__activity__block" bindtap='onTap'>
     <view class="home__activity__main">
-      <image class="home__activity__main__cover" src="https:{{cover}}"></image>
+      <image class="home__activity__main__cover" src="http:{{cover}}"></image>
       <view class="home__activity__main__top">
         <view class="home__type__tips">
           <view class="home__type__tips__top">

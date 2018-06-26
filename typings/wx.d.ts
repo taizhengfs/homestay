@@ -1,6 +1,6 @@
 // generate time:2017-08-23 21:12:06 
 // Type definitions for wx app
-// Definitions by: hellopao <https://github.com/hellopao/wx.d.ts>
+// Definitions by: hellopao <http://github.com/hellopao/wx.d.ts>
 
 /************************************************
 *                                               *
@@ -447,7 +447,7 @@ declare var wx: {
     }): void;
                     
     /**
-     * 将本地资源上传到开发者服务器。如页面通过 wx.chooseImage 等接口获取到一个本地资源的临时文件路径后，可通过此接口将本地资源上传到指定服务器。客户端发起一个 HTTPS POST 请求，其中 content-type 为 multipart/form-data 。
+     * 将本地资源上传到开发者服务器。如页面通过 wx.chooseImage 等接口获取到一个本地资源的临时文件路径后，可通过此接口将本地资源上传到指定服务器。客户端发起一个 http: POST 请求，其中 content-type 为 multipart/form-data 。
      */
     uploadFile(obj: {
         /**
