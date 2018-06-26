@@ -35,7 +35,8 @@ Page({
       },
     ],
     filters:{
-      id: 0
+      id: 0,
+      item_id: 0
     },
     user_ticket:{},
     detail:{},
@@ -56,7 +57,6 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data
-      console.log(ex)
       ex.detail.content = ex.detail.content.replace(/<img /g, '<img style="max-width:100%;"');
       ex.detail.u_starttime = formatDate(ex.detail.u_starttime*1000, 'yyyy-MM-dd HH:mm:ss') 
       ex.detail.u_endtime = formatDate(ex.detail.u_endtime*1000, 'yyyy-MM-dd HH:mm:ss') 
@@ -87,8 +87,10 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      'filters.id': options.id
+      'filters.id': options.id,
+      'filters.item_id': options.item_id
     })
+    console.log(options)
     this.getTicketDetail()
     wx.setNavigationBarTitle({ title: '票券详情' });
   },

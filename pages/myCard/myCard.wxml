@@ -5,6 +5,7 @@
       wx:for = "{{list}}"
       wx:key = "{{index}}"
       title = "{{item.name}}"
+      itemId = "{{item.id}}"
       ticketId = "{{item.ticket_id}}"
       typeName = "{{item.type_name}}"
       desc = "{{item.theme}}"

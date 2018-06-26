@@ -23,7 +23,7 @@
         </view>
         <view class='exp__detail__cnt__r__m' data-lat="{{homestay.location[1]}}" data-long="{{homestay.location[0]}}" bindtap="goToMap">
           <view class="icon__cnt">
-            <image src="http://file.yinxinlife.com/images/icon_location.png"></image>
+            <image src="https://file.yinxinlife.com/images/icon_location.png"></image>
           </view>
           {{homestay.district}}{{homestay.address}}-距我{{homestay.distance}}公里
         </view>
@@ -47,7 +47,7 @@
     <view class='new__sign__list'>
       <view class='new__sign__block' wx:for="{{apply}}">
         <view class="new__sign__block__l">
-          <image src="http:{{item.avatar}}"></image>
+          <image src="https:{{item.avatar}}"></image>
         </view>
         <view class="new__sign__block__r">
           <view class="new__sign__block__r__t">

@@ -25,6 +25,7 @@ const GET_HOME_HOME = '/home/home'
 const GET_ACTIVITY_CHOP = '/activity/chop'
 const GET_ACTIVITY_GROUP = '/activity/group'
 const GET_USER_INFO_DETAIL = '/user/info'
+const GET_USER_REQUIRE_LIST = '/user/requireList '
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -130,5 +131,9 @@ module.exports = {
   // 获取个人信息详情
   getUserInfoDetail() {
     return HOST_URI + GET_USER_INFO_DETAIL
-  }
+  },
+  // 获取团建会议列表
+  getUserRequireList() {
+    return HOST_URI + GET_USER_REQUIRE_LIST
+  },
 };

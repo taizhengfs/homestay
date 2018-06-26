@@ -20,7 +20,7 @@
   <view class="ticket__sub">{{detail.theme}}</view>
   <view class='exp__detail__block'>
     <view class='exp__detail__title'>您的优惠码：</view>
-    <view class="exp__ticket__num">9384 7661 841</view>
+    <view class="exp__ticket__num">{{user_ticket.code}}</view>
   </view>
   <view class='exp__detail__block'>
     <view class='exp__detail__title'>商家详情</view>
@@ -37,7 +37,7 @@
         </view>
         <view class='exp__detail__cnt__r__m' data-lat="{{homestay.location[1]}}" data-long="{{homestay.location[0]}}" bindtap="goToMap">
           <view class="icon__cnt">
-            <image src="http://file.yinxinlife.com/images/icon_location.png"></image>
+            <image src="https://file.yinxinlife.com/images/icon_location.png"></image>
           </view>
           {{homestay.district}}{{homestay.address}}-距我{{homestay.distance}}公里
         </view>

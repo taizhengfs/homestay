@@ -92,9 +92,10 @@ Page({
       }})
   },
   showCard(e) {
-    console.log(e.detail.id)
+    console.log(e.detail.ticketId)
+    console.log(e.detail.itemId)
     wx.navigateTo({
-      url: `../ticketDetail/ticketDetail?id=${e.detail.id}`
+      url: `../ticketDetail/ticketDetail?id=${e.detail.ticketId}&item_id=${e.detail.itemId}`
     })
     // this.setData({
     //   isShowCard: !this.data.isShowCard

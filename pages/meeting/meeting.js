@@ -1,6 +1,9 @@
 // pages/meeting/meeting.js
+// getUserRequireList
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
+import {formatDate} from '../../utils/date.js';
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -36,18 +39,47 @@ Page({
         time:'将于2018-5-28   18:18开展团建',
         createtime:'2018-5-20  提交'
       }
-    ]
+    ],
+    filters: {
+      page: 1,
+      pageSize: 10
+    }
   },
   jumpToDetail() {
     wx.navigateTo({
       url: '../meetingDetail/meetingDetail'
     })
   },
+  getUserRequireList() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(Api.getUserRequireList(), _this.data.filters, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      console.log(ex)
+      // ex.list.forEach(val=>{
+      //   val.u_starttime = formatDate(val.u_starttime*1000, 'yyyy-MM-dd HH:mm') 
+      //   val.u_endtime = formatDate(val.u_endtime*1000, 'yyyy-MM-dd HH:mm')
+      // })
+      // const {list} = ex
+      // this.setData({
+      //   list: list
+      // })
+    }, error => {
+      if(error){
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
+      }})
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getUserRequireList()
     wx.setNavigationBarTitle({ title: '团建会议' });
   },
 

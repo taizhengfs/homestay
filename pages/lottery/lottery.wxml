@@ -18,7 +18,7 @@
       <view class='lottery__single' wx:for="{{activity}}">
         <view class="lottery__ticket__block">
           <view class="lottery__ticket__top">
-            <image src="http:{{item.icon}}"></image>
+            <image src="https:{{item.icon}}"></image>
           </view>
           <view class="lottery__ticket__bottom">
             {{item.title}}
