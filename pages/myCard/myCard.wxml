@@ -2,13 +2,15 @@
 <view class='container'>
   <view class='card__content'>
     <ticket
-      wx:for = "{{ticketList}}"
+      wx:for = "{{list}}"
       wx:key = "{{index}}"
-      title = "{{item.title}}"
-      desc = "{{item.desc}}"
+      title = "{{item.name}}"
+      ticketId = "{{item.ticket_id}}"
+      typeName = "{{item.type_name}}"
+      desc = "{{item.theme}}"
       type = "{{item.ticketType}}"
-      startTime = "{{item.startTime}}"
-      endTime = "{{item.endTime}}"
+      startTime = "{{item.u_starttime}}"
+      endTime = "{{item.u_endtime}}"
       ticketCate = "{{item.ticketCate}}"
       price = "{{item.price}}"
       bindmyevent = "showCard"

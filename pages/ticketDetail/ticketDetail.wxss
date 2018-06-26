@@ -262,3 +262,10 @@
   padding: 0 32rpx 28rpx;
   box-sizing: border-box;
 }
+.exp__ticket__num {
+  width: 100%;
+  text-align: center;
+  font-size:60rpx;
+  color:rgba(186,166,139,1);
+  line-height:60rpx;
+}

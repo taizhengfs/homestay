@@ -8,6 +8,10 @@ Component({
       type: Number,
       value: 1
     },
+    typeName: {
+      type: String,
+      value: ''
+    },
     title: {
       type: String,
       value: ''
@@ -21,12 +25,16 @@ Component({
       value: ''
     },
     startTime: {
-      type: String,
-      value: '2018.5.24 12:00'
+      type: Number,
+      value: 1527782400
     },
     endTime: {
-      type: String,
-      value: '2018.6.24 12:00'
+      type: Number,
+      value: 1530288000
+    },
+    ticketId: {
+      type: Number,
+      value: 0
     },
     ticketCate: {
       type: String,
@@ -46,7 +54,7 @@ Component({
    */
   methods: {
     showCard: function () {
-      var myEventDetail = {} // detail对象，提供给事件监听函数
+      var myEventDetail = {id: this.properties.ticketId} // detail对象，提供给事件监听函数
       var myEventOption = {} // 触发事件的选项
       this.triggerEvent('myevent', myEventDetail, myEventOption)
     }

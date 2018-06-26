@@ -50,7 +50,8 @@ Page({
     filters:{
       page:1,
       pageSize:10
-    }
+    },
+    list: []
   },
   getUserTicketList() {
     var _this = this
@@ -61,17 +62,43 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data
-      console.log(ex)
+      ex.list.forEach(val=>{
+        val.u_starttime = formatDate(val.u_starttime*1000, 'yyyy-MM-dd HH:mm') 
+        val.u_endtime = formatDate(val.u_endtime*1000, 'yyyy-MM-dd HH:mm')
+        if (val.use_status === 3) {
+          if (val.can_use === 1) {
+            val.ticketCate = '立即使用'
+            val.ticketType = 2
+          } else if (val.can_use === 0) {
+            val.ticketCate = '暂不可用'
+            val.ticketType = 1
+          }
+        } else if (val.use_status === 4) {
+          val.ticketCate = '已使用'
+          val.ticketType = 3
+        } else if (val.use_status === 5) {
+          val.ticketCate = '已过期'
+          val.ticketType = 4
+        }
+      })
+      const {list} = ex
+      this.setData({
+        list: list
+      })
     }, error => {
-      wx.hideLoading()
-      wx.stopPullDownRefresh()
-    })
+      if(error){
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
+      }})
   },
   showCard(e) {
-    console.log(e)
-    this.setData({
-      isShowCard: !this.data.isShowCard
+    console.log(e.detail.id)
+    wx.navigateTo({
+      url: `../ticketDetail/ticketDetail?id=${e.detail.id}`
     })
+    // this.setData({
+    //   isShowCard: !this.data.isShowCard
+    // })
   },
 
   /**
