@@ -29,7 +29,7 @@
     </view>
     <view class='exp__detail__cnt'>
       <view class='exp__detail__cnt__l'>
-        <image src='{{homestay.image}}'></image>
+        <image src='http:{{homestay.image}}'></image>
       </view>
       <view class='exp__detail__cnt__r'>
         <view class='exp__detail__cnt__r__t'>

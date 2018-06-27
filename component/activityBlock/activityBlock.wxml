@@ -5,7 +5,7 @@
         <view class="home__type__tips">
           <view class="home__type__tips__top">
             <image class="home__type__tips__top__icon" 
-              src='//file.yinxinlife.com/images/home_icon_{{type===0?"gift":type===1?"cheap_type_2":"cheap_type_1"}}.png'></image>
+              src='http://file.yinxinlife.com/images/home_icon_{{type===0?"gift":type===1?"cheap_type_2":"cheap_type_1"}}.png'></image>
             <text class="home__type__tips__top__text">{{type_name}}</text>
           </view>
           <view class="home__type__tips__bottom" wx:if="{{timeStatus!==0}}">

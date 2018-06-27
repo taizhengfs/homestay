@@ -2,7 +2,7 @@
 <view class='container'>
   <view class='bg_header'>
     <view class='icon__button'>立即咨询</view>
-    <image src='//file.yinxinlife.com/images/bg_consult.png'></image>
+    <image src='http://file.yinxinlife.com/images/bg_consult.png'></image>
   </view>
   <view class='team__card'>
     <view class='team__card__title'>隐心团建服务特色</view>
@@ -19,7 +19,7 @@
       <view class='item__content'>
         <view class='item__problem__single' wx:for="{{problemList}}">{{item}}</view>
       </view>
-      <image src='//file.yinxinlife.com/images/bg_problems.png'></image>
+      <image src='http://file.yinxinlife.com/images/bg_problems.png'></image>
     </view>
   </view>
   <view class='team__card'>

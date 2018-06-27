@@ -2,7 +2,7 @@
 <view class='container'>
   <view class='experiencer__top'>
     <view class='experiencer__top__left'>
-      <image src='//file.yinxinlife.com/images/bg_profile.png'></image>
+      <image src='http://file.yinxinlife.com/images/bg_profile.png'></image>
     </view>
     <view class='experiencer__top__right'>
       <view class='experiencer__top__right__name'>有点痴心</view>

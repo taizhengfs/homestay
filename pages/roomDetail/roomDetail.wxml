@@ -29,7 +29,7 @@
     </view>
     <view class='detail__bottom__r' data-tel="{{detail.order_phone}}" bindtap="makePhoneCall">
       <view class='icon__call'>
-        <image src='//file.yinxinlife.com/images/icon_call.png'></image>
+        <image src='http://file.yinxinlife.com/images/icon_call.png'></image>
       </view>
       电话预定
     </view>

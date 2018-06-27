@@ -3,7 +3,7 @@
   <view class='user-info__content'>
     <view class='user-info__block'>
       <view class='user-info__block__left'>头像</view>
-      <view class='user-info__block__right'><image src='{{userDetail.avatar}}'></image></view>
+      <view class='user-info__block__right'><image src='http:{{userDetail.avatar}}'></image></view>
     </view>
     <view class='user-info__block'>
       <view class='user-info__block__left'>昵称</view>

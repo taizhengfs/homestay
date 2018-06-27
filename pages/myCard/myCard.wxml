@@ -28,7 +28,7 @@
       <view class='pane__desc'>其他描述：<view class='disp__breakline'>使用优惠券时，需要发起人(团长)即可获抽奖 资格参与XX；有效时间为24小时，2018年5 月25日有效期前未达助力人数则失效，抽奖 机会支付款项即时原路返还；</view></view>
     </view>
     <view class='icon__close__pane' wx:if="{{isShowCard}}" bindtap='showCard'>
-     <image class='icon__close__image' src='//file.yinxinlife.com/images/meeting/icon_close.png'></image>
+     <image class='icon__close__image' src='http://file.yinxinlife.com/images/meeting/icon_close.png'></image>
     </view>
     <view class='pane__mask' wx:if="{{isShowCard}}">
     </view>
