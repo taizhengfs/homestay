@@ -25,7 +25,9 @@ const GET_HOME_HOME = '/home/home'
 const GET_ACTIVITY_CHOP = '/activity/chop'
 const GET_ACTIVITY_GROUP = '/activity/group'
 const GET_USER_INFO_DETAIL = '/user/info'
-const GET_USER_REQUIRE_LIST = '/user/requireList '
+const GET_USER_REQUIRE_LIST = '/user/requireList'
+const GET_USER_ACTIVITY_LIST = '/user/activityList'
+const GET_EXPERIENCE_APPLY = '/user/experienceActivityApply'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -136,4 +138,12 @@ module.exports = {
   getUserRequireList() {
     return HOST_URI + GET_USER_REQUIRE_LIST
   },
+  // 获取我的活动列表
+  getUserActivityList() {
+    return HOST_URI + GET_USER_ACTIVITY_LIST
+  },
+  // 体验活动报名
+  getExperienceApply() {
+    return HOST_URI + GET_EXPERIENCE_APPLY
+  }
 };

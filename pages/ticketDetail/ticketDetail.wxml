@@ -18,7 +18,7 @@
     {{detail.name}}
   </view>
   <view class="ticket__sub">{{detail.theme}}</view>
-  <view class='exp__detail__block'>
+  <view class='exp__detail__block' wx:if="{{!!user_ticket.code}}">
     <view class='exp__detail__title'>您的优惠码：</view>
     <view class="exp__ticket__num">{{user_ticket.code}}</view>
   </view>

@@ -1,6 +1,9 @@
 // pages/meetingDetail/mettingInfo.js
+// getUserActivityList
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
+import {formatDate} from '../../utils/date.js';
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -36,13 +39,33 @@ Page({
         cover: '//file.yinxinlife.com/images/home_bg_item_3.png',
         activityDesc: '夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
       },
-    ]
+    ],
+    filters:{
+      page: 1,
+      pageSize: 10
+    }
+  },
+  getUserActivityList() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(Api.getUserActivityList(), this.data.filters, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      console.log('ex: ', ex);      
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getUserActivityList()
     wx.setNavigationBarTitle({ title: '我的活动' });
   },
 

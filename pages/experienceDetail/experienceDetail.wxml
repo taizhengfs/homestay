@@ -65,6 +65,6 @@
   <view class='bottom__bar'>
     <view class='bottom__ba__block' bindtap="jumpToHome"><view class="icon__home"></view>首页</view>
     <view class='bottom__ba__block'><view class="icon__share"></view>分享</view>
-    <view class='bottom__ba__block join'>立即报名</view>
+    <view class='bottom__ba__block join' data-id="{{detail.id}}" bindtap="jumpToJoin">立即报名</view>
   </view>
 </view>

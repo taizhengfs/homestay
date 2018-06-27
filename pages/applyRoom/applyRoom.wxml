@@ -6,21 +6,37 @@
   <view class='edit__area'>
     <view class='icon__deit'></view>
     <view class='edit__area__main'>
-      <textarea maxlength="1000" bindinput='tapToEdit' placeholder='请输入报名内容' class='edit__area__main'></textarea>
+      <textarea maxlength="1000" value="{{filters.content}}" bindinput='tapToEdit' placeholder='请输入报名内容' class='edit__area__main'></textarea>
       <view class='text__num'>
-        {{currentLength}}/1000
+        {{filters.content.length}}/1000
       </view>
     </view>
+  </view>
+  <view class="image__area" wx:if="{{imgList.length>0}}">
+    <image wx:for="{{imgList}}" wx:key="{{index}}" bindlongtap="showDeleteBox" data-key="{{index}}" src="{{item}}"></image>
   </view>
   <view class='add__image__cnt'>
     <view class='add__image' bindtap='selectPic'>
       <view class='add__image__top'>
         <view class='icon__plus__add__gold'></view>
       </view>
-      <view class='add__image__bottom'>添加照片(0/5)</view>
+      <view class='add__image__bottom'>添加照片({{imgList.length}}/5)</view>
     </view>
   </view>
-  <view class="form__submit" bindtap='showPaneCard'>
+  <view class="form__submit" bindtap='getExperienceApply'>
     提交申请
   </view>
+  <view class='pane__success' wx:if="{{isShowCard}}">
+      <view class='pane__icon__success'>
+        <image src='../../images/icon_alert.svg'></image>
+      </view>
+      <view class='pane__title'>删除图片</view>
+      <text class='pane__desc'>改操作不可逆，是否要继续\n删除该图片？</text>
+      <view class="pane__button__group">
+        <view class='pane__button' bindtap='showPaneCard'>取消</view>
+        <view class='pane__button delete' bindtap='deleteImage'>删除</view>
+      </view>
+    </view>
+    <view class='pane__mask' wx:if="{{isShowCard}}">
+    </view>
 </view>

@@ -95,7 +95,8 @@ Page({
   onLoad: function (options) {
     console.log('options: ', options);
     this.setData({
-      'filters.id':parseInt(options.id)
+      'filters.id':parseInt(options.id),
+      'filters.user_id':wx.getStorageSync('userInfo').id,
     })
     wx.setNavigationBarTitle({ title: '拼团抽奖' });
     this.getActivityGroup()

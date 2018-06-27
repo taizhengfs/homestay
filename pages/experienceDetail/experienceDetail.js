@@ -106,7 +106,14 @@ Page({
       wx.stopPullDownRefresh()
     })
   },
-
+  jumpToJoin(e) {
+    wx.navigateTo({
+      url: `../applyRoom/applyRoom?id=${e.currentTarget.dataset.id}`,
+      success: function(res){
+        // success
+      },
+    })
+  },
   jumpToHome() {
     wx.switchTab({
       url: '../home/home'

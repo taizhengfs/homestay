@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_alert</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Artboard" transform="translate(-420.000000, -64.000000)" stroke="#C12121">
+            <g id="Group-14" transform="translate(421.000000, 65.000000)">
+                <path d="M52.9610949,2.5732452 C48.6264555,0.910901603 43.919604,0 39,0 C17.4608948,0 0,17.4608948 0,39 C0,60.5391052 17.4608948,78 39,78 C60.5391052,78 78,60.5391052 78,39 C78,25.3010721 70.9370792,13.2517778 60.2541026,6.29498201" id="Oval-2" stroke-width="2"></path>
+                <path d="M39,45.9168457 L39,16.9168457" id="Path-17" stroke-width="6"></path>
+                <path d="M39,58.9168457 L39,58" id="Path-17-Copy-3" stroke-width="6"></path>
+            </g>
+        </g>
+    </g>
+</svg>

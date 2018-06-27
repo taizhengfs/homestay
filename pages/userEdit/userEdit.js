@@ -106,6 +106,9 @@ Page({
    */
   onLoad: function (options) {
     this.getUserInfoDetail()
+    this.setData({
+      userDetail: wx.getStorageSync('userInfo')
+    })
   },
 
   /**
