@@ -108,7 +108,23 @@ Page({
     this.getHomestayDetail()
     wx.setNavigationBarTitle({ title: '民宿详情' });
   },
-
+  jumpToActivity(e) {
+    const dataset = e.currentTarget.dataset
+    const {type, id} = dataset
+    if(type===0) {
+      wx.navigateTo({
+        url: `../experienceDetail/experienceDetail?id=${dataset.id}`
+      })
+    } else if(type===1) {
+      wx.navigateTo({
+        url: `../lottery/lottery?id=${dataset.id}`
+      })
+    } else {
+      wx.navigateTo({
+        url: `../discount/discount?id=${dataset.id}`
+      })
+    }
+  },
   jumpToRoomDetail(e) {
     const dataset = e.currentTarget.dataset
     wx.navigateTo({
