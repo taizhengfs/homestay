@@ -2,39 +2,49 @@
 <view class='container'>
   <view class='experiencer__top'>
     <view class='experiencer__top__left'>
-      <image src='http://file.yinxinlife.com/images/bg_profile.png'></image>
+      <image src='{{userinfo.avatar}}'></image>
     </view>
     <view class='experiencer__top__right'>
-      <view class='experiencer__top__right__name'>有点痴心</view>
-      <view class='experiencer__top__right__tags'>S2体验师，晚上好</view>
+      <view class='experiencer__top__right__name'>{{userinfo.nickname}}</view>
+      <view class='experiencer__top__right__tags'>{{detail.experiencer_level_name}}体验师，{{greetings}}</view>
     </view>
   </view>
   <view class="experience__lists">
-    <view class="experience__list" wx:for="{{experenceList}}" wx:key="{{index}}">
+    <view class="experience__list" wx:for="{{list}}" wx:key="{{index}}">
       <view class="experience__list__l">
-        <image src="http:{{item.cover}}"></image>
+        <image src="http:{{item.image}}"></image>
       </view>
       <view class="experience__list__r">
         <view class="experience__list__title {{item.type===2?'is_over':''}}" >
-            {{item.title}}
-            <view class="experience__list__type">试睡</view>
+            {{item.name}}
+            <view class="experience__list__type">{{item.type_name}}</view>
         </view>
         <view class="experience__list__date">
-            体验时间：{{item.start_time}}
+            体验时间：{{item.e_starttime}}
         </view>
-        <view 
-          bindtap='jumpToBe' 
-          data-type="{{item.type}}" 
-          class="experience__list__btn {{item.type===1?'':item.type===2?'is_over':item.type===3?'is_over_2':'is_red'}}"
-        >
-          {{item.type===1
-          ?'已报名'
-          :item.type===2
-            ?'活动结束'
-            :item.type===3
-              ?'报名结束'
-              :'入选体验师'}}
-        </view>
+        <block wx:if="{{item.time_status===1 || item.time_status===2}}">
+            <view 
+            bindtap='jumpToDetail' 
+            data-type="{{item.type}}" 
+            data-id="{{item.id}}" 
+            class="experience__list__btn {{item.is_win===1?'is_red':item.time_status===1?'':'is_over_2'}}"
+          >
+            {{item.is_win===1
+            ?'入选体验师'
+            :item.time_status===1
+              ?'已报名'
+              :'报名结束'}}
+          </view>
+        </block>
+        <block wx:else>
+          <view 
+            bindtap='jumpToDetail' 
+            data-type="{{item.type}}" 
+            data-id="{{item.id}}" 
+            class="experience__list__btn is_over"
+          >活动结束
+          </view>
+        </block>
       </view>
     </view>
   </view>

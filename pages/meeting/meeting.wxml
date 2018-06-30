@@ -1,7 +1,7 @@
 <!--pages/meeting/meeting.wxml-->
 <view class='meeting'>
   <view class='meeting__content'>
-    <view class='meeting__block' bindtap='jumpToDetail' wx:for="{{list}}">
+    <view class='meeting__block' data-id="{{item.id}}" bindtap='jumpToDetail' wx:for="{{list}}">
       <view class='meeting__left'>
         <image src='http://file.yinxinlife.com/images/meeting/icon_progress_{{item.status}}.png'></image>
       </view>

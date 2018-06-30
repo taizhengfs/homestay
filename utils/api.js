@@ -28,6 +28,8 @@ const GET_USER_INFO_DETAIL = '/user/info'
 const GET_USER_REQUIRE_LIST = '/user/requireList'
 const GET_USER_ACTIVITY_LIST = '/user/activityList'
 const GET_EXPERIENCE_APPLY = '/user/experienceActivityApply'
+const GET_USER_REQUIRE_DETAIL = '/user/requireDetail'
+const GET_USER_EXPERIENCELIST = '/user/experienceList'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -145,5 +147,13 @@ module.exports = {
   // 体验活动报名
   getExperienceApply() {
     return HOST_URI + GET_EXPERIENCE_APPLY
+  },
+  // 我的会议详情
+  getUserRequireDetail() {
+    return HOST_URI + GET_USER_REQUIRE_DETAIL
+  },
+  // 我的体验活动列表
+  getUserExperienceList() {
+    return HOST_URI + GET_USER_EXPERIENCELIST
   }
 };

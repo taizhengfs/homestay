@@ -11,15 +11,15 @@
         <image src="https:{{item.image}}"></image>
       </view>
       <view class="experience__list__r">
-        <view class="experience__list__title {{item.time_status===0?'':'is_over'}}" >
+        <view class="experience__list__title {{item.time_status===1?'':'is_over'}}" >
             {{item.name}}
             <view class="experience__list__type">{{item.type_name}}</view>
         </view>
         <view class="experience__list__date">
             体验时间：{{item.starttime}}
         </view>
-        <view bindtap='jumpToBe' data-time_status="{{item.time_status}}" data-id="{{item.id}}" class="experience__list__btn {{item.time_status===0?'':'is_over'}}">
-          {{item.time_status===2?'活动结束':item.time_status===1?'报名结束':'立即参与'}}
+        <view bindtap='jumpToDetail' data-time_status="{{item.time_status}}" data-id="{{item.id}}" class="experience__list__btn {{item.time_status===3?'is_over':item.time_status===2?'is_over_2':''}}">
+          {{item.time_status===3?'活动结束':item.time_status===2?'报名结束':'立即参与'}}
         </view>
       </view>
     </view>

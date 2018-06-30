@@ -46,9 +46,9 @@ Page({
       pageSize: 10
     }
   },
-  jumpToDetail() {
+  jumpToDetail(e) {
     wx.navigateTo({
-      url: '../meetingDetail/meetingDetail'
+      url: `../meetingDetail/meetingDetail?id=${e.currentTarget.dataset.id}`
     })
   },
   getUserRequireList() {

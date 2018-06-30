@@ -77,3 +77,7 @@
 .experience__list__btn.is_over {
   background: #BEBEBE
 }
+.experience__list__btn.is_over_2 {
+  background: #C6BCAE;
+  color: #E7E3DE
+}

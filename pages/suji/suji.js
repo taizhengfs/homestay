@@ -403,7 +403,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    var _this = this;
+    let _this = this;
     if (_this.data.isLoadAll == false) {
       _this.setData({
         'filters.page': _this.data.filters.page + 1

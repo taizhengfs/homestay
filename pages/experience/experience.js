@@ -58,7 +58,8 @@ Page({
       page: 1,
       pageSize: 10
     },
-    isLoadAll: false
+    isLoadAll: false,
+    userinfo: wx.getStorageSync('userInfo')
   },
 
   getExperienceList(isFirst=true) {
@@ -103,14 +104,13 @@ Page({
     })
   },
 
-  jumpToBe(e) {
-    var _this = this
+  jumpToDetail(e) {
     let tp = e.currentTarget.dataset
-    if (tp.time_status===0) {
+    if(this.data.userinfo.is_experiencer===1) {
       wx.navigateTo({
         url: `../experienceDetail/experienceDetail?id=${tp.id}`
       })
-    } else{
+    } else {
       wx.navigateTo({
         url: '../apply/apply'
       })

@@ -1,26 +1,64 @@
 // pages/meetingDetail/mettingInfo.js
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
+import {formatDate} from '../../utils/date.js';
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    mettingInfo:[
-      { category: '公司', info:'上海大咖有限公司'},
-      { category: '需求', info:'会议'},
-      { category: '时间', info:'2018-06-18'},
-      { category: '地区', info:'浙江-杭州'},
-      { category: '规模', info:'200人以上'},
-      { category: '联系方式', info:'15998479888'},
-      { category: '名宿（选填）', info:'和风名宿'},
-      { category: '备注（选填）', info:'希望场地的设施比较齐全，有KTV、大圆桌、草坪、 游戏厅、游泳池等等。'},
-    ]
+    mettingInfo:[],
+    filters: {
+      id:''
+    }
   },
-
+  getUserRequireDetail() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(Api.getUserRequireDetail(), _this.data.filters, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data.detail
+      if (Object.keys(ex).length>0) {
+        _this.data.mettingInfo = [
+          { category: '公司', info: ex.company_name},
+          { category: '需求', info: ex.type_name},
+          { category: '时间', info: ex.time},
+          { category: '地区', info: ex.area},
+          { category: '规模', info: ex.scale},
+          { category: '联系方式', info: ex.phone},
+          { category: '名宿（选填）', info: ex.homestay_name},
+          { category: '备注（选填）', info: ex.remark},
+        ]
+        _this.data.mettingInfo.forEach((v, i)=>{
+          if (v.info==='') {
+            _this.data.mettingInfo.splice(i, 1)
+          }
+        })
+      }
+      _this.setData({
+        detail: ex,
+        mettingInfo: _this.data.mettingInfo
+      })
+    }, error => {
+      if(error){
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
+      }})
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.id)
+    if(typeof options.id !=='undefined') {
+      this.setData({
+        'filters.id':options.id
+      })
+    }
+    this.getUserRequireDetail()
     wx.setNavigationBarTitle({ title: '会议详情' });
   },
 

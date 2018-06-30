@@ -216,29 +216,6 @@
   border-radius: 50rpx !important;
 }
 
-swiper .wx-swiper-dots.wx-swiper-dots-horizontal {
-  margin-bottom: 2rpx;
-}
-
-swiper .wx-swiper-dot {
-  width: 40rpx;
-  display: inline-flex;
-  height: 10rpx;
-  margin-left: 20rpx;
-  justify-content: space-between;
-}
-
-swiper .wx-swiper-dot::before {
-  content: '';
-  flex-grow: 1;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 8rpx
-}
-
-swiper .wx-swiper-dot-active::before {
-  background: rgba(244, 0, 0, 0.8);
-}
-
 radio .wx-radio-input {
   height: 26rpx;
   width: 26rpx;
