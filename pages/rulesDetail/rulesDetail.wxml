@@ -3,7 +3,7 @@
   <view class='rules__content'>
     <view class='rules__block' wx:for="{{rules}}">
       <view class='rules__titles'>{{item.type}}</view>
-      <view class='disp__inline'>{{item.desc}}</view>
+      <text class='disp__inline'>{{item.desc}}</text>
     </view>
   </view>
 </view>

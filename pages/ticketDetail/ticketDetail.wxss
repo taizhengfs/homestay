@@ -31,6 +31,7 @@
 }
 .exp__detail__cnt {
   display: flex;
+  position: relative;
   flex-direction: row;
   justify-content: space-between;
   height: 160rpx;
@@ -53,6 +54,7 @@
 }
 .exp__detail__cnt__r {
   display: flex;
+  width: 100%;
   padding-left: 22rpx;
   flex: 1;
   flex-direction: column;
@@ -68,6 +70,7 @@
   color: #9F8A60;
   font-size: 24rpx;
   line-height: 34rpx;
+  min-height: 34rpx;
   padding: 3rpx 16rpx;
   border-radius: 6rpx;
   margin-right: 20rpx;
@@ -95,6 +98,9 @@
   justify-content: flex-start;
   align-items: center;
   font-size:24rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   color:rgba(153,153,153,1);
   line-height:34rpx;
 }

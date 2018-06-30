@@ -40,7 +40,7 @@ Page({
     apply: [],
     win: [],
     btnText:'',
-    btnColor:''
+    btnStyle:''
   },
 
   jumpToSuji() {
@@ -75,26 +75,26 @@ Page({
       if (detail.time_status==1) {
         if (detail.is_apply==0) {
           _this.data.btnText='立即报名'
-          _this.data.btnColor = '#C12121'
+          _this.data.btnStyle = 'btn_color_red'
         } else {
           _this.data.btnText='已报名'
-          _this.data.btnColor = '#DDA3A3'
+          _this.data.btnStyle = 'btn_color_light_red'
         }
       } else if(detail.time_status==2) {
         if (detail.is_apply==0) {
           _this.data.btnText='报名结束'
-          _this.data.btnColor = '#7F7F7F'
+          _this.data.btnStyle = 'btn_color_end'
         } else {
           _this.data.btnText='已报名'
-          _this.data.btnColor = '#DDA3A3'
+          _this.data.btnStyle = 'btn_color_light_red'
         }
       } else if(detail.time_status==3) {
         _this.data.btnText='活动已结束'
-        _this.data.btnColor = '#7F7F7F'
+        _this.data.btnStyle = 'btn_color_end'
       }
       _this.setData({
         btnText:_this.data.btnText,
-        btnColor:_this.data.btnColor,
+        btnStyle:_this.data.btnStyle,
         swiperimage: _this.data.swiperimage,
         detail: detail,
         homestay: homestay,

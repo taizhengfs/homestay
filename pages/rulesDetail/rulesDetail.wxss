@@ -6,11 +6,16 @@
   line-height:44rpx;
   margin-bottom: 36rpx;
 }
+.rules__block .disp__inline {
+  padding-left: 0
+}
 .rules__titles {
   font-size: 28rpx;
   line-height: 44rpx;
 }
 .rules__content {
-  padding: 42rpx;
+  padding: 35rpx;
+  width: 100%;
+  position: relative;
   box-sizing: border-box;
 }

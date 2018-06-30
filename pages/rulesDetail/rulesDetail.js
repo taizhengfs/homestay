@@ -1,39 +1,113 @@
 // pages/rulesDetail/rulesDetail.js
+import util from '../../utils/util.js';
+import Api from '../../utils/api.js';
+import {formatDate} from '../../utils/date.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    rules:[
-      {
-        type:'活动时间：',
-        desc:'2018年5月4日00：00至5月10日12：00'
-      },
-      {
-        type:'开奖时间：',
-        desc:'2018年5月4日至5月10日，每日12：00'
-      },
-      {
-        type:'活动参与方式：',
-        desc:'支付一分钱发起抽奖团，并需在规定时间内邀请4位好友助力成团（5人成团），发起人（团长）即可获抽奖活动抽奖资格，并直接参与抽奖； 成团有效时间为该团发起后24小时，成团有效期前未达助力人数则拼团失败，无抽奖机会，支付款项即时自动原路返还； 上一抽奖团未拼满人数时不可发起下一抽奖团； 同一用户每天仅能为同一好友助力一次； 每人每天可发起最多10个拼团； 每人每天可为10位好友助力； 助力好友可在活动期间首次助力时获助力奖励券包一份；'
-      },
-      {
-        type:'奖品与获奖公布：',
-        desc:'每日12:00凭抽奖码开奖（5月5日起开奖）； 开奖后，一等奖中奖结果信息每日由小程序服务通知推送； 关注公众号，并回复“1分拼团”，亦可查询当日12点前24小时内成团开奖结果； 退款规则： 超时未拼成团，则团长所支付款项在超时后自动原路返还； 开奖后，未中一等奖团长所支付款项24小时内自动原路返还；'
-      },
-      {
-        type:'其他说明：',
-        desc:'本活动优惠不得与其他优惠同时使用。 活动规则限制同一用户参与次数，您须按照本活动规则参与本次活动。 相同的账号、手机号、移动设备、银行卡、支付账户等都将视为同一用户。 活动过程中，任何活动参与方存在虚假交易、恶意套利、作弊等不诚信行为，隐心有权取消活动参与方的活动资格，并保留依法追究法律责任的权利。 若您对本活动规则有任何疑问，隐心将会在法律允许的范围内对本活动规则给与必要的说明和解释。'
-      },
-    ]
+    rules:[],
+    filters: {
+      id:''
+    },
+    apiLink:'',
+    type:''
+  },
+  getRuleDetail() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(_this.data.apiLink, this.data.filters, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      if (_this.data.type==='lottery' || _this.data.type==='discount') {
+        _this.data.rules=[
+          {
+            type:'活动时间：',
+            desc:`${formatDate(ex.starttime*1000, 'yyyy年MM月dd日 HH:mm:ss')}至${formatDate(ex.endtime*1000, 'yyyy年MM月dd日 HH:mm:ss')}`
+          },
+          {
+            type:'活动参与方式：',
+            desc:ex.part_desc
+          },
+          {
+            type:`${_this.data.type==='lottery'?'奖品与获奖公布':'支付说明'}`,
+            desc:ex.prize_desc
+          },
+          {
+            type:'其他说明：',
+            desc:ex.description
+          },
+        ]
+        if(_this.data.type==='lottery') {
+          _this.data.rules.splice(1,0,
+            {
+              type:'开奖时间：',
+              desc:formatDate(ex.lottery_at*1000, 'yyyy年MM月dd日 HH:mm:ss')
+            }
+          )
+        }
+      } else {
+        _this.data.rules=[
+          {
+            type:'票券名称：',
+            desc:ex.name
+          },
+          {
+            type:'适用商家：',
+            desc:ex.homestay_name
+          },
+          {
+            type:'票券类型：',
+            desc:ex.type_name
+          },
+          {
+            type:'使用时间：',
+            desc:`${formatDate(ex.u_starttime*1000, 'yyyy年MM月dd日 HH:mm:ss')}至${formatDate(ex.u_endtime*1000, 'yyyy年MM月dd日 HH:mm:ss')}`
+          },
+          {
+            type:'使用规则：',
+            desc:ex.use_rule
+          }
+        ]
+      }
+      _this.setData({
+        rules: _this.data.rules
+      })
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (typeof options.type !== 'undefined') {
+      if (options.type==='lottery' || options.type==='discount') {
+        this.setData({
+          type:options.type,
+          apiLink: Api.getActivityRuleDetail()
+        })
+      } else {
+        this.setData({
+          type:options.type,
+          apiLink: Api.getTicketRuleDetail()
+        })
+      }
+    }
+    if (typeof options.id !== 'undefined') {
+      this.setData({
+        'filters.id':options.id
+      })
+      this.getRuleDetail()
+    }
+    wx.setNavigationBarTitle({ title: '规则详情' });
   },
 
   /**

@@ -101,6 +101,14 @@ Page({
     wx.setNavigationBarTitle({ title: '拼团抽奖' });
     this.getActivityGroup()
   },
+  jumpToRuleDetail(e) {
+    wx.navigateTo({
+      url: `../rulesDetail/rulesDetail?type=lottery&id=${e.currentTarget.dataset.id}`,
+      success: function(res){
+        // success
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

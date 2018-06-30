@@ -72,8 +72,8 @@ Page({
       wx.stopPullDownRefresh()
       let ex = res.data.data
       ex.list.forEach(val=>{
-        val.starttime = formatDate(val.starttime*1000, 'yyyy-MM-dd') 
-        val.endtime = formatDate(val.endtime*1000, 'yyyy-MM-dd')
+        val.starttime = formatDate(val.starttime*1000, 'yyyy年MM月dd日 HH:mm') 
+        val.endtime = formatDate(val.endtime*1000, 'yyyy年MM月dd日 HH:mm')
       })
       const {list, swiper} = ex
       if (list.length < _this.data.filters.pageSize) {

@@ -42,14 +42,36 @@ Page({
     detail:{},
     homestay:{}
   },
+  jumpToRuleDetail(e) {
+    wx.navigateTo({
+      url: `../rulesDetail/rulesDetail?type=ticket&id=${e.currentTarget.dataset.id}`,
+      success: function(res){
+        // success
+      }
+    })
+  },
+  postUserOffTicket(){
+    let _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._post(Api.postUserOffTicket(), {id: _this.data.user_ticket.id}, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
 
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
+  },
   jumpToSuji() {
     wx.switchTab({
       url: '../suji/suji'
     })
   },
   getTicketDetail() {
-    var _this = this
+    let _this = this
     wx.showLoading({
       title: '加载中',
     })

@@ -1,7 +1,6 @@
 // pages/roomDetail/roomDetail.js
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
-import {formatDate} from '../../utils/date.js';
 Page({
   /**
    * 页面的初始数据

@@ -30,6 +30,9 @@ const GET_USER_ACTIVITY_LIST = '/user/activityList'
 const GET_EXPERIENCE_APPLY = '/user/experienceActivityApply'
 const GET_USER_REQUIRE_DETAIL = '/user/requireDetail'
 const GET_USER_EXPERIENCELIST = '/user/experienceList'
+const POST_USER_OFFTICKET = '/user/offTicket'
+const GET_ACTIVITY_RULE_DETAIL = '/activity/ruleDetail'
+const GET_TICKET_RULE_DETAIL = '/ticket/ruleDetail'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -155,5 +158,17 @@ module.exports = {
   // 我的体验活动列表
   getUserExperienceList() {
     return HOST_URI + GET_USER_EXPERIENCELIST
+  },
+  // 活动规则详情
+  getActivityRuleDetail() {
+    return HOST_URI + GET_ACTIVITY_RULE_DETAIL
+  },
+  // 票券规则详情
+  getTicketRuleDetail() {
+    return HOST_URI + GET_TICKET_RULE_DETAIL
+  },
+  // 核销票券
+  postUserOffTicket() {
+    return HOST_URI + POST_USER_OFFTICKET
   }
 };

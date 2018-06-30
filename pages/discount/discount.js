@@ -64,6 +64,15 @@ Page({
     })
   },
 
+  jumpToRuleDetail(e) {
+    wx.navigateTo({
+      url: `../rulesDetail/rulesDetail?type=discount&id=${e.currentTarget.dataset.id}`,
+      success: function(res){
+        // success
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

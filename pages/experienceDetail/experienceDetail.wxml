@@ -36,6 +36,29 @@
       </view>
     </view>
   </view>
+  <view class='lottery__detail__block'>
+      <view class='lottery__detail__title'>
+        <view class='lottery__detail__title__l'>体验说明</view>
+        <!-- <view class='lottery__detail__title__r' bindtap='jumpToRuleDetail'>
+          规则详情
+          <view class='icon__arrow__right'></view>
+        </view> -->
+      </view>
+      <view class='lottery__rules__content'>
+        <view class='lottery__rules__single'>报名截止时间：
+          <view class='disp__inline'>{{detail.a_endtime}}</view>
+        </view>
+        <view class='lottery__rules__single'>体验时间：
+          <view class='disp__inline'>{{detail.e_starttime}}-{{detail.e_endtime}}</view>
+        </view>
+        <view class='lottery__rules__single'>活动要求：
+          <text class='disp__inline'>{{detail.description}}</text>
+        </view>
+        <view class='lottery__rules__single'>体验师名额：
+          <text class='disp__inline'>{{detail.people_no}}</text>
+        </view>
+      </view>
+    </view>
   <view class='exp__detail__block'>
     <view class='exp__detail__title'>体验详情</view>
     <view class='exp__detail__cnt'>
@@ -65,6 +88,6 @@
   <view class='bottom__bar'>
     <view class='bottom__ba__block' bindtap="jumpToHome"><view class="icon__home"></view>首页</view>
     <view class='bottom__ba__block'><view class="icon__share"></view>分享</view>
-    <view class='bottom__ba__block join' data-id="{{detail.id}}" bindtap="jumpToJoin">立即报名</view>
+    <view class='bottom__ba__block join {{btnStyle}}' data-id="{{detail.id}}" bindtap="jumpToJoin">{{btnText}}</view>
   </view>
 </view>
