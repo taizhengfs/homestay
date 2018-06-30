@@ -190,6 +190,13 @@
   align-items: center;
   justify-content: flex-end;
 }
+.form__single__right .radio-group {
+  font-size: 24rpx;
+  line-height: 72rpx;
+}
+.form__single__right radio{
+  font-size: 24rpx;
+}
 .form__single__right input {
   font-size: 24rpx;
   line-height: 34rpx;

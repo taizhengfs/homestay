@@ -43,6 +43,14 @@ Component({
       type: Boolean,
       value: false
     },
+    isWin: {
+      type: Boolean,
+      value: false
+    },
+    isSelf: {
+      type: Boolean,
+      value: false
+    },
     type: {
       type: [String, Number],
       value: 1
@@ -91,6 +99,7 @@ Component({
       if (this.properties.timeStatus === 0 ) {
         duration = distanceDate(this.properties.startTime*1000, now)
       } else if(this.properties.timeStatus === 1) {
+        
         duration = distanceDate(this.properties.endTime*1000, now)
       }
       let { day, hour, min, second } = duration

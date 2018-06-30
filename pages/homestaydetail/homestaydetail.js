@@ -125,6 +125,16 @@ Page({
   makePhoneCall(e) {
     util.callPhone(e)
   },
+  jumpToBook(e){
+    let dataset = e.currentTarget.dataset
+    const {id, tel} = dataset
+    wx.navigateTo({
+      url: `../team/team?id=${id}&tel=${tel}`,
+      success: function(res){
+        // success
+      }
+    })
+  },
   getHomestayDetail() {
     var _this = this
     wx.showLoading({

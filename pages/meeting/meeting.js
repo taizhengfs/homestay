@@ -40,6 +40,7 @@ Page({
         createtime:'2018-5-20  提交'
       }
     ],
+    list:[],
     filters: {
       page: 1,
       pageSize: 10
@@ -60,14 +61,13 @@ Page({
       wx.stopPullDownRefresh()
       let ex = res.data.data
       console.log(ex)
-      // ex.list.forEach(val=>{
-      //   val.u_starttime = formatDate(val.u_starttime*1000, 'yyyy-MM-dd HH:mm') 
-      //   val.u_endtime = formatDate(val.u_endtime*1000, 'yyyy-MM-dd HH:mm')
-      // })
-      // const {list} = ex
-      // this.setData({
-      //   list: list
-      // })
+      ex.list.forEach(val=>{
+        val.create_at = formatDate(val.create_at*1000, 'yyyy-MM-dd HH:mm') 
+      })
+      const {list} = ex
+      this.setData({
+        list: list
+      })
     }, error => {
       if(error){
         wx.hideLoading()

@@ -25,6 +25,7 @@ Page({
       images:''
     },
     imgList:[],
+    pathList:[],
     isShowCard: false,
     currentDelIdx: ''
   },
@@ -53,8 +54,10 @@ Page({
   },
   deleteImage() {
     this.data.imgList.splice(this.data.currentDelIdx, 1)
+    this.data.pathList.splice(this.data.currentDelIdx, 1)
     this.setData({
       imgList: this.data.imgList,
+      pathList: this.data.filePath,
       'filters.images': _this.data.imgList.join(',')
     })
     this.showPaneCard()
@@ -140,9 +143,11 @@ Page({
           success: function(res){
             var data = JSON.parse(res.data)
             _this.data.imgList.push(data.data.url)
+            _this.data.pathList.push(data.data.filePath)
             _this.setData({
               imgList: _this.data.imgList,
-              'filters.images': _this.data.imgList.join(',')
+              pathList: _this.data.pathList,
+              'filters.images': _this.data.pathList.join(',')
             })
             //do something
           },
@@ -150,8 +155,6 @@ Page({
             console.log(err)
           }
         })
-
-
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
       }
     })

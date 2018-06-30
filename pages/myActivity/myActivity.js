@@ -40,10 +40,12 @@ Page({
         activityDesc: '夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
       },
     ],
+    list:[],
     filters:{
       page: 1,
       pageSize: 10
-    }
+    },
+    isSelf:true
   },
   getUserActivityList() {
     var _this = this
@@ -54,7 +56,11 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data
-      console.log('ex: ', ex);      
+      const {list} = ex
+      _this.setData({
+        list:list
+      })
+      console.log('ex: ', ex);
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()

@@ -1,7 +1,7 @@
 <!--pages/apply/apply.wxml-->
 <view class='container {{isShowCard?"blur__mask":""}}'>
   <view class='top__header'>
-    <image src='http://file.yinxinlife.com/images/bg_header.png'></image>
+    <image src='http://{{detail.image}}'></image>
   </view>
   <view class='form__cnt'>
     <view class='form__single'>
@@ -10,7 +10,7 @@
         姓名
       </view>
       <view class='form__single__right'>
-        <input placeholder="请填写您的姓名"></input>
+        <input value="{{truename}}" bindinput='editTruename'  placeholder="请填写您的姓名"></input>
       </view>
     </view>
     <view class='form__single'>
@@ -19,7 +19,7 @@
         联系方式
       </view>
       <view class='form__single__right'>
-        <input placeholder="请填写您的联系方式"></input>
+        <input value="{{phone}}" bindinput='editPhone'  placeholder="请填写您的联系方式"></input>
       </view>
     </view>
     <view class='form__single' style='border:none'>
@@ -31,55 +31,60 @@
       </view>
     </view>
     <view class='inflution__cnt'>
-      <view class='form__single'>
-        <view class='form__single__left'>
-          平台名
+      <view class="form__info__block">
+        <view class='form__single'>
+          <view class='form__single__left'>
+            平台名
+          </view>
+          <view class='form__single__right'>
+            <picker bindchange="bindPlatformChange" range-key="{{'name'}}" data-id="{{platform[pindex].id}}" value="{{pindex[item]}}" range="{{platform}}">
+              <view class="form__single__picker">
+                {{platform[pindex].name||'请选择您的活跃平台'}}
+                <view class="icon__arrow__down"></view>
+              </view>
+            </picker>
+          </view>
         </view>
-        <view class='form__single__right'>
-          <picker bindchange="bindPickerChange" value="{{pindex}}" range="{{platform}}">
-            <view class="form__single__picker">
-              {{platform[pindex]||'请选择您的活跃平台'}}
-              <view class="icon__arrow__down"></view>
-            </view>
-          </picker>
+        <view class='form__single'>
+          <view class='form__single__left'>
+            平台昵称
+          </view>
+          <view class='form__single__right'>
+            <input value="{{platforms[0].nickname}}" bindinput='editNickname' placeholder="请填写平台昵称"></input>
+          </view>
         </view>
-      </view>
-      <view class='form__single'>
-        <view class='form__single__left'>
-          平台昵称
+        <view class='form__single'>
+          <view class='form__single__left'>
+            平台粉丝数量
+          </view>
+          <view class='form__single__right'>
+            <input value="{{platforms[0].fans_count}}" bindinput='editFansCount' placeholder="请填写您的粉丝数量"></input>
+          </view>
         </view>
-        <view class='form__single__right'>
-          <input placeholder="请填写您的昵称"></input>
+        <view class='form__single'>
+          <view class='form__single__left'>
+            平台认证类型
+          </view>
+          <view class='form__single__right'>
+            <picker bindchange="bindRecoChange" data-id="{{reco[rindex].id}}" range-key="name" value="{{rindex}}" range="{{reco}}">
+              <view class="form__single__picker">
+                {{reco[rindex].name||'请选择平台认证类型'}}
+                <view class="icon__arrow__down"></view>
+              </view>
+            </picker>
+          </view>
         </view>
-      </view>
-      <view class='form__single'>
-        <view class='form__single__left'>
-          平台粉丝数量
+        <view class='form__single'>
+          <view class='form__single__left'>
+            上传截图
+          </view>
+          <view class='form__single__right' wx:if="{{imgList.length === 0}}" bindtap='selectPic'>
+            <view class='form__add__image'>
+              <view class="icon__plus__add"></view>平台主页截图</view>
+          </view>
         </view>
-        <view class='form__single__right'>
-          <input placeholder="请填写您的粉丝数量"></input>
-        </view>
-      </view>
-      <view class='form__single'>
-        <view class='form__single__left'>
-          平台认证类型
-        </view>
-        <view class='form__single__right'>
-          <picker bindchange="bindPickerChange" value="{{rindex}}" range="{{reco}}">
-            <view class="form__single__picker">
-              {{reco[rindex]||'请选择平台认证类型'}}
-              <view class="icon__arrow__down"></view>
-            </view>
-          </picker>
-        </view>
-      </view>
-      <view class='form__single'>
-        <view class='form__single__left'>
-          上传截图
-        </view>
-        <view class='form__single__right'>
-          <view class='form__add__image'>
-            <view class="icon__plus__add"></view>平台主页截图</view>
+        <view wx:if="{{imgList.length > 0}}" class='form__single last'>
+            <image src="http:{{imgList[0]}}"></image>
         </view>
       </view>
       <view class="form__single pla">
@@ -89,7 +94,7 @@
       </view>
     </view>
   </view>
-  <view class="form__submit" bindtap='showPaneCard'>
+  <view class="form__submit" bindtap='postExperienceApply'>
     提交申请
   </view>
 </view>
@@ -99,7 +104,7 @@
   </view>
   <view class='pane__title'>申请提交成功</view>
   <text class='pane__desc'>申请结果将在7日内,\n以推送通知的方式告知您。</text>
-  <view class='pane__button' bindtap='showPaneCard'>确定</view>
+  <view class='pane__button' bindtap='goBackPage'>确定</view>
 </view>
 <view class='pane__mask' wx:if="{{isShowCard}}">
 </view>

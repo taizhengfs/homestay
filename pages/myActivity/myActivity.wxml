@@ -1,16 +1,20 @@
 <!--pages/myActivity/myActivity.wxml-->
 <view class='my__activity'>
   <view class="activity__group">
-    <activityBlock wx:for="{{activityList}}" wx:key="{{index}}"
-      type="{{item.type}}"
-      startTime="{{item.startTime}}"
-      endTime="{{item.endTime}}"
-      price="{{item.price}}"
-      realPrice="{{item.realPrice}}"
-      participateNum="{{item.participateNum}}"
-      activityDesc="{{item.activityDesc}}"
-      cover="{{item.cover}}"
-      isJoin="true"
-      ></activityBlock>
+    <activityBlock wx:for="{{list}}" wx:key="{{index}}"
+    timeStatus="{{item.time_status}}"
+    startTime="{{item.starttime}}"
+    endTime="{{item.endtime}}"
+    price="{{item.price}}"
+    realPrice="{{item.price}}"
+    participateNum="{{item.part_no}}"
+    activityDesc="{{item.name}}"
+    cover="{{item.image}}"
+    type="{{item.type}}"
+    activityId="{{item.id}}"
+    type_name="{{item.type_name}}"
+    isWin = "{{item.is_win}}"
+    isSelf = "{{isSelf}}"
+    ></activityBlock>
   </view>
 </view>

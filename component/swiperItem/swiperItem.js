@@ -53,12 +53,12 @@ Component({
     isLoadAll: false,
     curentImg: 0
   },
-
   /**
    * 组件的方法列表
    */
   methods: {
     jumpToDetail(e) {
+    console.log(e)
       const dataset = e.currentTarget.dataset
       if(Object.keys(dataset).length!==0) {
         const {link, wxa_link, id} = dataset

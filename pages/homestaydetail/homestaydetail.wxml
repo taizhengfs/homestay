@@ -33,7 +33,7 @@
         <view class="icon__arrow__right"></view>
       </view>
     </view>
-    <view class="detail__cell phone" bindtap="makePhoneCall" data-tel="{{detail.order_phone}}">
+    <view class="detail__cell phone" bindtap="jumpToBook" data-id="{{detail.id}}" data-tel="{{detail.order_phone}}">
       <view class="detail__cell__icon">
         <image src="http://file.yinxinlife.com/images/icon_phone.png"></image>
         <view class='detail__phone'>{{detail.order_phone}}</view>

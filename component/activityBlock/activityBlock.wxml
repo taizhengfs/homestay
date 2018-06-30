@@ -19,31 +19,46 @@
           距离活动结束仅剩{{duration}}
         </view>
         <view class="home__type__duration {{timeStatus===2?'is__grey':''}}" wx:else>
-          已抢完
+          已结束
         </view>
       </view>
-      <view class="home__activity__main__bottom">
+      <view class="home__activity__main__bottom" wx:if="{{!isSelf}}">
         <view class="text__type_red">¥ 0</view>
         <view class="text__type_grey">
           原价：¥ {{price}}
         </view>
+      </view>
+      <view class="home__activity__main__bottom" wx:else>
+        <block wx:if="{{type===1}}">
+          <view class="text__type_red">¥ 0</view>
+          <view class="text__type_grey">
+            原价：¥ {{price}}
+          </view>
+        </block>
+        <block wx:if="{{type===2}}">
+          <view class="text__type_white">可砍 ¥ {{price}}</view>
+        </block>
       </view>
     </view>
     <view class="home__activity__sub">
       <view class="home__activity__sub__left">
           {{activityDesc}}
       </view>
-      <view wx:if="{{!isJoin}}" class="home__activity__sub__right">
+      <view wx:if="{{!isSelf}}" class="home__activity__sub__right">
           {{timeStatus===0
             ? '开抢提醒'
             :timeStatus===1
               ?'马上抢':'去看看'}}
       </view>
-      <view wx:else class="home__activity__sub__right {{timeStatus===0?'':timeStatus===1?'is__color__gold':'is__color__grey'}}">
-          {{timeStatus===0
-            ? '去看看'
-            :timeStatus===1
-              ?'恭喜中奖':'未中奖'}}
-      </view>
+      <block wx:else >
+        <view wx:if="{{type===1}}" class="home__activity__sub__right {{timeStatus===0 || timeStatus===1?'':isWin?'is__color__gold':'is__color__grey'}}">
+          {{timeStatus===0 || timeStatus===1
+              ? '去看看'
+              : isWin?'恭喜中奖':'未中奖'}}
+        </view>
+        <view wx:if="{{type===2}}" class="home__activity__sub__right">
+          去看看
+        </view>
+      </block>
     </view>
   </view>

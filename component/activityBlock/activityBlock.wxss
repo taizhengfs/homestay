@@ -36,6 +36,13 @@
   line-height: 66rpx;
   color: #C12121;
 }
+.text__type_white {
+  font-size: 48rpx;
+  padding-left: 28rpx;
+  line-height: 66rpx;
+  color: #fff;
+  text-shadow: 0 2rpx 5rpx rgba(0,0,0,0.15)
+}
 .text__type_grey {
   text-decoration: line-through;
   color: #7E7E7E;
