@@ -1,6 +1,7 @@
 // pages/experience/experience.js
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
+const app = getApp()
 import {formatDate} from '../../utils/date.js';
 Page({
   /**
@@ -15,9 +16,14 @@ Page({
       pageSize: 10
     },
     isLoadAll: false,
-    userinfo: wx.getStorageSync('userInfo')
+    userinfo: wx.getStorageSync('userInfo'),
+    form_id:''
   },
 
+  getFormId (e) {
+    util.getFormId(e, app)
+    util.saveFormIds(app)
+  },
   getExperienceList(isFirst=true) {
     var _this = this
     wx.showLoading({

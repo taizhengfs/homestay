@@ -1,3 +1,6 @@
+
+import util from '../../utils/util.js';
+const app = getApp();
 Component({
   properties: {
     // 这里定义了innerText属性，属性值可以在组件使用时指定
@@ -59,5 +62,13 @@ Component({
         longitude: this.properties.long
       })
     },
+    getFormId (e) {
+      this.setData({
+        form_id:e.detail.formId
+      })
+      util.getFormId(e, app)
+      util.saveFormIds(app)
+      this.jumpToDetail()
+    }
   }
 })

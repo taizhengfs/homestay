@@ -1,34 +1,39 @@
 <!--component/sujiBlock/sujiBlock.wxml-->
-<view class="suji__single" >
-  <view class="suji__single__top" bindtap='jumpToDetail'>
-    <view class="suji__single__price">
-      ¥ {{price}} <view style="font-size: 28rpx;line-height: 40rpx;margin-left: 5rpx;">起</view>
-    </view>
-    <image src="http:{{cover}}"></image>
-    <view class="single__mask"></view>
-  </view>
-  <view class="suji__single__bottom">
-    <view class="suji__single__header" bindtap='jumpToDetail'>
-        {{title}}
-    </view>
-    <view class="suji__tags">
-      <view wx:for="{{tags}}" wx:key="{{index}}" class="suji__tag">
-          {{item}}
-      </view>
-    </view>
-    <view class="suji__location" bindtap="goToMap">
-      <view class="suji__location__block">
-        <view class="icon__cnt">
-          <image src="http://file.yinxinlife.com/images/icon_location.png"></image>
+<view class="suji__single">
+  <form name='suji_{{sujiId}}' report-submit='true' bindsubmit="getFormId">
+    <button class="fake-btn" form-type="submit">
+      <view class="suji__single__top" bindtap='jumpToDetail'>
+        <view class="suji__single__price">
+          ¥ {{price}}
+          <view style="font-size: 28rpx;line-height: 40rpx;margin-left: 5rpx;">起</view>
         </view>
-        {{locationName}}
+        <image src="http:{{cover}}"></image>
+        <view class="single__mask"></view>
       </view>
-      <view class="suji__location__block">
-        <view class="icon__cnt">
-          <image src="http://file.yinxinlife.com/images/icon_board.png"></image>
+      <view class="suji__single__bottom">
+        <view class="suji__single__header" bindtap='jumpToDetail'>
+          {{title}}
         </view>
-        距我{{distance}}千米
+        <view class="suji__tags">
+          <view wx:for="{{tags}}" wx:key="{{index}}" class="suji__tag">
+            {{item}}
+          </view>
+        </view>
+        <view class="suji__location" bindtap="goToMap">
+          <view class="suji__location__block">
+            <view class="icon__cnt">
+              <image src="http://file.yinxinlife.com/images/icon_location.png"></image>
+            </view>
+            {{locationName}}
+          </view>
+          <view class="suji__location__block">
+            <view class="icon__cnt">
+              <image src="http://file.yinxinlife.com/images/icon_board.png"></image>
+            </view>
+            距我{{distance}}千米
+          </view>
+        </view>
       </view>
-    </view>
-  </view>
+    </button>
+  </form>
 </view>
