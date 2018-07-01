@@ -44,11 +44,16 @@ Page({
         wx.navigateTo({
           url: '../apply/apply'
         })
+      } else {
+        wx.navigateTo({
+          url: url
+        })
       }
+    } else {
+      wx.navigateTo({
+        url: url
+      })
     }
-    wx.navigateTo({
-      url: url
-    })
   },
 
   getUserHome() {
