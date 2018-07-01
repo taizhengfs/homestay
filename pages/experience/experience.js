@@ -17,7 +17,8 @@ Page({
     },
     isLoadAll: false,
     userinfo: wx.getStorageSync('userInfo'),
-    form_id:''
+    form_id:'',
+    isShowBox:false
   },
 
   getFormId (e) {
@@ -66,6 +67,12 @@ Page({
     })
   },
 
+  closeBox() {
+    this.setData({
+      isShowBox: false
+    })
+  },
+
   jumpToDetail(e) {
     let tp = e.currentTarget.dataset
     console.log(this.data.userinfo)
@@ -85,6 +92,12 @@ Page({
    */
   onLoad: function (options) {
     this.getExperienceList()
+    setTimeout(v=>{
+      this.setData({
+        isLogin: wx.getStorageSync('isLogin'),
+        isShowBox: wx.getStorageSync('isLogin')==0
+      })
+    },300)
   },
 
   /**

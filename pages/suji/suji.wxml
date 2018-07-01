@@ -1,5 +1,5 @@
 <!--pages/suji/suji.wxml-->
-<view class="container">
+<view class='container {{isShowBox?"blur__mask":""}}'>
   <view class="suji__top">
     <search class="suji__search" bindclearKeyword="clearKeyword" innerText="{{innerText}}" bindgetKeyword = "getKeyword"></search>
     <view class="suji__sort">
@@ -45,3 +45,5 @@
     </view>
   </view>
 </view>
+
+<authBox isShowBox="{{isShowBox}}" bindcloseAuth="closeBox"></authBox>

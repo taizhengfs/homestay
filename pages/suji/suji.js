@@ -124,7 +124,8 @@ Page({
     type: [],
     currentPane: '',
     isLoadAll:false,
-    innerText:''
+    innerText:'',
+    isShowBox:false
   },
   resetFilter(){
     this.setData({
@@ -361,6 +362,12 @@ Page({
     this.getSujiDetail(false)
   },
 
+  closeBox() {
+    this.setData({
+      isShowBox: false
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -379,6 +386,12 @@ Page({
         return v
       })
     })
+    setTimeout(v=>{
+      this.setData({
+        isLogin: wx.getStorageSync('isLogin'),
+        isShowBox: wx.getStorageSync('isLogin')==0
+      })
+    },300)
   },
   /**
    * 生命周期函数--监听页面显示
