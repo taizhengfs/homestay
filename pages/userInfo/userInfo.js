@@ -1,6 +1,7 @@
 // pages/userInfo/userInfo.js
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
+import {formatDate} from '../../utils/date.js';
 Page({
   /**
    * 页面的初始数据
@@ -25,6 +26,7 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data
+      ex.birth_at = formatDate(ex.birth_at*1000, 'yyyy年MM月dd日') 
       console.log(ex)
       _this.setData({
         userInfo: ex

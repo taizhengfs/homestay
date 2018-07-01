@@ -22,7 +22,8 @@ Page({
       city:'',
       region:''
     },
-    userInfo: {}
+    userInfo: {},
+    isFirstLoad:true
   },
   getName(e) {
     this.setData({
@@ -54,7 +55,7 @@ Page({
   bindDateChange: function (e) {
     console.log('picker发送选择改变，携带值为', )
     const date = e.detail.value.split('-')
-    const newDate = new Date(date[0],date[1],date[2]);
+    const newDate = new Date(date[0],parseInt(date[1])-1,date[2]);
     this.setData({
       birthday: e.detail.value,
       'filters.birth_at': newDate.getTime()/1000
@@ -109,6 +110,12 @@ Page({
       wx.stopPullDownRefresh()
       let ex = res.data.data
       console.log(ex)
+      wx.redirectTo({
+        url: '../userInfo/userInfo',
+        success: function(res){
+          // success
+        }
+      })
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
@@ -119,10 +126,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getUserInfoDetail()
-    this.setData({
-      userDetail: wx.getStorageSync('userInfo')
-    })
+    if(this.data.isFirstLoad) {
+      this.getUserInfoDetail()
+      this.setData({
+        isFirstLoad: false,
+        userDetail: wx.getStorageSync('userInfo')
+      })
+    }
   },
 
   /**
@@ -136,7 +146,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if(!this.data.isFirstLoad) {
+      this.getUserInfoDetail()
+      this.setData({
+        isFirstLoad: false,
+        userDetail: wx.getStorageSync('userInfo')
+      })
+    }
   },
 
   /**

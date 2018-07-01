@@ -15,7 +15,7 @@
     </view>
     <view class='user-info__block'>
       <view class='user-info__block__left'>地区</view>
-      <view class='user-info__block__right'>{{userInfo.province}}-{{userInfo.city}}</view>
+      <view class='user-info__block__right'>{{userInfo.province}}-{{userInfo.city}}-{{userInfo.region}}</view>
     </view>
     <view class='user-info__block'>
       <view class='user-info__block__left'>生日</view>
