@@ -139,45 +139,47 @@ Page({
       })
       this.postActivityAddGroup()
       if(this.data.add_filters.user_id===0){
-        if (detail.time_status===2) {
-          if(detail.is_win===0) {
-            wx.showModal({
-              title: '继续努力',
-              content: '很遗憾，您没有中奖。\n其他活动持续进行中去看看吧！',
-              cancelText:'知道了',
-              confirmText:'去看看',
-              success: function(res) {
-                if (res.confirm) {
-                  wx.switchTab({
-                    url: '../home/home',
-                    success: function(res){
-                      // success
-                    }
-                  })
-                } else if (res.cancel) {
-                  console.log('用户点击取消')
+        if (detail.time_status===2) { // 当前活动已结束
+          if(detail.is_assist===1){ // 用户已参与
+            if(detail.is_win===0) { // 判断用户是否中奖
+              wx.showModal({
+                title: '继续努力',
+                content: '很遗憾，您没有中奖。\n其他活动持续进行中去看看吧！',
+                cancelText:'知道了',
+                confirmText:'去看看',
+                success: function(res) {
+                  if (res.confirm) {
+                    wx.switchTab({
+                      url: '../home/home',
+                      success: function(res){
+                        // success
+                      }
+                    })
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
                 }
-              }
-            })
-          } else {
-            wx.showModal({
-              title: '恭喜中奖',
-              content: '您获得了和风民宿旅馆家庭套房一晚\n快去您的卡包看看吧',
-              cancelText:'知道了',
-              confirmText:'前往查看',
-              success: function(res) {
-                if (res.confirm) {
-                  wx.switchTab({
-                    url: '../home/home',
-                    success: function(res){
-                      // success
-                    }
-                  })
-                } else if (res.cancel) {
-                  console.log('用户点击取消')
+              })
+            } else {
+              wx.showModal({
+                title: '恭喜中奖',
+                content: '您获得了和风民宿旅馆家庭套房一晚\n快去您的卡包看看吧',
+                cancelText:'知道了',
+                confirmText:'前往查看',
+                success: function(res) {
+                  if (res.confirm) {
+                    wx.switchTab({
+                      url: '../home/home',
+                      success: function(res){
+                        // success
+                      }
+                    })
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
                 }
-              }
-            })
+              })
+            }
           }
         }
       }

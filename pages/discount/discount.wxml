@@ -69,6 +69,6 @@
     <view class='bottom__ba__block home' bindtap="jumpToHome">
       <view class="icon__home"></view>首页</view>
     <button class='bottom__ba__block invite fake-btn' open-type="share"><view class="icon__invite"></view>邀请砍价</button>
-    <view class='bottom__ba__block share'>{{ticket.price-detail.chop_price}}元拿下</view>
+    <view class='bottom__ba__block share' bindtap="postUserChopBuy">{{ticket.price-detail.chop_price}}元拿下</view>
   </view>
 </view>

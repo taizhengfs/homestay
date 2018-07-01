@@ -11,5 +11,9 @@
         <view class='meeting__right__bottom'>{{item.create_at}}</view>
       </view>
     </view>
+    <view class="no-data" wx:if="{{list.length==0}}">
+        <view class="no-data__top"><image src="../../images/icon_empty.svg"></image></view>
+        <view class="no-data__bottom">暂无会议</view>
+      </view>
   </view>
 </view>

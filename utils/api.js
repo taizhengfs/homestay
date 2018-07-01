@@ -34,6 +34,7 @@ const POST_USER_OFFTICKET = '/user/offTicket'
 const GET_ACTIVITY_RULE_DETAIL = '/activity/ruleDetail'
 const GET_TICKET_RULE_DETAIL = '/ticket/ruleDetail'
 const GET_ADD_SHARE_EXP = '/user/addShareExp'
+const POST_USER_CHOPBUY = '/user/chopBuy'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -175,5 +176,9 @@ module.exports = {
   // 分享统计
   getAddShareExp() {
     return HOST_URI + GET_ADD_SHARE_EXP
-  }
+  },
+  // 支付
+  postUserChopBuy() {
+    return HOST_URI + POST_USER_CHOPBUY
+  },
 };

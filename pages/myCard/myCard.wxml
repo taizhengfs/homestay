@@ -16,6 +16,10 @@
       price = "{{item.price}}"
       bindmyevent = "showCard"
     ></ticket>
+    <view class="no-data" wx:if="{{list.length==0}}">
+        <view class="no-data__top"><image src="../../images/icon_empty.svg"></image></view>
+        <view class="no-data__bottom">暂无优惠券</view>
+      </view>
   </view>
   <view class='pane__part'>
     <view class='pane__success' wx:if="{{isShowCard}}">

@@ -239,3 +239,29 @@ button:after {
   content: '';
   border: none!important;
 }
+.no-data {
+  width: 100%;
+  position: relative;
+  margin-top: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
+.no-data__top {
+  width: 60rpx;
+  height: 60rpx;
+  position: relative
+}
+.no-data__top image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0
+}
+.no-data__bottom {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #ccc
+}

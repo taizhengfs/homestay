@@ -38,6 +38,10 @@
         lat="{{item.location[1]}}"
         long="{{item.location[0]}}"
       ></sujiBlock>
+      <view class="no-data" wx:if="{{list.length==0}}">
+        <view class="no-data__top"><image src="../../images/icon_empty.svg"></image></view>
+        <view class="no-data__bottom">暂无数据</view>
+      </view>
     </view>
   </view>
 </view>

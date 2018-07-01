@@ -80,70 +80,84 @@ Page({
   postActivityAddChop() {
     let _this = this
     if(_this.data.add_filters.user_id!==0) {
-      util._post(Api.postActivityAddChop(), _this.data.add_filters, res => {
-        wx.hideLoading()
-        wx.stopPullDownRefresh()
-        let ex = res.data
-        console.log(ex)
-        if(ex.code===200) {
-          let point = ex.data.point
-          wx.showModal({
-            title: `成功帮好友砍掉${point}元`,
-            content: '再次分享给好友多砍几刀吧!',
-            cancelText:'取消',
-            confirmText:'邀请好友',
-            success: function(res) {
-              if (res.confirm) {
-
-              } else if (res.cancel) {
-                console.log('用户点击取消')
-              }
+      if(_this.data.detail.is_buy===0) {
+        if(_this.data.detail.is_assist==0) {
+          util._post(Api.postActivityAddChop(), _this.data.add_filters, res => {
+            wx.hideLoading()
+            wx.stopPullDownRefresh()
+            let ex = res.data
+            console.log(ex)
+            if(ex.code===200) {
+              let point = ex.data.point
+              wx.showModal({
+                title: `成功帮好友砍掉${point}元`,
+                content: '再次分享给好友多砍几刀吧!',
+                cancelText:'取消',
+                confirmText:'邀请好友',
+                success: function(res) {
+                  if (res.confirm) {
+    
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
+            } else{
+              wx.showToast({
+                title: res.data.message,
+                icon: 'none',
+                duration: 2000
+              })
             }
+          }, error => {
+            wx.hideLoading()
+            wx.stopPullDownRefresh()
+            _this.resetFilter()
           })
-        } else{
+        } else {
           wx.showToast({
-            title: res.data.message,
+            title: '您已帮忙砍过',
             icon: 'none',
             duration: 2000
           })
         }
-      }, error => {
-        wx.hideLoading()
-        wx.stopPullDownRefresh()
-        _this.resetFilter()
-      })
+      } else {
+      }
+      
     } else {
-      util._post(Api.postActivityAddChop(), _this.data.filters, res => {
-        wx.hideLoading()
-        wx.stopPullDownRefresh()
-        let ex = res.data
-        console.log(ex)
-        if(ex.code===200) {
-          let point = ex.data.point
-          wx.showModal({
-            title: `成功砍掉${point}元`,
-            content: '隐心帮您砍掉第一步\n分享给好友多砍几刀吧!',
-            cancelText:'取消',
-            confirmText:'邀请好友',
-            success: function(res) {
-              if (res.confirm) {
-              } else if (res.cancel) {
-                console.log('用户点击取消')
+      if(_this.data.detail.is_assist==0) {
+        util._post(Api.postActivityAddChop(), _this.data.filters, res => {
+          wx.hideLoading()
+          wx.stopPullDownRefresh()
+          let ex = res.data
+          console.log(ex)
+          if(ex.code===200) {
+            let point = ex.data.point
+            wx.showModal({
+              title: `成功砍掉${point}元`,
+              content: '隐心帮您砍掉第一步\n分享给好友多砍几刀吧!',
+              cancelText:'取消',
+              confirmText:'邀请好友',
+              success: function(res) {
+                if (res.confirm) {
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
               }
-            }
-          })
-        } else{
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none',
-            duration: 2000
-          })
-        }
-      }, error => {
-        wx.hideLoading()
-        wx.stopPullDownRefresh()
-        _this.resetFilter()
-      })
+            })
+          } else{
+            wx.showToast({
+              title: res.data.message,
+              icon: 'none',
+              duration: 2000
+            })
+          }
+        }, error => {
+          wx.hideLoading()
+          wx.stopPullDownRefresh()
+          _this.resetFilter()
+        })
+      }
     }
   },
 
@@ -166,6 +180,60 @@ Page({
       }
     }
     this.getActivityChop()
+  },
+  postUserChopBuy(){
+    let _this = this
+    util._post(Api.postUserChopBuy(), {
+      activity_id: _this.data.filters.id
+    }, function (res) {
+      if (res.data.code == 200) {
+        let data = res.data.data
+        wx.requestPayment(
+          {
+            'timeStamp': data.timeStamp,
+            'nonceStr': data.nonceStr,
+            'package': data.package,
+            'signType': data.signType,
+            'paySign': data.paySign,
+            'success': function (res) {
+              wx.showToast({
+                title: '购买成功',
+                icon: 'none',
+                duration: 2000
+              })
+              wx.redirectTo('../myCard/myCard')
+            },
+            'fail': function (res) {
+              util._post(Api.cancelOrder(), {
+                order_id: data.order_id
+              }, function (res) {
+
+              })
+            },
+            'complete': function (res) {
+            }
+          })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.data.message,
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+              _this.setData({
+                disabled: false
+              })
+            } else if (res.cancel) {
+              _this.setData({
+                isDisable: false
+              })
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
+    })
   },
 
   /**

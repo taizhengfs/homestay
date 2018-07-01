@@ -30,6 +30,10 @@
       activityId="{{item.id}}"
       type_name="{{item.type_name}}"
       ></activityBlock>
+      <view class="no-data" wx:if="{{today.length==0}}">
+        <view class="no-data__top"><image src="../../images/icon_empty.svg"></image></view>
+        <view class="no-data__bottom">暂无数据</view>
+      </view>
   </view>
   <view class="home__activity__group" wx:if="{{currentTab==1}}">
     <activityBlock wx:for="{{tomorrow}}" wx:key="{{index}}"
@@ -45,5 +49,9 @@
       activityId="{{item.id}}"
       type_name="{{item.type_name}}"
       ></activityBlock>
+      <view class="no-data" wx:if="{{tomorrow.length==0}}">
+        <view class="no-data__top"><image src="../../images/icon_empty.svg"></image></view>
+        <view class="no-data__bottom">暂无数据</view>
+      </view>
   </view>
 </view>
