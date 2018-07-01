@@ -8,7 +8,7 @@
   <view class="experience__lists">
     <view class="experience__list" wx:for="{{list}}" wx:key="{{index}}">
       <view class="experience__list__l">
-        <image src="https:{{item.image}}"></image>
+        <image src="http:{{item.image}}"></image>
       </view>
       <view class="experience__list__r">
         <view class="experience__list__title {{item.time_status===1?'':'is_over'}}" >

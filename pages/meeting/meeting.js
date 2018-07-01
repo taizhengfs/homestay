@@ -62,7 +62,7 @@ Page({
       let ex = res.data.data
       console.log(ex)
       ex.list.forEach(val=>{
-        val.create_at = formatDate(val.create_at*1000, 'yyyy-MM-dd HH:mm') 
+        val.create_at = formatDate(val.create_at*1000, 'Y-m-d H:i:s') 
       })
       const {list} = ex
       this.setData({

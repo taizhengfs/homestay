@@ -66,10 +66,10 @@ Page({
       let ex = res.data.data
       console.log(ex)
       ex.detail.content = ex.detail.content.replace(/<img /g, '<img style="max-width:100%;"');
-      ex.detail.e_starttime = formatDate(ex.detail.e_starttime*1000, 'yyyy-MM-dd HH:mm:ss') 
-      ex.detail.e_endtime = formatDate(ex.detail.e_endtime*1000, 'yyyy-MM-dd HH:mm:ss') 
-      ex.detail.a_starttime = formatDate(ex.detail.a_starttime*1000, 'yyyy-MM-dd HH:mm:ss') 
-      ex.detail.a_endtime = formatDate(ex.detail.a_endtime*1000, 'yyyy-MM-dd HH:mm:ss') 
+      ex.detail.e_starttime = formatDate(ex.detail.e_starttime*1000, 'Y-m-d H:i:s') 
+      ex.detail.e_endtime = formatDate(ex.detail.e_endtime*1000, 'Y-m-d H:i:s') 
+      ex.detail.a_starttime = formatDate(ex.detail.a_starttime*1000, 'Y-m-d H:i:s') 
+      ex.detail.a_endtime = formatDate(ex.detail.a_endtime*1000, 'Y-m-d H:i:s') 
       _this.data.swiperimage.push({image: ex.detail.image})
       const {detail, homestay, apply, win} = ex
       if (detail.time_status==1) {

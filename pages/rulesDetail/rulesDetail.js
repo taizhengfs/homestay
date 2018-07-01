@@ -28,7 +28,7 @@ Page({
         _this.data.rules=[
           {
             type:'活动时间：',
-            desc:`${formatDate(ex.starttime*1000, 'yyyy年MM月dd日 HH:mm:ss')}至${formatDate(ex.endtime*1000, 'yyyy年MM月dd日 HH:mm:ss')}`
+            desc:`${formatDate(ex.starttime*1000, 'Y年m月d日 H时i分')}至${formatDate(ex.endtime*1000, 'Y年m月d日 H时i分')}`
           },
           {
             type:'活动参与方式：',
@@ -47,7 +47,7 @@ Page({
           _this.data.rules.splice(1,0,
             {
               type:'开奖时间：',
-              desc:formatDate(ex.lottery_at*1000, 'yyyy年MM月dd日 HH:mm:ss')
+              desc:formatDate(ex.lottery_at*1000, 'Y年m月d日 H时i分')
             }
           )
         }
@@ -67,7 +67,7 @@ Page({
           },
           {
             type:'使用时间：',
-            desc:`${formatDate(ex.u_starttime*1000, 'yyyy年MM月dd日 HH:mm:ss')}至${formatDate(ex.u_endtime*1000, 'yyyy年MM月dd日 HH:mm:ss')}`
+            desc:`${formatDate(ex.u_starttime*1000, 'Y年m月d日 H时i分')}至${formatDate(ex.u_endtime*1000, 'Y年m月d日 H时i分')}`
           },
           {
             type:'使用规则：',

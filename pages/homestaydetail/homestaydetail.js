@@ -167,7 +167,7 @@ Page({
           title: ex.detail.name
         })
       });
-      ex.detail.create_at = formatDate(ex.detail.create_at * 1000, 'yyyy-MM-dd') 
+      ex.detail.create_at = formatDate(ex.detail.create_at * 1000, 'Y-m-d') 
       const {activity, detail, house} = ex
       _this.setData({
         swiperimage: _this.data.swiperimage,

@@ -106,8 +106,8 @@ Page({
       wx.stopPullDownRefresh()
       let ex = res.data.data
       ex.detail.content = ex.detail.content.replace(/<img /g, '<img style="max-width:100%;"');
-      ex.detail.u_starttime = formatDate(ex.detail.u_starttime*1000, 'yyyy-MM-dd HH:mm:ss') 
-      ex.detail.u_endtime = formatDate(ex.detail.u_endtime*1000, 'yyyy-MM-dd HH:mm:ss') 
+      ex.detail.u_starttime = formatDate(ex.detail.u_starttime*1000, 'Y-m-d H:i:s') 
+      ex.detail.u_endtime = formatDate(ex.detail.u_endtime*1000, 'Y-m-d H:i:s') 
       _this.data.swiperimage.push({image: ex.detail.image})
       const {detail, homestay, user_ticket} = ex
       _this.setData({

@@ -7,52 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiper: [
-      {
-        type:'1',
-        thumb:'//file.yinxinlife.com/images/bg_scroll_1.png'
-      },
-      {
-        type:'2',
-        thumb:'//file.yinxinlife.com/images/bg_scroll_1.png'
-      },
-      {
-        type:'3',
-        thumb:'//file.yinxinlife.com/images/bg_scroll_1.png'
-      }
-    ],
-    list: [
-      {
-        title:'灵隐景区和风民宿旅馆家庭套房试睡体验一晚',
-        cover:'//file.yinxinlife.com/images/img_item_1.png',
-        type:1,
-        start_time:'2018年5月11日'
-      },
-      {
-        title:'杭州四季旅馆金沙餐厅家庭掏槽试吃一份',
-        cover:'//file.yinxinlife.com/images/img_item_2.png',
-        type:2,
-        start_time:'2018年5月11日'
-      },
-      {
-        title:'春晓路地铁口康康谷loft日式简约精品公寓试睡一晚',
-        cover:'//file.yinxinlife.com/images/img_item_3.png',
-        type:1,
-        start_time:'2018年5月11日'
-      },
-      {
-        title:'沐山而居，这家专治夏日高温的民宿等你来体验',
-        cover:'//file.yinxinlife.com/images/img_item_4.png',
-        type:2,
-        start_time:'2018年5月11日'
-      },
-      {
-        title:'灵隐景区和风民宿旅馆家庭套房试睡体验一晚',
-        cover:'//file.yinxinlife.com/images/img_item_1.png',
-        type:1,
-        start_time:'2018年5月11日'
-      },
-    ],
+    swiper: [],
+    list: [],
     curentImg: 0,
     filters: {
       page: 1,
@@ -72,8 +28,8 @@ Page({
       wx.stopPullDownRefresh()
       let ex = res.data.data
       ex.list.forEach(val=>{
-        val.starttime = formatDate(val.starttime*1000, 'yyyy年MM月dd日 HH:mm') 
-        val.endtime = formatDate(val.endtime*1000, 'yyyy年MM月dd日 HH:mm')
+        val.starttime = formatDate(val.starttime*1000, 'Y年m月d日 H时i分') 
+        val.endtime = formatDate(val.endtime*1000, 'Y年m月d日 H时i分')
       })
       const {list, swiper} = ex
       if (list.length < _this.data.filters.pageSize) {

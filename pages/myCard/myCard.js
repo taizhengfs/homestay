@@ -63,8 +63,8 @@ Page({
       wx.stopPullDownRefresh()
       let ex = res.data.data
       ex.list.forEach(val=>{
-        val.u_starttime = formatDate(val.u_starttime*1000, 'yyyy-MM-dd HH:mm') 
-        val.u_endtime = formatDate(val.u_endtime*1000, 'yyyy-MM-dd HH:mm')
+        val.u_starttime = formatDate(val.u_starttime*1000, 'Y-m-d H:i:s') 
+        val.u_endtime = formatDate(val.u_endtime*1000, 'Y-m-d H:i:s')
         if (val.use_status === 3) {
           if (val.can_use === 1) {
             val.ticketCate = '立即使用'

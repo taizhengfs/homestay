@@ -93,8 +93,8 @@ Page({
       wx.stopPullDownRefresh()
       let ex = res.data.data
       ex.list.forEach(val=>{
-        val.e_starttime = formatDate(val.e_starttime*1000, 'yyyy-MM-dd HH:mm') 
-        val.e_endtime = formatDate(val.e_endtime*1000, 'yyyy-MM-dd HH:mm') 
+        val.e_starttime = formatDate(val.e_starttime*1000, 'Y-m-d H:i:s') 
+        val.e_endtime = formatDate(val.e_endtime*1000, 'Y-m-d H:i:s') 
       })
       const { detail, list } = ex
       if (list.length < _this.data.filters.pageSize) {

@@ -83,7 +83,7 @@ Page({
       })
       if(!!birth_at) {
         _this.setData ({
-          birthday: formatDate(birth_at*1000, 'yyyy-MM-dd') 
+          birthday: formatDate(birth_at*1000, 'Y-m-d') 
         })
       }
       if(!!province) {

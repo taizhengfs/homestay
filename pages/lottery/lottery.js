@@ -57,8 +57,8 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data
-      ex.detail.starttime = formatDate(ex.detail.starttime*1000, 'yyyy-MM-dd HH:mm:ss') 
-      ex.detail.endtime = formatDate(ex.detail.endtime*1000, 'yyyy-MM-dd HH:mm:ss') 
+      ex.detail.starttime = formatDate(ex.detail.starttime*1000, 'Y-m-d H:i:s') 
+      ex.detail.endtime = formatDate(ex.detail.endtime*1000, 'Y-m-d H:i:s') 
       _this.data.swiperimage.push({image: ex.detail.image})
       const {detail, ticket, members} = ex
       _this.setData({
