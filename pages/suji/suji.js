@@ -123,7 +123,21 @@ Page({
     tags: [],
     type: [],
     currentPane: '',
-    isLoadAll:false
+    isLoadAll:false,
+    innerText:''
+  },
+  resetFilter(){
+    this.setData({
+      filters:{
+        page: 1,
+        pageSize: 2,
+        keyword: '',
+        distance: '',
+        price: '',
+        tag: '',
+        type: ''
+      }
+    })
   },
   showSelect(){
     this.setData({
@@ -133,6 +147,7 @@ Page({
   getKeyword(e) {
     if(e.detail.isClear) {
       this.setData({
+        'filters.page':1,
         'filters.keyword':e.detail.inputVal,
         isLoadAll:false
       })
@@ -140,6 +155,7 @@ Page({
     } else {
       // if(e.detail.inputVal!=='') {
         this.setData({
+          'filters.page':1,
           'filters.keyword':e.detail.inputVal,
           isLoadAll:false
         })
@@ -349,6 +365,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(' app.globalData.keyword: ',  app.globalData.keyword);
     if(app.globalData.keyword!=='') {
       this.setData(
         {'filters.keyword':app.globalData.keyword}
@@ -363,7 +380,35 @@ Page({
       })
     })
   },
-
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  clearKeyword(){
+    this.setData({
+      innerText:''
+    })
+  },
+  onShow: function () {
+    if(app.globalData.isEditFilter) {
+      if(app.globalData.keyword!=='') {
+        this.resetFilter()
+        this.setData(
+          {
+            innerText:app.globalData.keyword,
+            'filters.keyword':app.globalData.keyword
+          }
+        )
+        let _this = this
+        this.getSujiDetail()
+        _this.setData({
+          sortDetail:_this.data.sortDetail.map(v => {
+            v.isSelected = false
+            return v
+          })
+        })
+      }
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -371,12 +416,6 @@ Page({
   
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
 
   /**
    * 生命周期函数--监听页面隐藏

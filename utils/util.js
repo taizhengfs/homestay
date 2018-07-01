@@ -27,6 +27,35 @@ function convert_length(length) {
     return Math.round(wx.getSystemInfoSync().windowWidth * length / 750);
 }
 
+function getFormId(e, app) {
+  console.log(e)
+  let formId = e.detail.formId;
+  dealFormIds(formId,app); 
+}
+
+function dealFormIds(formId,app) {
+  let formIds = app.globalData.gloabalFomIds;
+  if (!formIds) formIds = [];
+  formIds.push(formId);
+  app.globalData.gloabalFomIds = formIds; 
+}
+
+function saveFormIds(app) {
+    var formIds = app.globalData.gloabalFomIds; 
+    console.log(formIds)
+    if (formIds.length) {
+        formIds = formIds.join(',');
+        app.globalData.gloabalFomIds = '';
+        _post(Api.postUserFormId(), {
+            form_ids: formIds
+        }, function (response) {
+            console.log(response.data)
+        }, function (response) {
+            console.log(response.data)
+        });
+    }
+}
+
 function _postStat(t,p){
   let para = {
     title: t,
@@ -403,5 +432,7 @@ module.exports = {
   openWxAuth: openWxAuth,
   pageOnShowFn: pageOnShowFn,
   getToken: getToken,
-  callPhone: callPhone
+  callPhone: callPhone,
+  getFormId:getFormId,
+  saveFormIds:saveFormIds
 }

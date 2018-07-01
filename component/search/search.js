@@ -1,14 +1,26 @@
+const app = getApp()
 Component({
   properties: {
     // 这里定义了innerText属性，属性值可以在组件使用时指定
     innerText: {
       type: String,
-      value: 'default value',
+      value: '',
+    },
+    isHome: {
+      type: Boolean,
+      value: false
     }
   },
   data:{
     isShowDel: false,
     inputVal: ''
+  },
+  ready() {
+    if(app.globalData.keyword!=='') {
+      this.setData(
+        {inputVal:app.globalData.keyword}
+      )
+    }
   },
   methods: {
     searchSubmit: function(){
@@ -28,12 +40,16 @@ Component({
         inputVal: '',
         isShowDel: false
       });
+      app.globalData.keyword = ''
       var myEventDetail = {
         inputVal: _this.data.inputVal,
         isClear: true
       } 
       var myEventOption = {} 
-      _this.triggerEvent('getKeyword', myEventDetail, myEventOption)
+      _this.triggerEvent('clearKeyword')
+      if(!_this.properties.isHome){
+        _this.triggerEvent('getKeyword', myEventDetail, myEventOption)
+      }
     },
     inputTyping(e) {
       var _this = this;

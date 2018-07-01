@@ -1,8 +1,8 @@
 <view class="home__search">
   <view class="home__search__content">
     <image src="http://file.yinxinlife.com/images/icon_search.png" class='search_icon'></image>
-    <input type="text" placeholder="输入名称/位置/关键词" placeholder-style="color: #D5D5D5" value="{{inputVal}}" bindinput="inputTyping" focus="{{inputShowed}}" bindconfirm="searchSubmit" />
-    <image src='http://file.yinxinlife.com/images/searDel.png' class='search_delet' wx:if="{{isShowDel}}" bindtap='clearInput'></image>
+    <input type="text" placeholder="输入名称/位置/关键词" placeholder-style="color: #D5D5D5" value="{{!!innerText?innerText:inputVal}}" bindinput="inputTyping" focus="{{inputShowed}}" bindconfirm="searchSubmit" />
+    <image src='http://file.yinxinlife.com/images/searDel.png' class='search_delet' wx:if="{{!!innerText||!!inputVal}}" bindtap='clearInput'></image>
     <view class='btn_search' bindtap='searchSubmit'>搜索</view>
   </view>
 </view>

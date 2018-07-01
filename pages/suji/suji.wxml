@@ -1,7 +1,7 @@
 <!--pages/suji/suji.wxml-->
 <view class="container">
   <view class="suji__top">
-    <search class="suji__search" bindgetKeyword = "getKeyword"></search>
+    <search class="suji__search" bindclearKeyword="clearKeyword" innerText="{{innerText}}" bindgetKeyword = "getKeyword"></search>
     <view class="suji__sort">
       <view class="suji__sort__left">
         <view wx:for="{{sortObj}}" wx:key="{{index}}" bindtap="tapToSort" data-type="{{item.type}}" class="suji__sort__block">

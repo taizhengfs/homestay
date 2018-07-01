@@ -79,7 +79,9 @@ Page({
   onLoad: function (options) {
     console.log('options: ', options);
     this.setData({
-      'filters.id': parseInt(options.id)
+      'filters.id': parseInt(options.id),
+      'filters.form_id': options.form_id,
+      'filters.user_id':wx.getStorageSync('userInfo').id,
     })
     this.getActivityChop()
   },

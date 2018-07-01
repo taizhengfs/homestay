@@ -1,64 +1,68 @@
-<view class="home__activity__block" bindtap='onTap'>
-    <view class="home__activity__main">
-      <image class="home__activity__main__cover" src="http:{{cover}}"></image>
-      <view class="home__activity__main__top">
-        <view class="home__type__tips">
-          <view class="home__type__tips__top">
-            <image class="home__type__tips__top__icon" 
-              src='http://file.yinxinlife.com/images/home_icon_{{type===0?"gift":type===1?"cheap_type_2":"cheap_type_1"}}.png'></image>
-            <text class="home__type__tips__top__text">{{type_name}}</text>
-          </view>
-          <view class="home__type__tips__bottom" wx:if="{{timeStatus!==0}}">
-            已有{{participateNum}}人参与
-          </view>
-        </view>
-        <view class="home__type__duration" wx:if="{{timeStatus===0}}">
-          还有{{duration}}开抢
-        </view>
-        <view class="home__type__duration" wx:elif="{{timeStatus===1}}">
-          距离活动结束仅剩{{duration}}
-        </view>
-        <view class="home__type__duration {{timeStatus===2?'is__grey':''}}" wx:else>
-          已结束
-        </view>
-      </view>
-      <view class="home__activity__main__bottom" wx:if="{{!isSelf}}">
-        <view class="text__type_red">¥ 0</view>
-        <view class="text__type_grey">
-          原价：¥ {{price}}
-        </view>
-      </view>
-      <view class="home__activity__main__bottom" wx:else>
-        <block wx:if="{{type===1}}">
-          <view class="text__type_red">¥ 0</view>
-          <view class="text__type_grey">
-            原价：¥ {{price}}
-          </view>
-        </block>
-        <block wx:if="{{type===2}}">
-          <view class="text__type_white">可砍 ¥ {{price}}</view>
-        </block>
-      </view>
-    </view>
-    <view class="home__activity__sub">
-      <view class="home__activity__sub__left">
-          {{activityDesc}}
-      </view>
-      <view wx:if="{{!isSelf}}" class="home__activity__sub__right">
-          {{timeStatus===0
-            ? '开抢提醒'
-            :timeStatus===1
-              ?'马上抢':'去看看'}}
-      </view>
-      <block wx:else >
-        <view wx:if="{{type===1}}" class="home__activity__sub__right {{timeStatus===0 || timeStatus===1?'':isWin?'is__color__gold':'is__color__grey'}}">
-          {{timeStatus===0 || timeStatus===1
-              ? '去看看'
-              : isWin?'恭喜中奖':'未中奖'}}
-        </view>
-        <view wx:if="{{type===2}}" class="home__activity__sub__right">
-          去看看
-        </view>
-      </block>
-    </view>
+<view class="home__activity__block">
+    <form name='activity_{{type}}' report-submit='true' bindsubmit="getFormId">
+        <button class="fake-btn" form-type="submit">
+            <view class="home__activity__main">
+                <image class="home__activity__main__cover" src="http:{{cover}}"></image>
+                <view class="home__activity__main__top">
+                  <view class="home__type__tips">
+                    <view class="home__type__tips__top">
+                      <image class="home__type__tips__top__icon" 
+                        src='http://file.yinxinlife.com/images/home_icon_{{type===0?"gift":type===1?"cheap_type_2":"cheap_type_1"}}.png'></image>
+                      <text class="home__type__tips__top__text">{{type_name}}</text>
+                    </view>
+                    <view class="home__type__tips__bottom" wx:if="{{timeStatus!==0}}">
+                      已有{{participateNum}}人参与
+                    </view>
+                  </view>
+                  <view class="home__type__duration" wx:if="{{timeStatus===0}}">
+                    还有{{duration}}开抢
+                  </view>
+                  <view class="home__type__duration" wx:elif="{{timeStatus===1}}">
+                    距离活动结束仅剩{{duration}}
+                  </view>
+                  <view class="home__type__duration {{timeStatus===2?'is__grey':''}}" wx:else>
+                    已结束
+                  </view>
+                </view>
+                <view class="home__activity__main__bottom" wx:if="{{!isSelf}}">
+                  <view class="text__type_red">¥ 0</view>
+                  <view class="text__type_grey">
+                    原价：¥ {{price}}
+                  </view>
+                </view>
+                <view class="home__activity__main__bottom" wx:else>
+                  <block wx:if="{{type===1}}">
+                    <view class="text__type_red">¥ 0</view>
+                    <view class="text__type_grey">
+                      原价：¥ {{price}}
+                    </view>
+                  </block>
+                  <block wx:if="{{type===2}}">
+                    <view class="text__type_white">可砍 ¥ {{price}}</view>
+                  </block>
+                </view>
+              </view>
+              <view class="home__activity__sub">
+                <view class="home__activity__sub__left">
+                    {{activityDesc}}
+                </view>
+                <view wx:if="{{!isSelf}}" class="home__activity__sub__right">
+                    {{timeStatus===0
+                      ? '开抢提醒'
+                      :timeStatus===1
+                        ?'马上抢':'去看看'}}
+                </view>
+                <block wx:else >
+                  <view wx:if="{{type===1}}" class="home__activity__sub__right {{timeStatus===0 || timeStatus===1?'':isWin?'is__color__gold':'is__color__grey'}}">
+                    {{timeStatus===0 || timeStatus===1
+                        ? '去看看'
+                        : isWin?'恭喜中奖':'未中奖'}}
+                  </view>
+                  <view wx:if="{{type===2}}" class="home__activity__sub__right">
+                    去看看
+                  </view>
+                </block>
+              </view>
+        </button>
+      </form>
   </view>

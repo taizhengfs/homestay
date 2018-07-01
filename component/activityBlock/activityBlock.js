@@ -1,4 +1,7 @@
 import {distanceDate, formatDate} from '../../utils/date.js';
+import util from '../../utils/util.js';
+const app = getApp();
+import Api from '../../utils/api.js';
 Component({
   properties: {
     // 这里定义了innerText属性，属性值可以在组件使用时指定
@@ -63,7 +66,8 @@ Component({
   data:{
     isShowDel: false,
     inputVal: '',
-    duration:'00:00:00'
+    duration:'00:00:00',
+    form_id:[]
   },
   ready(){
     this.endFormatTime()
@@ -72,20 +76,22 @@ Component({
     },1000)
   },
   methods: {
-    onTap: function () {
+    onTap(form_id) {
       var myEventDetail = {} // detail对象，提供给事件监听函数
       var myEventOption = {} // 触发事件的选项
-      if (this.properties.type===2) {
-        let url = `../discount/discount?id=${this.properties.activityId}`
-        wx.navigateTo({
-          url: url
-        })
-      } else {
-        let url = `../lottery/lottery?id=${this.properties.activityId}`
-        wx.navigateTo({
-          url: url
-        })
-      }
+      setTimeout(v=>{
+        if (this.properties.type===2) {
+          let url = `../discount/discount?id=${this.properties.activityId}&form_id=${form_id}`
+          wx.navigateTo({
+            url: url
+          })
+        } else {
+          let url = `../lottery/lottery?id=${this.properties.activityId}&form_id=${form_id}`
+          wx.navigateTo({
+            url: url
+          })
+        }
+      },350)
       this.triggerEvent('myevent', myEventDetail, myEventOption)
     },
     padWithZero (number) {
@@ -108,6 +114,14 @@ Component({
       this.setData({
         duration: showTime
       })
+    },
+    getFormId (e) {
+      this.setData({
+        form_id:e.detail.formId
+      })
+      this.onTap(e.detail.formId)
+      util.getFormId(e, app)
+      util.saveFormIds(app)
     }
   }
 })

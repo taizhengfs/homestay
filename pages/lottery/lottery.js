@@ -96,6 +96,7 @@ Page({
     console.log('options: ', options);
     this.setData({
       'filters.id':parseInt(options.id),
+      'filters.form_id': options.form_id,
       'filters.user_id':wx.getStorageSync('userInfo').id,
     })
     wx.setNavigationBarTitle({ title: '拼团抽奖' });

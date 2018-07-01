@@ -67,8 +67,19 @@ Page({
       isShowBox: false
     })
   },
+  clearKeyword(){
+    this.setData({
+      innerText:''
+    })
+  },
   goSearch(e){
     let key = e.detail.inputVal
+    console.log('key: ', key);
+    if(key ==app.globalData.keyword) {
+      app.globalData.isEditFilter = false
+    } else {
+      app.globalData.isEditFilter = true
+    }
     app.globalData.keyword=key;
     wx.switchTab({
       url: '../suji/suji',
@@ -166,5 +177,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
 })
