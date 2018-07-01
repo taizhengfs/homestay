@@ -94,9 +94,10 @@ Component({
       },350)
       this.triggerEvent('myevent', myEventDetail, myEventOption)
     },
+    
     padWithZero (number) {
       if(typeof number !== 'undefined') {
-        return number.toFixed(0).padStart(2, '0')
+        return ('00' + number).slice(-2);
       }
     },
     endFormatTime () {
