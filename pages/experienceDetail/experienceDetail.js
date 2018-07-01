@@ -107,12 +107,42 @@ Page({
     })
   },
   jumpToJoin(e) {
-    wx.navigateTo({
-      url: `../applyRoom/applyRoom?id=${e.currentTarget.dataset.id}`,
-      success: function(res){
-        // success
-      },
-    })
+    if(this.detail.time_status === 1) {
+      if(this.detail.is_apply==0) {
+        wx.navigateTo({
+          url: `../applyRoom/applyRoom?id=${e.currentTarget.dataset.id}`,
+          success: function(res){
+            // success
+          },
+        })
+      } else {
+        wx.showToast({
+          title: '您已报名',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    } else if(this.detail.time_status==2){
+      if(this.detail.is_apply==0) {
+        wx.showToast({
+          title: '报名已结束',
+          icon: 'none',
+          duration: 1500
+        })
+      } else {
+        wx.showToast({
+          title: '您已报名',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    } else if(this.detail.time_status==3) {
+      wx.showToast({
+        title: '活动已结束',
+        icon: 'none',
+        duration: 1500
+      })
+    }
   },
   jumpToHome() {
     wx.switchTab({
