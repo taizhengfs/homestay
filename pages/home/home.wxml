@@ -1,6 +1,5 @@
 <!--pages/home.wxml-->
-<view class="container">
-  <authBox isShowBox="{{isShowBox}}" bindcloseAuth="closeBox"></authBox>
+<view class='container {{isShowBox?"blur__mask":""}}'>
   <view class="home__header">
     <swiperItem class="w__100"
       swiperimage="{{swiper}}"
@@ -55,3 +54,4 @@
       </view>
   </view>
 </view>
+<authBox isShowBox="{{isShowBox}}" bindcloseAuth="closeBox"></authBox>

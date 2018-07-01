@@ -126,10 +126,12 @@ Page({
    */
   onLoad: function (options) {
     this.getHomeDetail()
-    this.setData({
-      isLogin: wx.getStorageSync('isLogin'),
-      isShowBox: wx.getStorageSync('isLogin')==0
-    })
+    setTimeout(v=>{
+      this.setData({
+        isLogin: wx.getStorageSync('isLogin'),
+        isShowBox: wx.getStorageSync('isLogin')==0
+      })
+    },300)
   },
 
   /**
