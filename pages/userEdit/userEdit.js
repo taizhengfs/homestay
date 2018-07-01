@@ -108,14 +108,19 @@ Page({
     util._post(Api.postUserEdit(), _this.data.filters, res => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
-      let ex = res.data.data
-      console.log(ex)
-      wx.redirectTo({
-        url: '../userInfo/userInfo',
-        success: function(res){
-          // success
-        }
+      wx.showToast({
+        title: '修改成功',
+        icon: 'none',
+        duration: 2000
       })
+      setTimeout(v=>{
+        wx.redirectTo({
+          url: '../userInfo/userInfo',
+          success: function(res){
+            // success
+          }
+        })
+      },500)
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
