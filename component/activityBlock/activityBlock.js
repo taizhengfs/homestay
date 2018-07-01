@@ -112,9 +112,11 @@ Component({
       let { day, hour, min, second } = duration
       let padWithZero = this.padWithZero
       let showTime = `${day !== 0 ? day + '天' : ''}${padWithZero(hour)}:${padWithZero(min)}:${padWithZero(second)}`
-      this.setData({
-        duration: showTime
-      })
+      if(typeof day !=='undefined') {
+        this.setData({
+          duration: showTime
+        })
+      }
     },
     getFormId (e) {
       this.setData({

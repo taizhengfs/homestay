@@ -25,12 +25,12 @@ Component({
       value: ''
     },
     startTime: {
-      type: Number,
-      value: 1527782400
+      type: String,
+      value: ''
     },
     endTime: {
-      type: Number,
-      value: 1530288000
+      type: String,
+      value: ''
     },
     ticketId: {
       type: Number,
