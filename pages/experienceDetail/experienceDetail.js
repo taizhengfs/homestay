@@ -107,8 +107,9 @@ Page({
     })
   },
   jumpToJoin(e) {
-    if(this.detail.time_status === 1) {
-      if(this.detail.is_apply==0) {
+    let _this = this
+    if(_this.data.detail.time_status === 1) {
+      if(_this.data.detail.is_apply==0) {
         wx.navigateTo({
           url: `../applyRoom/applyRoom?id=${e.currentTarget.dataset.id}`,
           success: function(res){
@@ -122,8 +123,8 @@ Page({
           duration: 1500
         })
       }
-    } else if(this.detail.time_status==2){
-      if(this.detail.is_apply==0) {
+    } else if(_this.data.detail.time_status==2){
+      if(_this.data.detail.is_apply==0) {
         wx.showToast({
           title: '报名已结束',
           icon: 'none',
@@ -136,7 +137,7 @@ Page({
           duration: 1500
         })
       }
-    } else if(this.detail.time_status==3) {
+    } else if(_this.data.detail.time_status==3) {
       wx.showToast({
         title: '活动已结束',
         icon: 'none',

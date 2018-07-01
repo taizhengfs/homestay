@@ -33,7 +33,8 @@ Page({
     user_info: {},
     operations: [],
     welfare: [],
-    detail:{}
+    detail:{},
+    experiencer_title:''
   },
   jumpToPage(e) {
     const dataset = e.currentTarget.dataset
@@ -64,7 +65,8 @@ Page({
         detail: ex,
         user_info: user_info,
         operations: operations,
-        welfare: welfare
+        welfare: welfare,
+        experiencer_title:`(${user_info.experiencer_level_name}体验师)`
       })
     }, error => {
       wx.hideLoading()

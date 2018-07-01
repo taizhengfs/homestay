@@ -34,7 +34,7 @@
   font-size: 48rpx;
   padding-left: 28rpx;
   line-height: 66rpx;
-  color: #C12121;
+  color: #fff;
 }
 .text__type_white {
   font-size: 48rpx;
@@ -45,7 +45,7 @@
 }
 .text__type_grey {
   text-decoration: line-through;
-  color: #7E7E7E;
+  color: #fff;
   font-size: 28rpx;
   line-height: 66rpx;
   margin-left: 20rpx
@@ -88,6 +88,7 @@
   color: #fff;
   font-size: 28rpx;
   height: 48rpx;
+  line-height: 48rpx;
   padding: 4rpx 24rpx 4rpx 26rpx;
   background: #BAA68B;
   border-top-left-radius: 16rpx;
@@ -145,4 +146,12 @@
 button:after {
   content: '';
   border: none!important;
+}
+.act__mask {
+  width:100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height:118rpx;
+  background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.5));
 }

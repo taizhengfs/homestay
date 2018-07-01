@@ -113,7 +113,7 @@
     <view class="user__cell" data-url='../experiencer/experiencer' data-level="{{user_info.experiencer_level}}" bindtap='jumpToPage'>
       <view class="user__cell__icon">
         <image src="http://file.yinxinlife.com/images/icon_experiencer.png"></image>
-        <view>隐心体验师(S2体验师)</view>
+        <view>隐心体验师{{user_info.experiencer_level===0?'':experiencer_title}}</view>
       </view>
       <view class="user__cell__right">
         <view class="icon__arrow__right"></view>

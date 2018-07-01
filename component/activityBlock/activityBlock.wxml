@@ -24,13 +24,13 @@
                     已结束
                   </view>
                 </view>
-                <view class="home__activity__main__bottom" wx:if="{{!isSelf}}">
+                <!-- <view class="home__activity__main__bottom" wx:if="{{!isSelf}}">
                   <view class="text__type_red">¥ 0</view>
                   <view class="text__type_grey">
                     原价：¥ {{price}}
                   </view>
-                </view>
-                <view class="home__activity__main__bottom" wx:else>
+                </view> -->
+                <view class="home__activity__main__bottom">
                   <block wx:if="{{type===1}}">
                     <view class="text__type_red">¥ 0</view>
                     <view class="text__type_grey">
@@ -40,6 +40,9 @@
                   <block wx:if="{{type===2}}">
                     <view class="text__type_white">可砍 ¥ {{price}}</view>
                   </block>
+                </view>
+                <view class="act__mask">
+                  
                 </view>
               </view>
               <view class="home__activity__sub">
