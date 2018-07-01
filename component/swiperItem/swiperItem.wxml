@@ -9,7 +9,7 @@
         data-link="{{item.link}}"
         data-id="{{item.id}}"
         data-wxa_link="{{item.wxa_link}}"
-        bindtap="jumpToDetail(item)"
+        bindtap="jumpToDetail"
       >
         <view class='swiper__bottom' wx:if="{{isShowTitle}}">
           {{item.title}}

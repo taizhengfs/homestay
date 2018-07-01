@@ -4,7 +4,7 @@
     <view class='user__profile'>
       <image src='{{userDetail.avatar}}'></image>
     </view>
-     <view class='user__profile__tip'>点击更换头像</view>
+     <!-- <view class='user__profile__tip'>点击更换头像</view> -->
   </view>
   <view class='user__edit__main'>
     <view class='user__edit__block'>
@@ -26,7 +26,7 @@
     <view class='user__edit__block'>
       <view class='user__edit__block__left'>地区</view>
       <view class='user__edit__block__right'>
-        <picker mode = 'region' value="{{region}}" class='user__edit__input' custom-item="{{customItem}}" bindchange="bindRegionChange" placeholder-class="input__style">
+        <picker mode = 'region' value="{{region}}" class='user__edit__input' bindchange="bindRegionChange" placeholder-class="input__style">
          <view class="user__picker">
          {{region[0]}}，{{region[1]}}，{{region[2]}}
         </view>
@@ -38,7 +38,7 @@
       <view class='user__edit__block__right'>
         <picker mode = 'date' start="1990-09-01" end="2017-09-01" value="{{birthday}}" class='user__edit__input' bindchange="bindDateChange" placeholder-class="input__style">
          <view class="user__picker">
-         {{birthday}}
+         {{!!filters.birth_at?birthday:'请选择生日'}}
         </view>
         </picker>
       </view>

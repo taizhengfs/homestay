@@ -2,6 +2,7 @@
 // postUserEdit
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
+import {formatDate} from '../../utils/date.js';
 Page({
   /**
    * 页面的初始数据
@@ -18,7 +19,8 @@ Page({
       phone: '',
       birth_at:'',
       province:'',
-      city:''
+      city:'',
+      region:''
     },
     userInfo: {}
   },
@@ -45,7 +47,8 @@ Page({
     this.setData({
       region: region,
       'filters.province': region[0],
-      'filters.city': region[1]
+      'filters.city': region[1],
+      'filters.region': region[2]
     })
   },
   bindDateChange: function (e) {
@@ -54,7 +57,7 @@ Page({
     const newDate = new Date(date[0],date[1],date[2]);
     this.setData({
       birthday: e.detail.value,
-      'filters.birth_at': newDate.getTime()
+      'filters.birth_at': newDate.getTime()/1000
     })
   },
   getUserInfoDetail() {
@@ -66,16 +69,27 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data
-      const {truename, birth_at, city, province, phone, gender} = ex
-      this.setData({
+      const {truename, birth_at, city, province, phone, gender, region} = ex
+      _this.setData({
         sex: parseInt(gender)-1,
         'filters.gender': gender,
         'filters.truename': truename,
         'filters.birth_at': birth_at,
         'filters.phone': phone,
         'filters.city': city,
+        'filters.region': region,
         'filters.province': province
       })
+      if(!!birth_at) {
+        _this.setData ({
+          birthday: formatDate(birth_at*1000, 'yyyy-MM-dd') 
+        })
+      }
+      if(!!province) {
+        _this.setData ({
+          region: [province, city, region]
+        })
+      }
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()

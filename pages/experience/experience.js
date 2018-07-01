@@ -106,6 +106,7 @@ Page({
 
   jumpToDetail(e) {
     let tp = e.currentTarget.dataset
+    console.log(this.data.userinfo)
     if(this.data.userinfo.is_experiencer===1) {
       wx.navigateTo({
         url: `../experienceDetail/experienceDetail?id=${tp.id}`

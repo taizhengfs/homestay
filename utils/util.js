@@ -1,14 +1,25 @@
 import Api from 'api.js';
 var latitude = ''
 var longitude = ''
-var pos = -1
+wx.setStorageSync('ishaspos', -1)
+var pos = wx.getStorageSync('ishaspos')
+
 let requestStatus = 0 // 0:未请求 1:请求中 2:请求完成 3:请求失败
 wx.getLocation({
   type: 'wgs84',
   success: function (res) {
     latitude = res.latitude
     longitude = res.longitude
-    console.log(latitude, longitude)
+    if (pos ==-1){
+      if (!!latitude){
+        pos = 1
+        wx.setStorageSync('ishaspos', 1)
+      }
+      else{
+        pos = 0
+        wx.setStorageSync('ishaspos', 0)
+      }
+    }
   }
 })
 
@@ -77,11 +88,13 @@ function _getLocation(success,fail){
       latitude = res.latitude//30.656225
       longitude = res.longitude//104.066620
       if (pos ==-1){
-        if (latitude){
+        if (!!latitude){
           pos = 1
+          wx.setStorageSync('ishaspos', 1)
         }
         else{
           pos = 0
+          wx.setStorageSync('ishaspos', 0)
         }
       }
       success(res)
@@ -142,7 +155,7 @@ function _get(url, data, success, fail) {
       'cityid': wx.getStorageSync('cityid'),
       'version': Api.getVersionNum(),
       'os': Api.getOsType(),
-      'position': pos,
+      'position': wx.getStorageSync('ishaspos'),
       'lng': longitude,
       'lat': latitude
     },
@@ -170,7 +183,7 @@ function _post(url, data, success, fail) {
       'platid': '24',
       'version': Api.getVersionNum(),
       'os': Api.getOsType(),
-      'position': pos,
+      'position': wx.getStorageSync('ishaspos'),
       'lng': longitude,
       'lat': latitude
     },

@@ -39,7 +39,7 @@
     </view>
   </view>
   <view class="user__cells">
-    <view class="user__cell">
+    <!-- <view class="user__cell">
       <view class="user__cell__icon">
         <image src="http://file.yinxinlife.com/images/icon_gift.png"></image>
         <view>我的福利</view>
@@ -48,7 +48,7 @@
         <view>查看全部福利</view>
         <view class="icon__arrow__right"></view>
       </view>
-    </view>
+    </view> -->
     <view class="user__ticket__content" wx:if="{{welfare.length>0}}">
       <view class="user__ticket__scroll">
         <view class="user__ticket__maim" wx:for="{{ticketList}}" wx:key="{{index}}">
@@ -110,7 +110,7 @@
     </view>
   </view>
   <view class="user__cells mt_24">
-    <view class="user__cell" data-url='../experiencer/experiencer' bindtap='jumpToPage'>
+    <view class="user__cell" data-url='../experiencer/experiencer' data-level="{{user_info.experiencer_level}}" bindtap='jumpToPage'>
       <view class="user__cell__icon">
         <image src="http://file.yinxinlife.com/images/icon_experiencer.png"></image>
         <view>隐心体验师(S2体验师)</view>

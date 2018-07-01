@@ -1,5 +1,5 @@
 <!--pages/experienceDetail/experienceDetail.wxml-->
-<view class='container'>
+<view class='container {{isShowCard?"blur__mask":""}}'>
   <swiperItem class="w__100"
     isShowShare="{{true}}"
     isShowRedTag="{{true}}"
@@ -20,7 +20,7 @@
   <view class="ticket__sub">{{detail.theme}}</view>
   <view class='exp__detail__block' wx:if="{{!!user_ticket.code}}">
     <view class='exp__detail__title'>您的优惠码：</view>
-    <view class="exp__ticket__num">{{user_ticket.code}}</view>
+    <view class="exp__ticket__num">{{formateCode}}</view>
   </view>
   <view class='exp__detail__block'>
     <view class='exp__detail__title'>商家详情</view>
@@ -75,8 +75,21 @@
     
   </view>
   <view class='bottom__bar'>
-      <view class="form__submit" bindtap='showPaneCard'>
-        立即使用
+      <view class="form__submit {{user_ticket.use_status===3?'':'bg-grey'}}" bindtap='showPaneCard'>
+        {{user_ticket.use_status===3?'立即使用':user_ticket.use_status===4?'已使用':'已过期'}}
       </view>
   </view>
 </view>
+<view class='pane__success' wx:if="{{isShowCard}}">
+    <view class='pane__icon__success'>
+      <image src='../../images/icon_alert.svg'></image>
+    </view>
+    <view class='pane__title'>核销票券</view>
+    <text class='pane__desc'>确定核销该票券？</text>
+    <view class="pane__button__group">
+      <view class='pane__button' bindtap='showPaneCard'>取消</view>
+      <view class='pane__button delete' bindtap='ensureBtn'>确定</view>
+    </view>
+  </view>
+  <view class='pane__mask' wx:if="{{isShowCard}}">
+  </view>

@@ -36,7 +36,15 @@ Page({
     detail:{}
   },
   jumpToPage(e) {
-    let url = e.currentTarget.dataset.url
+    const dataset = e.currentTarget.dataset
+    let url = dataset.url
+    if (typeof dataset.level !== 'undefined') {
+      if (dataset.level===0) {
+        wx.navigateTo({
+          url: '../apply/apply'
+        })
+      }
+    }
     wx.navigateTo({
       url: url
     })

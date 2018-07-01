@@ -1,5 +1,5 @@
 <!--pages/applyRoom/applyRoom.wxml-->
-<view class='container'>
+<view class='container {{isShowCard?"blur__mask":""}}' >
   <view class='top__header'>
     <image src='http://file.yinxinlife.com/images/bg_header.png'></image>
   </view>
@@ -26,17 +26,17 @@
   <view class="form__submit" bindtap='getExperienceApply'>
     提交申请
   </view>
-  <view class='pane__success' wx:if="{{isShowCard}}">
-      <view class='pane__icon__success'>
-        <image src='../../images/icon_alert.svg'></image>
-      </view>
-      <view class='pane__title'>删除图片</view>
-      <text class='pane__desc'>改操作不可逆，是否要继续\n删除该图片？</text>
-      <view class="pane__button__group">
-        <view class='pane__button' bindtap='showPaneCard'>取消</view>
-        <view class='pane__button delete' bindtap='deleteImage'>删除</view>
-      </view>
-    </view>
-    <view class='pane__mask' wx:if="{{isShowCard}}">
-    </view>
 </view>
+<view class='pane__success' wx:if="{{isShowCard}}">
+    <view class='pane__icon__success'>
+      <image src='../../images/icon_alert.svg'></image>
+    </view>
+    <view class='pane__title'>删除图片</view>
+    <text class='pane__desc'>改操作不可逆，是否要继续\n删除该图片？</text>
+    <view class="pane__button__group">
+      <view class='pane__button' bindtap='showPaneCard'>取消</view>
+      <view class='pane__button delete' bindtap='deleteImage'>删除</view>
+    </view>
+  </view>
+  <view class='pane__mask' wx:if="{{isShowCard}}">
+  </view>

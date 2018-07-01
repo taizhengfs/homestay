@@ -40,7 +40,9 @@ Page({
     },
     user_ticket:{},
     detail:{},
-    homestay:{}
+    homestay:{},
+    isShowCard:false,
+    formateCode:''
   },
   jumpToRuleDetail(e) {
     wx.navigateTo({
@@ -50,6 +52,17 @@ Page({
       }
     })
   },
+  ensureBtn(){
+    this.postUserOffTicket()
+  },
+  showPaneCard(){
+    let _this = this;
+    if(_this.data.user_ticket.use_status===3) {
+      _this.setData({
+        isShowCard: !_this.data.isShowCard
+      })
+    }
+  },
   postUserOffTicket(){
     let _this = this
     wx.showLoading({
@@ -58,9 +71,22 @@ Page({
     util._post(Api.postUserOffTicket(), {id: _this.data.user_ticket.id}, res => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
-      let ex = res.data.data
-
+      let ex = res.data
+      wx.showToast({
+        title: ex.message,
+        icon: 'none',
+        duration: 1000
+      })
+      _this.setData({
+        'user_ticket.use_status':4
+      })
+      this.showPaneCard()
     }, error => {
+      wx.showToast({
+        title: ex.message,
+        icon: 'none',
+        duration: 1000
+      })
       wx.hideLoading()
       wx.stopPullDownRefresh()
     })
@@ -88,7 +114,8 @@ Page({
         swiperimage: _this.data.swiperimage,
         detail: detail,
         homestay: homestay,
-        user_ticket: user_ticket
+        user_ticket: user_ticket,
+        formateCode: ex.user_ticket.code.replace(/\s/g,'').replace(/(.{4})/g,"$1 ")
       })
     }, error => {
       wx.hideLoading()

@@ -71,17 +71,15 @@ Page({
     console.log(type)
     if (type == 1) {
       wx.navigateTo({
-        url: `../lottery/lottery?id=${id}`,
-        success: function(res){
-          // success
-        }
+        url: `../lottery/lottery?id=${id}`
       })
     } else if(type == 2) {
       wx.navigateTo({
-        url: `../discount/discount?id=${id}`,
-        success: function(res){
-          // success
-        }
+        url: `../discount/discount?id=${id}`
+      })
+    } else if (type==3) {
+      wx.navigateTo({
+        url: `../experienceDetail/experienceDetail?id=${id}`
       })
     }
   },
