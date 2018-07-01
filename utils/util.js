@@ -56,15 +56,11 @@ function saveFormIds(app) {
     }
 }
 
-function _postStat(t,p){
-  let para = {
-    title: t,
-    path: p
-  }
-  _post(Api.postShareStat(), para, res => {
+function _getStat(){
+  _get(Api.getAddShareExp(), {}, res => {
     console.log(res.data)
   }, error => {
-    console.log(errror)
+    console.log(error)
   })
 }
 // 如果没有授权条授权设置
@@ -425,7 +421,7 @@ module.exports = {
   _getUserInfo: _getUserInfo,
   _getLocation: _getLocation,
   _goSetting: _goSetting,
-  _postStat: _postStat,
+  _getStat: _getStat,
   isTabBar: isTabBar,
   wxAuthorize: wxAuthorize,
   setMember: setMember,

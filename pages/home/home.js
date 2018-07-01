@@ -175,7 +175,30 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
   
+  onShareAppMessage: function (res) {
+    var _this = this
+    if (res.from === 'button') {
+      return {
+        title: '隐心民宿',
+        path: 'pages/home/home',
+        success: function (res) {
+            util._getStat()
+        },
+        fail:function(res){
+        }
+      }
+    }
+    else {
+      return {
+        title: '隐心民宿',
+        path: 'pages/home/home',
+        success: function (res) {
+          util._getStat()
+        },
+        fail:function(res){
+        }
+      }
+    }
   },
 })

@@ -23,6 +23,10 @@ Page({
       user_id: 0,
       form_id: ''
     },
+    add_filters:{
+      id: 0,
+      user_id: 0,
+    },
     detail: [],
     ticket: {},
     members: []
@@ -57,6 +61,7 @@ Page({
         ticket: ticket,
         members: members
       })
+      this.postActivityAddChop()
       
     }, error => {
       wx.hideLoading()
@@ -72,6 +77,75 @@ Page({
       }
     })
   },
+  postActivityAddChop() {
+    let _this = this
+    if(_this.data.add_filters.user_id!==0) {
+      util._post(Api.postActivityAddChop(), _this.data.add_filters, res => {
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
+        let ex = res.data
+        console.log(ex)
+        if(ex.code===200) {
+          let point = ex.data.point
+          wx.showModal({
+            title: `成功帮好友砍掉${point}元`,
+            content: '再次分享给好友多砍几刀吧!',
+            cancelText:'取消',
+            confirmText:'邀请好友',
+            success: function(res) {
+              if (res.confirm) {
+
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        } else{
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }, error => {
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
+        _this.resetFilter()
+      })
+    } else {
+      util._post(Api.postActivityAddChop(), _this.data.filters, res => {
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
+        let ex = res.data
+        console.log(ex)
+        if(ex.code===200) {
+          let point = ex.data.point
+          wx.showModal({
+            title: `成功砍掉${point}元`,
+            content: '隐心帮您砍掉第一步\n分享给好友多砍几刀吧!',
+            cancelText:'取消',
+            confirmText:'邀请好友',
+            success: function(res) {
+              if (res.confirm) {
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        } else{
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }, error => {
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
+        _this.resetFilter()
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -80,9 +154,17 @@ Page({
     console.log('options: ', options);
     this.setData({
       'filters.id': parseInt(options.id),
+      'filters.add_filters': parseInt(options.id),
       'filters.form_id': options.form_id,
       'filters.user_id':wx.getStorageSync('userInfo').id,
     })
+    if(typeof options.user_id !== 'undefined') {
+      if(options.user_id!==wx.getStorageSync('userInfo').id) {
+        this.setData({
+          'add_filters.user_id':parseInt(options.user_id),
+        })
+      }
+    }
     this.getActivityChop()
   },
 
@@ -131,7 +213,29 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    let uid = this.data.add_filters.user_id===0?this.data.filters.user_id:this.data.add_filters.user_id
+    if (res.from === 'button') {
+      return {
+        title: `优惠疯抢-${this.data.detail.name}`,
+        path: `pages/discount/discount?id=${this.data.detail.id}&user_id=${uid}`,
+        success: function (res) {
+            util._getStat()
+        },
+        fail:function(res){
+        }
+      }
+    }
+    else {
+      return {
+        title: `优惠疯抢-${this.data.detail.name}`,
+        path: `pages/discount/discount?id=${this.data.detail.id}&user_id=${uid}`,
+        success: function (res) {
+          util._getStat()
+        },
+        fail:function(res){
+        }
+      }
+    }
   }
 })

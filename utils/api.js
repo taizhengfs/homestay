@@ -33,6 +33,7 @@ const GET_USER_EXPERIENCELIST = '/user/experienceList'
 const POST_USER_OFFTICKET = '/user/offTicket'
 const GET_ACTIVITY_RULE_DETAIL = '/activity/ruleDetail'
 const GET_TICKET_RULE_DETAIL = '/ticket/ruleDetail'
+const GET_ADD_SHARE_EXP = '/user/addShareExp'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -170,5 +171,9 @@ module.exports = {
   // 核销票券
   postUserOffTicket() {
     return HOST_URI + POST_USER_OFFTICKET
+  },
+  // 分享统计
+  getAddShareExp() {
+    return HOST_URI + GET_ADD_SHARE_EXP
   }
 };

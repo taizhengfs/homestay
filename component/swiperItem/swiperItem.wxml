@@ -1,8 +1,8 @@
 <!--component/swiper/swiper.wxml-->
 <view class="experience__swiper">
-  <view wx:if="{{isShowShare}}" class="icon_share">
+  <button wx:if="{{isShowShare}}" open-type="share" class="icon_share fake-btn">
     <image src="http://file.yinxinlife.com/images/icon_share.png"></image>
-  </view>
+  </button>
   <swiper indicator-dots="{{isShowDots}}" indicator-color="#D8D8D8" indicator-active-color="#BAA68B" autoplay="{{isAutoPlay}}" interval="{{interval}}" duration="{{duration}}" current="{{curentImg}}">
     <block wx:for="{{swiperimage}}" wx:key>
       <swiper-item class="top-img"

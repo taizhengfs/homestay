@@ -138,7 +138,28 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      return {
+        title: '隐心民宿体验列表',
+        path: 'pages/experience/experience',
+        success: function (res) {
+            util._getStat()
+        },
+        fail:function(res){
+        }
+      }
+    }
+    else {
+      return {
+        title: '隐心民宿体验列表',
+        path: 'pages/experience/experience',
+        success: function (res) {
+          util._getStat()
+        },
+        fail:function(res){
+        }
+      }
+    }
   }
 })

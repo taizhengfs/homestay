@@ -87,7 +87,7 @@
   </view>
   <view class='bottom__bar'>
     <view class='bottom__ba__block' bindtap="jumpToHome"><view class="icon__home"></view>首页</view>
-    <view class='bottom__ba__block'><view class="icon__share"></view>分享</view>
+    <button class='bottom__ba__block fake-btn' open-type="share"><view class="icon__share"></view>分享</button>
     <view class='bottom__ba__block join {{btnStyle}}' data-id="{{detail.id}}" bindtap="jumpToJoin">{{btnText}}</view>
   </view>
 </view>

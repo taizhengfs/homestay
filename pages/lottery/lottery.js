@@ -215,9 +215,11 @@ Page({
       'filters.user_id':wx.getStorageSync('userInfo').id,
     })
     if(typeof options.user_id !== 'undefined') {
-      this.setData({
-        'add_filters.user_id':parseInt(options.user_id),
-      })
+      if(options.user_id!==wx.getStorageSync('userInfo').id) {
+        this.setData({
+          'add_filters.user_id':parseInt(options.user_id),
+        })
+      }
     }
     wx.setNavigationBarTitle({ title: '拼团抽奖' });
     this.getActivityGroup()
@@ -276,7 +278,29 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    let uid = this.data.add_filters.user_id===0?this.data.filters.user_id:this.data.add_filters.user_id
+    if (res.from === 'button') {
+      return {
+        title: `拼团抽奖-${this.data.detail.name}`,
+        path: `pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
+        success: function (res) {
+            util._getStat()
+        },
+        fail:function(res){
+        }
+      }
+    }
+    else {
+      return {
+        title: `拼团抽奖-${this.data.detail.name}`,
+        path: `pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
+        success: function (res) {
+          util._getStat()
+        },
+        fail:function(res){
+        }
+      }
+    }
   }
 })

@@ -207,7 +207,28 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      return {
+        title: `体验详情-${this.data.detail.name}`,
+        path: `pages/experienceDetail/experienceDetail?id=${this.data.detail.id}`,
+        success: function (res) {
+            util._getStat()
+        },
+        fail:function(res){
+        }
+      }
+    }
+    else {
+      return {
+        title: `体验详情-${this.data.detail.name}`,
+        path: `pages/experienceDetail/experienceDetail?id=${this.data.detail.id}`,
+        success: function (res) {
+          util._getStat()
+        },
+        fail:function(res){
+        }
+      }
+    }
   }
 })

@@ -102,3 +102,16 @@
   height: 2rpx;
   border-top:2rpx solid #9B9B9B;
 }
+.fake-btn {
+  border:none;
+  text-align:left;
+  padding:0;
+  margin:0;
+  border-radius: 0;
+  line-height:1.5;
+  background: transparent;
+}
+button:after {
+  content: '';
+  border: none!important;
+}
