@@ -42,7 +42,8 @@ Page({
     detail:{},
     homestay:{},
     isShowCard:false,
-    formateCode:''
+    formateCode:'',
+    isShowBar:false
   },
   jumpToRuleDetail(e) {
     wx.navigateTo({
@@ -114,9 +115,13 @@ Page({
         swiperimage: _this.data.swiperimage,
         detail: detail,
         homestay: homestay,
-        user_ticket: user_ticket,
-        formateCode: ex.user_ticket.code.replace(/\s/g,'').replace(/(.{4})/g,"$1 ")
+        user_ticket: user_ticket
       })
+      if(typeof ex.user_ticket.code !== 'undefined') {
+        _this.setData({
+          formateCode: ex.user_ticket.code.replace(/\s/g,'').replace(/(.{4})/g,"$1 ")
+        })
+      }
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
@@ -139,7 +144,11 @@ Page({
       'filters.id': options.id,
       'filters.item_id': options.item_id
     })
-    console.log(options)
+    if(typeof options.item_id!=='undefined') {
+      this.setData({
+        isShowBar:true
+      })
+    }
     this.getTicketDetail()
     wx.setNavigationBarTitle({ title: '票券详情' });
   },

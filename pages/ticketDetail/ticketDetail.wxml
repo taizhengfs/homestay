@@ -72,9 +72,8 @@
     <view class="lottery__rules__content">
       <rich-text nodes="{{detail.content}}"></rich-text>
     </view>
-    
   </view>
-  <view class='bottom__bar'>
+  <view class='bottom__bar' wx:if="{{isShowBar}}">
       <view class="form__submit {{user_ticket.use_status===3?'':'bg-grey'}}" bindtap='showPaneCard'>
         {{user_ticket.use_status===3?'立即使用':user_ticket.use_status===4?'已使用':'已过期'}}
       </view>

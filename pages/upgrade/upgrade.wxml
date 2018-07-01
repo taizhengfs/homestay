@@ -1,0 +1,8 @@
+<!--pages/upgrade/upgrade.wxml-->
+<view class="container">
+  <view class="upgrade__content">
+    <view class="upgrade__block" wx:key="{{index}}" wx:for="{{upgrade}}">
+      {{item.name}}:{{item.description}} 积分 +{{item.affect}}
+    </view>
+  </view>
+</view>

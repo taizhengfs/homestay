@@ -43,9 +43,79 @@ Page({
       user_id: 0,
       form_id: ''
     },
+    add_filters: {
+      id: 0,
+      user_id: 0
+    },
     detail: [],
     ticket: {},
-    members: []
+    members: [],
+    isShowCard:false,
+  },
+  showPaneCard(){
+    let _this = this;
+    _this.setData({
+      isShowCard: !_this.data.isShowCard
+    })
+  },
+  postActivityAddGroup() {
+    if(this.data.add_filters.user_id!==0) {
+      util._post(Api.postActivityAddGroup(), _this.data.add_filters, res => {
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
+        let ex = res.data
+        console.log(ex)
+        if(ex.code===200) {
+          wx.showModal({
+            title: '助力成功',
+            content: '您的助力，使您的好友离大奖更近一步了！\n来参与活动跟您的好友比比手气吧!',
+            cancelText:'算了',
+            confirmText:'参与活动',
+            success: function(res) {
+              if (res.confirm) {
+                wx.switchTab({
+                  url: '../home/home',
+                  success: function(res){
+                    // success
+                  }
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        } else if(ex.code===401){
+          wx.showModal({
+            title: '拼团已达成',
+            content: '您的好友已经达成了拼团目标！\n来参与活动跟您的好友比比手气吧!',
+            cancelText:'算了',
+            confirmText:'参与活动',
+            success: function(res) {
+              if (res.confirm) {
+                wx.switchTab({
+                  url: '../home/home',
+                  success: function(res){
+                    // success
+                  }
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        } else{
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }, error => {
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
+        _this.resetFilter()
+      })
+    }
   },
 
   getActivityGroup() {
@@ -67,6 +137,50 @@ Page({
         ticket: ticket,
         members: members
       })
+      this.postActivityAddGroup()
+      if(this.data.add_filters.user_id===0){
+        if (detail.time_status===2) {
+          if(detail.is_win===0) {
+            wx.showModal({
+              title: '继续努力',
+              content: '很遗憾，您没有中奖。\n其他活动持续进行中去看看吧！',
+              cancelText:'知道了',
+              confirmText:'去看看',
+              success: function(res) {
+                if (res.confirm) {
+                  wx.switchTab({
+                    url: '../home/home',
+                    success: function(res){
+                      // success
+                    }
+                  })
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          } else {
+            wx.showModal({
+              title: '恭喜中奖',
+              content: '您获得了和风民宿旅馆家庭套房一晚\n快去您的卡包看看吧',
+              cancelText:'知道了',
+              confirmText:'前往查看',
+              success: function(res) {
+                if (res.confirm) {
+                  wx.switchTab({
+                    url: '../home/home',
+                    success: function(res){
+                      // success
+                    }
+                  })
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }
+        }
+      }
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
@@ -95,10 +209,16 @@ Page({
   onLoad: function (options) {
     console.log('options: ', options);
     this.setData({
+      'add_filters.id':parseInt(options.id),
       'filters.id':parseInt(options.id),
       'filters.form_id': options.form_id,
       'filters.user_id':wx.getStorageSync('userInfo').id,
     })
+    if(typeof options.user_id !== 'undefined') {
+      this.setData({
+        'add_filters.user_id':parseInt(options.user_id),
+      })
+    }
     wx.setNavigationBarTitle({ title: '拼团抽奖' });
     this.getActivityGroup()
   },

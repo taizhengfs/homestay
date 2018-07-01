@@ -13,7 +13,7 @@
           </view>
         </view>
         <view class="user__top__name__r">
-          <view class="btn__how">
+          <view class="btn__how" bindtap="jumpToUpgrade">
             <view class="icon__question">
               <image src="http://file.yinxinlife.com/images/icon_question.png">
               </image>

@@ -322,6 +322,17 @@
   line-height:90rpx;
   justify-content: center;
 }
+.bottom__ba__block.btn_grey {
+  width: 474rpx!important;
+  height: 90rpx;
+  background: #ccc;
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(255,255,255,1);
+  border-top: 1px solid #ccc;
+  line-height:90rpx;
+  justify-content: center;
+}
 .last {
   margin-bottom: 100rpx;
   border-bottom: none;

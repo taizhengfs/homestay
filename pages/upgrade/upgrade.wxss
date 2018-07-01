@@ -1,0 +1,25 @@
+/* pages/upgrade/upgrade.wxss */
+.upgrade__content {
+  padding: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.upgrade__block {
+  width: 100%;
+  border-bottom: 1rpx solid #eee;
+  font-size: 26rpx;
+  color: #333;
+  padding: 30rpx 25rpx;
+  position: relative
+}
+.upgrade__block::before {
+  content: '';
+  width: 10rpx;
+  height: 10rpx;
+  position: absolute;
+  left: 0;
+  top: 44rpx;
+  display: block;
+  background: #be322b;
+  border-radius: 12rpx;
+}

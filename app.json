@@ -23,14 +23,15 @@
     "pages/meetingDetail/meetingDetail",
     "pages/myActivity/myActivity",
     "component/authBox/authBox",
-    "pages/ticketDetail/ticketDetail"
+    "pages/ticketDetail/ticketDetail",
+    "pages/upgrade/upgrade"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "隐心民宿",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": false
   },
   "tabBar": {
     "color": "#4C4C4C",

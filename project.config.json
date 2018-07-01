@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -159,6 +159,12 @@
 					"name": "票券详情",
 					"pathName": "pages/ticketDetail/ticketDetail",
 					"query": "id=1"
+				},
+				{
+					"id": 21,
+					"name": "如何升级",
+					"pathName": "pages/upgrade/upgrade",
+					"query": ""
 				}
 			]
 		}

@@ -1,5 +1,5 @@
 <!--pages/lottery/lottery.wxml-->
-<view class='container'>
+<view class='container {{isShowCard?"blur__mask":""}}'>
   <swiperItem class="w__100" isShowShare="{{true}}" isAutoScroll="{{false}}" swiperimage="{{swiperimage}}"></swiperItem>
   <view class='lottery__title'>
     <view class='lottery__title__top'>
@@ -81,6 +81,18 @@
   </view>
   <view class='bottom__bar'>
     <view class='bottom__ba__block home' bindtap="jumpToHome"><view class="icon__home"></view>首页</view>
-    <view class='bottom__ba__block share'>分享好友（{{members.length}}/10）</view>
+    <view class='bottom__ba__block share' wx:if="{{detail.time_status===1}}">分享好友（{{members.length}}/10）</view>
+    <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===0}}">暂未开始</view>
+    <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===2}}">活动已结束</view>
   </view>
 </view>
+<view class='pane__success' wx:if="{{isShowCard}}">
+    <view class='pane__icon__success'>
+      <image src='http://file.yinxinlife.com/images/icon_success.svg'></image>
+    </view>
+    <view class='pane__title'>申请提交成功</view>
+    <text class='pane__desc'>申请结果将在7日内,\n以推送通知的方式告知您。</text>
+    <view class='pane__button' bindtap='goBackPage'>确定</view>
+  </view>
+  <view class='pane__mask' wx:if="{{isShowCard}}">
+  </view>

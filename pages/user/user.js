@@ -55,7 +55,14 @@ Page({
       })
     }
   },
-
+  jumpToUpgrade(){
+    wx.navigateTo({
+      url: '../upgrade/upgrade',
+      success: function(res){
+        // success
+      }
+    })
+  },
   getUserHome() {
     var _this = this
     wx.showLoading({
@@ -66,6 +73,7 @@ Page({
       wx.stopPullDownRefresh()
       let ex = res.data.data
       const {user_info, operations, welfare} = ex
+      wx.setStorageSync('upgrade', operations)
       _this.setData({
         detail: ex,
         user_info: user_info,
