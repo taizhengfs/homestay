@@ -10,9 +10,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pindex:'',
-    rindex:'',
-    platform: [],
     reco: [],
     isShowCard:false,
     platList: [],
@@ -20,29 +17,62 @@ Page({
     truename:'',
     phone:'',
     platforms: [
-      {name:'', nickname:'', fans_count:'', image:''}
+      {
+        name:'',
+        nickname:'',
+        fans_count:'',
+        image:''
+      }
     ],
-    keys:[0,1],
-    imgList:[],
-    filters:{}
+    keys:[0],
+    filters:{},
+    uuid:0,
+    formPayload:[
+      {
+        pindex:'',
+        nickname:'',
+        fans_count:'',
+        rindex:'',
+        image:'',
+        platform:[]
+      }
+    ]
+    
   },
   bindRecoChange(e) {
-    let recoId = e.currentTarget.dataset.id
-    this.setData({
-      rindex: e.detail.value,
-      pindex:0,
-      'platforms[0].name': this.data.platList[e.detail.value].children[0].name,
-      platform: this.data.platList[e.detail.value].children
+    let _this = this
+    const dataset = e.currentTarget.dataset
+    const {id ,index} = dataset
+    _this.data.platforms[index].name=_this.data.platList[e.detail.value].children[0].name
+    _this.data.formPayload[index].pindex=0
+    _this.data.formPayload[index].rindex=e.detail.value
+    _this.data.formPayload[index].platform=_this.data.platList[e.detail.value].children
+
+    _this.setData({
+      platforms:_this.data.platforms,
+      formPayload:_this.data.formPayload
     })
   },
   editNickname(e) {
-    this.setData({
-      'platforms[0].nickname': e.detail.value
+    let _this = this
+    const dataset = e.currentTarget.dataset
+    const {index} = dataset
+    _this.data.formPayload[index].nickname=e.detail.value
+    _this.data.platforms[index].nickname=e.detail.value
+    _this.setData({
+      platforms:_this.data.platforms,
+      formPayload:_this.data.formPayload,
     })
   },
   editFansCount(e) {
-    this.setData({
-      'platforms[0].fans_count': e.detail.value
+    let _this = this
+    const dataset = e.currentTarget.dataset
+    const {index} = dataset
+    _this.data.formPayload[index].fans_count=e.detail.value
+    _this.data.platforms[index].fans_count=e.detail.value
+    _this.setData({
+      platforms:_this.data.platforms,
+      formPayload:_this.data.formPayload,
     })
   },
   editTruename(e) {
@@ -55,8 +85,10 @@ Page({
       phone: e.detail.value
     })
   },
-  selectPic(){
+  selectPic(e){
     let _this = this
+    const dataset = e.currentTarget.dataset
+    const {index} = dataset
     wx.chooseImage({
       count: 1, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -81,12 +113,12 @@ Page({
           },
           success: function(res){
             var data = JSON.parse(res.data)
-            _this.data.imgList.push(data.data.url)
+            _this.data.formPayload[index].image=data.data.url
+            _this.data.platforms[index].image=data.data.filepath
             _this.setData({
-              imgList:_this.data.imgList,
-              'platforms[0].image': data.data.filepath
+              platforms:_this.data.platforms,
+              formPayload:_this.data.formPayload,
             })
-            console.log(_this.data.platforms)
             //do something
           },
           fail(err) {
@@ -98,11 +130,14 @@ Page({
     })
   },
   bindPlatformChange(e) {
-    let platformId = e.currentTarget.dataset.id
-    console.log('platformId: ', platformId);
+    let _this = this
+    const dataset = e.currentTarget.dataset
+    const {id, index} = dataset
+    _this.data.formPayload[index].pindex=e.detail.value
+    _this.data.platforms[index].name=_this.data.formPayload[index].platform[e.detail.value].name
     this.setData({
-      pindex: e.detail.value,
-      'platforms[0].name': this.data.platform[e.detail.value].name
+      platforms:_this.data.platforms,
+      formPayload:_this.data.formPayload,
     })
   },
   postExperienceApply() {
@@ -115,12 +150,10 @@ Page({
       phone:_this.data.phone,
       platforms:JSON.stringify(_this.data.platforms)
     }
-    console.log(_this.data.filters)
     util._post(Api.postExperienceApply(), _this.data.filters, res => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data
-      console.log(ex)
       if(ex.code===200) {
         this.setData({
           isShowCard: true
@@ -156,8 +189,7 @@ Page({
     let _this = this
     _this.data.filters= {name:'', nickname:'', fans_count:'', image:''}
     _this.setData({
-      filters:_this.data.filters,
-      imgList:[]
+      filters:_this.data.filters
     })
   },
   getExperienceDetail() {
@@ -173,14 +205,12 @@ Page({
         _this.data.reco.push({id: val.id, name: val.name})
       });
       const {platform} = ex
-      console.log(ex)
       _this.setData({
         detail: ex,
         platList: platform,
         reco: _this.data.reco,
-        platform: platform[0].children
+        'formPayload[0].platform': platform[0].children
       })
-      console.log(_this.data.reco)
       
     }, error => {
       wx.hideLoading()
@@ -193,11 +223,36 @@ Page({
       isShowCard: !_this.data.isShowCard
     })
   },
+  addMoreInfo() {
+    let _this = this
+    _this.data.formPayload.push(
+      {
+        pindex:'',
+        nickname:'',
+        fans_count:'',
+        rindex:'',
+        image:''
+      }
+    )
+    _this.data.platforms.push(
+      {
+        name:'',
+        nickname:'',
+        fans_count:'',
+        image:''
+      }
+    )
+    _this.setData({
+      platforms: _this.data.platforms,
+      formPayload: _this.data.formPayload
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let _this = this
     this.getExperienceDetail()
     wx.setNavigationBarTitle({ title: '申请成为体验师' });
   },

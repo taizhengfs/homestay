@@ -31,15 +31,15 @@
       </view>
     </view>
     <view class='inflution__cnt'>
-      <view class="form__info__block">
+      <view class="form__info__block" wx:for="{{formPayload}}">
         <view class='form__single'>
           <view class='form__single__left'>
             平台名
           </view>
           <view class='form__single__right'>
-            <picker bindchange="bindPlatformChange" range-key="{{'name'}}" data-id="{{platform[pindex].id}}" value="{{pindex[item]}}" range="{{platform}}">
+            <picker bindchange="bindPlatformChange" data-index="{{index}}" range-key="{{'name'}}" data-id="{{formPayload[index].platform[formPayload[index].pindex].id}}" value="{{formPayload[index].pindex}}" range="{{formPayload[index].platform}}">
               <view class="form__single__picker">
-                {{platform[pindex].name||'请选择您的活跃平台'}}
+                {{formPayload[index].platform[formPayload[index].pindex].name||'请选择您的活跃平台'}}
                 <view class="icon__arrow__down"></view>
               </view>
             </picker>
@@ -50,7 +50,7 @@
             平台昵称
           </view>
           <view class='form__single__right'>
-            <input value="{{platforms[0].nickname}}" bindinput='editNickname' placeholder="请填写平台昵称"></input>
+            <input value="{{formPayload[index].nickname}}" data-index="{{index}}" bindinput='editNickname' placeholder="请填写平台昵称"></input>
           </view>
         </view>
         <view class='form__single'>
@@ -58,7 +58,7 @@
             平台粉丝数量
           </view>
           <view class='form__single__right'>
-            <input value="{{platforms[0].fans_count}}" bindinput='editFansCount' placeholder="请填写您的粉丝数量"></input>
+            <input value="{{formPayload[index].fans_count}}" data-index="{{index}}" bindinput='editFansCount' placeholder="请填写您的粉丝数量"></input>
           </view>
         </view>
         <view class='form__single'>
@@ -66,9 +66,9 @@
             平台认证类型
           </view>
           <view class='form__single__right'>
-            <picker bindchange="bindRecoChange" data-id="{{reco[rindex].id}}" range-key="name" value="{{rindex}}" range="{{reco}}">
+            <picker bindchange="bindRecoChange" data-index="{{index}}" data-id="{{reco[formPayload[index].rindex].id}}" range-key="name" value="{{formPayload[index].rindex}}" range="{{reco}}">
               <view class="form__single__picker">
-                {{reco[rindex].name||'请选择平台认证类型'}}
+                {{reco[formPayload[index].rindex].name||'请选择平台认证类型'}}
                 <view class="icon__arrow__down"></view>
               </view>
             </picker>
@@ -78,17 +78,17 @@
           <view class='form__single__left'>
             上传截图
           </view>
-          <view class='form__single__right' wx:if="{{imgList.length === 0}}" bindtap='selectPic'>
+          <view class='form__single__right' wx:if="{{formPayload[index].image === ''}}" data-index="{{index}}" bindtap='selectPic'>
             <view class='form__add__image'>
               <view class="icon__plus__add"></view>平台主页截图</view>
           </view>
         </view>
-        <view wx:if="{{imgList.length > 0}}" class='form__single last'>
-            <image src="http:{{imgList[0]}}"></image>
+        <view wx:if="{{formPayload[index].image!==''}}" class='form__single last'>
+            <image src="http:{{formPayload[index].image}}"></image>
         </view>
       </view>
       <view class="form__single pla">
-        <view class="form__add__platform">
+        <view class="form__add__platform" bindtap="addMoreInfo">
           <view class="icon__plus__add__gold"></view>添加其他平台
         </view>
       </view>
