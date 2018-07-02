@@ -104,7 +104,6 @@
   flex-direction: row;
 }
 .home__activity__sub__left {
-  width: 540rpx;
   box-sizing: border-box;
   font-size: 28rpx;
   padding-left: 28rpx;
@@ -114,6 +113,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  display: flex;
+  flex: 1;
 }
 .home__activity__sub__right {
   background: #C12121;

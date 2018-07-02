@@ -1,5 +1,5 @@
 <!--pages/experienceDetail/experienceDetail.wxml-->
-<view class='container'>
+<view class='container {{isShowCard?"blur__mask":""}}'>
   <swiperItem class="w__100"
     isShowShare="{{true}}"
     isShowRedTag="{{true}}"
@@ -90,4 +90,17 @@
     <button class='bottom__ba__block fake-btn' open-type="share"><view class="icon__share"></view>分享</button>
     <view class='bottom__ba__block join {{btnStyle}}' data-id="{{detail.id}}" bindtap="jumpToJoin">{{btnText}}</view>
   </view>
+</view>
+
+<view class='pane__success' wx:if="{{isShowCard}}">
+  <view class='pane__icon__success'>
+    <image src='../../images/icon_end.svg'></image>
+  </view>
+  <view class='pane__title'>报名结束</view>
+  <text class='pane__desc'>商家从报名的体验师中选择了以下用户：</text>
+  <view class='pane__member'><text class="pane__names" wx:for="{{win}}">{{item.nickname}}</text></view>
+  <text class='pane__desc__sub'>注：商家将通过电话联系以上用户。活动结束后将上传分享用户体验报告。</text>
+  <view class='pane__button' bindtap='showPaneCard'>确定</view>
+</view>
+<view class='pane__mask' wx:if="{{isShowCard}}">
 </view>

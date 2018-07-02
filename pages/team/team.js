@@ -93,6 +93,7 @@ Page({
     })
   },
   getRequireDetail(id) {
+    let _this = this
     wx.showLoading({
       title: '加载中',
     })
@@ -100,14 +101,16 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let d = res.data.data
-      console.log(d)
-      
+      _this.setData({
+        'filters.homestay_id': d.homestay_id
+      })
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
     })
   },
   getSujiDetail() {
+    let _this = this
     wx.showLoading({
       title: '加载中',
     })
@@ -120,10 +123,17 @@ Page({
         return el
       })
       const {list} = d
-      this.setData({
+      _this.setData({
         homestays:list
       })
-      console.log('list: ', list);
+      _this.data.homestays.forEach((v,i) => {
+        console.log(v.id,_this.data.filters.homestay_id)
+        if(parseInt(v.id)===parseInt(_this.data.filters.homestay_id)){
+          _this.setData({
+            rindex:i
+          })
+        }
+      });
       
     }, error => {
       wx.hideLoading()

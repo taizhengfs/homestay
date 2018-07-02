@@ -56,16 +56,17 @@ Page({
           _this.data.btnStyle = 'btn_color_light_red'
         }
       } else if(detail.time_status==2) {
-        if (detail.is_apply==0) {
           _this.data.btnText='报名结束'
           _this.data.btnStyle = 'btn_color_end'
-        } else {
-          _this.data.btnText='已报名'
-          _this.data.btnStyle = 'btn_color_light_red'
-        }
+          if(win.length>0) {
+            _this.showPaneCard()
+          }
       } else if(detail.time_status==3) {
         _this.data.btnText='活动已结束'
         _this.data.btnStyle = 'btn_color_end'
+        if(win.length>0) {
+          _this.showPaneCard()
+        }
       }
       _this.setData({
         btnText:_this.data.btnText,
@@ -79,6 +80,12 @@ Page({
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
+    })
+  },
+  showPaneCard(){
+    let _this = this;
+    _this.setData({
+      isShowCard: !_this.data.isShowCard
     })
   },
   jumpToJoin(e) {
