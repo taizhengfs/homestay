@@ -7,87 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // swiperimage: [
-    //   {
-    //     type: '1',
-    //     thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
-    //     title:'禾凤鸣书，西湖边四合院'
-    //   },
-    //   {
-    //     type: '2',
-    //     thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
-    //     title: '禾凤鸣书，冬湖边四合院'
-    //   },
-    //   {
-    //     type: '3',
-    //     thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
-    //     title: '禾凤鸣书，南湖边四合院'
-    //   }
-    // ],
-    tags: [
-      '四星酒店', '招募体验', '拼团', '促销', '断桥', '宝石山', '西湖', '优惠疯抢'
-    ],
+    tags: [],
     iconList: [
       '//file.yinxinlife.com/images/icon_tiyan.png',
       '//file.yinxinlife.com/images/icon_tuan.png',
       '//file.yinxinlife.com/images/icon_cut.png'
     ],
-    activitys: [
-      {
-        type:'拼团',
-        title:'和风民宿旅馆家庭套房一晚',
-        url:'//file.yinxinlife.com/images/icon_tuan.png',
-        number:3875,
-      },
-      {
-        type:'砍价',
-        title:'和风民宿旅馆情侣房一晚',
-        url:'//file.yinxinlife.com/images/icon_cut.png',
-        number:1888,
-      },
-      {
-        type:'体验',
-        title:'和风民宿旅馆家庭套房一晚',
-        url:'//file.yinxinlife.com/images/icon_tiyan.png',
-        number:2100,
-      }
-    ],
-    roomlist:[
-      {
-        type:'大床房A',
-        desc:'不含早 | 有窗',
-        area:'18',
-        price:588
-      },
-      {
-        type:'大床房B',
-        desc:'含早 | 有窗',
-        area:'25',
-        price:1088
-      }
-    ],
-    support:[
-      { tag:'客房WIFI',special:true },
-      { tag:'免费停车场',special:false },
-      { tag:'接机服务',special:true },
-      { tag:'代客泊车',special:false },
-      { tag:'叫车服务',special:false },
-      { tag: '茶室', special: true },
-      { tag:'24小时前台服务',special:false },
-      { tag:'行李寄存',special:false },
-      { tag: '免费旅游交通图', special: true },
-      { tag:'旅游票务',special:false },
-      { tag:'叫醒服务',special:false },
-      { tag:'邮政服务',special:false },
-      { tag:'前台保险柜',special:false },
-      { tag:'信用卡结算',special:false },
-    ],
-    dishList:[
-      { cover: '//file.yinxinlife.com/images/img_disher_1.png', title:'宋嫂鱼羹'},
-      { cover: '//file.yinxinlife.com/images/img_disher_2.png', title:'西湖藕韵'},
-      { cover: '//file.yinxinlife.com/images/img_disher_3.png', title:'青菜油豆腐'},
-      { cover: '//file.yinxinlife.com/images/img_disher_4.png', title:'珍珠娃娃菜'},
-    ],
+    activitys: [],
+    roomlist:[],
+    support:[],
+    dishList:[],
     filters: {
       id: 0
     },

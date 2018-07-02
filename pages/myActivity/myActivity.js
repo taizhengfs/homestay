@@ -8,38 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activityList: [
-      {
-        type: 0, // 0 未开始 1 进行中 2 已结束
-        startTime: '10:00',
-        endTime: '2018.8:18',
-        price: 832,
-        realPrice: 0.01,
-        participateNum: 0,
-        cover: '//file.yinxinlife.com/images/home_bg_item_1.png',
-        activityDesc: '夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
-      },
-      {
-        type: 1, // 0 未开始 1 进行中 2 已结束
-        startTime: '2018.5.27',
-        endTime: '10:00',
-        price: 200,
-        realPrice: 0.01,
-        participateNum: 100,
-        cover: '//file.yinxinlife.com/images/home_bg_item_2.png',
-        activityDesc: '这个民宿可以说是业界良心了'
-      },
-      {
-        type: 2, // 0 未开始 1 进行中 2 已结束
-        startTime: '2018.5.27',
-        endTime: '2018.06.1',
-        price: 832,
-        realPrice: 0.01,
-        participateNum: 5671,
-        cover: '//file.yinxinlife.com/images/home_bg_item_3.png',
-        activityDesc: '夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
-      },
-    ],
+    activityList: [],
     list:[],
     filters:{
       page: 1,

@@ -11,55 +11,8 @@ Page({
     inputVal: '',
     currentTab: 0,
     isShowBox: false,
-    swiper: [
-      {
-        type: '1',
-        thumb: '//file.yinxinlife.com/images/home_bg_header.png',
-        title:'禾凤鸣书，西湖边四合院'
-      },
-      {
-        type: '2',
-        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
-        title: '禾凤鸣书，冬湖边四合院'
-      },
-      {
-        type: '3',
-        thumb: '//file.yinxinlife.com/images/bg_scroll_1.png',
-        title: '禾凤鸣书，南湖边四合院'
-      }
-    ],
-    today: [
-      {
-        type: 0, // 0 未开始 1 进行中 2 已结束
-        startTime: '10:00',
-        endTime: '2018.8:18',
-        price: 832,
-        realPrice: 0.01,
-        participateNum: 0,
-        cover:'//file.yinxinlife.com/images/home_bg_item_1.png',
-        activityDesc:'夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
-      },
-      {
-        type: 1, // 0 未开始 1 进行中 2 已结束
-        startTime: '2018.5.27',
-        endTime: '10:00',
-        price: 200,
-        realPrice: 0.01,
-        participateNum: 100,
-        cover:'//file.yinxinlife.com/images/home_bg_item_2.png',
-        activityDesc:'这个民宿可以说是业界良心了'
-      },
-      {
-        type: 2, // 0 未开始 1 进行中 2 已结束
-        startTime: '2018.5.27',
-        endTime: '2018.06.1',
-        price: 832,
-        realPrice: 0.01,
-        participateNum: 5671,
-        cover:'//file.yinxinlife.com/images/home_bg_item_3.png',
-        activityDesc:'夏日来袭，隐心民宿首批福利大放送福利大放送福利大放送'
-      },
-    ],
+    swiper: [],
+    today: [],
     tomorrow: []
   },
   closeBox() {
