@@ -52,8 +52,9 @@ Page({
         ticket: ticket,
         members: members
       })
-      this.postActivityAddChop()
-      
+      if(_this.data.add_filters.user_id!==0){
+        this.postActivityAddChop()
+      }
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
@@ -159,17 +160,23 @@ Page({
     console.log('options: ', options);
     this.setData({
       'filters.id': parseInt(options.id),
-      'filters.add_filters': parseInt(options.id),
+      'add_filters.id': parseInt(options.id),
       'filters.form_id': options.form_id,
-      'filters.user_id':wx.getStorageSync('userInfo').id,
     })
+    var uid = 0
     if(typeof options.user_id !== 'undefined') {
+      uid = parseInt(options.user_id)
       if(options.user_id!==wx.getStorageSync('userInfo').id) {
         this.setData({
-          'add_filters.user_id':parseInt(options.user_id),
+          'add_filters.user_id':uid,
         })
       }
+    } else {
+      uid = wx.getStorageSync('userInfo').id
     }
+    this.setData({
+      'filters.user_id':uid,
+    })
     this.getActivityChop()
   },
   postUserChopBuy(){

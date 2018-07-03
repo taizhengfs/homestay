@@ -172,7 +172,6 @@ Page({
           }
         }
       } else {
-        console.log(_this.data.add_filters)
         _this.postActivityAddGroup()
       }
     }, error => {
