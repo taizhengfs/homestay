@@ -69,9 +69,18 @@ Page({
       }
     })
   },
+  jumpToJoin(){
+    let _this = this
+    wx.redirectTo({
+      url: `../discount/discount?id=${_this.data.detail.id}`,
+      success: function(res){
+        // success
+      }
+    })
+  },
   postActivityAddChop() {
     let _this = this
-    if(_this.data.add_filters.user_id!==0) {
+    if(_this.data.add_filters.user_id!==0 && _this.data.add_filters.user_id!==wx.getStorageSync('userInfo').id) {
       if(_this.data.detail.is_buy===0) {
         if(_this.data.detail.is_assist==0) {
           util._post(Api.postActivityAddChop(), _this.data.add_filters, res => {
@@ -85,10 +94,15 @@ Page({
                 title: `成功帮好友砍掉${point}元`,
                 content: '再次分享给好友多砍几刀吧!',
                 cancelText:'取消',
-                confirmText:'邀请好友',
+                confirmText:'参与活动',
                 success: function(res) {
                   if (res.confirm) {
-    
+                    wx.redirectTo({
+                      url: `../discount/discount?id=${_this.data.detail.id}`,
+                      success: function(res){
+                        // success
+                      }
+                    })
                   } else if (res.cancel) {
                     console.log('用户点击取消')
                   }
@@ -116,41 +130,42 @@ Page({
       } else {
       }
       
-    } else {
-      if(_this.data.detail.is_assist==0) {
-        util._post(Api.postActivityAddChop(), _this.data.filters, res => {
-          wx.hideLoading()
-          wx.stopPullDownRefresh()
-          let ex = res.data
-          console.log(ex)
-          if(ex.code===200) {
-            let point = ex.data.point
-            wx.showModal({
-              title: `成功砍掉${point}元`,
-              content: '隐心帮您砍掉第一步\n分享给好友多砍几刀吧!',
-              cancelText:'取消',
-              confirmText:'邀请好友',
-              success: function(res) {
-                if (res.confirm) {
-                } else if (res.cancel) {
-                  console.log('用户点击取消')
-                }
-              }
-            })
-          } else{
-            wx.showToast({
-              title: res.data.message,
-              icon: 'none',
-              duration: 2000
-            })
-          }
-        }, error => {
-          wx.hideLoading()
-          wx.stopPullDownRefresh()
-          _this.resetFilter()
-        })
-      }
-    }
+    } 
+    // else {
+      // if(_this.data.detail.is_assist==0) {
+      //   util._post(Api.postActivityAddChop(), _this.data.filters, res => {
+      //     wx.hideLoading()
+      //     wx.stopPullDownRefresh()
+      //     let ex = res.data
+      //     console.log(ex)
+      //     if(ex.code===200) {
+      //       let point = ex.data.point
+      //       wx.showModal({
+      //         title: `成功砍掉${point}元`,
+      //         content: '隐心帮您砍掉第一步\n分享给好友多砍几刀吧!',
+      //         cancelText:'取消',
+      //         confirmText:'邀请好友',
+      //         success: function(res) {
+      //           if (res.confirm) {
+      //           } else if (res.cancel) {
+      //             console.log('用户点击取消')
+      //           }
+      //         }
+      //       })
+      //     } else{
+      //       wx.showToast({
+      //         title: res.data.message,
+      //         icon: 'none',
+      //         duration: 2000
+      //       })
+      //     }
+      //   }, error => {
+      //     wx.hideLoading()
+      //     wx.stopPullDownRefresh()
+      //     _this.resetFilter()
+      //   })
+      // }
+    // }
   },
 
   /**

@@ -280,7 +280,7 @@ Page({
     let uid = this.data.add_filters.user_id===0?this.data.filters.user_id:this.data.add_filters.user_id
     if (res.from === 'button') {
       return {
-        title: `拼团抽奖-pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
+        title: `拼团抽奖-${this.data.detail.name}`,
         path: `pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
         success: function (res) {
             util._getStat()
@@ -291,7 +291,7 @@ Page({
     }
     else {
       return {
-        title: `拼团抽奖-pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
+        title: `拼团抽奖-${this.data.detail.name}`,
         path: `pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
         success: function (res) {
           util._getStat()
