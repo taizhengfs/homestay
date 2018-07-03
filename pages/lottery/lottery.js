@@ -48,6 +48,7 @@ Page({
     })
   },
   postActivityAddGroup() {
+    let _this = this
     if(this.data.add_filters.user_id!==0) {
       util._post(Api.postActivityAddGroup(), _this.data.add_filters, res => {
         wx.hideLoading()
@@ -62,8 +63,8 @@ Page({
             confirmText:'参与活动',
             success: function(res) {
               if (res.confirm) {
-                wx.switchTab({
-                  url: '../home/home',
+                wx.redirectTo({
+                  url: `../lottery/lottery?id=${_this.data.detail.id}`,
                   success: function(res){
                     // success
                   }
@@ -81,8 +82,8 @@ Page({
             confirmText:'参与活动',
             success: function(res) {
               if (res.confirm) {
-                wx.switchTab({
-                  url: '../home/home',
+                wx.redirectTo({
+                  url: `../lottery/lottery?id=${_this.data.detail.id}`,
                   success: function(res){
                     // success
                   }
@@ -126,8 +127,7 @@ Page({
         ticket: ticket,
         members: members
       })
-      this.postActivityAddGroup()
-      if(this.data.add_filters.user_id===0){
+      if(_this.data.add_filters.user_id===0){
         if (detail.time_status===2) { // 当前活动已结束
           if(detail.is_assist===1){ // 用户已参与
             if(detail.is_win===0) { // 判断用户是否中奖
@@ -171,6 +171,9 @@ Page({
             }
           }
         }
+      } else {
+        console.log(_this.data.add_filters)
+        _this.postActivityAddGroup()
       }
     }, error => {
       wx.hideLoading()
@@ -198,22 +201,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('options: ', options);
     this.setData({
       'add_filters.id':parseInt(options.id),
       'filters.id':parseInt(options.id),
       'filters.form_id': options.form_id,
-      'filters.user_id':wx.getStorageSync('userInfo').id,
     })
+    var uid = 0
     if(typeof options.user_id !== 'undefined') {
+      uid = parseInt(options.user_id)
       if(options.user_id!==wx.getStorageSync('userInfo').id) {
         this.setData({
-          'add_filters.user_id':parseInt(options.user_id),
+          'add_filters.user_id':uid,
         })
       }
+    } else {
+      uid = wx.getStorageSync('userInfo').id
     }
-    wx.setNavigationBarTitle({ title: '拼团抽奖' });
+    this.setData({
+      'filters.user_id':uid,
+    })
     this.getActivityGroup()
+    wx.setNavigationBarTitle({ title: '拼团抽奖' });
   },
   jumpToRuleDetail(e) {
     wx.navigateTo({
@@ -273,7 +281,7 @@ Page({
     let uid = this.data.add_filters.user_id===0?this.data.filters.user_id:this.data.add_filters.user_id
     if (res.from === 'button') {
       return {
-        title: `拼团抽奖-${this.data.detail.name}`,
+        title: `拼团抽奖-pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
         path: `pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
         success: function (res) {
             util._getStat()
@@ -284,7 +292,7 @@ Page({
     }
     else {
       return {
-        title: `拼团抽奖-${this.data.detail.name}`,
+        title: `拼团抽奖-pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
         path: `pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
         success: function (res) {
           util._getStat()
