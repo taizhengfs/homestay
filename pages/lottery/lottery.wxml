@@ -53,7 +53,7 @@
     <view class='lottery__friends__content'>
       <view class='lottery__friends__single' wx:for="{{members}}">
         <view class='lottery__friends__s_top'>
-          <image src='http:{{item.avatar}}'></image>
+          <image src='{{item.avatar}}'></image>
         </view>
         <view class='lottery__friends__s_bottom'>
           {{item.nickname}}
@@ -81,7 +81,7 @@
   </view>
   <view class='bottom__bar'>
     <view class='bottom__ba__block home' bindtap="jumpToHome"><view class="icon__home"></view>首页</view>
-    <button class='bottom__ba__block fake-btn share' open-type="share" wx:if="{{detail.time_status===1}}">分享好友（{{members.length}}/10）</button>
+    <button class='bottom__ba__block fake-btn share' open-type="share" wx:if="{{detail.time_status===1}}">分享好友（{{members.length}}/{{detail.people_no}}）</button>
     <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===0}}">暂未开始</view>
     <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===2}}">活动已结束</view>
   </view>
