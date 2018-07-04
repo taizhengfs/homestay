@@ -153,7 +153,7 @@ Page({
         isShowBox: wx.getStorageSync('isLogin')==0
       })
     },300)
-    if(this.isLogin===1) {
+    if(wx.getStorageSync('isLogin')===1) {
       this.getExperienceActivity()
     }
     wx.setNavigationBarTitle({ title: '体验活动' });

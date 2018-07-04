@@ -232,7 +232,7 @@ Page({
     this.setData({
       'filters.user_id':uid,
     })
-    if(this.isLogin===1) {
+    if(wx.getStorageSync('isLogin')===1) {
       this.getActivityGroup()
     }
     wx.setNavigationBarTitle({ title: '拼团抽奖' });

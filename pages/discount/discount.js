@@ -205,7 +205,7 @@ Page({
     this.setData({
       'filters.user_id':uid,
     })
-    if(_this.isLogin===1) {
+    if(wx.getStorageSync('isLogin')===1) {
       this.getActivityChop()
     }
   },
