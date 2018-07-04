@@ -14,7 +14,8 @@ Page({
     welfare: [],
     detail:{},
     experiencer_title:'',
-    isShowBox:false
+    isShowBox:false,
+    isFirstLoad:true
   },
   closeBox() {
     this.setData({
@@ -77,14 +78,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
+    let _this = this
+    _this.setData({
       userDetail: wx.getStorageSync('userInfo')
     })
     if(wx.getStorageSync('isLogin')===1) {
-      this.getUserHome()
+      if(_this.data.isFirstLoad) {
+        _this.setData({
+          isFirstLoad: false
+        })
+        _this.getUserHome()
+      }
     }
     setTimeout(v=>{
-      this.setData({
+      _this.setData({
         isLogin: wx.getStorageSync('isLogin'),
         isShowBox: wx.getStorageSync('isLogin')==0
       })
@@ -102,7 +109,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if(wx.getStorageSync('isLogin')===1) {
+      if(!this.data.isFirstLoad) {
+        this.getUserHome()
+      }
+    }
   },
 
   /**
