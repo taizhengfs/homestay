@@ -6,6 +6,10 @@ Component({
     isShowBox: {
       type: Boolean,
       value: false
+    },
+    isShowCancel: {
+      type: Boolean,
+      value: true
     }
   },
   data: {

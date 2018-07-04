@@ -1,1 +1,6 @@
-{}
+{
+  "component": true,
+  "usingComponents": {
+    "authBox": "../../component/authBox/authBox"
+  }
+}

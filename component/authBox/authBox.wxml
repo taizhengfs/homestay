@@ -5,7 +5,8 @@
       <view class="auth__box__desc">需要获取到您的公开信息（昵称、头像等）是否确认授权</view>
     </view>
     <view class="auth__box__bottom">
-      <button type="default" bindtap="tapToCancel">取消</button>
+      <button type="default" wx:if="{{isShowCancel}}" bindtap="tapToCancel">取消</button>
       <button type="default" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
     </view>
   </view>
+  <view class="cls__mask" wx:if="{{isShowBox}}"></view>

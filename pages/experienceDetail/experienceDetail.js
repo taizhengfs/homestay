@@ -15,7 +15,14 @@ Page({
     apply: [],
     win: [],
     btnText:'',
-    btnStyle:''
+    btnStyle:'',
+    isShowBox: false
+  },
+  closeBox() {
+    this.setData({
+      isShowBox: false
+    })
+    this.getExperienceActivity()
   },
 
   jumpToSuji() {
@@ -140,7 +147,15 @@ Page({
     this.setData({
       'filters.id':parseInt(options.id)
     })
-    this.getExperienceActivity()
+    setTimeout(v=>{
+      this.setData({
+        isLogin: wx.getStorageSync('isLogin'),
+        isShowBox: wx.getStorageSync('isLogin')==0
+      })
+    },300)
+    if(this.isLogin===1) {
+      this.getExperienceActivity()
+    }
     wx.setNavigationBarTitle({ title: '体验活动' });
   },
 

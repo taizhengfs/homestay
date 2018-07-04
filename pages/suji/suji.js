@@ -45,7 +45,8 @@ Page({
     currentPane: '',
     isLoadAll:false,
     innerText:'',
-    isShowBox:false
+    isShowBox:false,
+    isHasPosition:wx.getStorageSync('ishaspos')
   },
   resetFilter(){
     this.setData({
@@ -89,6 +90,45 @@ Page({
     let tar = e.currentTarget.dataset.type
     switch(tar) {
       case 'distance':
+        if(_this.data.isHasPosition===-1) {
+          wx.showModal({
+            title: '是否授权当前位置',
+            content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+            success: function (res) {
+              if (res.cancel) {
+                console.info("1授权失败返回数据");
+ 
+              } else if (res.confirm) {
+                wx.openSetting({
+                  success: function (data) {
+                    if (data.authSetting["scope.userLocation"] == true) {
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 5000
+                      })
+                      wx.setStorageSync('ishaspos', 1)
+                      _this.setData({
+                        isHasPosition:1
+                      })
+                    }else{
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'null',
+                        duration: 2000
+                      })
+                      wx.setStorageSync('ishaspos', -1)
+                      _this.setData({
+                        isHasPosition:-1
+                      })
+                    }
+                  }
+                })
+              }
+            }
+          })
+          return
+        }
         _this.setData({
           sortDetail:_this.data.distance
         })

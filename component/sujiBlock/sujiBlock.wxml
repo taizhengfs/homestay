@@ -26,7 +26,7 @@
             </view>
             {{locationName}}
           </view>
-          <view class="suji__location__block suji__right">
+          <view class="suji__location__block suji__right" wx:if="{{distance!==-1}}">
             <view class="icon__cnt">
               <image src="http://file.yinxinlife.com/images/icon_board.png"></image>
             </view>

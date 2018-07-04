@@ -1,5 +1,5 @@
 <!--pages/experienceDetail/experienceDetail.wxml-->
-<view class='container {{isShowCard?"blur__mask":""}}'>
+<view class='container {{isShowCard || isShowBox?"blur__mask":""}}'>
   <swiperItem class="w__100"
     isShowShare="{{true}}"
     isShowRedTag="{{true}}"
@@ -104,3 +104,4 @@
 </view>
 <view class='pane__mask' wx:if="{{isShowCard}}">
 </view>
+<authBox isShowBox="{{isShowBox}}" isShowCancel="{{false}}" bindcloseAuth="closeBox"></authBox>

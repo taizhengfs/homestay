@@ -40,6 +40,13 @@ Page({
     ticket: {},
     members: [],
     isShowCard:false,
+    isShowBox: false
+  },
+  closeBox() {
+    this.setData({
+      isShowBox: false
+    })
+    this.getActivityGroup()
   },
   showPaneCard(){
     let _this = this;
@@ -206,6 +213,12 @@ Page({
       'filters.form_id': options.form_id,
     })
     var uid = 0
+    setTimeout(v=>{
+      this.setData({
+        isLogin: wx.getStorageSync('isLogin'),
+        isShowBox: wx.getStorageSync('isLogin')==0
+      })
+    },300)
     if(typeof options.user_id !== 'undefined') {
       uid = parseInt(options.user_id)
       if(options.user_id!==wx.getStorageSync('userInfo').id) {
@@ -219,7 +232,9 @@ Page({
     this.setData({
       'filters.user_id':uid,
     })
-    this.getActivityGroup()
+    if(this.isLogin===1) {
+      this.getActivityGroup()
+    }
     wx.setNavigationBarTitle({ title: '拼团抽奖' });
   },
   jumpToRuleDetail(e) {

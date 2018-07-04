@@ -13,7 +13,14 @@ Page({
     operations: [],
     welfare: [],
     detail:{},
-    experiencer_title:''
+    experiencer_title:'',
+    isShowBox:false
+  },
+  closeBox() {
+    this.setData({
+      isShowBox: false
+    })
+    this.getUserHome()
   },
   jumpToPage(e) {
     const dataset = e.currentTarget.dataset
@@ -73,7 +80,15 @@ Page({
     this.setData({
       userDetail: wx.getStorageSync('userInfo')
     })
-    this.getUserHome()
+    if(wx.getStorageSync('isLogin')===1) {
+      this.getUserHome()
+    }
+    setTimeout(v=>{
+      this.setData({
+        isLogin: wx.getStorageSync('isLogin'),
+        isShowBox: wx.getStorageSync('isLogin')==0
+      })
+    },300)
   },
 
   /**

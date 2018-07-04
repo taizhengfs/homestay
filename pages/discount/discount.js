@@ -20,9 +20,16 @@ Page({
     },
     detail: [],
     ticket: {},
-    members: []
+    members: [],
+    isShowBox: false
   },
 
+  closeBox() {
+    this.setData({
+      isShowBox: false
+    })
+    this.getActivityChop()
+  },
   jumpToHome() {
     wx.switchTab({
       url: '../home/home'
@@ -178,6 +185,12 @@ Page({
       'add_filters.id': parseInt(options.id),
       'filters.form_id': options.form_id,
     })
+    setTimeout(v=>{
+      this.setData({
+        isLogin: wx.getStorageSync('isLogin'),
+        isShowBox: wx.getStorageSync('isLogin')==0
+      })
+    },300)
     var uid = 0
     if(typeof options.user_id !== 'undefined') {
       uid = parseInt(options.user_id)
@@ -192,7 +205,9 @@ Page({
     this.setData({
       'filters.user_id':uid,
     })
-    this.getActivityChop()
+    if(_this.isLogin===1) {
+      this.getActivityChop()
+    }
   },
   postUserChopBuy(){
     let _this = this

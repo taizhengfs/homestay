@@ -1,5 +1,5 @@
 <!--pages/lottery/lottery.wxml-->
-<view class='container {{isShowCard?"blur__mask":""}}' style="overflow-x: hidden">
+<view class='container {{isShowCard||isShowBox?"blur__mask":""}}' style="overflow-x: hidden">
   <swiperItem class="w__100" isShowShare="{{true}}" isAutoScroll="{{false}}" swiperimage="{{swiperimage}}"></swiperItem>
   <view class='lottery__title'>
     <view class='lottery__title__top'>
@@ -96,3 +96,5 @@
   </view>
   <view class='pane__mask' wx:if="{{isShowCard}}">
   </view>
+
+<authBox isShowBox="{{isShowBox}}" isShowCancel="{{false}}" bindcloseAuth="closeBox"></authBox>

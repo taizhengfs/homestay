@@ -1,5 +1,5 @@
 <!--pages/discount/discount.wxml-->
-<view class='container'>
+<view class='container {{isShowBox?"blur__mask":""}}'>
   <swiperItem class="w__100" isAutoPlay="{{false}}" isShowDots="{{false}}" isShowRedTag="{{true}}" isShowShare="{{true}}" swiperimage="{{swiperimage}}"></swiperItem>
   <view class='discount__title'>
     <view class='discount__title__top'>
@@ -73,3 +73,4 @@
     <view wx:if="{{add_filters.user_id!==0}}" class='bottom__ba__block share' bindtap="jumpToJoin">参与活动</view>
   </view>
 </view>
+<authBox isShowBox="{{isShowBox}}" isShowCancel="{{false}}" bindcloseAuth="closeBox"></authBox>
