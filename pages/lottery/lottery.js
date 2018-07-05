@@ -46,6 +46,11 @@ Page({
     this.setData({
       isShowBox: false
     })
+    if (this.add_filters.user_id===0) {
+      this.setData({
+        'filters.user_id':wx.getStorageSync('userInfo').id,
+      })
+    }
     this.getActivityGroup()
   },
   showPaneCard(){
