@@ -62,61 +62,63 @@ Page({
   postActivityAddGroup() {
     let _this = this
     if(this.data.add_filters.user_id!==0) {
-      util._post(Api.postActivityAddGroup(), _this.data.add_filters, res => {
-        wx.hideLoading()
-        wx.stopPullDownRefresh()
-        let ex = res.data
-        console.log(ex)
-        if(ex.code===200) {
-          wx.showModal({
-            title: '助力成功',
-            content: '您的助力，使您的好友离大奖更近一步了！\n来参与活动跟您的好友比比手气吧!',
-            cancelText:'算了',
-            confirmText:'参与活动',
-            success: function(res) {
-              if (res.confirm) {
-                wx.redirectTo({
-                  url: `../lottery/lottery?id=${_this.data.detail.id}`,
-                  success: function(res){
-                    // success
-                  }
-                })
-              } else if (res.cancel) {
-                console.log('用户点击取消')
+      if(this.data.add_filters.user_id!==wx.getStorageSync('userInfo').id) {
+        util._post(Api.postActivityAddGroup(), _this.data.add_filters, res => {
+          wx.hideLoading()
+          wx.stopPullDownRefresh()
+          let ex = res.data
+          console.log(ex)
+          if(ex.code===200) {
+            wx.showModal({
+              title: '助力成功',
+              content: '您的助力，使您的好友离大奖更近一步了！\n来参与活动跟您的好友比比手气吧!',
+              cancelText:'算了',
+              confirmText:'参与活动',
+              success: function(res) {
+                if (res.confirm) {
+                  wx.redirectTo({
+                    url: `../lottery/lottery?id=${_this.data.detail.id}`,
+                    success: function(res){
+                      // success
+                    }
+                  })
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
               }
-            }
-          })
-        } else if(ex.code===401){
-          wx.showModal({
-            title: '拼团已达成',
-            content: '您的好友已经达成了拼团目标！\n来参与活动跟您的好友比比手气吧!',
-            cancelText:'算了',
-            confirmText:'参与活动',
-            success: function(res) {
-              if (res.confirm) {
-                wx.redirectTo({
-                  url: `../lottery/lottery?id=${_this.data.detail.id}`,
-                  success: function(res){
-                    // success
-                  }
-                })
-              } else if (res.cancel) {
-                console.log('用户点击取消')
+            })
+          } else if(ex.code===401){
+            wx.showModal({
+              title: '拼团已达成',
+              content: '您的好友已经达成了拼团目标！\n来参与活动跟您的好友比比手气吧!',
+              cancelText:'算了',
+              confirmText:'参与活动',
+              success: function(res) {
+                if (res.confirm) {
+                  wx.redirectTo({
+                    url: `../lottery/lottery?id=${_this.data.detail.id}`,
+                    success: function(res){
+                      // success
+                    }
+                  })
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
               }
-            }
-          })
-        } else{
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none',
-            duration: 2000
-          })
-        }
-      }, error => {
-        wx.hideLoading()
-        wx.stopPullDownRefresh()
-        _this.resetFilter()
-      })
+            })
+          } else{
+            wx.showToast({
+              title: res.data.message,
+              icon: 'none',
+              duration: 2000
+            })
+          }
+        }, error => {
+          wx.hideLoading()
+          wx.stopPullDownRefresh()
+          _this.resetFilter()
+        })
+      }
     }
   },
 
