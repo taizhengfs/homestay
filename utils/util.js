@@ -303,11 +303,10 @@ const setMember = function (res, callback) {
     signature: res.signature,
     encryptedData: res.encryptedData,
     iv: res.iv
-  }, function (res) {
-    console.log('res: ', res);
+  }, function (response) {
+    console.log('res: ', response);
     // 更新用户过期时间
-    if (res.data.code === 200) {
-      console.log(2222)
+    if (response.data.code === 200) {
       requestStatus = 2
       // 写入缓存
       wx.setStorageSync('isLogin', 1);
