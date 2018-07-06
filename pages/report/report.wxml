@@ -1,0 +1,6 @@
+<!--pages/report/report.wxml-->
+<view class='container'>
+  <view class="report-content">
+    <rich-text nodes="{{content}}"></rich-text>
+  </view>
+</view>

@@ -165,6 +165,12 @@
 					"name": "如何升级",
 					"pathName": "pages/upgrade/upgrade",
 					"query": ""
+				},
+				{
+					"id": 22,
+					"name": "体验详情",
+					"pathName": "pages/report/report",
+					"query": "id=29"
 				}
 			]
 		}

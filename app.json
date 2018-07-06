@@ -24,7 +24,8 @@
     "pages/myActivity/myActivity",
     "component/authBox/authBox",
     "pages/ticketDetail/ticketDetail",
-    "pages/upgrade/upgrade"
+    "pages/upgrade/upgrade",
+    "pages/report/report"
   ],
   "window": {
     "backgroundTextStyle": "dark",

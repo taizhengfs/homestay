@@ -36,6 +36,7 @@ const GET_TICKET_RULE_DETAIL = '/ticket/ruleDetail'
 const GET_ADD_SHARE_EXP = '/user/addShareExp'
 const POST_USER_CHOPBUY = '/user/chopBuy'
 const POST_ORDER_CANCEL = '/user/cancelOrder'
+const GET_EXPERIENCE_REPORT = '/experience/report'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -185,5 +186,9 @@ module.exports = {
   // 支付取消
   postOrderCancel() {
     return HOST_URI + POST_ORDER_CANCEL
+  },
+  // 获取体验详情
+  getExperienceReport() {
+    return HOST_URI + GET_EXPERIENCE_REPORT
   },
 };

@@ -1,0 +1,7 @@
+/* pages/report/report.wxss */
+.report-content {
+  width: 100%;
+  position: relative;
+  padding: 30rpx;
+  box-sizing: border-box
+}

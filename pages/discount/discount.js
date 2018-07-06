@@ -242,7 +242,11 @@ Page({
               util._post(Api.postOrderCancel(), {
                 order_id: data.order_id
               }, function (res) {
-
+                wx.showToast({
+                  title: '支付已取消',
+                  icon: 'none',
+                  duration: 2000
+                })
               })
             },
             'complete': function (res) {
