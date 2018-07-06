@@ -8,7 +8,7 @@
 .disp__inline {
   display: inline;
   color: #BAA68B;
-  padding-left: 0 5rpx;
+  padding: 0 5rpx;
 }
 
 .disp__breakline {

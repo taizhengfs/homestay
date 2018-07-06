@@ -22,7 +22,9 @@ Page({
     this.setData({
       isShowBox: false
     })
-    this.getExperienceActivity()
+    setTimeout(v=>{
+      this.getExperienceActivity()
+    },300)
   },
 
   jumpToSuji() {

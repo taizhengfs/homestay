@@ -28,12 +28,14 @@ Page({
     this.setData({
       isShowBox: false
     })
-    if (this.add_filters.user_id===0) {
-      this.setData({
-        'filters.user_id':wx.getStorageSync('userInfo').id,
-      })
-    }
-    this.getActivityChop()
+    setTimeout(v=>{
+      if (this.add_filters.user_id===0) {
+        this.setData({
+          'filters.user_id':wx.getStorageSync('userInfo').id,
+        })
+      }
+      this.getActivityChop()
+    },300)
   },
   jumpToHome() {
     wx.switchTab({
@@ -237,7 +239,7 @@ Page({
               wx.redirectTo('../myCard/myCard')
             },
             'fail': function (res) {
-              util._post(Api.cancelOrder(), {
+              util._post(Api.postOrderCancel(), {
                 order_id: data.order_id
               }, function (res) {
 

@@ -35,6 +35,7 @@ const GET_ACTIVITY_RULE_DETAIL = '/activity/ruleDetail'
 const GET_TICKET_RULE_DETAIL = '/ticket/ruleDetail'
 const GET_ADD_SHARE_EXP = '/user/addShareExp'
 const POST_USER_CHOPBUY = '/user/chopBuy'
+const POST_ORDER_CANCEL = '/user/cancelOrder'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -180,5 +181,9 @@ module.exports = {
   // 支付
   postUserChopBuy() {
     return HOST_URI + POST_USER_CHOPBUY
+  },
+  // 支付取消
+  postOrderCancel() {
+    return HOST_URI + POST_ORDER_CANCEL
   },
 };

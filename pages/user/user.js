@@ -18,10 +18,16 @@ Page({
     isFirstLoad:true
   },
   closeBox() {
+    let _this = this
     this.setData({
       isShowBox: false
     })
-    this.getUserHome()
+    setTimeout(v=>{
+      _this.setData({
+        userDetail: wx.getStorageSync('userInfo')
+      })
+      this.getUserHome()
+    },300)
   },
   jumpToPage(e) {
     const dataset = e.currentTarget.dataset

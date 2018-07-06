@@ -7,7 +7,7 @@
         ¥0
         <view class='delete__line'>¥{{ticket.price}}</view>
       </view>
-      <view class='lottery__title__top__r'>剩余<view class='disp__inline'>{{detail.ticket_no}}</view>张</view>
+      <view class='lottery__title__top__r'>总共<view class='disp__inline'>{{detail.ticket_no}}</view>张</view>
     </view>
     <view class='lottery__title__bottom'>{{detail.name}}</view>
   </view>

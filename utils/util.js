@@ -268,7 +268,7 @@ const wxAuthorize = function (callback) {
       }, function (res) {
         if (res.data.code == 200) {
           var isLogin = res.data.data.login;
-          wx.setStorageSync('isLogin', 1);
+          wx.setStorageSync('isLogin', isLogin);
           wx.setStorageSync('userInfo', res.data.data.user);
           wx.setStorageSync('token', res.data.data.token);
           if (isLogin!==1) {
