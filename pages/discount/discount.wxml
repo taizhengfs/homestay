@@ -6,8 +6,7 @@
       <view class='discount__title__top__l'>
         {{detail.name}}
       </view>
-      <view class='discount__title__top__r'>总共
-        <view class='disp__inline'>{{detail.ticket_no}}</view>张</view>
+      <view class='discount__title__top__r'>剩余<view class='disp__inline'>{{detail.ticket_no}}</view>张</view>
     </view>
     <view class='discount__title__bottom'>{{detail.description}}</view>
     <view class='discount__detail__title__r' data-id="{{detail.id}}" bindtap='jumpToRuleDetail'>
@@ -69,8 +68,12 @@
     <view class='bottom__ba__block home' bindtap="jumpToHome">
       <view class="icon__home"></view>首页</view>
     <button class='bottom__ba__block invite fake-btn' open-type="share"><view class="icon__invite"></view>邀请砍价</button>
-    <view wx:if="{{add_filters.user_id===0}}" class='bottom__ba__block share' bindtap="postUserChopBuy">{{ticket.price-detail.chop_price}}元拿下</view>
-    <view wx:if="{{add_filters.user_id!==0}}" class='bottom__ba__block share' bindtap="jumpToJoin">参与活动</view>
+    <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===0}}">暂未开始</view>
+    <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===2}}">活动已结束</view>
+    <block wx:if="{{detail.time_status===1}}">
+      <view wx:if="{{add_filters.user_id===0}}" class='bottom__ba__block share' bindtap="postUserChopBuy">{{ticket.price-detail.chop_price}}元拿下</view>
+      <view wx:if="{{add_filters.user_id!==0}}" class='bottom__ba__block share' bindtap="jumpToJoin">参与活动</view>
+    </block>
   </view>
 </view>
 <authBox isShowBox="{{isShowBox}}" isShowCancel="{{false}}" bindcloseAuth="closeBox"></authBox>

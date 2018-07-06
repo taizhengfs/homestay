@@ -73,7 +73,7 @@
           <view>我的信息</view>
         </view>
         <view class="user__cell__right">
-          <view>补全信息领福利</view>
+          <view>补全信息</view>
           <view class="icon__arrow__right"></view>
         </view>
       </view>
