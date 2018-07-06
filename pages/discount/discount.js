@@ -236,6 +236,9 @@ Page({
                 icon: 'none',
                 duration: 2000
               })
+              _this.setData({
+                'detail.is_buy':1
+              })
               wx.redirectTo('../myCard/myCard')
             },
             'fail': function (res) {
