@@ -311,7 +311,7 @@ const setMember = function (res, callback) {
       requestStatus = 2
       // 写入缓存
       wx.setStorageSync('isLogin', 1);
-      wx.setStorageSync('info', res.user);
+      wx.setStorageSync('userInfo', res.userInfo);
     } else {
       requestStatus = 3
     }
