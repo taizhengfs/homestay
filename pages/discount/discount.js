@@ -239,7 +239,9 @@ Page({
               _this.setData({
                 'detail.is_buy':1
               })
-              wx.redirectTo('../myCard/myCard')
+              wx.navigateTo({
+                url:'../myCard/myCard'
+              })
             },
             'fail': function (res) {
               util._post(Api.postOrderCancel(), {
