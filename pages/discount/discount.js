@@ -216,6 +216,11 @@ Page({
       this.getActivityChop()
     }
   },
+  jumpToCard(){
+    wx.navigateTo({
+      url:'../myCard/myCard'
+    })
+  },
   postUserChopBuy(){
     let _this = this
     util._post(Api.postUserChopBuy(), {
