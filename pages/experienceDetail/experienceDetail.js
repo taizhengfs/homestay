@@ -16,7 +16,8 @@ Page({
     win: [],
     btnText:'',
     btnStyle:'',
-    isShowBox: false
+    isShowBox: false,
+    userinfo:wx.getStorageSync('userInfo')
   },
   closeBox() {
     this.setData({
@@ -101,12 +102,18 @@ Page({
     let _this = this
     if(_this.data.detail.time_status === 1) {
       if(_this.data.detail.is_apply==0) {
-        wx.navigateTo({
-          url: `../applyRoom/applyRoom?id=${e.currentTarget.dataset.id}`,
-          success: function(res){
-            // success
-          },
-        })
+        if(wx.getStorageSync('userInfo').is_experiencer===1) {
+          wx.navigateTo({
+            url: `../applyRoom/applyRoom?id=${e.currentTarget.dataset.id}`,
+            success: function(res){
+              // success
+            },
+          })
+        } else {
+          wx.navigateTo({
+            url: '../apply/apply'
+          })
+        }
       } else {
         wx.showToast({
           title: '您已报名',

@@ -46,6 +46,7 @@
   width: 260rpx;
   min-width: 260rpx;
   line-height: 160rpx;
+  height: 160rpx;
   position: relative;
 }
 .exp__detail__cnt__l image {

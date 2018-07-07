@@ -1,5 +1,5 @@
 <!--pages/experience/experience.wxml-->
-<view class='container {{isShowBox?"blur__mask":""}}'>
+<view class='container'>
   <swiperItem class="w__100"
     isShowDots="{{true}}"
     swiperimage="{{swiper}}"
@@ -34,4 +34,4 @@
   </view>
 </view>
 
-<authBox isShowBox="{{isShowBox}}" bindcloseAuth="closeBox"></authBox>
+<!-- <authBox isShowBox="{{isShowBox}}" bindcloseAuth="closeBox"></authBox> -->

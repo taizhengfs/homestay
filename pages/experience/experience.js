@@ -18,7 +18,7 @@ Page({
     isLoadAll: false,
     userinfo: wx.getStorageSync('userInfo'),
     form_id:'',
-    isShowBox:false
+    // isShowBox:false
   },
 
   getFormId (e) {
@@ -67,24 +67,18 @@ Page({
     })
   },
 
-  closeBox() {
-    this.setData({
-      isShowBox: false
-    })
-  },
+  // closeBox() {
+  //   this.setData({
+  //     isShowBox: false
+  //   })
+  // },
 
   jumpToDetail(e) {
     let tp = e.currentTarget.dataset
     console.log(this.data.userinfo)
-    if(this.data.userinfo.is_experiencer===1) {
-      wx.navigateTo({
-        url: `../experienceDetail/experienceDetail?id=${tp.id}`
-      })
-    } else {
-      wx.navigateTo({
-        url: '../apply/apply'
-      })
-    }
+    wx.navigateTo({
+      url: `../experienceDetail/experienceDetail?id=${tp.id}`
+    })
   },
 
   /**

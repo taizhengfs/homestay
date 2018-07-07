@@ -45,8 +45,7 @@ Page({
     currentPane: '',
     isLoadAll:false,
     innerText:'',
-    isShowBox:false,
-    isHasPosition:wx.getStorageSync('ishaspos')
+    isShowBox:false
   },
   resetFilter(){
     this.setData({
@@ -90,7 +89,7 @@ Page({
     let tar = e.currentTarget.dataset.type
     switch(tar) {
       case 'distance':
-        if(_this.data.isHasPosition===-1) {
+        if(wx.getStorageSync('ishaspos')===-1) {
           wx.showModal({
             title: '是否授权当前位置',
             content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
@@ -108,9 +107,6 @@ Page({
                         duration: 5000
                       })
                       wx.setStorageSync('ishaspos', 1)
-                      _this.setData({
-                        isHasPosition:1
-                      })
                     }else{
                       wx.showToast({
                         title: '授权失败',
@@ -118,9 +114,6 @@ Page({
                         duration: 2000
                       })
                       wx.setStorageSync('ishaspos', -1)
-                      _this.setData({
-                        isHasPosition:-1
-                      })
                     }
                   }
                 })
