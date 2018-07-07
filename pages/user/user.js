@@ -68,6 +68,7 @@ Page({
       const {user_info, operations, welfare} = ex
       wx.setStorageSync('upgrade', operations)
       _this.setData({
+        isFirstLoad: false,
         detail: ex,
         user_info: user_info,
         operations: operations,
@@ -90,9 +91,6 @@ Page({
     })
     if(wx.getStorageSync('isLogin')===1) {
       if(_this.data.isFirstLoad) {
-        _this.setData({
-          isFirstLoad: false
-        })
         _this.getUserHome()
       }
     }

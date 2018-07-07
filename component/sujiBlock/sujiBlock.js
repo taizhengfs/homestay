@@ -25,7 +25,7 @@ Component({
       value: ''
     },
     distance: {
-      type: String,
+      type: [String, Number],
       value: ''
     },
     lat: {
