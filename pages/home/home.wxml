@@ -28,6 +28,7 @@
       type="{{item.type}}"
       activityId="{{item.id}}"
       type_name="{{item.type_name}}"
+      bindtimeToRefresh="goRefresh"
       ></activityBlock>
       <view class="no-data" wx:if="{{today.length==0}}">
         <view class="no-data__top"><image src="../../images/icon_empty.svg"></image></view>

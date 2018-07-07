@@ -204,13 +204,45 @@ Page({
       ex.platform.forEach(val => {
         _this.data.reco.push({id: val.id, name: val.name})
       });
-      const {platform} = ex
+      const {platform, apply_info} = ex
       _this.setData({
         detail: ex,
+        apply_info:apply_info,
         platList: platform,
         reco: _this.data.reco,
         'formPayload[0].platform': platform[0].children
       })
+      if(Object.keys(apply_info).length>0) {
+        _this.setData({
+          truename:apply_info.truename,
+          phone:apply_info.phone,
+        })
+        if(apply_info.experiencer.verify_status===1) {
+          wx.showModal({
+            title: `申请中`,
+            content: '您的申请已提交，您仍然可以补充或修改您的信息!',
+            confirmText:'确定',
+            showCancel: false,
+            success: function(res) {
+              if (res.confirm) {
+
+              }
+            }
+          })
+        } else if(apply_info.experiencer.verify_status===3){
+          wx.showModal({
+            title: `申请失败`,
+            content: `您的信息没有通过体验师申请，原因:【${apply_info.experiencer.remark}】,快补充或修改信息吧。`,
+            confirmText:'确定',
+            showCancel: false,
+            success: function(res) {
+              if (res.confirm) {
+
+              }
+            }
+          })
+        }
+      }
       
     }, error => {
       wx.hideLoading()

@@ -41,6 +41,9 @@ Page({
       },
     })
   },
+  goRefresh() {
+    this.getHomeDetail()
+  },
   getHomeDetail() {
     var _this = this
     util._get(Api.getHomeHome(), {}, res => {

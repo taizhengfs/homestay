@@ -109,6 +109,9 @@ Component({
         
         duration = distanceDate(this.properties.endTime*1000, now)
       }
+      if(this.properties.startTime*1000===now || this.properties.endTime*1000===now) {
+        this.triggerEvent('timeToRefresh')
+      }
       let { day, hour, min, second } = duration
       let padWithZero = this.padWithZero
       let showTime = `${day !== 0 ? day + '天' : ''}${padWithZero(hour)}:${padWithZero(min)}:${padWithZero(second)}`
