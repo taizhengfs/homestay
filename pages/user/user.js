@@ -113,6 +113,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    setTimeout(v=>{
+      this.setData({
+        isShowBox: wx.getStorageSync('isLogin')===0
+      })
+    },1000)
     if(wx.getStorageSync('isLogin')===1) {
       if(!this.data.isFirstLoad) {
         this.getUserHome()

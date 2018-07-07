@@ -355,6 +355,11 @@ Page({
     })
   },
   onShow: function () {
+    setTimeout(v=>{
+      this.setData({
+        isShowBox: wx.getStorageSync('isLogin')===0
+      })
+    },1000)
     if(app.globalData.isEditFilter) {
       if(app.globalData.keyword!=='') {
         this.resetFilter()

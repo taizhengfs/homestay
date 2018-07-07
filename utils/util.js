@@ -266,7 +266,6 @@ const wxAuthorize = function (callback) {
       _get(Api.getUserInfo(), {
         code: res.code
       }, function (res) {
-        console.log('res.data.code: ', JSON.stringify(res.data));
         if (res.data.code == 200) {
           var isLogin = res.data.data.login;
           wx.setStorageSync('isLogin', isLogin);
@@ -311,6 +310,8 @@ const setMember = function (res, callback) {
       requestStatus = 2
       // 写入缓存
       wx.setStorageSync('isLogin', 1);
+      res.userInfo.avatar =res.userInfo.avatarUrl
+      res.userInfo.nickname =res.userInfo.nickName
       wx.setStorageSync('userInfo', res.userInfo);
     } else {
       requestStatus = 3
