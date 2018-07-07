@@ -27,7 +27,6 @@ Page({
   },
   goSearch(e){
     let key = e.detail.inputVal
-    console.log('key: ', key);
     if(key ==app.globalData.keyword) {
       app.globalData.isEditFilter = false
     } else {
@@ -81,16 +80,16 @@ Page({
     this.getHomeDetail()
     setTimeout(v=>{
       this.setData({
-        isLogin: wx.getStorageSync('isLogin'),
-        isShowBox: wx.getStorageSync('isLogin')==0
+        isShowBox: wx.getStorageSync('isLogin')===0
       })
-    },300)
+    },1000)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {},
+  onReady: function () {
+  },
 
   /**
    * 生命周期函数--监听页面显示

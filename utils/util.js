@@ -266,6 +266,7 @@ const wxAuthorize = function (callback) {
       _get(Api.getUserInfo(), {
         code: res.code
       }, function (res) {
+        console.log('res.data.code: ', JSON.stringify(res.data));
         if (res.data.code == 200) {
           var isLogin = res.data.data.login;
           wx.setStorageSync('isLogin', isLogin);
