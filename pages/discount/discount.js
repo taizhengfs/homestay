@@ -104,6 +104,14 @@ Page({
             console.log(ex)
             if(ex.code===200) {
               let point = ex.data.point
+              _this.data.members.push({
+                avatar:wx.getStorageSync('userInfo').avatar,
+                nickname:wx.getStorageSync('userInfo').nickname,
+                chop_price:point
+              })
+              _this.setData({
+                members:_this.data.members
+              })
               wx.showModal({
                 title: `成功帮好友砍掉${point}元`,
                 content: '再次分享给好友多砍几刀吧!',

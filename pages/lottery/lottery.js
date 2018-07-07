@@ -71,6 +71,13 @@ Page({
           let ex = res.data
           console.log(ex)
           if(ex.code===200) {
+            _this.data.members.push({
+              avatar:wx.getStorageSync('userInfo').avatar,
+              nickname:wx.getStorageSync('userInfo').nickname
+            })
+            _this.setData({
+              members:_this.data.members
+            })
             wx.showModal({
               title: '助力成功',
               content: '您的助力，使您的好友离大奖更近一步了！\n来参与活动跟您的好友比比手气吧!',
