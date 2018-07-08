@@ -40,7 +40,19 @@ Page({
     _this.setData({
       list: []
     })
-    _this.getUserActivityList()
+    util._get(Api.getUserActivityList(), _this.data.filters, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      const {list} = ex
+      _this.setData({
+        list:list
+      })
+      console.log('ex: ', ex);
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**

@@ -36,10 +36,10 @@
     </view>
     <view class='lottery__rules__content'>
       <view class='lottery__rules__single'>活动时间：
-        <view class='disp__inline'>{{detail.starttime}}</view>
+        <view class='disp__inline'>{{detail.starttime}}-{{detail.endtime}}</view>
       </view>
       <view class='lottery__rules__single'>开奖时间：
-        <view class='disp__inline'>{{detail.endtime}}</view>
+        <view class='disp__inline'>{{detail.lottery_at}}</view>
       </view>
       <view class='lottery__rules__single'>活动参与方式：
         <text class='disp__inline'>{{detail.part_desc}}</text>

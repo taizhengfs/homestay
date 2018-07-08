@@ -111,9 +111,8 @@ Component({
       } else if(this.properties.timeStatus === 1) {
         duration = distanceDate(this.properties.endTime*1000, now)
       }
-      if(_this.properties.startTime===parseInt(now/1000) || _this.properties.endTime===parseInt(now/1000)) {
-        console.log('isOver')
-        if(!isRefresh) {
+      if(!isRefresh){
+        if(_this.properties.startTime===parseInt(now/1000) || _this.properties.endTime===parseInt(now/1000)) {
           isRefresh = true
           _this.triggerEvent('timeToRefresh')
         }

@@ -47,7 +47,15 @@ Page({
       today: [],
       tomorrow: []
     })
-    _this.getHomeDetail()
+    util._get(Api.getHomeHome(), {}, res => {
+      const {swiper, today, tomorrow} = res.data.data
+      _this.setData({
+        today: today,
+        tomorrow: tomorrow,
+        swiper: swiper
+      })
+    }, error => {
+    })
   },
   getHomeDetail() {
     var _this = this

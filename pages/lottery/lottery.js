@@ -140,6 +140,7 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data
+      ex.detail.lottery_at = formatDate(ex.detail.lottery_at*1000, 'Y-m-d H:i:s') 
       ex.detail.starttime = formatDate(ex.detail.starttime*1000, 'Y-m-d H:i:s') 
       ex.detail.endtime = formatDate(ex.detail.endtime*1000, 'Y-m-d H:i:s') 
       _this.data.swiperimage.push({image: ex.detail.image})
