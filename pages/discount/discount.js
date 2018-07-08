@@ -110,7 +110,8 @@ Page({
                 chop_price:point
               })
               _this.setData({
-                members:_this.data.members
+                members:_this.data.members,
+                'detail.chop_price': parseFloat(_this.data.detail.chop_price)+parseFloat(point)
               })
               wx.showModal({
                 title: `成功帮好友砍掉${point}元`,

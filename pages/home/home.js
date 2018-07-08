@@ -42,11 +42,21 @@ Page({
     })
   },
   goRefresh() {
-    this.getHomeDetail()
+    var _this = this
+    _this.setData({
+      today: [],
+      tomorrow: []
+    })
+    _this.getHomeDetail()
   },
   getHomeDetail() {
     var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
     util._get(Api.getHomeHome(), {}, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
       const {swiper, today, tomorrow} = res.data.data
       _this.setData({
         today: today,

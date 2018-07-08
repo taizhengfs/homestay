@@ -175,13 +175,13 @@ Page({
             } else {
               wx.showModal({
                 title: '恭喜中奖',
-                content: '您获得了和风民宿旅馆家庭套房一晚\n快去您的卡包看看吧',
+                content: `您获得了[${_this.data.ticket.name}]\n快去您的卡包看看吧`,
                 cancelText:'知道了',
                 confirmText:'前往查看',
                 success: function(res) {
                   if (res.confirm) {
-                    wx.switchTab({
-                      url: '../home/home',
+                    wx.navigateTo({
+                      url: '../myCard/myCard',
                       success: function(res){
                         // success
                       }

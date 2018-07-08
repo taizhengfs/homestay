@@ -15,6 +15,7 @@
     type_name="{{item.type_name}}"
     isWin = "{{item.is_win}}"
     isSelf = "{{isSelf}}"
+    bindtimeToRefresh="goRefresh"
     ></activityBlock>
     <view class="no-data" wx:if="{{list.length==0}}">
         <view class="no-data__top"><image src="../../images/icon_empty.svg"></image></view>

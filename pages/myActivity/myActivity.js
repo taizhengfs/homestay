@@ -12,7 +12,7 @@ Page({
     list:[],
     filters:{
       page: 1,
-      pageSize: 10
+      pageSize: 50
     },
     isSelf:true
   },
@@ -34,6 +34,13 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
     })
+  },
+  goRefresh() {
+    var _this = this
+    _this.setData({
+      list: []
+    })
+    _this.getUserActivityList()
   },
 
   /**

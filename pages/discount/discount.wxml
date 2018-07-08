@@ -28,7 +28,7 @@
     </view>
   </view>
 
-  <view class='discount__detail__block'>
+  <view class='discount__detail__block' wx:if="{{members.length>0}}">
     <view class='discount__detail__title'>砍价帮
     </view>
     <view class='discount__friends__content'>

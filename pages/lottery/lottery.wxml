@@ -46,7 +46,7 @@
       </view>
     </view>
   </view>
-  <view class='lottery__detail__block'>
+  <view class='lottery__detail__block' wx:if="{{members.length>0}}">
     <view class='lottery__detail__title'>成团好友
     </view>
     <view class='lottery__friends__content'>

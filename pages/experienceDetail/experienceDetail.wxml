@@ -65,7 +65,7 @@
       <rich-text nodes="{{detail.content}}"></rich-text>
     </view>
   </view>
-  <view class='exp__detail__block last'>
+  <view class='exp__detail__block last' wx:if ="{{apply.length>0}}">
     <view class='exp__detail__title'>最新报名</view>
     <view class='new__sign__list'>
       <view class='new__sign__block' wx:for="{{apply}}">

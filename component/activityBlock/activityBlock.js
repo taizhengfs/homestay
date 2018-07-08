@@ -1,6 +1,7 @@
 import {distanceDate, formatDate} from '../../utils/date.js';
 import util from '../../utils/util.js';
 const app = getApp();
+var isRefresh = false
 import Api from '../../utils/api.js';
 Component({
   properties: {
@@ -67,7 +68,8 @@ Component({
     isShowDel: false,
     inputVal: '',
     duration:'00:00:00',
-    form_id:[]
+    form_id:[],
+    hasRefresh: false
   },
   ready(){
     this.endFormatTime()
@@ -103,20 +105,24 @@ Component({
     endFormatTime () {
       let now = Date.now()
       let duration = {}
-      if (this.properties.timeStatus === 0 ) {
+      let _this = this
+      if (_this.properties.timeStatus === 0 ) {
         duration = distanceDate(this.properties.startTime*1000, now)
       } else if(this.properties.timeStatus === 1) {
-        
         duration = distanceDate(this.properties.endTime*1000, now)
       }
-      if(this.properties.startTime*1000===now || this.properties.endTime*1000===now) {
-        this.triggerEvent('timeToRefresh')
+      if(_this.properties.startTime===parseInt(now/1000) || _this.properties.endTime===parseInt(now/1000)) {
+        console.log('isOver')
+        if(!isRefresh) {
+          isRefresh = true
+          _this.triggerEvent('timeToRefresh')
+        }
       }
       let { day, hour, min, second } = duration
-      let padWithZero = this.padWithZero
+      let padWithZero = _this.padWithZero
       let showTime = `${day !== 0 ? day + '天' : ''}${padWithZero(hour)}:${padWithZero(min)}:${padWithZero(second)}`
       if(typeof day !=='undefined') {
-        this.setData({
+        _this.setData({
           duration: showTime
         })
       }

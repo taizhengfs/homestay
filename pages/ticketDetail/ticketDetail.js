@@ -54,7 +54,8 @@ Page({
         duration: 1000
       })
       _this.setData({
-        'user_ticket.use_status':4
+        'user_ticket.use_status':4,
+        isShowCard: !_this.data.isShowCard
       })
       this.showPaneCard()
     }, error => {
