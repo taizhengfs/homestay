@@ -79,7 +79,9 @@ Component({
   },
   methods: {
     onTap(form_id) {
-      var myEventDetail = {} // detail对象，提供给事件监听函数
+      var myEventDetail = {
+        id:this.properties.activityId
+      } // detail对象，提供给事件监听函数
       var myEventOption = {} // 触发事件的选项
       setTimeout(v=>{
         if (this.properties.type===2) {
@@ -106,15 +108,24 @@ Component({
       let now = Date.now()
       let duration = {}
       let _this = this
+      var myEventDetail = {} 
       if (_this.properties.timeStatus === 0 ) {
-        duration = distanceDate(this.properties.startTime*1000, now)
-      } else if(this.properties.timeStatus === 1) {
-        duration = distanceDate(this.properties.endTime*1000, now)
+        myEventDetail = {
+          id:_this.properties.activityId,
+          type:0
+        }
+        duration = distanceDate(_this.properties.startTime*1000, now)
+      } else if(_this.properties.timeStatus === 1) {
+        myEventDetail = {
+          id:_this.properties.activityId,
+          type:1
+        }
+        duration = distanceDate(_this.properties.endTime*1000, now)
       }
       if(!isRefresh){
         if(_this.properties.startTime===parseInt(now/1000) || _this.properties.endTime===parseInt(now/1000)) {
           isRefresh = true
-          _this.triggerEvent('timeToRefresh')
+          _this.triggerEvent('timeToRefresh', myEventDetail)
         }
       }
       let { day, hour, min, second } = duration

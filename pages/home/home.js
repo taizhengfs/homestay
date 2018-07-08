@@ -41,20 +41,21 @@ Page({
       },
     })
   },
-  goRefresh() {
-    var _this = this
+  goRefresh(e) {
+    let _this = this
+    console.log(e.detail)
+    _this.data.today=_this.data.today.map(v => {
+      if (v.id==e.detail.id) {
+        if(e.detail.type==0){
+          v.time_status=1
+        } else if(e.detail.type==1) {
+          v.time_status=2
+        }
+      }
+      return v
+    });
     _this.setData({
-      today: [],
-      tomorrow: []
-    })
-    util._get(Api.getHomeHome(), {}, res => {
-      const {swiper, today, tomorrow} = res.data.data
-      _this.setData({
-        today: today,
-        tomorrow: tomorrow,
-        swiper: swiper
-      })
-    }, error => {
+      today:_this.data.today
     })
   },
   getHomeDetail() {

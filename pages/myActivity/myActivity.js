@@ -35,24 +35,23 @@ Page({
       wx.stopPullDownRefresh()
     })
   },
-  goRefresh() {
+  goRefresh(e) {
     var _this = this
+    console.log(e.detail)
+    _this.data.list=_this.data.list.map(v => {
+      if (v.id==e.detail.id) {
+        if(e.detail.type==0){
+          v.time_status=1
+        } else if(e.detail.type==1) {
+          v.time_status=2
+        }
+      }
+      return v
+    });
     _this.setData({
-      list: []
+      list:_this.data.list
     })
-    util._get(Api.getUserActivityList(), _this.data.filters, res => {
-      wx.hideLoading()
-      wx.stopPullDownRefresh()
-      let ex = res.data.data
-      const {list} = ex
-      _this.setData({
-        list:list
-      })
-      console.log('ex: ', ex);
-    }, error => {
-      wx.hideLoading()
-      wx.stopPullDownRefresh()
-    })
+    console.log(_this.data.list)
   },
 
   /**
