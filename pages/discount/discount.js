@@ -116,9 +116,10 @@ Page({
                 nickname:wx.getStorageSync('userInfo').nickname,
                 chop_price:point
               })
+              let num = parseFloat(_this.data.detail.chop_price)+parseFloat(point)
               _this.setData({
                 members:_this.data.members,
-                'detail.chop_price': parseFloat(_this.data.detail.chop_price)+parseFloat(point)
+                'detail.chop_price': num.toFixed(2)
               })
               wx.showModal({
                 title: `成功帮好友砍掉${point}元`,
