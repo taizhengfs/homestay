@@ -25,16 +25,23 @@ Page({
   },
 
   closeBox() {
-    this.setData({
+    let _this = this
+    _this.setData({
       isShowBox: false
     })
     setTimeout(v=>{
-      if (this.add_filters.user_id===0) {
-        this.setData({
+      if (_this.data.add_filters.user_id===0) {
+        _this.setData({
           'filters.user_id':wx.getStorageSync('userInfo').id,
         })
+      } else {
+        if(_this.data.add_filters.user_id!==wx.getStorageSync('userInfo').id) {
+          this.setData({
+            'filters.user_id':_this.data.add_filters.user_id,
+          })
+        }
       }
-      this.getActivityChop()
+      _this.getActivityChop()
     },300)
   },
   jumpToHome() {
@@ -54,7 +61,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    util._get(Api.getActivityChop(), this.data.filters, res => {
+    util._get(Api.getActivityChop(), _this.data.filters, res => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data
@@ -67,7 +74,7 @@ Page({
         members: members
       })
       if(_this.data.add_filters.user_id!==0){
-        this.postActivityAddChop()
+        _this.postActivityAddChop()
       }
     }, error => {
       wx.hideLoading()
@@ -195,14 +202,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('options: ', options);
-    this.setData({
+    let _this = this
+    _this.setData({
       'filters.id': parseInt(options.id),
       'add_filters.id': parseInt(options.id),
       'filters.form_id': options.form_id,
     })
     setTimeout(v=>{
-      this.setData({
+      _this.setData({
         isLogin: wx.getStorageSync('isLogin'),
         isShowBox: wx.getStorageSync('isLogin')==0
       })
@@ -211,18 +218,18 @@ Page({
     if(typeof options.user_id !== 'undefined') {
       uid = parseInt(options.user_id)
       if(options.user_id!==wx.getStorageSync('userInfo').id) {
-        this.setData({
+        _this.setData({
           'add_filters.user_id':uid,
         })
       }
     } else {
       uid = wx.getStorageSync('userInfo').id
     }
-    this.setData({
+    _this.setData({
       'filters.user_id':uid,
     })
     if(wx.getStorageSync('isLogin')===1) {
-      this.getActivityChop()
+      _this.getActivityChop()
     }
   },
   jumpToCard(){
