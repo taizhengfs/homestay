@@ -7,7 +7,7 @@
           ¥ {{price}}
           <view style="font-size: 28rpx;line-height: 40rpx;margin-left: 5rpx;">起</view>
         </view>
-        <image src="http:{{cover}}"></image>
+        <image mode="widthFix" src="http:{{cover}}"></image>
         <view class="single__mask"></view>
       </view>
       <view class="suji__single__bottom">

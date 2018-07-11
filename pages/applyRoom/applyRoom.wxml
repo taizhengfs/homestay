@@ -13,7 +13,9 @@
     </view>
   </view>
   <view class="image__area" wx:if="{{imgList.length>0}}">
-    <image wx:for="{{imgList}}" wx:key="{{index}}" bindlongtap="showDeleteBox" data-key="{{index}}" src="{{item}}"></image>
+    <view class="img__list" wx:key="{{index}}" wx:for="{{imgList}}">
+      <image mode="widthFix" bindlongtap="showDeleteBox" data-key="{{index}}" src="{{item}}"></image>
+    </view>
   </view>
   <view class='add__image__cnt'>
     <view class='add__image' bindtap='selectPic'>

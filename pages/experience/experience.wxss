@@ -18,14 +18,15 @@
   width: 260rpx;
   height: 160rpx;
   min-width: 260rpx;
-  position: relative
+  position: relative;
+  overflow: hidden;
 }
 .experience__list__l image {
   width: 100%;
-  height: 100%;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
 }
 .experience__list__r{
   display: flex;

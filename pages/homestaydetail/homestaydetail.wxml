@@ -112,7 +112,7 @@
       <view class='detail__disher__content'>
         <view class='detail__disher__block' wx:for="{{detail.dine_atlas}}">
           <view class='detail__disher__block_t'>
-            <image src='http:{{item}}'></image>
+            <image mode="widthFix" src='http:{{item}}'></image>
           </view>
           <!-- <view class='detail__disher__block_b'>
             {{item.title}}

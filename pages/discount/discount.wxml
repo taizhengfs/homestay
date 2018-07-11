@@ -56,7 +56,7 @@
         <view class='discount__tag__red'>价值
           <view class='discount_price'>¥{{ticket.price}}</view>
         </view>
-        <image src='http:{{ticket.image}}'></image>
+        <image mode="widthFix" src='http:{{ticket.image}}'></image>
       </view>
       <view class='discount__desc'>
         <view class='discount__desc__top'>{{ticket.name}}</view>

@@ -27,7 +27,7 @@
         </view>
         <view class="single__mask">
         </view>
-        <image src="http:{{item.image}}" class="slide-image"> </image>
+        <image mode="widthFix" src="http:{{item.image}}" class="slide-image"> </image>
       </swiper-item>
     </block>
   </swiper>

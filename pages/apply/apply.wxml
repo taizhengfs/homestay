@@ -84,7 +84,7 @@
           </view>
         </view>
         <view wx:if="{{formPayload[index].image!==''}}" class='form__single last'>
-            <image src="http:{{formPayload[index].image}}"></image>
+            <image mode='widthFix' src="http:{{formPayload[index].image}}"></image>
         </view>
       </view>
       <view class="form__single pla">
