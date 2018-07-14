@@ -32,14 +32,17 @@
     </view>
     <view class='inflution__cnt'>
       <view class="form__info__block" wx:for="{{formPayload}}">
+        <view class='icon_delete' data-index="{{index}}" wx:if="{{formPayload.length>1}}" bindtap="deleteItem">
+          <image src='../../images/icon_del.svg'></image>  
+        </view>
         <view class='form__single'>
           <view class='form__single__left'>
-            平台名
+            平台认证类型
           </view>
           <view class='form__single__right'>
-            <picker bindchange="bindPlatformChange" data-index="{{index}}" range-key="{{'name'}}" data-id="{{formPayload[index].platform[formPayload[index].pindex].id}}" value="{{formPayload[index].pindex}}" range="{{formPayload[index].platform}}">
+            <picker bindchange="bindRecoChange" data-index="{{index}}" data-id="{{reco[formPayload[index].rindex].id}}" range-key="name" value="{{formPayload[index].rindex}}" range="{{reco}}">
               <view class="form__single__picker">
-                {{formPayload[index].platform[formPayload[index].pindex].name||'请选择您的活跃平台'}}
+                {{reco[formPayload[index].rindex].name||'请选择平台认证类型'}}
                 <view class="icon__arrow__down"></view>
               </view>
             </picker>
@@ -63,12 +66,12 @@
         </view>
         <view class='form__single'>
           <view class='form__single__left'>
-            平台认证类型
+            平台名
           </view>
           <view class='form__single__right'>
-            <picker bindchange="bindRecoChange" data-index="{{index}}" data-id="{{reco[formPayload[index].rindex].id}}" range-key="name" value="{{formPayload[index].rindex}}" range="{{reco}}">
+            <picker bindchange="bindPlatformChange" data-index="{{index}}" range-key="{{'name'}}" data-id="{{formPayload[index].platform[formPayload[index].pindex].id}}" value="{{formPayload[index].pindex}}" range="{{formPayload[index].platform}}">
               <view class="form__single__picker">
-                {{reco[formPayload[index].rindex].name||'请选择平台认证类型'}}
+                {{formPayload[index].platform[formPayload[index].pindex].name||'请选择您的活跃平台'}}
                 <view class="icon__arrow__down"></view>
               </view>
             </picker>

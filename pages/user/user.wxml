@@ -83,7 +83,7 @@
           <view>我的卡包</view>
         </view>
         <view class="user__cell__right">
-          <view>有<view style="color: #C12121;display: inline;">{{detail.expire_ticket_no}}</view>张券将过期</view>
+          <view wx:if="{{detail.expire_ticket_no!==0}}">有<view style="color: #C12121;display: inline;">{{detail.expire_ticket_no}}</view>张券将过期</view>
           <view class="icon__arrow__right"></view>
         </view>
       </view>
@@ -93,7 +93,7 @@
           <view>我的活动</view>
         </view>
         <view class="user__cell__right">
-          <view>{{detail.activity_no}}个进行中</view>
+          <view wx:if="{{detail.activity_no!==0}}">{{detail.activity_no}}个进行中</view>
           <view class="icon__arrow__right"></view>
         </view>
       </view>

@@ -138,5 +138,18 @@
   text-align: center
 }
 .form__info__block {
+  position: relative;
   padding-bottom: 30rpx;
+}
+.icon_delete {
+  width: 40rpx;
+  height: 40rpx;
+  position:absolute;
+  left:-70rpx;
+  top:154rpx;
+
+}
+.icon_delete image {
+  width: 100%;
+  height: 100%;
 }

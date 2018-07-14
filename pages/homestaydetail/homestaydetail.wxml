@@ -44,7 +44,7 @@
       </view>
     </view>
   </view>
-  <view class='detail__experience'>
+  <view class='detail__experience' wx:if="{{activity.length>0}}">
     <view class='detail__ex__block' wx:for="{{activity}}">
       <view class='detail__ex__block_l'>
         <view class="detail__ticket__block">
@@ -84,27 +84,27 @@
       </view>
     </view>
   </detailCard>
-  <detailCard title="房源介绍" isShowArrow="{{true}}" class="w__100">
+  <detailCard title="房源介绍" wx:if="{{!!detail.description}}" isShowArrow="{{true}}" class="w__100">
     <view class='detail__card__desc detail__card_pad'>
     {{detail.description}}
     </view>
   </detailCard>
-  <detailCard title="配套设施" isShowArrow="{{false}}" class="w__100">
+  <detailCard wx:if="{{detail.support_facility.length>0}}" title="配套设施" isShowArrow="{{false}}" class="w__100">
     <view class='detail__card__support detail__card_pad'>
       <view class="support__single {{item.special?'cls__gold':''}}" wx:for="{{detail.support_facility}}">
         {{item}}  |
       </view>
     </view>
   </detailCard>
-  <detailCard title="餐饮信息" isShowArrow="{{false}}" class="w__100">
+  <detailCard title="餐饮信息" wx:if="{{!!detail.dine_style ||!!detail.dine_price||!!detail.dine_dishes}}" isShowArrow="{{false}}" class="w__100">
     <view class='detail__card__info detail__card_pad'>
-      <view class='detail__info__block'>
+      <view class='detail__info__block' wx:if="{{!!detail.dine_style}}">
         菜系：<view class='disp__inline'>{{detail.dine_style}}</view>
       </view>
-      <view class='detail__info__block'>
+      <view class='detail__info__block' wx:if="{{!!detail.dine_price}}">
         人均消费：<view class='disp__inline'>{{detail.dine_price}}元</view>
       </view>
-      <view class='detail__info__block'>
+      <view class='detail__info__block' wx:if="{{!!detail.dine_dishes}}">
         特色菜：<view class='disp__inline'>{{detail.dine_dishes}} </view>
       </view>
     </view>

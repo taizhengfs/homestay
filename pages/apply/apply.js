@@ -32,7 +32,7 @@ Page({
         pindex:'',
         nickname:'',
         fans_count:'',
-        rindex:'',
+        rindex:0,
         image:'',
         platform:[]
       }
@@ -255,6 +255,24 @@ Page({
       isShowCard: !_this.data.isShowCard
     })
   },
+  deleteItem(e) {
+    let _this = this
+    const idx = e.currentTarget.dataset.index
+    wx.showModal({
+      title: '提示',
+      content: '确认删除？',
+      success: function(res) {
+        if (res.confirm) {
+          _this.setData({
+            formPayload: _this.data.formPayload.filter((v, i) => i !== idx),
+            platforms: _this.data.platforms.filter((v,i) => i !== idx)
+          })
+          console.log(_this.data.platforms)
+        } else if (res.cancel) {
+        }
+      }
+    })
+  },
   addMoreInfo() {
     let _this = this
     _this.data.formPayload.push(
@@ -262,8 +280,9 @@ Page({
         pindex:'',
         nickname:'',
         fans_count:'',
-        rindex:'',
-        image:''
+        rindex:0,
+        image:'',
+        platform:_this.data.platList[0].children
       }
     )
     _this.data.platforms.push(
