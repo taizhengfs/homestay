@@ -120,5 +120,8 @@
       </view>
     </view>
   </view>
+  <view class="user__contect">
+    <button class="fake-btn" open-type="contact">联系客服</button>
+  </view>
 </view>
 <authBox isShowBox="{{isShowBox}}"  bindcloseAuth="closeBox" isShowCancel="{{false}}"></authBox>

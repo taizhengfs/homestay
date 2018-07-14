@@ -58,12 +58,7 @@ Page({
   },
   getUserHome() {
     var _this = this
-    wx.showLoading({
-      title: '加载中',
-    })
     util._get(Api.getUserHome(), {}, res => {
-      wx.hideLoading()
-      wx.stopPullDownRefresh()
       let ex = res.data.data
       const {user_info, operations, welfare} = ex
       wx.setStorageSync('upgrade', operations)

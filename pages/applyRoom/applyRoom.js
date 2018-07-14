@@ -27,7 +27,8 @@ Page({
     imgList:[],
     pathList:[],
     isShowCard: false,
-    currentDelIdx: ''
+    currentDelIdx: '',
+    defaultPlaceholder: ''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -37,6 +38,7 @@ Page({
       'filters.id': parseInt(options.id)
     })
     wx.setNavigationBarTitle({ title: '体验活动' });
+    this.getExperienceApplyText()
   },
 
   showPaneCard(){
@@ -61,6 +63,17 @@ Page({
       'filters.images': _this.data.imgList.join(',')
     })
     this.showPaneCard()
+  },
+  getExperienceApplyText() {
+    util._get(Api.getExperienceApplyText(), {}, res => {
+      let ex = res.data.data
+      this.setData({
+        defaultPlaceholder: ex.content
+      })
+      console.log('ex: ', ex);
+    }, error => {
+      console.log(error)
+    })
   },
   getExperienceApply() {
     var _this = this

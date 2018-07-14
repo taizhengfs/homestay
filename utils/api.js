@@ -37,6 +37,7 @@ const GET_ADD_SHARE_EXP = '/user/addShareExp'
 const POST_USER_CHOPBUY = '/user/chopBuy'
 const POST_ORDER_CANCEL = '/user/cancelOrder'
 const GET_EXPERIENCE_REPORT = '/experience/report'
+const GET_EXPERIENCE_APPLY_TEXT = '/experience/applyText'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -190,5 +191,9 @@ module.exports = {
   // 获取体验详情
   getExperienceReport() {
     return HOST_URI + GET_EXPERIENCE_REPORT
+  },
+  // 获取申请默认文字
+  getExperienceApplyText() {
+    return HOST_URI + GET_EXPERIENCE_APPLY_TEXT
   },
 };

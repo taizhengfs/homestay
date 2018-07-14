@@ -225,3 +225,15 @@ page {
 .mt_24 {
   margin-top: 24rpx
 }
+.user__contect {
+  width: 100%;
+  margin-top: 150rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user__contect button {
+  font-size: 24rpx;
+  color: #BAA68B;
+  text-align: center;
+}
