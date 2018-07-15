@@ -50,7 +50,7 @@
     <view class='lottery__detail__title'>成团好友
     </view>
     <view class='lottery__friends__content'>
-      <view class='lottery__friends__single' wx:for="{{members}}">
+      <view class='lottery__friends__single' wx:for="{{isShowAll?members:lessList}}">
         <view class='lottery__friends__s_top'>
           <image src='{{item.avatar}}'></image>
         </view>
@@ -59,7 +59,7 @@
         </view>
       </view>
     </view>
-    <view class='detail__arrow' wx:if="{{members.length>10}}">
+    <view class='detail__arrow' bindtap="showAll" wx:if="{{!isShowAll&&members.length>10}}">
       <view class='disp__inline'>查看全部</view>
       <image src='http://file.yinxinlife.com/images/icon_more.png'></image>
     </view>

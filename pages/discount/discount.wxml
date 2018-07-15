@@ -32,7 +32,7 @@
     <view class='discount__detail__title'>砍价帮
     </view>
     <view class='discount__friends__content'>
-      <view class='discount__friends__single' wx:for="{{members}}">
+      <view class='discount__friends__single' wx:for="{{isShowAll?members:lessList}}">
         <view class='discount__friend_l'>
           <view class='discount__rank'>{{index+1}}、</view>
           <view class='discount__friend_profile'>
@@ -43,7 +43,7 @@
         <view class='discount__friend_r'>砍掉<view class='disp__inline__red'>{{item.chop_price}}</view>元</view>
       </view>
     </view>
-    <view class='detail__arrow' wx:if="{{members.lenth>10}}">
+    <view class='detail__arrow' bindtap="showAll" wx:if="{{!isShowAll&&members.length>10}}">
       <view class='disp__inline'>查看全部</view>
       <image src='http://file.yinxinlife.com/images/icon_more.png'></image>
     </view>

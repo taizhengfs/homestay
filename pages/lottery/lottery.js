@@ -40,7 +40,14 @@ Page({
     ticket: {},
     members: [],
     isShowCard:false,
-    isShowBox: false
+    isShowBox: false,
+    isShowAll: false
+  },
+  showAll() {
+    let _this = this
+    _this.setData({
+      isShowAll: !_this.data.isShowAll
+    })
   },
   closeBox() {
     let _this = this
@@ -78,12 +85,16 @@ Page({
           let ex = res.data
           console.log(ex)
           if(ex.code===200) {
-            _this.data.members.push({
+            let self = {
               avatar:wx.getStorageSync('userInfo').avatar,
               nickname:wx.getStorageSync('userInfo').nickname
-            })
+            }
+            _this.data.members.unshift(self)
+            _this.data.lessList.unshift(self)
+            _this.data.lessList = _this.data.lessList.slice(0, 10)
             _this.setData({
-              members:_this.data.members
+              members:_this.data.members,
+              lessList:_this.data.lessList
             })
             wx.showModal({
               title: '助力成功',
@@ -151,12 +162,15 @@ Page({
       ex.detail.starttime = formatDate(ex.detail.starttime*1000, 'Y-m-d H:i:s') 
       ex.detail.endtime = formatDate(ex.detail.endtime*1000, 'Y-m-d H:i:s') 
       _this.data.swiperimage.push({image: ex.detail.image})
+      let lessList = ex.members.slice(0, 10)
       const {detail, ticket, members} = ex
       _this.setData({
         swiperimage: _this.data.swiperimage,
         detail: detail,
         ticket: ticket,
-        members: members
+        members: members,
+        lessList: lessList,
+        isShowAll: false
       })
       if(_this.data.add_filters.user_id===0){
         if (detail.time_status===2) { // 当前活动已结束

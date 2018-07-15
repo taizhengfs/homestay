@@ -21,7 +21,14 @@ Page({
     detail: [],
     ticket: {},
     members: [],
-    isShowBox: false
+    isShowBox: false,
+    isShowAll: false
+  },
+  showAll() {
+    let _this = this
+    _this.setData({
+      isShowAll: !_this.data.isShowAll
+    })
   },
 
   closeBox() {
@@ -66,12 +73,15 @@ Page({
       wx.stopPullDownRefresh()
       let ex = res.data.data
       _this.data.swiperimage.push({image: ex.detail.image})
+      let lessList = ex.members.slice(0, 10)
       const {detail, ticket, members} = ex
       _this.setData({
         swiperimage: _this.data.swiperimage,
         detail: detail,
         ticket: ticket,
-        members: members
+        members: members,
+        lessList: lessList,
+        isShowAll: false
       })
       if(_this.data.add_filters.user_id!==0){
         _this.postActivityAddChop()
@@ -111,14 +121,18 @@ Page({
             console.log(ex)
             if(ex.code===200) {
               let point = ex.data.point
-              _this.data.members.push({
+              let self = {
                 avatar:wx.getStorageSync('userInfo').avatar,
                 nickname:wx.getStorageSync('userInfo').nickname,
                 chop_price:point
-              })
+              }
+              _this.data.members.push(self)
+              _this.data.lessList.push(self)
+              _this.data.lessList = _this.data.lessList.slice(0, 10)
               let num = parseFloat(_this.data.detail.chop_price)+parseFloat(point)
               _this.setData({
                 members:_this.data.members,
+                lessList:_this.data.lessList,
                 'detail.chop_price': num.toFixed(2)
               })
               wx.showModal({
