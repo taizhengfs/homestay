@@ -21,7 +21,7 @@
         <form name='experience_{{item.id}}' report-submit='true' bindsubmit="getFormId">
           <button class="fake-btn" form-type="submit" bindtap='jumpToDetail' data-time_status="{{item.time_status}}" data-id="{{item.id}}" >
             <view class="experience__list__btn {{item.time_status===3?'is_over':item.time_status===2?'is_over_2':''}}">
-              {{item.time_status===3?'活动结束':item.time_status===2?'报名结束':'立即参与'}}
+              {{item.time_status===3?'活动结束':item.time_status===2?'报名结束':'我要报名'}}
             </view>
           </button>
         </form>
