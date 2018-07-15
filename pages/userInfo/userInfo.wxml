@@ -25,6 +25,10 @@
       <view class='user-info__block__left'>手机号</view>
       <view class='user-info__block__right'>{{!!userInfo.phone ? userInfo.phone : '暂无'}}</view>
     </view>
+    <view class='user-info__block' data-address="{{addressInfo}}" data-url="../addressEdit/addressEdit" bindtap="navToPage">
+      <view class='user-info__block__left'>收货地址</view>
+      <view class='user-info__block__right'>{{!!userInfo.consignee ? '已填写' : '未填写'}}</view>
+    </view>
   </view>
   <view class='user__submit__form'>
     <button data-url='../userEdit/userEdit' bindtap='jumpToPage'>修改</button>

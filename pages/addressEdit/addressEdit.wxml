@@ -1,0 +1,26 @@
+<!--pages/addressEdit/addressEdit.wxml-->
+<view class='user__edit'>
+  <view class='user__edit__main'>
+    <view class='user__edit__block'>
+      <view class='user__edit__block__left'>收货人姓名</view>
+      <view class='user__edit__block__right'>
+        <input type='text' class='user__edit__input' bindinput="getName" value="{{filters.consignee_name}}" placeholder-class="input__style" placeholder='请填写收货人姓名'></input>
+      </view>
+    </view>
+    <view class='user__edit__block'>
+      <view class='user__edit__block__left'>联系方式</view>
+      <view class='user__edit__block__right'>
+        <input type='text' class='user__edit__input' bindinput="getPhoneNum" value="{{filters.consignee_phone}}" placeholder-class="input__style" placeholder='请填写收货人手机号'></input>
+      </view>
+    </view>
+    <view class='user__edit__block'>
+      <view class='user__edit__block__left'>地址</view>
+      <view class='user__edit__block__right'>
+        <input type='text' class='user__edit__input' bindinput="getAddress" value="{{filters.consignee_address}}" placeholder-class="input__style" placeholder='请填写您的收货地址'></input>
+      </view>
+    </view>
+  </view>
+  <view class='user__submit__form'>
+    <button bindtap="saveInfo">保存</button>
+  </view>
+</view>

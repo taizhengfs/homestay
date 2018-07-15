@@ -80,6 +80,16 @@
       <view class="user__cell" data-url='../myCard/myCard' bindtap='jumpToPage'>
         <view class="user__cell__icon">
           <image src="http://file.yinxinlife.com/images/icon_purse.png"></image>
+          <view>我的礼品</view>
+        </view>
+        <view class="user__cell__right">
+          <view wx:if="{{detail.expire_ticket_no!==0}}">有<view style="color: #C12121;display: inline;">{{detail.expire_ticket_no}}</view>张券将过期</view>
+          <view class="icon__arrow__right"></view>
+        </view>
+      </view>
+      <view class="user__cell" data-url='../myCard/myCard' bindtap='jumpToPage'>
+        <view class="user__cell__icon">
+          <image src="http://file.yinxinlife.com/images/icon_purse.png"></image>
           <view>我的卡包</view>
         </view>
         <view class="user__cell__right">

@@ -18,6 +18,7 @@
     "pages/myCard/myCard",
     "component/ticket/ticket",
     "pages/userEdit/userEdit",
+    "pages/addressEdit/addressEdit",
     "pages/userInfo/userInfo",
     "pages/meeting/meeting",
     "pages/meetingDetail/meetingDetail",

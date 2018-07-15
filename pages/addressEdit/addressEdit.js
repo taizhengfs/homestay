@@ -1,4 +1,4 @@
-// pages/userInfo/userInfo.js
+// pages/addressEdit/addressEdit.js
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
 import {formatDate} from '../../utils/date.js';
@@ -7,47 +7,53 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userDetail: {},
-    userInfo: {},
-    addressInfo: {
-      consignee:0,
+    filters: {
       consignee_address:"",
       consignee_name:"",
       consignee_phone:""
-    }
+    },
+    
   },
-  jumpToPage(e) {
-    let url = e.currentTarget.dataset.url
-    wx.redirectTo({
-      url: url
+  getName(e) {
+    this.setData({
+      'filters.consignee_name': e.detail.value
     })
   },
-  navToPage(e) {
-    let url = e.currentTarget.dataset.url
-    wx.redirectTo({
-      url: `${url}?address=${JSON.stringify(this.data.addressInfo)}`
+  getPhoneNum(e) {
+    this.setData({
+      'filters.consignee_phone': e.detail.value
     })
   },
-  getUserInfoDetail() {
+  getAddress(e) {
+    this.setData({
+      'filters.consignee_address': e.detail.value
+    })
+  },
+  saveInfo(){
+    console.log(this.data.filters)
+    this.postUserEdit()
+  },
+  postUserEdit() {
     var _this = this
     wx.showLoading({
-      title: '加载中',
+      title: '保存中',
     })
-    util._get(Api.getUserInfoDetail(), {}, res => {
+    util._post(Api.postUserEdit(), _this.data.filters, res => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
-      let ex = res.data.data
-      const {consignee, consignee_address, consignee_name, consignee_phone} = ex
-      _this.setData({
-        'addressInfo.consignee':consignee,
-        'addressInfo.consignee_address':consignee_address,
-        'addressInfo.consignee_name':consignee_name,
-        'addressInfo.consignee_phone':consignee_phone
+      wx.showToast({
+        title: '修改成功',
+        icon: 'none',
+        duration: 2000
       })
-      ex.birth_at = formatDate(ex.birth_at*1000, 'Y年m月d日') 
-      _this.setData({
-        userInfo: ex
-      })
+      setTimeout(v=>{
+        wx.redirectTo({
+          url: '../userInfo/userInfo',
+          success: function(res){
+            // success
+          }
+        })
+      },500)
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
@@ -58,11 +64,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getUserInfoDetail()
-    this.setData({
-      userDetail: wx.getStorageSync('userInfo')
-    })
-    wx.setNavigationBarTitle({ title: '个人信息' });
+    console.log(JSON.parse(options.address))
+    let ex = JSON.parse(options.address)
+    if (Object.keys(ex).length>0) {
+      this.setData({
+        'filters.consignee_name': ex.consignee_name,
+        'filters.consignee_address': ex.consignee_address,
+        'filters.consignee_phone': ex.consignee_phone
+      })
+    }
   },
 
   /**
@@ -76,7 +86,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
   },
 
   /**
