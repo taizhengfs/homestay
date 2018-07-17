@@ -203,6 +203,11 @@
 }
 .room__list__r {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.room__list__r_l {
+  display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
@@ -294,4 +299,17 @@
   line-height: 34rpx;
   text-align: center;
   margin-top: 10rpx;
+}
+.btn_din {
+  color: #fff;
+  background: #b7a88f;
+  border-radius: 6rpx;
+  padding:3rpx 10rpx;
+  font-size:30rpx;
+  margin-left:20rpx;
+  margin-top:-20rpx;
+}
+.room__list__r_r {
+  display: flex;
+  align-items: center;
 }

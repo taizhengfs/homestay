@@ -78,8 +78,15 @@
           <view class='room__list__l__b'>{{item.space}}</view>
         </view>
         <view class='room__list__r'>
-          <view class='room__list__r__t'>参考价</view>
-          <view class='room__list__r__b'>¥{{item.open_price}}</view>
+          <view class="room__list__r_l">
+            <view class='room__list__r__t'>参考价</view>
+            <view class='room__list__r__b'>¥{{item.open_price}}</view>
+          </view>
+          <view class="room__list__r_r">
+            <view class="btn_din">
+              订
+            </view>
+          </view>
         </view>
       </view>
     </view>
