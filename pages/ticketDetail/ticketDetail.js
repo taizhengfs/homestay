@@ -87,6 +87,11 @@ Page({
       ex.detail.u_endtime = formatDate(ex.detail.u_endtime*1000, 'Y-m-d H:i:s') 
       _this.data.swiperimage.push({image: ex.detail.image})
       const {detail, homestay, user_ticket} = ex
+      if (Object.keys(user_ticket).length===0) {
+        _this.setData({
+          isShowBar: false
+        })
+      }
       _this.setData({
         swiperimage: _this.data.swiperimage,
         detail: detail,

@@ -38,6 +38,7 @@ const POST_USER_CHOPBUY = '/user/chopBuy'
 const POST_ORDER_CANCEL = '/user/cancelOrder'
 const GET_EXPERIENCE_REPORT = '/experience/report'
 const GET_EXPERIENCE_APPLY_TEXT = '/experience/applyText'
+const GET_USER_EXPRESS_LIST = '/user/expressList'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -196,4 +197,8 @@ module.exports = {
   getExperienceApplyText() {
     return HOST_URI + GET_EXPERIENCE_APPLY_TEXT
   },
+  // 获取我的礼品信息
+  getUserExpressList() {
+    return HOST_URI + GET_USER_EXPRESS_LIST
+  }
 };

@@ -77,7 +77,7 @@
           <view class="icon__arrow__right"></view>
         </view>
       </view>
-      <view class="user__cell" data-url='../myCard/myCard' bindtap='jumpToPage'>
+      <view class="user__cell" data-url='../myGift/myGift' bindtap='jumpToPage'>
         <view class="user__cell__icon">
           <image src="http://file.yinxinlife.com/images/icon_purse.png"></image>
           <view>我的礼品</view>

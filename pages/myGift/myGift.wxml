@@ -1,0 +1,46 @@
+<view class='container'>
+  <view class='card__content'>
+    <gift
+      wx:for = "{{list}}"
+      wx:key = "{{index}}"
+      title = "{{item.name}}"
+      itemId = "{{item.ticket_item_id}}"
+      ticketId = "{{item.ticket_id}}"
+      typeName = "{{item.type_name}}"
+      desc = "{{item.theme}}"
+      status = "{{item.status}}"
+      type = "{{item.ticketType}}"
+      startTime = "{{item.u_starttime}}"
+      endTime = "{{item.u_endtime}}"
+      ticketCate = "{{item.ticketCate}}"
+      price = "{{item.price}}"
+      consignee_address = "{{item.consignee_address}}"
+      consignee_name = "{{item.consignee_name}}"
+      consignee_phone = "{{item.consignee_phone}}"
+      bindmyevent = "showCard"
+    ></gift>
+    <view class="no-data" wx:if="{{list.length==0}}">
+        <view class="no-data__top"><image src="../../images/icon_empty.svg"></image></view>
+        <view class="no-data__bottom">暂无礼品</view>
+      </view>
+  </view>
+  <view class='pane__part'>
+    <view class='pane__success' wx:if="{{isShowCard}}">
+      <view class="pane__cnt">
+        <view class='pane__title'>{{cardInfo.title}}</view>
+        <text class='pane__desc'>{{cardInfo.theme}}</text>
+        <view class='pane__button'>{{cardInfo.ticketCate}}</view>
+        <view class="pane__sub__title">收货信息</view>
+        <view class='pane__desc'>姓名:<view class='disp__inline'>{{cardInfo.consignee_name}}</view></view>
+        <view class='pane__desc'>联系方式:<view class='disp__inline'>{{cardInfo.consignee_phone}}</view></view>
+        <view class='pane__desc'>收货地址:<view class='disp__inline'>{{cardInfo.consignee_address}}</view></view>
+        <view class='pane__button__btm' bindtap='jumpToTicket'>查看礼品详情</view>
+        <view class='icon__close__pane' wx:if="{{isShowCard}}" bindtap='showCard'>
+          <image class='icon__close__image' src='http://file.yinxinlife.com/images/meeting/icon_close.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='pane__mask' wx:if="{{isShowCard}}">
+    </view>
+  </view>
+</view>

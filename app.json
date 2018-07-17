@@ -26,7 +26,8 @@
     "component/authBox/authBox",
     "pages/ticketDetail/ticketDetail",
     "pages/upgrade/upgrade",
-    "pages/report/report"
+    "pages/report/report",
+    "pages/myGift/myGift"
   ],
   "window": {
     "backgroundTextStyle": "dark",
