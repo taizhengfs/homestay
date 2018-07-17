@@ -23,7 +23,7 @@
       </view>
       <view class='discount__cut__line__bottom'>
         <view class='discount__line__desc'>原价{{ticket.price}}元</view>
-        <view class='discount__line__desc'>最低0元</view>
+        <view class='discount__line__desc'>最低{{detail.price}}元</view>
       </view>
     </view>
   </view>
@@ -71,7 +71,7 @@
     <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===0}}">暂未开始</view>
 
     <block wx:else>
-      <block wx:if="{{add_filters.user_id===0}}">
+      <block wx:if="{{add_filters.user_id===0 || add_filters.user_id===filters.user_id}}">
         <block wx:if="{{detail.is_buy===1}}">
           <view class='bottom__ba__block share' bindtap="jumpToCard">已获得</view>
         </block>

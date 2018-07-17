@@ -74,11 +74,12 @@ Page({
       let ex = res.data.data
       _this.data.swiperimage.push({image: ex.detail.image})
       let lessList = ex.members.slice(0, 10)
-      const {detail, ticket, members} = ex
+      const {detail, ticket, members, express} = ex
       _this.setData({
         swiperimage: _this.data.swiperimage,
         detail: detail,
         ticket: ticket,
+        express: express,
         members: members,
         lessList: lessList,
         isShowAll: false
@@ -154,11 +155,33 @@ Page({
                 }
               })
             } else{
-              wx.showToast({
-                title: res.data.message,
-                icon: 'none',
-                duration: 2000
-              })
+              if(ex.code===400) {
+                let status = _this.data.detail.is_buy
+                wx.showModal({
+                  title: status === 0 ? '已经砍到底了' : '您来晚了',
+                  content: status === 0 ? '您的好友已经砍到底了，不能再砍了' : '您的好友已经完成了砍价',
+                  showCancel: false,
+                  confirmText:'参与活动',
+                  success: function(res) {
+                    if (res.confirm) {
+                      wx.redirectTo({
+                        url: `../discount/discount?id=${_this.data.detail.id}`,
+                        success: function(res){
+                          // success
+                        }
+                      })
+                    } else if (res.cancel) {
+                      console.log('用户点击取消')
+                    }
+                  }
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.message,
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
             }
           }, error => {
             wx.hideLoading()
@@ -252,8 +275,7 @@ Page({
       url:'../myCard/myCard'
     })
   },
-  postUserChopBuy(){
-    let _this = this
+  payRequest() {
     util._post(Api.postUserChopBuy(), {
       activity_id: _this.data.filters.id
     }, function (res) {
@@ -314,6 +336,53 @@ Page({
         })
       }
     })
+  },
+  postUserChopBuy(){
+    let _this = this
+    if(_this.data.ticket.is_entity===0) {
+      _this.payRequest()
+    } else {
+      if(_this.data.express.consignee===0) {
+        wx.showModal({
+          title: '请填写收货信息',
+          content: `该奖品为实体物品，请填写收货信息，以便我们为您送达`,
+          showCancel: false,
+          confirmText:'填写收货信息',
+          success: function(res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                success: function(res){
+                  // success
+                }
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      } else {
+        let addInfo = `姓名：${_this.data.express.consignee_name}\n联系方式：${_this.data.express.consignee_phone}\n收货地址：${_this.data.express.consignee_address}`
+        wx.showModal({
+          title: '确认收货信息',
+          content: `您的收货信息未为：\n${addInfo}`,
+          cancelText: '去修改',
+          confirmText:'已确认',
+          success: function(res) {
+            if (res.confirm) {
+              _this.payRequest()
+            } else if (res.cancel) {
+              wx.navigateTo({
+                url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                success: function(res){
+                  // success
+                }
+              })
+            }
+          }
+        })
+      }
+    }
   },
 
   /**

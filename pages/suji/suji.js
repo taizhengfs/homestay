@@ -30,7 +30,7 @@ Page({
     isShowSortCard:false,
     filters: {
       page: 1,
-      pageSize: 2,
+      pageSize: 10,
       keyword: '',
       distance: '',
       price: '',
@@ -51,7 +51,7 @@ Page({
     this.setData({
       filters:{
         page: 1,
-        pageSize: 2,
+        pageSize: 10,
         keyword: '',
         distance: '',
         price: '',

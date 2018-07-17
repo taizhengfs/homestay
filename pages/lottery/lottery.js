@@ -163,11 +163,12 @@ Page({
       ex.detail.endtime = formatDate(ex.detail.endtime*1000, 'Y-m-d H:i:s') 
       _this.data.swiperimage.push({image: ex.detail.image})
       let lessList = ex.members.slice(0, 10)
-      const {detail, ticket, members} = ex
+      const {detail, ticket, members, express} = ex
       _this.setData({
         swiperimage: _this.data.swiperimage,
         detail: detail,
         ticket: ticket,
+        express: express,
         members: members,
         lessList: lessList,
         isShowAll: false
@@ -195,24 +196,57 @@ Page({
                 }
               })
             } else {
-              wx.showModal({
-                title: '恭喜中奖',
-                content: `您获得了[${_this.data.ticket.name}]\n快去您的卡包看看吧`,
-                cancelText:'知道了',
-                confirmText:'前往查看',
-                success: function(res) {
-                  if (res.confirm) {
-                    wx.navigateTo({
-                      url: '../myCard/myCard',
-                      success: function(res){
-                        // success
-                      }
-                    })
-                  } else if (res.cancel) {
-                    console.log('用户点击取消')
+              if(_this.data.ticket.is_entity===1) {
+                wx.showModal({
+                  title: '恭喜中奖',
+                  content: `您获得了[${_this.data.ticket.name}]\n确认收货信息后，我们将为您送达`,
+                  showCancel: false,
+                  confirmText:'确认收货信息',
+                  success: function(res) {
+                    if (res.confirm) {
+                      let addInfo = `姓名：${_this.data.express.consignee_name}\n联系方式：${_this.data.express.consignee_phone}\n收货地址：${_this.data.express.consignee_address}`
+                      wx.showModal({
+                        title: '确认收货信息',
+                        content: `您的收货信息未为：\n${addInfo}`,
+                        cancelText: '去修改',
+                        confirmText:'已确认',
+                        success: function(res) {
+                          if (res.confirm) {
+                          } else if (res.cancel) {
+                            wx.navigateTo({
+                              url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                              success: function(res){
+                                // success
+                              }
+                            })
+                          }
+                        }
+                      })
+                    } else if (res.cancel) {
+                      console.log('用户点击取消')
+                    }
                   }
-                }
-              })
+                })
+              } else {
+                wx.showModal({
+                  title: '恭喜中奖',
+                  content: `您获得了[${_this.data.ticket.name}]\n快去您的卡包看看吧`,
+                  cancelText:'知道了',
+                  confirmText:'前往查看',
+                  success: function(res) {
+                    if (res.confirm) {
+                      wx.navigateTo({
+                        url: '../myCard/myCard',
+                        success: function(res){
+                          // success
+                        }
+                      })
+                    } else if (res.cancel) {
+                      console.log('用户点击取消')
+                    }
+                  }
+                })
+              }
             }
           }
         }
@@ -334,7 +368,7 @@ Page({
     let uid = this.data.add_filters.user_id===0?this.data.filters.user_id:this.data.add_filters.user_id
     if (res.from === 'button') {
       return {
-        title: `拼团抽奖-${this.data.detail.name}`,
+        title: `0元住-${this.data.detail.name}`,
         path: `pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
         success: function (res) {
             util._getStat()
@@ -345,7 +379,7 @@ Page({
     }
     else {
       return {
-        title: `拼团抽奖-${this.data.detail.name}`,
+        title: `0元住-${this.data.detail.name}`,
         path: `pages/lottery/lottery?id=${this.data.detail.id}&user_id=${uid}`,
         success: function (res) {
           util._getStat()
