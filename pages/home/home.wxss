@@ -27,7 +27,7 @@
   font-size: 28rpx;
   line-height: 40rpx;
   margin-right: 78rpx;
-  width: 130rpx;
+  min-width: 140rpx;
   display: flex;
   align-items: center;
   justify-content: center;
