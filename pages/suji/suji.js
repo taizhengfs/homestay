@@ -407,20 +407,20 @@ Page({
    */
   onPullDownRefresh: function () {
     let _this = this
-    this.resetFilter()
-    this.setData(
-      {
-        innerText:app.globalData.keyword,
-        'filters.keyword':app.globalData.keyword
-      }
-    )
-    this.getSujiDetail()
-    _this.setData({
-      sortDetail:_this.data.sortDetail.map(v => {
-        v.isSelected = false
-        return v
-      })
-    })
+    // this.resetFilter()
+    // _this.setData(
+    //   {
+    //     innerText:app.globalData.keyword,
+    //     'filters.keyword':app.globalData.keyword
+    //   }
+    // )
+    _this.getSujiDetail()
+    // _this.setData({
+    //   sortDetail:_this.data.sortDetail.map(v => {
+    //     v.isSelected = false
+    //     return v
+    //   })
+    // })
   },
 
   /**

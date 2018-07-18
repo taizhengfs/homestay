@@ -84,6 +84,7 @@
   position: absolute;
   top: 38rpx;
   left: 0;
+  z-index: 100;
   font-size: 40rpx;
   line-height: 48rpx;
   color: #fff;
