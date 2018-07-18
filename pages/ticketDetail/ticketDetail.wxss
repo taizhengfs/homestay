@@ -54,7 +54,7 @@
 }
 .exp__detail__cnt__r {
   display: flex;
-  width: 100%;
+  width: 430rpx;
   padding-left: 22rpx;
   flex: 1;
   flex-direction: column;
@@ -84,6 +84,7 @@
 }
 .icon__cnt {
   width: 26rpx;
+  min-width: 26rpx;
   height: 26rpx;
   position: relative;
   margin-right: 14rpx
@@ -99,7 +100,6 @@
   align-items: center;
   font-size:24rpx;
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
   color:rgba(153,153,153,1);
   line-height:34rpx;

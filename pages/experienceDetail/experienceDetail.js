@@ -148,6 +148,14 @@ Page({
       url: '../home/home'
     })
   },
+  jumpToHomestay(e) {
+    wx.navigateTo({
+      url: `../homestaydetail/homestaydetail?id=${e.currentTarget.dataset.id}`,
+      success: function(res){
+        // success
+      },
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

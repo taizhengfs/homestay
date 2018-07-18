@@ -8,13 +8,13 @@
   <view class='exp__title'>
     {{detail.name}}
   </view>
-  <view class='exp__detail__block' bindtap="jumpToSuji">
+  <view class='exp__detail__block' >
     <view class='exp__detail__title'>商家详情</view>
     <view class='exp__detail__sub'>
       {{homestay.name}}
     </view>
     <view class='exp__detail__cnt'>
-      <view class='exp__detail__cnt__l'>
+      <view class='exp__detail__cnt__l' data-id="{{detail.id}}" bindtap="jumpToHomestay">
         <image mode="widthFix" src='http:{{homestay.image}}'></image>
       </view>
       <view class='exp__detail__cnt__r'>

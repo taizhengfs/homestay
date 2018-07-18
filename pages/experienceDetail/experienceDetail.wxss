@@ -85,6 +85,7 @@
   justify-content: space-between;
 }
 .icon__cnt {
+  min-width: 26rpx;
   width: 26rpx;
   height: 26rpx;
   position: relative;
