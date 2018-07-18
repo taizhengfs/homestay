@@ -39,6 +39,7 @@ const POST_ORDER_CANCEL = '/user/cancelOrder'
 const GET_EXPERIENCE_REPORT = '/experience/report'
 const GET_EXPERIENCE_APPLY_TEXT = '/experience/applyText'
 const GET_USER_EXPRESS_LIST = '/user/expressList'
+const POST_ADD_EXPRESS = '/user/addExpress'
 const SCROLL_TIME = 5000
 
 module.exports = {
@@ -200,5 +201,9 @@ module.exports = {
   // 获取我的礼品信息
   getUserExpressList() {
     return HOST_URI + GET_USER_EXPRESS_LIST
-  }
+  },
+  // 添加地址
+  postAddExpress() {
+    return HOST_URI + POST_ADD_EXPRESS
+  },
 };

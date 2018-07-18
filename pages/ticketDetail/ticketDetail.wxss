@@ -181,7 +181,8 @@
   padding: 38rpx 30rpx;
   box-sizing: border-box;
   color: #333;
-  border-bottom: 2rpx solid rgba(234, 234, 234, 1);
+  border-bottom: 20rpx solid rgba(234, 234, 234, 1);
+  border-top: 20rpx solid rgba(234, 234, 234, 1);
 }
 
 .lottery__detail__title {
@@ -262,7 +263,7 @@
   font-size:24rpx;
   color:rgba(155,155,155,1);
   line-height:32rpx;
-  border-bottom:2rpx solid rgba(234,234,234,1);
+  border-bottom:20rpx solid rgba(234,234,234,1);
   width: 100%;
   text-align: left;
   padding: 0 32rpx 28rpx;
@@ -476,4 +477,25 @@
   line-height: 34rpx;
   text-align: center;
   margin-top: 10rpx;
+}
+.click__main {
+  width: 100%;
+  border-radius:8rpx;
+  opacity:0.4965;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin: 38rpx 0 32rpx 0;
+  text-align: center;
+  font-size:24rpx;
+  font-family:PingFangSC-Light;
+  color:rgba(74,74,74,1);
+  border:2rpx solid rgba(155,155,155,1);
+}
+.click__to__show {
+  width: 100%;
+  position: relative;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  background:#fff;
+  margin-top:-15rpx;
 }

@@ -370,6 +370,14 @@ Page({
           confirmText:'已确认',
           success: function(res) {
             if (res.confirm) {
+              util._post(Api.postAddExpress(),
+              {
+                activity_id:_this.data.filters.id
+              }, res => {
+                console.log('res: ', res)
+              },error=>{
+                console.log(error)
+              })
               _this.payRequest()
             } else if (res.cancel) {
               wx.navigateTo({

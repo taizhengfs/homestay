@@ -4,5 +4,6 @@
     "search": "../../component/search/search",
     "sujiBlock": "../../component/sujiBlock/sujiBlock",
     "authBox": "../../component/authBox/authBox"
-  }
+  },
+  "enablePullDownRefresh": true
 }

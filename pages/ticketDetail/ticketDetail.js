@@ -18,7 +18,13 @@ Page({
     homestay:{},
     isShowCard:false,
     formateCode:'',
-    isShowBar:false
+    isShowBar:false,
+    isShowDetails:false
+  },
+  toggleDetail() {
+    this.setData({
+      isShowDetails:!this.data.isShowDetails
+    })
   },
   jumpToRuleDetail(e) {
     wx.navigateTo({

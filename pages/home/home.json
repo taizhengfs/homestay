@@ -5,5 +5,6 @@
     "activityBlock": "../../component/activityBlock/activityBlock",
     "swiperItem": "../../component/swiperItem/swiperItem",
     "authBox": "../../component/authBox/authBox"
-  }
+  },
+  "enablePullDownRefresh": true
 }

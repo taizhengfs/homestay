@@ -212,6 +212,14 @@ Page({
                         confirmText:'已确认',
                         success: function(res) {
                           if (res.confirm) {
+                            util._post(Api.postAddExpress(),
+                            {
+                              activity_id:_this.data.filters.id
+                            }, res => {
+                              console.log('res: ', res)
+                            },error=>{
+                              console.log(error)
+                            })
                           } else if (res.cancel) {
                             wx.navigateTo({
                               url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 5@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我的" transform="translate(-24.000000, -388.000000)" stroke="#BAA68B">
+            <g id="我的礼品" transform="translate(14.000000, 387.000000)">
+                <g id="Group-5" transform="translate(9.000000, 2.000000)">
+                    <path d="M17.1111111,6 C18.1543156,6 19,6.7707503 19,7.72151899 L19,15.278481 C19,16.2292497 18.1543156,17 17.1111111,17 L3.88888889,17 C2.84568436,17 2,16.2292497 2,15.278481 L2,7.72151899 C2,6.7707503 2.84568436,6 3.88888889,6" id="Rectangle-4"></path>
+                    <g id="Group-8" transform="translate(3.000000, 0.000000)" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M0,2.32047094 C9.21313215e-17,1.27627443 0.813209494,2.13605405e-16 2.5247678,0 C3.66580667,0 5.32421741,0.773490312 7.5,2.32047094 C5.35104919,4.10682365 3.69263846,5 2.5247678,5 C0.772961816,5 0,3.36466745 0,2.32047094 Z" id="Path-12"></path>
+                        <path d="M7.5,2.32047094 C7.5,1.27627443 8.31320949,2.13605405e-16 10.0247678,0 C11.1658067,0 12.8242174,0.773490312 15,2.32047094 C12.8510492,4.10682365 11.1926385,5 10.0247678,5 C8.27296182,5 7.5,3.36466745 7.5,2.32047094 Z" id="Path-12-Copy" transform="translate(11.250000, 2.500000) scale(-1, 1) translate(-11.250000, -2.500000) "></path>
+                        <path d="M7.5,2 C6.19782255,2.90629315 5.54673383,4.06628526 5.54673383,5.47997633 C5.54673383,7.60051292 3.24674738,8 2.8125,8" id="Path-14"></path>
+                        <path d="M12.1875,2 C10.8853226,2.90629315 10.2342338,4.06628526 10.2342338,5.47997633 C10.2342338,7.60051292 7.93424738,8 7.5,8" id="Path-14-Copy" transform="translate(9.843750, 5.000000) scale(-1, 1) translate(-9.843750, -5.000000) "></path>
+                    </g>
+                    <path d="M2.05102539,12.0478516 L19.2089844,12.0478516" id="Path-15"></path>
+                    <path d="M10.3745117,6.13037109 L10.3745117,16.6743164" id="Path-16" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

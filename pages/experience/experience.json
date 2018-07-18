@@ -3,5 +3,6 @@
   "usingComponents": {
     "swiperItem": "../../component/swiperItem/swiperItem",
     "authBox": "../../component/authBox/authBox"
-  }
+  },
+  "enablePullDownRefresh": true
 }

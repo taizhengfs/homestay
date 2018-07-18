@@ -406,7 +406,21 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    let _this = this
+    this.resetFilter()
+    this.setData(
+      {
+        innerText:app.globalData.keyword,
+        'filters.keyword':app.globalData.keyword
+      }
+    )
+    this.getSujiDetail()
+    _this.setData({
+      sortDetail:_this.data.sortDetail.map(v => {
+        v.isSelected = false
+        return v
+      })
+    })
   },
 
   /**
