@@ -86,6 +86,62 @@ Page({
       })
       if(_this.data.add_filters.user_id!==0){
         _this.postActivityAddChop()
+      } else {
+        if(_this.data.detail.is_express===0) {
+          if (_this.data.ticket.is_entity===1 && _this.data.detail.is_buy===1 && _this.data.express.consignee===0) {
+            wx.showModal({
+              title: '请填写收货信息',
+              content: `该奖品为实体物品，请填写收货信息，以便我们为您送达`,
+              showCancel: false,
+              confirmText:'填写收货信息',
+              success: function(res) {
+                if (res.confirm) {
+                  wx.navigateTo({
+                    url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                    success: function(res){
+                      // success
+                    }
+                  })
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          } else if(_this.data.ticket.is_entity===1 && _this.data.detail.is_buy===1 && _this.data.express.consignee===1) {
+            let addInfo = `姓名：${_this.data.express.consignee_name}\n联系方式：${_this.data.express.consignee_phone}\n收货地址：${_this.data.express.consignee_address}`
+            wx.showModal({
+              title: '确认收货信息',
+              content: `您的收货信息未为：\n${addInfo}`,
+              cancelText: '去修改',
+              confirmText:'已确认',
+              success: function(res) {
+                if (res.confirm) {
+                  util._post(Api.postAddExpress(),
+                  {
+                    activity_id:_this.data.filters.id
+                  }, res => {
+                    console.log('res: ', res)
+                    wx.navigateTo({
+                      url: `../myGift/myGift`,
+                      success: function(res){
+                        // success
+                      }
+                    })
+                  },error=>{
+                    console.log(error)
+                  })
+                } else if (res.cancel) {
+                  wx.navigateTo({
+                    url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                    success: function(res){
+                      // success
+                    }
+                  })
+                }
+              }
+            })
+          }
+        }
       }
     }, error => {
       wx.hideLoading()
@@ -254,6 +310,7 @@ Page({
     },300)
     var uid = 0
     if(typeof options.user_id !== 'undefined') {
+      console.log(111)
       uid = parseInt(options.user_id)
       if(options.user_id!==wx.getStorageSync('userInfo').id) {
         _this.setData({
@@ -271,11 +328,19 @@ Page({
     }
   },
   jumpToCard(){
-    wx.navigateTo({
-      url:'../myCard/myCard'
-    })
+    let _this = this
+    if(_this.data.ticket.is_entity===1){
+      wx.navigateTo({
+        url:'../myGift/myGift'
+      })
+    } else {
+      wx.navigateTo({
+        url:'../myCard/myCard'
+      })
+    }
   },
   payRequest() {
+    let _this = this
     util._post(Api.postUserChopBuy(), {
       activity_id: _this.data.filters.id
     }, function (res) {
@@ -297,9 +362,66 @@ Page({
               _this.setData({
                 'detail.is_buy':1
               })
-              wx.navigateTo({
-                url:'../myCard/myCard'
-              })
+              if(_this.data.express.is_entity===1) {
+                if(_this.data.express.consignee===0) {
+                  wx.showModal({
+                    title: '请填写收货信息',
+                    content: `该奖品为实体物品，请填写收货信息，以便我们为您送达`,
+                    showCancel: false,
+                    confirmText:'填写收货信息',
+                    success: function(res) {
+                      if (res.confirm) {
+                        wx.navigateTo({
+                          url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                          success: function(res){
+                            // success
+                          }
+                        })
+                      } else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
+                    }
+                  })
+                } else {
+                  let addInfo = `姓名：${_this.data.express.consignee_name}\n联系方式：${_this.data.express.consignee_phone}\n收货地址：${_this.data.express.consignee_address}`
+                  wx.showModal({
+                    title: '确认收货信息',
+                    content: `您的收货信息未为：\n${addInfo}`,
+                    cancelText: '去修改',
+                    confirmText:'已确认',
+                    success: function(res) {
+                      if (res.confirm) {
+                        util._post(Api.postAddExpress(),
+                        {
+                          activity_id:_this.data.filters.id
+                        }, res => {
+                          console.log('res: ', res)
+                          wx.navigateTo({
+                            url: `../myGift/myGift`,
+                            success: function(res){
+                              // success
+                            }
+                          })
+                        },error=>{
+                          console.log(error)
+                        })
+                      } else if (res.cancel) {
+                        wx.navigateTo({
+                          url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                          success: function(res){
+                            // success
+                          }
+                        })
+                      }
+                    }
+                  })
+                }
+              }
+              else {
+                wx.navigateTo({
+                  url:'../myCard/myCard'
+                })
+              }
             },
             'fail': function (res) {
               util._post(Api.postOrderCancel(), {
@@ -336,61 +458,6 @@ Page({
         })
       }
     })
-  },
-  postUserChopBuy(){
-    let _this = this
-    if(_this.data.ticket.is_entity===0) {
-      _this.payRequest()
-    } else {
-      if(_this.data.express.consignee===0) {
-        wx.showModal({
-          title: '请填写收货信息',
-          content: `该奖品为实体物品，请填写收货信息，以便我们为您送达`,
-          showCancel: false,
-          confirmText:'填写收货信息',
-          success: function(res) {
-            if (res.confirm) {
-              wx.navigateTo({
-                url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
-                success: function(res){
-                  // success
-                }
-              })
-            } else if (res.cancel) {
-              console.log('用户点击取消')
-            }
-          }
-        })
-      } else {
-        let addInfo = `姓名：${_this.data.express.consignee_name}\n联系方式：${_this.data.express.consignee_phone}\n收货地址：${_this.data.express.consignee_address}`
-        wx.showModal({
-          title: '确认收货信息',
-          content: `您的收货信息未为：\n${addInfo}`,
-          cancelText: '去修改',
-          confirmText:'已确认',
-          success: function(res) {
-            if (res.confirm) {
-              util._post(Api.postAddExpress(),
-              {
-                activity_id:_this.data.filters.id
-              }, res => {
-                console.log('res: ', res)
-              },error=>{
-                console.log(error)
-              })
-              _this.payRequest()
-            } else if (res.cancel) {
-              wx.navigateTo({
-                url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
-                success: function(res){
-                  // success
-                }
-              })
-            }
-          }
-        })
-      }
-    }
   },
 
   /**

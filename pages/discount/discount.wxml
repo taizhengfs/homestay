@@ -77,7 +77,7 @@
         </block>
         <block wx:else>
           <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===2 || detail.remain_no===0}}">活动已结束</view>
-          <view class='bottom__ba__block share' wx:else bindtap="postUserChopBuy">{{ticket.price-detail.chop_price}}元拿下</view>
+          <view class='bottom__ba__block share' wx:else bindtap="payRequest">{{ticket.price-detail.chop_price}}元拿下</view>
         </block>
       </block>
       <block wx:else>

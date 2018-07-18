@@ -196,64 +196,87 @@ Page({
                 }
               })
             } else {
-              if(_this.data.ticket.is_entity===1) {
-                wx.showModal({
-                  title: '恭喜中奖',
-                  content: `您获得了[${_this.data.ticket.name}]\n确认收货信息后，我们将为您送达`,
-                  showCancel: false,
-                  confirmText:'确认收货信息',
-                  success: function(res) {
-                    if (res.confirm) {
-                      let addInfo = `姓名：${_this.data.express.consignee_name}\n联系方式：${_this.data.express.consignee_phone}\n收货地址：${_this.data.express.consignee_address}`
-                      wx.showModal({
-                        title: '确认收货信息',
-                        content: `您的收货信息未为：\n${addInfo}`,
-                        cancelText: '去修改',
-                        confirmText:'已确认',
-                        success: function(res) {
-                          if (res.confirm) {
-                            util._post(Api.postAddExpress(),
-                            {
-                              activity_id:_this.data.filters.id
-                            }, res => {
-                              console.log('res: ', res)
-                            },error=>{
-                              console.log(error)
-                            })
-                          } else if (res.cancel) {
-                            wx.navigateTo({
-                              url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
-                              success: function(res){
-                                // success
+              if(_this.data.is_express===0) {
+                if(_this.data.ticket.is_entity===1 && _this.data.detail.is_win===1) {
+                  wx.showModal({
+                    title: '恭喜中奖',
+                    content: `您获得了[${_this.data.ticket.name}]\n确认收货信息后，我们将为您送达`,
+                    showCancel: false,
+                    confirmText:'确认收货信息',
+                    success: function(res) {
+                      if (res.confirm) {
+                        if(_this.data.express.consignee===0) {
+                          wx.showModal({
+                            title: '请填写收货信息',
+                            content: `该奖品为实体物品，请填写收货信息，以便我们为您送达`,
+                            showCancel: false,
+                            confirmText:'填写收货信息',
+                            success: function(res) {
+                              if (res.confirm) {
+                                wx.navigateTo({
+                                  url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                                  success: function(res){
+                                    // success
+                                  }
+                                })
+                              } else if (res.cancel) {
+                                console.log('用户点击取消')
                               }
-                            })
+                            }
+                          })
+                        }else {
+                          let addInfo = `姓名：${_this.data.express.consignee_name}\n联系方式：${_this.data.express.consignee_phone}\n收货地址：${_this.data.express.consignee_address}`
+                          wx.showModal({
+                            title: '确认收货信息',
+                            content: `您的收货信息未为：\n${addInfo}`,
+                            cancelText: '去修改',
+                            confirmText:'已确认',
+                            success: function(res) {
+                              if (res.confirm) {
+                                util._post(Api.postAddExpress(),
+                                {
+                                  activity_id:_this.data.filters.id
+                                }, res => {
+                                  console.log('res: ', res)
+                                },error=>{
+                                  console.log(error)
+                                })
+                              } else if (res.cancel) {
+                                wx.navigateTo({
+                                  url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                                  success: function(res){
+                                    // success
+                                  }
+                                })
+                              }
+                            }
+                          })
+                        }
+                      } else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
+                    }
+                  })
+                } else {
+                  wx.showModal({
+                    title: '恭喜中奖',
+                    content: `您获得了[${_this.data.ticket.name}]\n快去您的卡包看看吧`,
+                    cancelText:'知道了',
+                    confirmText:'前往查看',
+                    success: function(res) {
+                      if (res.confirm) {
+                        wx.navigateTo({
+                          url: '../myCard/myCard',
+                          success: function(res){
+                            // success
                           }
-                        }
-                      })
-                    } else if (res.cancel) {
-                      console.log('用户点击取消')
+                        })
+                      } else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
                     }
-                  }
-                })
-              } else {
-                wx.showModal({
-                  title: '恭喜中奖',
-                  content: `您获得了[${_this.data.ticket.name}]\n快去您的卡包看看吧`,
-                  cancelText:'知道了',
-                  confirmText:'前往查看',
-                  success: function(res) {
-                    if (res.confirm) {
-                      wx.navigateTo({
-                        url: '../myCard/myCard',
-                        success: function(res){
-                          // success
-                        }
-                      })
-                    } else if (res.cancel) {
-                      console.log('用户点击取消')
-                    }
-                  }
-                })
+                  })
+                }
               }
             }
           }
