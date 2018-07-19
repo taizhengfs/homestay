@@ -94,7 +94,7 @@ Page({
               title: '请填写收货信息',
               content: `该奖品为实体物品，请填写收货信息，以便我们为您送达`,
               showCancel: false,
-              confirmText:'填写收货信息',
+              confirmText:'填写信息',
               success: function(res) {
                 if (res.confirm) {
                   wx.navigateTo({
@@ -367,12 +367,13 @@ Page({
                 'detail.is_buy':1
               })
               if(_this.data.ticket.is_entity===1) {
+                console.log('_this.data.express: ', _this.data.express);
                 if(_this.data.express.consignee===0) {
                   wx.showModal({
                     title: '请填写收货信息',
                     content: `该奖品为实体物品，请填写收货信息，以便我们为您送达`,
                     showCancel: false,
-                    confirmText:'填写收货信息',
+                    confirmText:'填写信息',
                     success: function(res) {
                       if (res.confirm) {
                         wx.navigateTo({
