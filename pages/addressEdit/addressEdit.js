@@ -12,7 +12,8 @@ Page({
       consignee_name:"",
       consignee_phone:""
     },
-    
+    backPage:'',
+    actId:0
   },
   getName(e) {
     this.setData({
@@ -48,7 +49,7 @@ Page({
       })
       setTimeout(v=>{
         wx.redirectTo({
-          url: '../userInfo/userInfo',
+          url: _this.data.backPage,
           success: function(res){
             // success
           }
@@ -65,6 +66,18 @@ Page({
    */
   onLoad: function (options) {
     console.log(JSON.parse(options.address))
+    console.log(options.from)
+    if(typeof options.id !== 'undefined') {
+      this.setData({
+        actId:options.id,
+        backPage:`../${options.from}/${options.from}?id=${options.id}`
+      })
+    } else {
+      this.setData({
+        actId:options.id,
+        backPage:`../${options.from}/${options.from}`
+      })
+    }
     let ex = JSON.parse(options.address)
     if (Object.keys(ex).length>0) {
       this.setData({

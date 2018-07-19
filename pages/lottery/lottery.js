@@ -174,9 +174,14 @@ Page({
         isShowAll: false
       })
       if(_this.data.add_filters.user_id===0){
-        if (detail.time_status===2) { // 当前活动已结束
+        console.log(123)
+        if (detail.time_status===1) { // 当前活动已结束
+          console.log(456)
           if(detail.is_assist===1){ // 用户已参与
+            console.log(789)
             if(detail.is_win===0) { // 判断用户是否中奖
+
+            console.log(999)
               wx.showModal({
                 title: '继续努力',
                 content: '很遗憾，您没有中奖。\n其他活动持续进行中去看看吧！',
@@ -196,13 +201,19 @@ Page({
                 }
               })
             } else {
-              if(_this.data.is_express===0) {
+
+            console.log(10101)
+              if(_this.data.detail.is_express===0) {
+
+            console.log(22222)
                 if(_this.data.ticket.is_entity===1 && _this.data.detail.is_win===1) {
+
+            console.log(123123123)
                   wx.showModal({
                     title: '恭喜中奖',
                     content: `您获得了[${_this.data.ticket.name}]\n确认收货信息后，我们将为您送达`,
                     showCancel: false,
-                    confirmText:'确认收货信息',
+                    confirmText:'确认收货',
                     success: function(res) {
                       if (res.confirm) {
                         if(_this.data.express.consignee===0) {
@@ -210,7 +221,7 @@ Page({
                             title: '请填写收货信息',
                             content: `该奖品为实体物品，请填写收货信息，以便我们为您送达`,
                             showCancel: false,
-                            confirmText:'填写收货信息',
+                            confirmText:'填写信息',
                             success: function(res) {
                               if (res.confirm) {
                                 wx.navigateTo({
@@ -243,7 +254,7 @@ Page({
                                 })
                               } else if (res.cancel) {
                                 wx.navigateTo({
-                                  url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                                  url: `../addressEdit/addressEdit?id=${_this.data.detail.id}&from=lottery&address=${JSON.stringify(_this.data.express)}`,
                                   success: function(res){
                                     // success
                                   }

@@ -97,7 +97,7 @@ Page({
               success: function(res) {
                 if (res.confirm) {
                   wx.navigateTo({
-                    url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                    url: `../addressEdit/addressEdit?id=${_this.data.detail.id}&from=discount&address=${JSON.stringify(_this.data.express)}`,
                     success: function(res){
                       // success
                     }
@@ -310,7 +310,6 @@ Page({
     },300)
     var uid = 0
     if(typeof options.user_id !== 'undefined') {
-      console.log(111)
       uid = parseInt(options.user_id)
       if(options.user_id!==wx.getStorageSync('userInfo').id) {
         _this.setData({

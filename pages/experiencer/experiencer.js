@@ -37,20 +37,9 @@ Page({
   jumpToDetail(e){
     const dataset = e.currentTarget.dataset
     const {type,id} = dataset
-    console.log(type)
-    if (type == 1) {
-      wx.navigateTo({
-        url: `../lottery/lottery?id=${id}`
-      })
-    } else if(type == 2) {
-      wx.navigateTo({
-        url: `../discount/discount?id=${id}`
-      })
-    } else if (type==3) {
-      wx.navigateTo({
-        url: `../experienceDetail/experienceDetail?id=${id}`
-      })
-    }
+    wx.navigateTo({
+      url: `../experienceDetail/experienceDetail?id=${id}`
+    })
   },
   getUserExperienceList(isFirst = true) {
     var _this = this

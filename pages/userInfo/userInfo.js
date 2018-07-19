@@ -25,7 +25,7 @@ Page({
   navToPage(e) {
     let url = e.currentTarget.dataset.url
     wx.redirectTo({
-      url: `${url}?address=${JSON.stringify(this.data.addressInfo)}`
+      url: `${url}?from=userInfo&address=${JSON.stringify(this.data.addressInfo)}`
     })
   },
   getUserInfoDetail() {
