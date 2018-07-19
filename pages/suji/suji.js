@@ -408,12 +408,12 @@ Page({
   onPullDownRefresh: function () {
     let _this = this
     // this.resetFilter()
-    // _this.setData(
-    //   {
-    //     innerText:app.globalData.keyword,
-    //     'filters.keyword':app.globalData.keyword
-    //   }
-    // )
+    _this.setData(
+      {
+        'filters.page': 1,
+        isLoadAll:false
+      }
+    )
     _this.getSujiDetail()
     // _this.setData({
     //   sortDetail:_this.data.sortDetail.map(v => {
