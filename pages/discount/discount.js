@@ -133,7 +133,7 @@ Page({
                   })
                 } else if (res.cancel) {
                   wx.navigateTo({
-                    url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                    url: `../addressEdit/addressEdit?id=${_this.data.detail.id}&from=discount&address=${JSON.stringify(_this.data.express)}`,
                     success: function(res){
                       // success
                     }
@@ -376,7 +376,7 @@ Page({
                     success: function(res) {
                       if (res.confirm) {
                         wx.navigateTo({
-                          url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                          url: `../addressEdit/addressEdit?id=${_this.data.detail.id}&from=discount&address=${JSON.stringify(_this.data.express)}`,
                           success: function(res){
                             // success
                           }
@@ -411,7 +411,7 @@ Page({
                         })
                       } else if (res.cancel) {
                         wx.navigateTo({
-                          url: `../addressEdit/addressEdit?address=${JSON.stringify(_this.data.express)}`,
+                          url: `../addressEdit/addressEdit?id=${_this.data.detail.id}&from=discount&address=${JSON.stringify(_this.data.express)}`,
                           success: function(res){
                             // success
                           }
