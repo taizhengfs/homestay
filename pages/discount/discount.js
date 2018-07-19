@@ -22,7 +22,8 @@ Page({
     ticket: {},
     members: [],
     isShowBox: false,
-    isShowAll: false
+    isShowAll: false,
+    selfId:''
   },
   showAll() {
     let _this = this
@@ -305,7 +306,8 @@ Page({
     setTimeout(v=>{
       _this.setData({
         isLogin: wx.getStorageSync('isLogin'),
-        isShowBox: wx.getStorageSync('isLogin')==0
+        isShowBox: wx.getStorageSync('isLogin')==0,
+        selfId:wx.getStorageSync('userInfo').id
       })
     },300)
     var uid = 0
@@ -322,6 +324,9 @@ Page({
     _this.setData({
       'filters.user_id':uid,
     })
+    console.log('getStorageSync: ', wx.getStorageSync('userInfo').id);
+    console.log('_this.data.add_filters: ', _this.data.add_filters.user_id);
+    console.log('_this.data.filters: ', _this.data.filters.user_id);
     if(wx.getStorageSync('isLogin')===1) {
       _this.getActivityChop()
     }
@@ -361,7 +366,7 @@ Page({
               _this.setData({
                 'detail.is_buy':1
               })
-              if(_this.data.express.is_entity===1) {
+              if(_this.data.ticket.is_entity===1) {
                 if(_this.data.express.consignee===0) {
                   wx.showModal({
                     title: '请填写收货信息',
