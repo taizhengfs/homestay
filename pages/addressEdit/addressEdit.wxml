@@ -10,7 +10,7 @@
     <view class='user__edit__block'>
       <view class='user__edit__block__left'>联系方式</view>
       <view class='user__edit__block__right'>
-        <input type='text' class='user__edit__input' bindinput="getPhoneNum" value="{{filters.consignee_phone}}" placeholder-class="input__style" placeholder='请填写收货人手机号'></input>
+        <input type='number' class='user__edit__input' bindinput="getPhoneNum" value="{{filters.consignee_phone}}" placeholder-class="input__style" placeholder='请填写收货人手机号'></input>
       </view>
     </view>
     <view class='user__edit__block'>
