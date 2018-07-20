@@ -77,6 +77,9 @@ Page({
         if(win.length>0) {
           _this.showPaneCard()
         }
+      } else if(detail.time_status==0) {
+        _this.data.btnText='活动未开始'
+        _this.data.btnStyle = 'btn_color_end'
       }
       _this.setData({
         btnText:_this.data.btnText,
@@ -138,6 +141,12 @@ Page({
     } else if(_this.data.detail.time_status==3) {
       wx.showToast({
         title: '活动已结束',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if(_this.data.detail.time_status==0) {
+      wx.showToast({
+        title: '活动未开始',
         icon: 'none',
         duration: 1500
       })
