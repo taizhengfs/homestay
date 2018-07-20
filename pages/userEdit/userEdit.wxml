@@ -36,7 +36,7 @@
     <view class='user__edit__block'>
       <view class='user__edit__block__left'>生日</view>
       <view class='user__edit__block__right'>
-        <picker mode = 'date' start="1990-09-01" end="2017-09-01" value="{{birthday}}" class='user__edit__input' bindchange="bindDateChange" placeholder-class="input__style">
+        <picker mode = 'date' start="1900-09-01" end="2018-01-01" value="{{birthday}}" class='user__edit__input' bindchange="bindDateChange" placeholder-class="input__style">
          <view class="user__picker">
          {{!!filters.birth_at?birthday:'请选择生日'}}
         </view>
