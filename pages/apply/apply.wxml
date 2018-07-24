@@ -1,7 +1,7 @@
 <!--pages/apply/apply.wxml-->
 <view class='container {{isShowCard?"blur__mask":""}}'>
   <view class='top__header'>
-    <image src='http://{{detail.image}}'></image>
+    <image src='http:{{detail.image}}' mode="widthFix" ></image>
   </view>
   <view class='form__cnt'>
     <view class='form__single'>

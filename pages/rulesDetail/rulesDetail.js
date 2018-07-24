@@ -37,12 +37,15 @@ Page({
           {
             type:`${_this.data.type==='lottery'?'奖品与获奖公布':'支付说明'}`,
             desc:ex.prize_desc
-          },
-          {
-            type:'其他说明：',
-            desc:ex.description
-          },
+          }
         ]
+        if (!!ex.description) {
+          _this.data.rules.push(
+            {
+              type:'其他说明：',
+              desc:ex.description
+            },)
+        }
         if(_this.data.type==='lottery') {
           _this.data.rules.splice(1,0,
             {
