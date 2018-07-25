@@ -85,7 +85,7 @@ Page({
         lessList: lessList,
         isShowAll: false
       })
-      if(_this.data.add_filters.user_id!==0){
+      if(_this.data.add_filters.user_id!==0 && _this.data.add_filters.user_id!==wx.getStorageSync('userInfo').id){
         _this.postActivityAddChop()
       } else {
         if(_this.data.detail.is_express===0) {
