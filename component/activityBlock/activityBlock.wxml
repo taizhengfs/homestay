@@ -32,16 +32,16 @@
                 </view> -->
                 <view class="home__activity__main__bottom">
                   <block wx:if="{{type===1}}">
-                    <view class="text__type_red">¥ 0</view>
+                    <view class="{{timeStatus===2?'text__type_dark':'text__type_red'}}">¥ 0</view>
                     <view class="text__type_grey">
                       原价：¥ {{price}}
                     </view>
                   </block>
                   <block wx:if="{{type===2}}">
-                    <view class="text__type_white">可砍 ¥ {{price}}</view>
+                    <view class="{{timeStatus===2?'text__type_white':'text__type_red'}}">可砍 ¥ {{price}}</view>
                   </block>
                 </view>
-                <view class="act__mask">
+                <view class="{{timeStatus===2?'act__mask':'white__mask'}}">
                   
                 </view>
               </view>

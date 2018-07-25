@@ -38,13 +38,19 @@
   font-size: 48rpx;
   padding-left: 28rpx;
   line-height: 66rpx;
-  color: #fff;
+  color: #C12121;
+}
+.text__type_dark {
+  font-size: 48rpx;
+  padding-left: 28rpx;
+  line-height: 66rpx;
+  color: #333;
 }
 .text__type_white {
   font-size: 48rpx;
   padding-left: 28rpx;
   line-height: 66rpx;
-  color: #C12121;
+  color: #fff;
   text-shadow: 0 2rpx 5rpx rgba(0,0,0,0.15)
 }
 .text__type_grey {
@@ -159,4 +165,13 @@ button:after {
   bottom: 0;
   height:118rpx;
   background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.5));
+}
+.white__mask {
+  width:100%;
+  position: absolute;
+  opacity: 0.7;
+  left: 0;
+  bottom: 0;
+  height:118rpx;
+  background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,1));
 }
