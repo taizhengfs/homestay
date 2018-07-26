@@ -70,7 +70,7 @@
     <view class='lottery__record__content' data-id="{{ticket.id}}" bindtap='jumpToPrizeDetail'>
       <view class='lottery__record__img'>
         <view class='lottery__tag__red'>价值<view class='lottery_price'>¥{{ticket.price}}</view></view>
-        <image mode="widthFix" src='http:{{ticket.image}}'></image>
+        <image mode="widthFix" src='http:{{tImage}}'></image>
       </view>
       <view class='lottery__desc'>
         <view class='lottery__desc__top'>{{ticket.name}}</view>

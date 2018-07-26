@@ -7,6 +7,10 @@ page {
   padding: 0 25rpx;
   box-sizing: border-box
 }
+.txt__center {
+  text-align: center!important;
+  width: 100%
+}
 .pane__success {
   position: fixed;
   width: 560rpx;

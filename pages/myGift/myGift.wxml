@@ -9,6 +9,7 @@
       typeName = "{{item.type_name}}"
       desc = "{{item.theme}}"
       status = "{{item.status}}"
+      trade_no = "{{item.trade_no}}"
       type = "{{item.ticketType}}"
       startTime = "{{item.u_starttime}}"
       endTime = "{{item.u_endtime}}"
@@ -28,7 +29,7 @@
     <view class='pane__success' wx:if="{{isShowCard}}">
       <view class="pane__cnt">
         <view class='pane__title'>{{cardInfo.title}}</view>
-        <text class='pane__desc'>{{cardInfo.theme}}</text>
+        <view class='pane__desc txt__center'>{{cardInfo.trade_no}}</view>
         <view class='pane__button'>{{cardInfo.ticketCate}}</view>
         <view class="pane__sub__title">收货信息</view>
         <view class='pane__desc'>姓名:<view class='disp__inline'>{{cardInfo.consignee_name}}</view></view>

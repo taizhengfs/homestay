@@ -73,7 +73,7 @@
           <view>我的信息</view>
         </view>
         <view class="user__cell__right">
-          <view>补全信息</view>
+          <view wx:if="{{require_no===1}}">补全信息</view>
           <view class="icon__arrow__right"></view>
         </view>
       </view>
@@ -83,7 +83,7 @@
           <view>我的礼品</view>
         </view>
         <view class="user__cell__right">
-          <!-- <view wx:if="{{detail.expire_ticket_no!==0}}">有<view style="color: #C12121;display: inline;">{{detail.expire_ticket_no}}</view>张券将过期</view> -->
+          <view wx:if="{{detail.express_no===1}}">收到新礼品</view>
           <view class="icon__arrow__right"></view>
         </view>
       </view>

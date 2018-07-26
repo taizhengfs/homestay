@@ -131,9 +131,12 @@ Page({
   onLoad: function (options) {
     this.setData({
       'filters.id': options.id,
-      'filters.item_id': options.item_id
+      
     })
     if(typeof options.item_id!=='undefined') {
+      this.setData({
+        'filters.item_id': options.item_id
+      })
       this.setData({
         isShowBar:true
       })

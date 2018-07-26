@@ -24,6 +24,10 @@ Component({
       type: Number,
       value: 0
     },
+    trade_no: {
+      type: String,
+      value: 0
+    },
     desc: {
       type: String,
       value: ''
@@ -83,7 +87,8 @@ Component({
         consignee_name: this.properties.consignee_name,
         consignee_phone: this.properties.consignee_phone,
         ticketCate: this.properties.ticketCate,
-        ticketId: this.properties.ticketId
+        ticketId: this.properties.ticketId,
+        trade_no: this.properties.trade_no
       } // detail对象，提供给事件监听函数
       var myEventOption = {} // 触发事件的选项
       this.triggerEvent('myevent', myEventDetail, myEventOption)
