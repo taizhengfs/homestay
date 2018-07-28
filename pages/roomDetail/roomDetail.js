@@ -38,6 +38,7 @@ Page({
         {support:'楼层:', detail: detail.floor},
         {support:'其他:', detail: detail.other}
       )
+      console.log(_this.data.decList)
       _this.setData({
         detail: detail,
         decList: _this.data.decList,

@@ -17,6 +17,9 @@
   width: 50%;
   margin-bottom: 10rpx;
 }
+.w__100 {
+  width: 100%;
+}
 .detail__desc__main {
   width: 100%;
   padding: 20rpx 50rpx;

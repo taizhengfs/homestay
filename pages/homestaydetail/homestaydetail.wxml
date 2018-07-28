@@ -69,7 +69,7 @@
       </view>
     </view>
   </view>
-  <detailCard title="可选房型" isShowArrow="{{true}}" wx:if="{{house.length>0}}" class="w__100">
+  <detailCard title="可选房型" isShowArrow="{{false}}" wx:if="{{house.length>0}}" class="w__100">
     <view class='detail__card__roomlist detail__card_pad'>
       <view class='room__list' bindtap='jumpToRoomDetail' data-id="{{item.id}}" wx:for="{{house}}">
         <view class='room__list__l'>
@@ -91,7 +91,7 @@
       </view>
     </view>
   </detailCard>
-  <detailCard title="房源介绍" wx:if="{{!!detail.description}}" isShowArrow="{{true}}" class="w__100">
+  <detailCard title="房源介绍" wx:if="{{!!detail.description}}" isShowArrow="{{false}}" class="w__100">
     <view class='detail__card__desc detail__card_pad'>
     {{detail.description}}
     </view>

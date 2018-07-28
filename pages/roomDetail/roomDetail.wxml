@@ -10,14 +10,14 @@
       {{detail.name}}
     </view>
     <view class='detail__desc__main'>
-      <view class='detail__desc__single' wx:for="{{decList}}">
+      <view class='detail__desc__single {{item.support==="其他:"?"w__100":""}}' wx:if="{{!!item.detail}}" wx:for="{{decList}}">
         <view class='desc_main'>{{item.support}}
         <view class='disp__inline'>{{item.detail}}</view>
         </view>
       </view>
     </view>
   </view>
-  <view class='detail__room__type'>
+  <view class='detail__room__type' wx:if="{{!!detail.description}}">
     <view class='detail__room__type__title'>房型说明</view>
     <view class='detail__room__type__main'>
       <view class='room__type'>{{detail.description}}</view>

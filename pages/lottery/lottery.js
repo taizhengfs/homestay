@@ -38,7 +38,6 @@ Page({
     },
     detail: [],
     ticket: {},
-    tImage:'',
     members: [],
     isShowCard:false,
     isShowBox: false,
@@ -172,10 +171,8 @@ Page({
         express: express,
         members: members,
         lessList: lessList,
-        tImage: ticket.image,
         isShowAll: false
       })
-      console.log(_this.data.tImage)
       if(_this.data.add_filters.user_id===0){
         if (detail.time_status===2) { // 当前活动已结束
           if(detail.is_assist===1){ // 用户已参与
