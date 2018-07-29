@@ -201,7 +201,7 @@ Page({
                 success: function(res) {
                   if (res.confirm) {
                     wx.redirectTo({
-                      url: `../discount/discount?id=${_this.data.detail.id}`,
+                      url: `../discount/discount?id=${_this.data.detail.id}&user_id=${wx.getStorageSync('userInfo').id}`,
                       success: function(res){
                         // success
                       }
@@ -222,7 +222,7 @@ Page({
                   success: function(res) {
                     if (res.confirm) {
                       wx.redirectTo({
-                        url: `../discount/discount?id=${_this.data.detail.id}`,
+                        url: `../discount/discount?id=${_this.data.detail.id}&user_id=${wx.getStorageSync('userInfo').id}`,
                         success: function(res){
                           // success
                         }

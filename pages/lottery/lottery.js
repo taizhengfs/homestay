@@ -104,7 +104,7 @@ Page({
               success: function(res) {
                 if (res.confirm) {
                   wx.redirectTo({
-                    url: `../lottery/lottery?id=${_this.data.detail.id}`,
+                    url: `../lottery/lottery?id=${_this.data.detail.id}&user_id=${wx.getStorageSync('userInfo').id}`,
                     success: function(res){
                       // success
                     }
@@ -123,7 +123,7 @@ Page({
               success: function(res) {
                 if (res.confirm) {
                   wx.redirectTo({
-                    url: `../lottery/lottery?id=${_this.data.detail.id}`,
+                    url: `../lottery/lottery?id=${_this.data.detail.id}&user_id=${wx.getStorageSync('userInfo').id}`,
                     success: function(res){
                       // success
                     }
