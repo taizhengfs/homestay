@@ -309,10 +309,10 @@ const setMember = function (res, callback) {
     if (response.data.code === 200) {
       requestStatus = 2
       // 写入缓存
-      wx.setStorageSync('isLogin', 1);
-      res.userInfo.avatar =res.userInfo.avatarUrl
-      res.userInfo.nickname =res.userInfo.nickName
-      wx.setStorageSync('userInfo', res.userInfo);
+      var isLogin = response.data.data.login;
+      wx.setStorageSync('isLogin', isLogin);
+      wx.setStorageSync('userInfo', response.data.data.user);
+      wx.setStorageSync('token', response.data.data.token);
     } else {
       requestStatus = 3
     }
