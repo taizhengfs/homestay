@@ -312,8 +312,12 @@ Page({
     _this.setData({
       'filters.id': parseInt(options.id),
       'add_filters.id': parseInt(options.id),
-      'filters.form_id': options.form_id,
     })
+    if(typeof options.form_id !== 'undefined') {
+      _this.setData({
+      'filters.form_id': options.form_id,
+      })
+    }
     setTimeout(v=>{
       _this.setData({
         isLogin: wx.getStorageSync('isLogin'),
