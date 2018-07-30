@@ -104,7 +104,7 @@
 					"id": 11,
 					"name": "砍价",
 					"pathName": "pages/discount/discount",
-					"query": "id=24&user_id=214"
+					"query": "id=27&user_id=223"
 				},
 				{
 					"id": -1,
