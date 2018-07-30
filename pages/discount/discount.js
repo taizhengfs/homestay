@@ -326,6 +326,7 @@ Page({
       })
     }
     var uid = 0
+    console.log('wx.getStorageSync(): ', wx.getStorageSync('userInfo'));
     if(typeof options.user_id !== 'undefined') {
       _this.setData({
         inUserId: parseInt(options.user_id)

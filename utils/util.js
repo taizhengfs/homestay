@@ -304,7 +304,7 @@ const setMember = function (res, callback) {
     encryptedData: res.encryptedData,
     iv: res.iv
   }, function (response) {
-    console.log('res: ', response);
+    console.log('response: ', response);
     // 更新用户过期时间
     if (response.data.code === 200) {
       requestStatus = 2
