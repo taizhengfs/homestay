@@ -23,7 +23,9 @@ Page({
     members: [],
     isShowBox: false,
     isShowAll: false,
-    selfId:''
+    selfId: '',
+    inUserId: 0,
+    calcPrice:0
   },
   showAll() {
     let _this = this
@@ -38,19 +40,24 @@ Page({
       isShowBox: false
     })
     setTimeout(v=>{
+      _this.setData({
+        'add_filters.user_id':_this.data.inUserId,
+      })
       if (_this.data.add_filters.user_id===0) {
         _this.setData({
           'filters.user_id':wx.getStorageSync('userInfo').id,
+          selfId:wx.getStorageSync('userInfo').id
         })
       } else {
         if(_this.data.add_filters.user_id!==wx.getStorageSync('userInfo').id) {
           this.setData({
             'filters.user_id':_this.data.add_filters.user_id,
+            selfId:wx.getStorageSync('userInfo').id
           })
         }
       }
       _this.getActivityChop()
-    },300)
+    },500)
   },
   jumpToHome() {
     wx.switchTab({
@@ -69,10 +76,12 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
+    console.log('_this.data.filters: ', _this.data.filters);
     util._get(Api.getActivityChop(), _this.data.filters, res => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data
+      console.log('ex: ', ex);
       _this.data.swiperimage.push({image: ex.detail.image})
       let lessList = ex.members.slice(0, 10)
       const {detail, ticket, members, express} = ex
@@ -83,7 +92,8 @@ Page({
         express: express,
         members: members,
         lessList: lessList,
-        isShowAll: false
+        isShowAll: false,
+        calcPrice: (parseFloat(ex.ticket.price) - parseFloat(ex.detail.chop_price)).toFixed(2)
       })
       if(_this.data.add_filters.user_id!==0 && _this.data.add_filters.user_id!==wx.getStorageSync('userInfo').id){
         _this.postActivityAddChop()
@@ -191,7 +201,8 @@ Page({
               _this.setData({
                 members:_this.data.members,
                 lessList:_this.data.lessList,
-                'detail.chop_price': num.toFixed(2)
+                'detail.chop_price': num.toFixed(2),
+                calcPrice: (parseFloat(_this.data.ticket.price) - num).toFixed(2)
               })
               wx.showModal({
                 title: `成功帮好友砍掉${point}元`,
@@ -307,26 +318,38 @@ Page({
       _this.setData({
         isLogin: wx.getStorageSync('isLogin'),
         isShowBox: wx.getStorageSync('isLogin')==0,
-        selfId:wx.getStorageSync('userInfo').id
       })
     },300)
+    if(typeof wx.getStorageSync('userInfo').id !== 'undefined') {
+      _this.setData({
+        selfId:wx.getStorageSync('userInfo').id
+      })
+    }
     var uid = 0
     if(typeof options.user_id !== 'undefined') {
+      _this.setData({
+        inUserId: parseInt(options.user_id)
+      })
       uid = parseInt(options.user_id)
-      if(options.user_id!==wx.getStorageSync('userInfo').id) {
+      if (typeof wx.getStorageSync('userInfo').id !== 'undefined') {
+        if(options.user_id!==wx.getStorageSync('userInfo').id) {
+          _this.setData({
+            'add_filters.user_id':uid,
+            'filters.user_id': uid
+          })
+        }
+      } else {
         _this.setData({
-          'add_filters.user_id':uid,
+          isShowBox: wx.getStorageSync('isLogin')==0,
         })
       }
     } else {
+      console.log(1111)
       uid = wx.getStorageSync('userInfo').id
+      _this.setData({
+        'filters.user_id':uid,
+      })
     }
-    _this.setData({
-      'filters.user_id':uid,
-    })
-    console.log('getStorageSync: ', wx.getStorageSync('userInfo').id);
-    console.log('_this.data.add_filters: ', _this.data.add_filters.user_id);
-    console.log('_this.data.filters: ', _this.data.filters.user_id);
     if(wx.getStorageSync('isLogin')===1) {
       _this.getActivityChop()
     }
@@ -511,7 +534,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    let uid = this.data.add_filters.user_id===0?this.data.filters.user_id:this.data.add_filters.user_id
+    let uid = this.data.add_filters.user_id===0?wx.getStorageSync('userInfo').id:this.data.add_filters.user_id
     if (res.from === 'button') {
       return {
         title: `优惠疯抢-${this.data.detail.name}`,

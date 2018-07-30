@@ -41,7 +41,9 @@ Page({
     members: [],
     isShowCard:false,
     isShowBox: false,
-    isShowAll: false
+    isShowAll: false,
+    selfId: '',
+    inUserId: 0
   },
   showAll() {
     let _this = this
@@ -55,6 +57,9 @@ Page({
       isShowBox: false
     })
     setTimeout(v=>{
+      _this.setData({
+        'add_filters.user_id':_this.data.inUserId,
+      })
       if (_this.data.add_filters.user_id===0) {
         _this.setData({
           'filters.user_id':wx.getStorageSync('userInfo').id,
@@ -330,18 +335,28 @@ Page({
       })
     },300)
     if(typeof options.user_id !== 'undefined') {
+      _this.setData({
+        inUserId: parseInt(options.user_id)
+      })
       uid = parseInt(options.user_id)
-      if(options.user_id!==wx.getStorageSync('userInfo').id) {
+      if (typeof wx.getStorageSync('userInfo').id !== 'undefined') {
+        if(options.user_id!==wx.getStorageSync('userInfo').id) {
+          _this.setData({
+            'add_filters.user_id':uid,
+            'filters.user_id': uid
+          })
+        }
+      } else {
         _this.setData({
-          'add_filters.user_id':uid,
+          isShowBox: wx.getStorageSync('isLogin')==0,
         })
       }
     } else {
       uid = wx.getStorageSync('userInfo').id
+      _this.setData({
+        'filters.user_id':uid,
+      })
     }
-    _this.setData({
-      'filters.user_id':uid,
-    })
     if(wx.getStorageSync('isLogin')===1) {
       _this.getActivityGroup()
     }
@@ -402,7 +417,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    let uid = this.data.add_filters.user_id===0?this.data.filters.user_id:this.data.add_filters.user_id
+    let uid = this.data.add_filters.user_id===0?wx.getStorageSync('userInfo').id:this.data.add_filters.user_id
     if (res.from === 'button') {
       return {
         title: `0元住-${this.data.detail.name}`,

@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -86,7 +86,7 @@
 					"id": 8,
 					"name": "抽奖",
 					"pathName": "pages/lottery/lottery",
-					"query": "id=12&user_id=4"
+					"query": "id=26&user_id=217"
 				},
 				{
 					"id": -1,
@@ -104,7 +104,7 @@
 					"id": 11,
 					"name": "砍价",
 					"pathName": "pages/discount/discount",
-					"query": "id=13&user_id=416"
+					"query": "id=24&user_id=214"
 				},
 				{
 					"id": -1,

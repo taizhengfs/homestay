@@ -28,9 +28,11 @@ Component({
       this.triggerEvent('closeAuth', myEventDetail, myEventOption)
     },
     getUserInfo(e) {
-      console.log(e)
+      console.log('e.detail: ', e.detail);
       util.setMember(e.detail)
-      this.tapToCancel()
+      setTimeout(_=>{
+        this.triggerEvent('closeAuth')
+      },500)
     }
   }
 })
