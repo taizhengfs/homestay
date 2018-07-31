@@ -181,54 +181,34 @@ Page({
     let _this = this
     if(_this.data.add_filters.user_id!==0 && _this.data.add_filters.user_id!==wx.getStorageSync('userInfo').id) {
       if(_this.data.detail.is_buy===0) {
-        if(_this.data.detail.is_assist==0) {
-          util._post(Api.postActivityAddChop(), _this.data.add_filters, res => {
-            wx.hideLoading()
-            wx.stopPullDownRefresh()
-            let ex = res.data
-            console.log(ex)
-            if(ex.code===200) {
-              let point = ex.data.point
-              let self = {
-                avatar:wx.getStorageSync('userInfo').avatar,
-                nickname:wx.getStorageSync('userInfo').nickname,
-                chop_price:point
-              }
-              _this.data.members.push(self)
-              _this.data.lessList.push(self)
-              _this.data.lessList = _this.data.lessList.slice(0, 10)
-              let num = parseFloat(_this.data.detail.chop_price)+parseFloat(point)
-              _this.setData({
-                members:_this.data.members,
-                lessList:_this.data.lessList,
-                'detail.chop_price': num.toFixed(2),
-                calcPrice: (parseFloat(_this.data.ticket.price) - num).toFixed(2)
-              })
-              wx.showModal({
-                title: `成功帮好友砍掉${point}元`,
-                content: '再次分享给好友多砍几刀吧!',
-                cancelText:'取消',
-                confirmText:'参与活动',
-                success: function(res) {
-                  if (res.confirm) {
-                    wx.redirectTo({
-                      url: `../discount/discount?id=${_this.data.detail.id}&user_id=${wx.getStorageSync('userInfo').id}`,
-                      success: function(res){
-                        // success
-                      }
-                    })
-                  } else if (res.cancel) {
-                    console.log('用户点击取消')
-                  }
+        if(_this.data.detail.time_status===1 && typeof wx.getStorageSync('userInfo').id !== 'undefined') {
+          if(_this.data.detail.is_assist==0) {
+            util._post(Api.postActivityAddChop(), _this.data.add_filters, res => {
+              wx.hideLoading()
+              wx.stopPullDownRefresh()
+              let ex = res.data
+              console.log(ex)
+              if(ex.code===200) {
+                let point = ex.data.point
+                let self = {
+                  avatar:wx.getStorageSync('userInfo').avatar,
+                  nickname:wx.getStorageSync('userInfo').nickname,
+                  chop_price:point
                 }
-              })
-            } else{
-              if(ex.code===400) {
-                let status = _this.data.detail.is_buy
+                _this.data.members.push(self)
+                _this.data.lessList.push(self)
+                _this.data.lessList = _this.data.lessList.slice(0, 10)
+                let num = parseFloat(_this.data.detail.chop_price)+parseFloat(point)
+                _this.setData({
+                  members:_this.data.members,
+                  lessList:_this.data.lessList,
+                  'detail.chop_price': num.toFixed(2),
+                  calcPrice: (parseFloat(_this.data.ticket.price) - num).toFixed(2)
+                })
                 wx.showModal({
-                  title: status === 0 ? '已经砍到底了' : '您来晚了',
-                  content: status === 0 ? '您的好友已经砍到底了，不能再砍了' : '您的好友已经完成了砍价',
-                  showCancel: false,
+                  title: `成功帮好友砍掉${point}元`,
+                  content: '再次分享给好友多砍几刀吧!',
+                  cancelText:'取消',
                   confirmText:'参与活动',
                   success: function(res) {
                     if (res.confirm) {
@@ -243,25 +223,47 @@ Page({
                     }
                   }
                 })
-              } else {
-                wx.showToast({
-                  title: res.data.message,
-                  icon: 'none',
-                  duration: 2000
-                })
+              } else{
+                if(ex.code===400) {
+                  let status = _this.data.detail.is_buy
+                  wx.showModal({
+                    title: status === 0 ? '已经砍到底了' : '您来晚了',
+                    content: status === 0 ? '您的好友已经砍到底了，不能再砍了' : '您的好友已经完成了砍价',
+                    showCancel: false,
+                    confirmText:'参与活动',
+                    success: function(res) {
+                      if (res.confirm) {
+                        wx.redirectTo({
+                          url: `../discount/discount?id=${_this.data.detail.id}&user_id=${wx.getStorageSync('userInfo').id}`,
+                          success: function(res){
+                            // success
+                          }
+                        })
+                      } else if (res.cancel) {
+                        console.log('用户点击取消')
+                      }
+                    }
+                  })
+                } else {
+                  wx.showToast({
+                    title: res.data.message,
+                    icon: 'none',
+                    duration: 2000
+                  })
+                }
               }
-            }
-          }, error => {
-            wx.hideLoading()
-            wx.stopPullDownRefresh()
-            _this.resetFilter()
-          })
-        } else {
-          wx.showToast({
-            title: '您已帮忙砍过',
-            icon: 'none',
-            duration: 2000
-          })
+            }, error => {
+              wx.hideLoading()
+              wx.stopPullDownRefresh()
+              _this.resetFilter()
+            })
+          } else {
+            wx.showToast({
+              title: '您已帮忙砍过',
+              icon: 'none',
+              duration: 2000
+            })
+          }
         }
       } else {
       }
