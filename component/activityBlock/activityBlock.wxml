@@ -38,7 +38,11 @@
                     </view>
                   </block>
                   <block wx:if="{{type===2}}">
-                    <view class="{{timeStatus===2?'text__type_white':'text__type_red'}}">可砍 ¥ {{price}}</view>
+                    <view class="{{timeStatus===2?'text__type_dark':'text__type_red'}}">¥ {{price}}</view>
+                    <view class="text__type_grey">
+                      原价：¥ {{ticket_price}}
+                    </view>
+                    <!-- <view class="{{timeStatus===2?'text__type_white':'text__type_red'}}">可砍 ¥ {{price}}</view> -->
                   </block>
                 </view>
                 <view class="{{timeStatus===2?'act__mask':'white__mask'}}">

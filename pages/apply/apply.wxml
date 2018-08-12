@@ -73,7 +73,7 @@
           <view class='form__single__left'>
             平台粉丝数量
           </view>
-          <view class='form__single__right'>
+          <view class='form__single__right unit'>
             <input value="{{formPayload[index].fans_count}}" data-index="{{index}}" bindinput='editFansCount' placeholder="请填写您的粉丝数量"></input>
           </view>
         </view>

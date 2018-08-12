@@ -38,6 +38,7 @@
 .experience__list__title {
   max-height: 74rpx;
   width: 100%;
+  font-weight: 600;
   font-size: 24rpx;
   line-height: 34rpx;
   color: #333;

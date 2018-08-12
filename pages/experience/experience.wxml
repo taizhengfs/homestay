@@ -6,13 +6,13 @@
     isShowCenterTitle="{{true}}"
   ></swiperItem>
   <view class="experience__lists">
-    <view class="experience__list" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="experience__list" wx:for="{{list}}" bindtap='jumpToDetail' data-time_status="{{item.time_status}}" data-id="{{item.id}}"  wx:key="{{index}}">
       <view class="experience__list__l">
         <image mode="widthFix" src="http:{{item.image}}"></image>
       </view>
       <view class="experience__list__r">
       <form name='experience_{{item.id}}' report-submit='true' bindsubmit="getFormId">
-        <button class="fake-btn" form-type="submit" bindtap='jumpToDetail' data-time_status="{{item.time_status}}" data-id="{{item.id}}" >
+        <button class="fake-btn" form-type="submit">
           <view class="experience__list__title {{item.time_status===1?'':'is_over'}}" >
               {{item.name}}
               <view class="experience__list__type">{{item.type_name}}</view>

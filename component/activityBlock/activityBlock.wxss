@@ -35,7 +35,7 @@
   flex-direction: row;
 }
 .text__type_red {
-  font-size: 48rpx;
+  font-size: 42rpx;
   padding-left: 28rpx;
   line-height: 66rpx;
   color: #C12121;
@@ -44,7 +44,7 @@
   font-size: 48rpx;
   padding-left: 28rpx;
   line-height: 66rpx;
-  color: #333;
+  color: #eee;
 }
 .text__type_white {
   font-size: 48rpx;
@@ -173,5 +173,6 @@ button:after {
   left: 0;
   bottom: 0;
   height:118rpx;
-  background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,1));
+  background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.5));
+  /* background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,1)); */
 }

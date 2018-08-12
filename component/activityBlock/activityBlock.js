@@ -27,6 +27,10 @@ Component({
       type: [String, Number],
       value: 0
     },
+    ticket_price: {
+      type: [String, Number],
+      value: 0
+    },
     realPrice: {
       type: [String, Number],
       value: 0

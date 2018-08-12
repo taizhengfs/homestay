@@ -153,3 +153,10 @@
   width: 100%;
   height: 100%;
 }
+.unit::after{
+  content: '万';
+  color: #BAA68B;
+  position: absolute;
+  right: 10rpx;
+  font-size: 26rpx;
+}

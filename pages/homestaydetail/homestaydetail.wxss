@@ -184,6 +184,7 @@
   font-size: 24rpx;
   line-height: 40rpx;
   color: #333;
+  display: block;
 }
 .detail__card__roomlist {
   width: 100%;

@@ -3,10 +3,11 @@
   <view class="home__header">
     <swiperItem class="w__100"
       swiperimage="{{swiper}}"
+      isShowDots="{{true}}"
     ></swiperItem>
+    <search class="comp__search" isHome="{{true}}" bindclearKeyword="clearKeyword" bindgetKeyword="goSearch"></search>
     <!-- <image src='//file.yinxinlife.com/images/home_bg_header.png'></image> -->
   </view>
-  <search class="comp__search" isHome="{{true}}" bindclearKeyword="clearKeyword" bindgetKeyword="goSearch"></search>
   <view class="home__tabs">
     <view class="home__tab {{currentTab == 0 ? 'isActive' :''}}" data-index = "0" bindtap = "changeTab">
       今日活动
@@ -21,6 +22,7 @@
       startTime="{{item.starttime}}"
       endTime="{{item.endtime}}"
       price="{{item.price}}"
+      ticket_price="{{item.ticket_price}}"
       realPrice="{{item.price}}"
       participateNum="{{item.part_no}}"
       activityDesc="{{item.name}}"
