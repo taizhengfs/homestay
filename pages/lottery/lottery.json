@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "swiperItem": "../../component/swiperItem/swiperItem",
-    "authBox": "../../component/authBox/authBox"
+    "authBox": "../../component/authBox/authBox",
+    "detailCard": "../../component/detailCard/detailCard"
   }
 }

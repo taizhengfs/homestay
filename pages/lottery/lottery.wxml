@@ -64,6 +64,63 @@
       <image src='http://file.yinxinlife.com/images/icon_more.png'></image>
     </view>
   </view>
+
+  <view>
+    <detailCard title="房源介绍" wx:if="{{!!homestay.description}}" isShowArrow="{{false}}" class="w__100">
+        <view class='detail__card__desc detail__card_pad'>
+        {{homestay.description}}
+        </view>
+      </detailCard>
+      <detailCard wx:if="{{homestay.support_facility.length>0}}" title="配套设施" isShowArrow="{{false}}" class="w__100">
+        <view class='detail__card__support detail__card_pad'>
+          <view class="support__single {{item.special?'cls__gold':''}}" wx:for="{{homestay.support_facility}}">
+            {{item}}  |
+          </view>
+        </view>
+      </detailCard>
+      <detailCard title="餐饮信息" wx:if="{{!!homestay.dine_style ||!!homestay.dine_price||!!homestay.dine_dishes}}" isShowArrow="{{false}}" class="w__100">
+        <view class='detail__card__info detail__card_pad'>
+          <view class='detail__info__block' wx:if="{{!!homestay.dine_style}}">
+            菜系：<view class='disp__inline'>{{homestay.dine_style}}</view>
+          </view>
+          <view class='detail__info__block' wx:if="{{!!homestay.dine_price}}">
+            人均消费：<view class='disp__inline'>{{homestay.dine_price}}元</view>
+          </view>
+          <view class='detail__info__block' wx:if="{{!!detail.dine_dishes}}">
+            特色菜：<view class='disp__inline'>{{homestay.dine_dishes}} </view>
+          </view>
+        </view>
+        <view class='detail__info__dishes' wx:if="{{homestay.dine_atlas.length>0}}">
+          <view class='detail__disher__content'>
+            <view class='detail__disher__block' wx:for="{{homestay.dine_atlas}}">
+              <view class='detail__disher__block_t'>
+                <image mode="widthFix" src='http:{{item}}'></image>
+              </view>
+              <!-- <view class='detail__disher__block_b'>
+                {{item.title}}
+              </view> -->
+            </view>
+          </view>
+        </view>
+      </detailCard>
+      <detailCard title="其他介绍" wx:if="{{!!detail.special_project||!!detail.meeting_room||!!detail.activity_space}}" isShowArrow="{{false}}" class="w__100">
+        <view class='detail__card__info detail__card_pad'>
+          <view class='detail__info__block' wx:if="{{!!homestay.special_project}}">
+            特色项目：<view class='disp__inline'>{{homestay.special_project}}</view>
+          </view>
+          <!-- <view class='detail__info__block' wx:if="{{!!homestay.create_at}}">
+            入驻隐心时间：<view class='disp__inline'>{{homestay.create_at}}</view>
+          </view> -->
+          <view class='detail__info__block' wx:if="{{!!homestay.meeting_room}}">
+            会议室：<view class='disp__inline'>{{homestay.meeting_room}}</view>
+          </view>
+          <view class='detail__info__block' wx:if="{{!!homestay.activity_space}}">
+            活动空间：<view class='disp__inline'>{{homestay.activity_space}}</view>
+          </view>
+        </view>
+      </detailCard>
+  </view>
+
   <view class='lottery__detail__block last'>
     <view class='lottery__detail__title'>奖品详情
     </view>

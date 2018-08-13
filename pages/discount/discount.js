@@ -21,6 +21,7 @@ Page({
     detail: [],
     ticket: {},
     members: [],
+    homestay:{},
     isShowBox: false,
     isShowAll: false,
     selfId: '',
@@ -83,13 +84,16 @@ Page({
       let ex = res.data.data
       console.log('ex: ', ex);
       _this.data.swiperimage.push({image: ex.detail.image})
+
+      ex.homestay.create_at = formatDate(ex.homestay.create_at*1000, 'Y-m-d H:i:s') 
       let lessList = ex.members.slice(0, 10)
-      const {detail, ticket, members, express} = ex
+      const {detail, ticket, members, express, homestay} = ex
       _this.setData({
         swiperimage: _this.data.swiperimage,
         detail: detail,
         ticket: ticket,
         express: express,
+        homestay: homestay,
         members: members,
         lessList: lessList,
         isShowAll: false,

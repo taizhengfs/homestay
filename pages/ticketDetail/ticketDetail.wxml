@@ -88,14 +88,14 @@
           </view>
         </view>
       </detailCard>
-      <detailCard title="其他介绍" isShowArrow="{{false}}" class="w__100">
+      <detailCard title="其他介绍" wx:if="{{!!detail.special_project||!!detail.meeting_room||!!detail.activity_space}}" isShowArrow="{{false}}" class="w__100">
         <view class='detail__card__info detail__card_pad'>
           <view class='detail__info__block' wx:if="{{!!homestay.special_project}}">
             特色项目：<view class='disp__inline'>{{homestay.special_project}}</view>
           </view>
-          <view class='detail__info__block' wx:if="{{!!homestay.create_at}}">
+          <!-- <view class='detail__info__block' wx:if="{{!!homestay.create_at}}">
             入驻隐心时间：<view class='disp__inline'>{{homestay.create_at}}</view>
-          </view>
+          </view> -->
           <view class='detail__info__block' wx:if="{{!!homestay.meeting_room}}">
             会议室：<view class='disp__inline'>{{homestay.meeting_room}}</view>
           </view>

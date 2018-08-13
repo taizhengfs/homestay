@@ -38,6 +38,7 @@ Page({
     },
     detail: [],
     ticket: {},
+    homestay:{},
     members: [],
     isShowCard:false,
     isShowBox: false,
@@ -168,13 +169,15 @@ Page({
       ex.detail.lottery_at = formatDate(ex.detail.lottery_at*1000, 'Y-m-d H:i:s') 
       ex.detail.starttime = formatDate(ex.detail.starttime*1000, 'Y-m-d H:i:s') 
       ex.detail.endtime = formatDate(ex.detail.endtime*1000, 'Y-m-d H:i:s') 
+      ex.homestay.create_at = formatDate(ex.homestay.create_at*1000, 'Y-m-d H:i:s') 
       _this.data.swiperimage.push({image: ex.detail.image})
       let lessList = ex.members.slice(0, 10)
-      const {detail, ticket, members, express} = ex
+      const {detail, ticket, members,homestay, express} = ex
       _this.setData({
         swiperimage: _this.data.swiperimage,
         detail: detail,
         ticket: ticket,
+        homestay: homestay,
         express: express,
         members: members,
         lessList: lessList,
