@@ -1,5 +1,5 @@
-// const HOST_URI = 'https://api.yinxinlife.com';
-const HOST_URI = 'http://api.test.yinxinlife.com';
+const HOST_URI = 'https://api.yinxinlife.com';
+// const HOST_URI = 'http://api.test.yinxinlife.com';
 const VERSION = '0.3';
 const GET_UPDATA_USER_INFO = '/wxapp/update';//更新用户TOKEN
 const POST_USER_INFO = '/wxapp/setUserInfo'

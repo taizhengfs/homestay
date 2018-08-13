@@ -49,7 +49,7 @@ Component({
    */
   data: {
     interval: 3000,
-    duration: 500,
+    duration: 400,
     isLoadAll: false,
     curentImg: 0
   },
