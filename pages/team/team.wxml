@@ -51,56 +51,27 @@
       </view>
       <view class='form__single'>
         <view class='form__single__left'>
-          时间
+          姓名
         </view>
         <view class='form__single__right'>
-          <picker mode="date"  value="{{filters.time}}" start="2015-09-01" end="2100-09-01" bindchange="bindDateChange">
-            <view class="form__single__picker">
-              {{filters.time||'请选择计划开展时间'}}
-              <view class="icon__arrow__down"></view>
-            </view>
-          </picker>
+          <input value="{{filters.name}}" bindinput="editName" placeholder="请填写您的姓名"></input>
         </view>
       </view>
-      <view class='form__single'>
-        <view class='form__single__left'>
-          地区
-        </view>
-        <view class='form__single__right'>
-          <picker bindchange="bindLocationChange" mode="region" value="{{region}}" custom-item="{{customItem}}">
-            <view class="form__single__picker">
-              {{region[0]}}，{{region[1]}}，{{region[2]}}
-              <view class="icon__arrow__down"></view>
-            </view>
-          </picker>
-        </view>
-      </view>
-      <view class='form__single'>
-        <view class='form__single__left'>
-          规模
-        </view>
-        <view class='form__single__right'>
-          <input value="{{filters.scale}}"  bindinput="editScale" placeholder="请填写您的举办规模"></input>
-        </view>
-      </view>
-      <view class='form__single'>
-        <view class='form__single__left'>
-          需求
-        </view>
-        <view class='form__single__right'>
-          <radio-group class="radio-group" bindchange="radioChange">
-            <label class="radio" wx:key="{{index}}" wx:for="{{meetingType}}">
-              <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
-            </label>
-          </radio-group>
-        </view>
-      </view>
+
       <view class='form__single'>
         <view class='form__single__left'>
           联系方式
         </view>
         <view class='form__single__right'>
           <input value="{{filters.phone}}"  bindinput="editPhone" placeholder="请填写您的联系方式"></input>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          邮箱
+        </view>
+        <view class='form__single__right'>
+          <input value="{{filters.email}}"  bindinput="editEmail" placeholder="请填写您的邮箱"></input>
         </view>
       </view>
 
@@ -112,6 +83,124 @@
           <picker bindchange="bindHomestayChange" range-key="{{'name'}}" data-id="{{homestays[rindex].id}}" value="{{rindex}}" range="{{homestays}}">
             <view class="form__single__picker">
               {{homestays[rindex].name||'请选择您心仪的民宿'}}
+              <view class="icon__arrow__down"></view>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class='form__single'>
+        <view class='form__single__left'>
+          开始日期
+        </view>
+        <view class='form__single__right'>
+          <picker mode="date"  value="{{filters.time}}" start="2018-01-01" end="2100-09-01" bindchange="bindDateChangeStart">
+            <view class="form__single__picker">
+              {{filters.time[0]||'请选择开始日期'}}
+              <view class="icon__arrow__down"></view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          结束日期
+        </view>
+        <view class='form__single__right'>
+          <picker mode="date"  value="{{filters.time}}" start="2018-01-01" end="2100-09-01" bindchange="bindDateChangeEnd">
+            <view class="form__single__picker">
+              {{filters.time[1]||'请选择结束日期'}}
+              <view class="icon__arrow__down"></view>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          时间确认
+        </view>
+        <view class='form__single__right'>
+          <radio-group class="radio-group" bindchange="timeChange">
+            <label class="radio" wx:key="{{index}}" wx:for="{{timeType}}">
+              <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+
+      <view class='form__single'>
+        <view class='form__single__left'>
+          会议/团建
+        </view>
+        <view class='form__single__right'>
+          <radio-group class="radio-group" bindchange="mettingChange">
+            <label class="radio" wx:key="{{index}}" wx:for="{{meetingType}}">
+              <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          时间跨度
+        </view>
+        <view class='form__single__right'>
+          <radio-group class="radio-group" bindchange="timeSpanChange">
+            <label class="radio" wx:key="{{index}}" wx:for="{{timeSpanType}}">
+              <radio value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      
+      <view class='form__single'>
+        <view class='form__single__left'>
+          人数
+        </view>
+        <view class='form__single__right'>
+          <input value="{{filters.scale}}"  bindinput="editScale" placeholder="请填写参与人数"></input>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          会议台型
+        </view>
+        <view class='form__single__right'>
+          <input value="{{filters.desc}}"  bindinput="editDesc" placeholder="如课桌式/鱼骨式/剧院式等"></input>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          预算
+        </view>
+        <view class='form__single__right'>
+          <input value="{{filters.budget}}"  bindinput="editBudget" placeholder="请填写总预算"></input>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          用餐
+        </view>
+        <view class='form__single__right'>
+          <input value="{{filters.dining}}"  bindinput="editDining" placeholder="请说明有无用餐，人数，餐标等"></input>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          住宿
+        </view>
+        <view class='form__single__right'>
+          <input value="{{filters.stay}}"  bindinput="editStay" placeholder="请说明有无住宿，房间数，价格，早餐等"></input>
+        </view>
+      </view>
+      <view class='form__single'>
+        <view class='form__single__left'>
+          地区
+        </view>
+        <view class='form__single__right'>
+          <picker bindchange="bindLocationChange" mode="region" value="{{region}}" custom-item="{{customItem}}">
+            <view class="form__single__picker">
+              {{region[0]}}，{{region[1]}}，{{region[2]}}
               <view class="icon__arrow__down"></view>
             </view>
           </picker>

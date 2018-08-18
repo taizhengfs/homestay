@@ -64,22 +64,68 @@ Page({
     filters: {
       type: 1,
       company_name: '',
-      time:'',
+      time:[],
       area:'',
       scale:'',
       phone: '',
       remark:'',
-      homestay_id:0
+      homestay_id:0,
+      time_affirm: 1,
+      time_span:1,
+      name:'',
+      email:'',
+      desc:'',
+      budget:'',
+      dining:'',
+      stay:''
     },
     meetingType: [
       {id:1, name:'团建'},
       {id:2, name:'会议'}
     ],
+    timeType: [
+      {id:1, name:'日期确定'},
+      {id:0, name:'日期暂定'}
+    ],
+    timeSpanType: [
+      {id:1, name:'全天'},
+      {id:0, name:'半天'}
+    ],
     tel:''
   },
-  radioChange(e) {
+  mettingChange(e) {
     this.setData({
       'filters.type': parseInt(e.detail.value)
+    })
+  },
+  timeChange(e) {
+    this.setData({
+      'filters.time_affirm': parseInt(e.detail.value)
+    })
+  },
+  timeSpanChange(e) {
+    this.setData({
+      'filters.time_span': parseInt(e.detail.value)
+    })
+  },
+
+  bindDateChangeStart: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      'filters.time[0]': e.detail.value
+    })
+  },
+  bindDateChangeEnd: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      'filters.time[1]': e.detail.value
+    })
+  },
+  bindLocationChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value.join(''))
+    this.setData({
+      region:e.detail.value,
+      'filters.area': e.detail.value.join('')
     })
   },
   makePhoneCall(e) {
@@ -140,19 +186,6 @@ Page({
       wx.stopPullDownRefresh()
     })
   },
-  bindDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      'filters.time': e.detail.value
-    })
-  },
-  bindLocationChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value.join(''))
-    this.setData({
-      region:e.detail.value,
-      'filters.area': e.detail.value.join('')
-    })
-  },
 
   editCompany(e) {
     this.setData({
@@ -164,9 +197,39 @@ Page({
       'filters.scale': e.detail.value
     })
   },
+  editName(e) {
+    this.setData({
+      'filters.name': e.detail.value
+    })
+  },
+  editDesc(e) {
+    this.setData({
+      'filters.desc': e.detail.value
+    })
+  },
   editPhone(e) {
     this.setData({
       'filters.phone': e.detail.value
+    })
+  },
+  editBudget(e) {
+    this.setData({
+      'filters.budget': e.detail.value
+    })
+  },
+  editDining(e) {
+    this.setData({
+      'filters.dining': e.detail.value
+    })
+  },
+  editStay(e) {
+    this.setData({
+      'filters.stay': e.detail.value
+    })
+  },
+  editEmail(e) {
+    this.setData({
+      'filters.email': e.detail.value
     })
   },
   editRemark(e) {

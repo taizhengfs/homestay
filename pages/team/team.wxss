@@ -193,6 +193,7 @@
 .form__single__right .radio-group {
   font-size: 24rpx;
   line-height: 72rpx;
+  padding-right:45rpx; 
 }
 .form__single__right radio{
   font-size: 24rpx;
