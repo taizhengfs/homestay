@@ -9,8 +9,8 @@
   <view class='lottery__title'>
     <view class='lottery__title__top'>
       <view class='lottery__title__top__l'>
-        ¥0
-        <view class='delete__line'>¥{{detail.price}}</view>
+        ¥{{detail.get_price}}
+        <view wx:if="{{!!user_ticket.use_status}}" class='delete__line'>¥{{detail.price}}</view>
       </view>
     </view>
   </view>

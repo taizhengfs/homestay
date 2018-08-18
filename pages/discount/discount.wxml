@@ -52,8 +52,8 @@
   <view class='discount__detail__block'>
     <view class='discount__detail__title'>奖品详情
     </view>
-    <!-- <view class='discount__record__content' data-id="{{ticket.id}}" bindtap='jumpToPrizeDetail'> -->
-    <view class='discount__record__content' data-id="{{ticket.id}}">
+    <view class='discount__record__content' data-id="{{ticket.id}}" bindtap='jumpToPrizeDetail'>
+    <!-- <view class='discount__record__content' data-id="{{ticket.id}}"> -->
       <view class='discount__record__img'>
         <view class='discount__tag__red'>价值
           <view class='discount_price'>¥{{ticket.price}}</view>
