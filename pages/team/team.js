@@ -159,12 +159,14 @@ Page({
       wx.stopPullDownRefresh()
       let d = res.data.data
       _this.data.multiArray = [[],[]]
-      d.areaMap.forEach(v => {
-        _this.data.multiArray[0].push(v.name)
-      })
-      d.areaMap[0].children.forEach(value => {
-        _this.data.multiArray[1].push(value.name)
-      })
+      if(d.areaMap.length>0) {
+        d.areaMap.forEach(v => {
+          _this.data.multiArray[0].push(v.name)
+        })
+        d.areaMap[0].children.forEach(value => {
+          _this.data.multiArray[1].push(value.name)
+        })
+      }
       let areaText = _this.data.multiArray[0][0]+','+_this.data.multiArray[1][0]
       _this.setData({
         multiArray:_this.data.multiArray,
@@ -214,7 +216,6 @@ Page({
         homestays:list
       })
       _this.data.homestays.forEach((v,i) => {
-        console.log(v.id,_this.data.filters.homestay_id)
         if(parseInt(v.id)===parseInt(_this.data.filters.homestay_id)){
           _this.setData({
             rindex:i

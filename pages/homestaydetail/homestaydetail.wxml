@@ -65,7 +65,7 @@
         </view>
       </view>
       <view class='detail__ex__block_r'>
-        <view class='detail__join' data-type="{{item.type}}" data-id="{{item.id}}" bindtap="jumpToActivity">我要报名</view>
+        <view class='detail__join' data-type="{{item.type}}" data-id="{{item.id}}" bindtap="jumpToActivity">马上抢</view>
       </view>
     </view>
   </view>
