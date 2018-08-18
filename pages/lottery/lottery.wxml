@@ -136,7 +136,7 @@
         </view>
         <view class='detail__info__dishes' wx:if="{{homestay.dine_atlas.length>0}}">
           <view class='detail__disher__content'>
-            <view class='detail__disher__block' wx:for="{{homestay.dine_atlas}}">
+            <view class='detail__disher__block' bindtap="showImages" data-url="{{item}}"  wx:for="{{homestay.dine_atlas}}">
               <view class='detail__disher__block_t'>
                 <image mode="widthFix" src='http:{{item}}'></image>
               </view>

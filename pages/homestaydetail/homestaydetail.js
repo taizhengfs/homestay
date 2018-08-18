@@ -80,6 +80,18 @@ Page({
       }
     })
   },
+  showImages(e){
+    const _this = this
+    let cnt = e.currentTarget.dataset.url
+    let list = []
+    _this.data.detail.dine_atlas.forEach(v=>{
+      list.push('http:'+v)
+    })
+    wx.previewImage({
+      current: 'http:'+cnt, // 当前显示图片的http链接
+      urls: list // 需要预览的图片http链接列表
+    })
+  },
   getHomestayDetail() {
     var _this = this
     wx.showLoading({

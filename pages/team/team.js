@@ -165,13 +165,13 @@ Page({
       d.areaMap[0].children.forEach(value => {
         _this.data.multiArray[1].push(value.name)
       })
+      let areaText = _this.data.multiArray[0][0]+','+_this.data.multiArray[1][0]
       _this.setData({
         multiArray:_this.data.multiArray,
         areaMap:d.areaMap,
+        'filters.area':areaText,
         'filters.homestay_id': d.homestay_id
       })
-      console.log('_this.data.multiArray: ', _this.data.multiArray);
-      console.log('this.areaMap: ', _this.data.areaMap)
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
@@ -179,7 +179,6 @@ Page({
   },
   bindMultiPickerColumnChange: function (e) {
     const _this = this
-    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
     var data = {
       multiArray: _this.data.multiArray,
       multiIndex: _this.data.multiIndex
@@ -191,13 +190,11 @@ Page({
         data.multiArray[1].push(value.name)
       })
     }
-    _this.data.area = data.multiArray[0][data.multiIndex[0]]+','+data.multiArray[1][data.multiIndex[1]]
+    let areaText = data.multiArray[0][data.multiIndex[0]]+','+data.multiArray[1][data.multiIndex[1]]
     _this.setData(data);
-    console.log('_this.data.area: ', _this.data.area);
     _this.setData({
-      area:_this.data.area
+      'filters.area':areaText
     })
-
   },
   getSujiDetail() {
     let _this = this
@@ -286,12 +283,20 @@ Page({
     _this.data.filters= {
       type: 1,
       company_name: '',
-      time:'',
+      time:[],
       area:'',
       scale:'',
       phone: '',
       remark:'',
-      homestay_id:0
+      homestay_id:0,
+      time_affirm: 1,
+      time_span:1,
+      name:'',
+      email:'',
+      desc:'',
+      budget:'',
+      dining:'',
+      stay:''
     }
     _this.setData({
       filters:_this.data.filters,
@@ -343,8 +348,25 @@ Page({
     })
   },
   submitConsult() {
+    if (
+        !(!!this.data.filters.company_name) ||
+        !(!!this.data.filters.name) ||
+        !(!!this.data.filters.phone) ||
+        !(!!this.data.filters.homestay_id) ||
+        this.data.filters.time.length < 2 ||
+        !(!!this.data.filters.scale) ||
+        !(!!this.data.filters.desc) ||
+        !(!!this.data.filters.budget)
+      ) {
+        wx.showToast({
+          title: '请完成表单',
+          icon: 'none',
+          duration: 2000
+        })
+      } else {
+        this.postRequireCreate()
+      }
     console.log(this.data.filters)
-    // this.postRequireCreate()
   },
   /**
    * 生命周期函数--监听页面加载

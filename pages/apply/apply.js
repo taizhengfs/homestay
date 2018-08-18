@@ -16,6 +16,8 @@ Page({
     detail: {},
     truename:'',
     phone:'',
+    filepath: '',
+    filename:'',
     platforms: [
       {
         name:'',
@@ -39,42 +41,6 @@ Page({
     ]
     
   },
-  bindRecoChange(e) {
-    let _this = this
-    const dataset = e.currentTarget.dataset
-    const {id ,index} = dataset
-    _this.data.platforms[index].name=_this.data.platList[e.detail.value].children[0].name
-    _this.data.formPayload[index].pindex=0
-    _this.data.formPayload[index].rindex=e.detail.value
-    _this.data.formPayload[index].platform=_this.data.platList[e.detail.value].children
-
-    _this.setData({
-      platforms:_this.data.platforms,
-      formPayload:_this.data.formPayload
-    })
-  },
-  editNickname(e) {
-    let _this = this
-    const dataset = e.currentTarget.dataset
-    const {index} = dataset
-    _this.data.formPayload[index].nickname=e.detail.value
-    _this.data.platforms[index].nickname=e.detail.value
-    _this.setData({
-      platforms:_this.data.platforms,
-      formPayload:_this.data.formPayload,
-    })
-  },
-  editFansCount(e) {
-    let _this = this
-    const dataset = e.currentTarget.dataset
-    const {index} = dataset
-    _this.data.formPayload[index].fans_count=e.detail.value
-    _this.data.platforms[index].fans_count=e.detail.value
-    _this.setData({
-      platforms:_this.data.platforms,
-      formPayload:_this.data.formPayload,
-    })
-  },
   editTruename(e) {
     this.setData({
       truename: e.detail.value
@@ -94,7 +60,11 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
+        console.log('res: ', res);
         let tempFilePaths = res.tempFilePaths[0]
+        wx.showLoading({
+          title: '上传中',
+        })
         wx.uploadFile({
           url: Api.postFileUpload(), 
           filePath: tempFilePaths,
@@ -112,32 +82,25 @@ Page({
             'tp': 'screenshot'
           },
           success: function(res){
+            wx.hideLoading()
+            wx.stopPullDownRefresh()
             var data = JSON.parse(res.data)
-            _this.data.formPayload[index].image=data.data.url
-            _this.data.platforms[index].image=data.data.filepath
+            console.log('data: ', data);
             _this.setData({
-              platforms:_this.data.platforms,
-              formPayload:_this.data.formPayload,
+              filepath:data.data.filepath,
+              filename:data.data.name
             })
+            console.log('_this.data.filepath: ', _this.data.filepath);
             //do something
           },
           fail(err) {
+            wx.hideLoading()
+            wx.stopPullDownRefresh()
             console.log(err)
           }
         })
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
       }
-    })
-  },
-  bindPlatformChange(e) {
-    let _this = this
-    const dataset = e.currentTarget.dataset
-    const {id, index} = dataset
-    _this.data.formPayload[index].pindex=e.detail.value
-    _this.data.platforms[index].name=_this.data.formPayload[index].platform[e.detail.value].name
-    this.setData({
-      platforms:_this.data.platforms,
-      formPayload:_this.data.formPayload,
     })
   },
   postExperienceApply() {
@@ -148,7 +111,8 @@ Page({
     _this.data.filters = {
       truename:_this.data.truename,
       phone:_this.data.phone,
-      platforms:JSON.stringify(_this.data.platforms)
+      filepath:_this.data.filepath,
+      filename:_this.data.filename
     }
     util._post(Api.postExperienceApply(), _this.data.filters, res => {
       wx.hideLoading()
@@ -201,16 +165,10 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let ex = res.data.data
-      ex.platform.forEach(val => {
-        _this.data.reco.push({id: val.id, name: val.name})
-      });
-      const {platform, apply_info} = ex
+      const { apply_info } = ex
       _this.setData({
         detail: ex,
         apply_info:apply_info,
-        platList: platform,
-        reco: _this.data.reco,
-        'formPayload[0].platform': platform[0].children
       })
       if(Object.keys(apply_info).length>0) {
         _this.setData({
@@ -253,49 +211,6 @@ Page({
     let _this = this;
     _this.setData({
       isShowCard: !_this.data.isShowCard
-    })
-  },
-  deleteItem(e) {
-    let _this = this
-    const idx = e.currentTarget.dataset.index
-    wx.showModal({
-      title: '提示',
-      content: '确认删除？',
-      success: function(res) {
-        if (res.confirm) {
-          _this.setData({
-            formPayload: _this.data.formPayload.filter((v, i) => i !== idx),
-            platforms: _this.data.platforms.filter((v,i) => i !== idx)
-          })
-          console.log(_this.data.platforms)
-        } else if (res.cancel) {
-        }
-      }
-    })
-  },
-  addMoreInfo() {
-    let _this = this
-    _this.data.formPayload.push(
-      {
-        pindex:'',
-        nickname:'',
-        fans_count:'',
-        rindex:0,
-        image:'',
-        platform:_this.data.platList[0].children
-      }
-    )
-    _this.data.platforms.push(
-      {
-        name:'',
-        nickname:'',
-        fans_count:'',
-        image:''
-      }
-    )
-    _this.setData({
-      platforms: _this.data.platforms,
-      formPayload: _this.data.formPayload
     })
   },
 
