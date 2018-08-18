@@ -42,7 +42,7 @@
     <view class='inflution__cnt'>
 
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           公司
         </view>
         <view class='form__single__right'>
@@ -50,7 +50,7 @@
         </view>
       </view>
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           姓名
         </view>
         <view class='form__single__right'>
@@ -59,7 +59,7 @@
       </view>
 
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           联系方式
         </view>
         <view class='form__single__right'>
@@ -76,7 +76,7 @@
       </view>
 
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           民宿(选填)
         </view>
         <view class='form__single__right'>
@@ -90,7 +90,7 @@
       </view>
 
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           开始日期
         </view>
         <view class='form__single__right'>
@@ -103,7 +103,7 @@
         </view>
       </view>
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           结束日期
         </view>
         <view class='form__single__right'>
@@ -116,7 +116,7 @@
         </view>
       </view>
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           时间确认
         </view>
         <view class='form__single__right'>
@@ -129,7 +129,7 @@
       </view>
 
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           会议/团建
         </view>
         <view class='form__single__right'>
@@ -141,7 +141,7 @@
         </view>
       </view>
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           时间跨度
         </view>
         <view class='form__single__right'>
@@ -154,7 +154,7 @@
       </view>
       
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           人数
         </view>
         <view class='form__single__right'>
@@ -162,7 +162,7 @@
         </view>
       </view>
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           会议台型
         </view>
         <view class='form__single__right'>
@@ -170,7 +170,7 @@
         </view>
       </view>
       <view class='form__single'>
-        <view class='form__single__left'>
+        <view class='form__single__left necessary'>
           预算
         </view>
         <view class='form__single__right'>
@@ -198,10 +198,15 @@
           地区
         </view>
         <view class='form__single__right'>
-          <picker bindchange="bindLocationChange" mode="region" value="{{region}}" custom-item="{{customItem}}">
+          <!-- <picker bindchange="bindLocationChange" mode="region" value="{{region}}" custom-item="{{customItem}}">
             <view class="form__single__picker">
               {{region[0]}}，{{region[1]}}，{{region[2]}}
               <view class="icon__arrow__down"></view>
+            </view>
+          </picker> -->
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="picker">
+              {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
             </view>
           </picker>
         </view>

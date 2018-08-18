@@ -79,19 +79,30 @@ Page({
       dining:'',
       stay:''
     },
+    areaMap:[],
     meetingType: [
-      {id:1, name:'团建'},
+      {id:1, name:'团建',checked:true},
       {id:2, name:'会议'}
     ],
     timeType: [
-      {id:1, name:'日期确定'},
+      {id:1, name:'日期确定',checked:true},
       {id:0, name:'日期暂定'}
     ],
     timeSpanType: [
-      {id:1, name:'全天'},
+      {id:1, name:'全天',checked:true},
       {id:0, name:'半天'}
     ],
-    tel:''
+    tel:'',
+    // multiArray: [['无脊柱动物', '脊柱动物'], ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物']],
+    multiArray: [[],[]],
+    multiIndex: [0, 0],
+  },
+
+  bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      multiIndex: e.detail.value
+    })
   },
   mettingChange(e) {
     this.setData({
@@ -147,13 +158,46 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       let d = res.data.data
+      _this.data.multiArray = [[],[]]
+      d.areaMap.forEach(v => {
+        _this.data.multiArray[0].push(v.name)
+      })
+      d.areaMap[0].children.forEach(value => {
+        _this.data.multiArray[1].push(value.name)
+      })
       _this.setData({
+        multiArray:_this.data.multiArray,
+        areaMap:d.areaMap,
         'filters.homestay_id': d.homestay_id
       })
+      console.log('_this.data.multiArray: ', _this.data.multiArray);
+      console.log('this.areaMap: ', _this.data.areaMap)
     }, error => {
       wx.hideLoading()
       wx.stopPullDownRefresh()
     })
+  },
+  bindMultiPickerColumnChange: function (e) {
+    const _this = this
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+    var data = {
+      multiArray: _this.data.multiArray,
+      multiIndex: _this.data.multiIndex
+    };
+    data.multiIndex[e.detail.column] = e.detail.value;
+    if (e.detail.column === 0) {
+      data.multiArray[1] = []
+      _this.data.areaMap[e.detail.value].children.forEach(value => {
+        data.multiArray[1].push(value.name)
+      })
+    }
+    _this.data.area = data.multiArray[0][data.multiIndex[0]]+','+data.multiArray[1][data.multiIndex[1]]
+    _this.setData(data);
+    console.log('_this.data.area: ', _this.data.area);
+    _this.setData({
+      area:_this.data.area
+    })
+
   },
   getSujiDetail() {
     let _this = this
@@ -299,8 +343,8 @@ Page({
     })
   },
   submitConsult() {
-    this.postRequireCreate()
     console.log(this.data.filters)
+    // this.postRequireCreate()
   },
   /**
    * 生命周期函数--监听页面加载
