@@ -50,8 +50,9 @@
       </view>
     </view>
   </view>
-  <view wx:if="{{isShowDetails}}">
-    <detailCard title="房源介绍" wx:if="{{!!homestay.description}}" isShowArrow="{{true}}" class="w__100">
+  <!-- <view wx:if="{{isShowDetails}}"> -->
+  <view>
+    <detailCard title="房源介绍" wx:if="{{!!homestay.description}}" isShowArrow="{{false}}" class="w__100">
         <view class='detail__card__desc detail__card_pad'>
         {{homestay.description}}
         </view>
@@ -105,11 +106,11 @@
         </view>
       </detailCard>
   </view>
-  <view class="click__to__show" bindtap="toggleDetail">
+  <!-- <view class="click__to__show" bindtap="toggleDetail">
     <view class="click__main">
         {{isShowDetails?'收起':'展开详情'}}
     </view>
-  </view>
+  </view> -->
   <view class='lottery__detail__block'>
     <view class='lottery__detail__title'>
       <view class='lottery__detail__title__l'>优惠说明</view>

@@ -1,5 +1,5 @@
 <!--pages/lottery/lottery.wxml-->
-<view class='container {{isShowCard||isShowBox?"blur__mask":""}}' style="overflow-x: hidden">
+<view class='container last {{isShowCard||isShowBox?"blur__mask":""}}' style="overflow-x: hidden">
   <swiperItem class="w__100" isShowShare="{{true}}" isAutoScroll="{{false}}" swiperimage="{{swiperimage}}"></swiperItem>
   <view class='lottery__title'>
     <view class='lottery__title__top'>
@@ -64,8 +64,52 @@
       <image src='http://file.yinxinlife.com/images/icon_more.png'></image>
     </view>
   </view>
+  <view class='lottery__detail__block'>
+    <view class='lottery__detail__title'>奖品详情
+    </view>
+    <!-- <view class='lottery__record__content' data-id="{{ticket.id}}" bindtap='jumpToPrizeDetail'> -->
+    <view class='lottery__record__content' data-id="{{ticket.id}}">
+      <view class='lottery__record__img'>
+        <view class='lottery__tag__red'>价值<view class='lottery_price'>¥{{ticket.price}}</view></view>
+        <image wx:if="{{ticket.image}}" mode="widthFix" src="http:{{ticket.image}}"></image>
+      </view>
+      <view class='lottery__desc'>
+        <view class='lottery__desc__top'>{{ticket.name}}</view>
+        <view class='lottery__desc__bottom'>{{ticket.theme}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='exp__detail__block'>
+    <view class='exp__detail__title'>兑奖商家</view>
+    <view class='exp__detail__sub'>
+      {{homestay.name}} 
+    </view>
+    <view class='exp__detail__cnt'>
+      <view class='exp__detail__cnt__l'>
+        <image wx:if="{{homestay.image}}" mode="widthFix" src='http:{{homestay.image}}'></image>
+      </view>
+      <view class='exp__detail__cnt__r'>
+        <view class='exp__detail__cnt__r__t'>
+          <view class='exp__detail__tag' wx:for="{{homestay.tags}}">{{item}}</view>
+        </view>
+        <view class='exp__detail__cnt__r__m' data-lat="{{homestay.location[1]}}" data-long="{{homestay.location[0]}}" bindtap="goToMap">
+          <view class="icon__cnt">
+            <image src="http://file.yinxinlife.com/images/icon_location.png"></image>
+          </view>
+          {{homestay.district}}{{homestay.address}}-距我{{homestay.distance}}公里
+        </view>
+        <view class='exp__detail__cnt__r__b'>
+          <view class="disp_red">
+            ¥{{homestay.price}}
+          </view>
+          起
+        </view>
+      </view>
+    </view>
+  </view>
 
   <view>
+  <!-- <view class="dt_cnt"> -->
     <detailCard title="房源介绍" wx:if="{{!!homestay.description}}" isShowArrow="{{false}}" class="w__100">
         <view class='detail__card__desc detail__card_pad'>
         {{homestay.description}}
@@ -120,19 +164,27 @@
         </view>
       </detailCard>
   </view>
-
-  <view class='lottery__detail__block last'>
-    <view class='lottery__detail__title'>奖品详情
+  <view class='lottery__detail__block'>
+    <view class='lottery__detail__title'>
+      <view class='lottery__detail__title__l'>优惠说明</view>
+      <view class='lottery__detail__title__r' data-id="{{ticket.id}}" bindtap='jumpToRuleDetail'>
+        规则详情
+        <view class='icon__arrow__right'></view>
+      </view>
     </view>
-    <view class='lottery__record__content' data-id="{{ticket.id}}" bindtap='jumpToPrizeDetail'>
-      <view class='lottery__record__img'>
-        <view class='lottery__tag__red'>价值<view class='lottery_price'>¥{{ticket.price}}</view></view>
-        <image wx:if="{{ticket.image}}" mode="widthFix" src="http:{{ticket.image}}"></image>
+    <view class='lottery__rules__content'>
+      <view class='lottery__rules__single'>使用时间:
+        <view class='disp__inline'>{{ticket.u_starttime}}至{{ticket.u_endtime}}</view>
       </view>
-      <view class='lottery__desc'>
-        <view class='lottery__desc__top'>{{ticket.name}}</view>
-        <view class='lottery__desc__bottom'>{{ticket.theme}}</view>
+      <view class='lottery__rules__single'>使用规则:
+        <text class='disp__inline'>{{ticket.use_rule}}</text>
       </view>
+    </view>
+  </view>
+  <view class='exp__detail__block last'>
+    <view class='exp__detail__title'>优惠详情</view>
+    <view class="lottery__rules__content">
+      <rich-text nodes="{{ticket.content}}"></rich-text>
     </view>
   </view>
   <view class='bottom__bar'>

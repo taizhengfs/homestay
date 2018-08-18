@@ -52,6 +52,14 @@ Page({
       isShowAll: !_this.data.isShowAll
     })
   },
+
+  goToMap: function (e) {
+    const dataset = e.currentTarget.dataset
+    wx.openLocation({
+      latitude: dataset.lat,
+      longitude: dataset.long
+    })
+  },
   closeBox() {
     let _this = this
     _this.setData({
@@ -170,6 +178,10 @@ Page({
       ex.detail.starttime = formatDate(ex.detail.starttime*1000, 'Y-m-d H:i:s') 
       ex.detail.endtime = formatDate(ex.detail.endtime*1000, 'Y-m-d H:i:s') 
       ex.homestay.create_at = formatDate(ex.homestay.create_at*1000, 'Y-m-d H:i:s') 
+      ex.ticket.content = ex.ticket.content.replace(/<img /g, '<img style="max-width:100%;"');
+      ex.ticket.u_starttime = formatDate(ex.ticket.u_starttime*1000, 'Y-m-d H:i:s') 
+      ex.ticket.u_endtime = formatDate(ex.ticket.u_endtime*1000, 'Y-m-d H:i:s') 
+    
       _this.data.swiperimage.push({image: ex.detail.image})
       let lessList = ex.members.slice(0, 10)
       const {detail, ticket, members,homestay, express} = ex

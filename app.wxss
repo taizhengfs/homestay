@@ -265,3 +265,7 @@ button:after {
   font-size: 28rpx;
   color: #ccc
 }
+.dt_cnt {
+  padding-bottom: 100rpx;
+  border-bottom: none;
+}
