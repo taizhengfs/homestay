@@ -43,6 +43,7 @@
       startTime="{{item.starttime}}"
       endTime="{{item.endtime}}"
       price="{{item.price}}"
+      ticket_price="{{item.ticket_price}}"
       realPrice="{{item.price}}"
       participateNum="{{item.part_no}}"
       activityDesc="{{item.name}}"
