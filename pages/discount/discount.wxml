@@ -177,26 +177,32 @@
   </view>
 
   <view class='bottom__bar'>
-    <view class='bottom__ba__block home' bindtap="jumpToHome">
-      <view class="icon__home"></view>首页</view>
-    <button class='bottom__ba__block invite fake-btn' open-type="share"><view class="icon__invite"></view>邀请砍价</button>
-    <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===0}}">暂未开始</view>
 
-    <block wx:else>
-      <block wx:if="{{add_filters.user_id===0 || add_filters.user_id===selfId}}">
-        <block wx:if="{{detail.is_buy===1}}">
-          <view class='bottom__ba__block share' bindtap="jumpToCard">已获得</view>
-        </block>
+  <form name='discount_{{detail.id}}_1' report-submit='true' bindsubmit="getFormId">
+      <view class="bottom__content">
+        <button class='bottom__ba__block fake-btn home' form-type="submit" bindtap="jumpToHome">
+          <view class="icon__home"></view>首页
+        </button>
+        <button class='bottom__ba__block invite fake-btn' form-type="submit" open-type="share"><view class="icon__invite"></view>邀请砍价</button>
+        <button class='bottom__ba__block btn_grey fake-btn' form-type="submit" wx:if="{{detail.time_status===0}}">暂未开始</button>
+
         <block wx:else>
-          <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===2 || detail.remain_no===0}}">活动已结束</view>
-          <view class='bottom__ba__block share' wx:else bindtap="payRequest">{{calcPrice}}元拿下</view>
+          <block wx:if="{{add_filters.user_id===0 || add_filters.user_id===selfId}}">
+            <block wx:if="{{detail.is_buy===1}}">
+              <button class='bottom__ba__block share fake-btn' form-type="submit" bindtap="jumpToCard">已获得</button>
+            </block>
+            <block wx:else>
+              <button class='bottom__ba__block btn_grey fake-btn' form-type="submit" wx:if="{{detail.time_status===2 || detail.remain_no===0}}">活动已结束</button>
+              <button class='bottom__ba__block fake-btn share' form-type="submit" wx:else bindtap="payRequest">{{calcPrice}}元拿下</button>
+            </block>
+          </block>
+          <block wx:else>
+            <button class='bottom__ba__block fake-btn btn_grey' wx:if="{{detail.time_status===2 || detail.remain_no===0}}">活动已结束</button>
+            <button wx:else class='bottom__ba__block fake-btn share' bindtap="jumpToJoin">参与活动</button>
+          </block>
         </block>
-      </block>
-      <block wx:else>
-        <view class='bottom__ba__block btn_grey' wx:if="{{detail.time_status===2 || detail.remain_no===0}}">活动已结束</view>
-        <view wx:else class='bottom__ba__block share' bindtap="jumpToJoin">参与活动</view>
-      </block>
-    </block>
+      </view>
+    </form>
   </view>
 </view>
 <authBox isShowBox="{{isShowBox}}" isShowCancel="{{false}}" bindcloseAuth="closeBox"></authBox>

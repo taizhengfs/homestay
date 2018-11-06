@@ -2,6 +2,7 @@
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
 import {formatDate} from '../../utils/date.js';
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -400,6 +401,10 @@ Page({
         url:'../myCard/myCard'
       })
     }
+  },
+  getFormId (e) {
+    util.getFormId(e, app)
+    util.saveFormIds(app)
   },
   payRequest() {
     let _this = this

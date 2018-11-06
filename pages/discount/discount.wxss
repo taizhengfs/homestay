@@ -177,13 +177,24 @@
   padding-top: 8rpx;
 }
 
-.bottom__bar {
+/* .bottom__bar {
   width: 100%;
   position: fixed;
   left: 0;
   bottom: 0;
   height: 90rpx;
   z-index: 99;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+} */
+.bottom__content {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  height: 90rpx;
   display: flex;
   flex-direction: row;
   box-sizing: border-box;

@@ -2,6 +2,7 @@
 import util from '../../utils/util.js';
 import Api from '../../utils/api.js';
 import {formatDate} from '../../utils/date.js';
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -346,6 +347,10 @@ Page({
     wx.navigateTo({
       url: `../ticketDetail/ticketDetail?id=${dataset.id}`
     })
+  },
+  getFormId (e) {
+    util.getFormId(e, app)
+    util.saveFormIds(app)
   },
   /**
    * 生命周期函数--监听页面加载

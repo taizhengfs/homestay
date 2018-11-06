@@ -3,7 +3,7 @@
   <button wx:if="{{isShowShare}}" open-type="share" class="icon_share fake-btn">
     <image src="http://file.yinxinlife.com/images/icon_share.png"></image>
   </button>
-  <swiper indicator-dots="{{isShowDots}}" indicator-color="#D8D8D8" indicator-active-color="#BAA68B" autoplay="{{false}}" circular="{{true}}" interval="{{interval}}" duration="{{duration}}" current="{{curentImg}}">
+  <swiper indicator-dots="{{isShowDots}}" indicator-color="#D8D8D8" indicator-active-color="#BAA68B" autoplay="{{true}}" circular="{{true}}" interval="{{interval}}" duration="{{duration}}" current="{{curentImg}}">
     <block wx:for="{{swiperimage}}" wx:key>
       <swiper-item class="top-img"
         data-link="{{item.link}}"
