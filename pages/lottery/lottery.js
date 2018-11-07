@@ -149,6 +149,25 @@ Page({
                   }
                 }
               })
+            } else if(ex.code===420){
+              wx.showModal({
+                title: '注意',
+                content: '7天内只能帮助其他每个用户1次。快去邀请更多好友参与活动吧',
+                showCancel: false,
+                confirmText:'参与活动',
+                success: function(res) {
+                  if (res.confirm) {
+                    wx.redirectTo({
+                      url: `../lottery/lottery?id=${_this.data.detail.id}&user_id=${wx.getStorageSync('userInfo').id}`,
+                      success: function(res){
+                        // success
+                      }
+                    })
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
             } else{
               wx.showToast({
                 title: res.data.message,
