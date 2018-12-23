@@ -32,6 +32,7 @@ Page({
   },
   saveInfo(){
     console.log(this.data.filters)
+    console.log('111: ', 111)
     this.postUserEdit()
   },
   postUserEdit() {

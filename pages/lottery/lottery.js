@@ -257,7 +257,7 @@ Page({
                     title: '恭喜中奖',
                     content: `您获得了[${_this.data.ticket.name}]\n确认收货信息后，我们将为您送达`,
                     showCancel: false,
-                    confirmText:'确认收货',
+                    confirmText:'填写收货地址',
                     success: function(res) {
                       if (res.confirm) {
                         if(_this.data.express.consignee===0) {
@@ -283,7 +283,7 @@ Page({
                           let addInfo = `姓名：${_this.data.express.consignee_name}\n联系方式：${_this.data.express.consignee_phone}\n收货地址：${_this.data.express.consignee_address}`
                           wx.showModal({
                             title: '确认收货信息',
-                            content: `您的收货信息未为：\n${addInfo}`,
+                            content: `您的收货信息为：\n${addInfo}`,
                             cancelText: '去修改',
                             confirmText:'已确认',
                             success: function(res) {
@@ -292,12 +292,19 @@ Page({
                                 {
                                   activity_id:_this.data.filters.id
                                 }, res => {
-                                  wx.navigateTo({
-                                    url: `../myGift/myGift`,
-                                    success: function(res){
-                                      // success
-                                    }
+                                  wx.showToast({
+                                    title: '已收到您的信息，工作人员会在72小时内与您联系，您有任何问题也可联系客服：yinxinxiaobian',
+                                    icon: 'none',
+                                    duration: 2000
                                   })
+                                  setTimeout(()=>{
+                                    wx.navigateTo({
+                                      url: `../myGift/myGift`,
+                                      success: function(res){
+                                        // success
+                                      }
+                                    })
+                                  }, 1500)
                                   console.log('res: ', res)
                                 },error=>{
                                   console.log(error)
