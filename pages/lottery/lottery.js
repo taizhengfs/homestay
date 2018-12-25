@@ -280,7 +280,7 @@ Page({
                             }
                           })
                         }else {
-                          let addInfo = `姓名：${_this.data.express.consignee_name}\n联系方式：${_this.data.express.consignee_phone}\n收货地址：${_this.data.express.consignee_address}\n确认收获信息后，我们会及时联系您。客服微信：yinxinxiaobian`
+                          let addInfo = `姓名：${_this.data.express.consignee_name}\n联系方式：${_this.data.express.consignee_phone}\n收货地址：${_this.data.express.consignee_address}\n\n确认收获信息后，我们会及时联系您。客服微信：yinxinxiaobian`
                           wx.showModal({
                             title: '确认收货信息',
                             content: `您的收货信息为：\n${addInfo}`,
