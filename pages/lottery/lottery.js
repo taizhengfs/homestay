@@ -292,19 +292,19 @@ Page({
                                 {
                                   activity_id:_this.data.filters.id
                                 }, res => {
-                                  wx.showToast({
-                                    title: '已收到您的信息，工作人员会在72小时内与您联系，您有任何问题也可联系客服：yinxinxiaobian',
-                                    icon: 'none',
-                                    duration: 2000
-                                  })
-                                  setTimeout(()=>{
+                                  // wx.showToast({
+                                  //   title: '已收到您的信息，工作人员会在72小时内与您联系，您有任何问题也可联系客服：yinxinxiaobian',
+                                  //   icon: 'none',
+                                  //   duration: 2000
+                                  // })
+                                  // setTimeout(()=>{
                                     wx.navigateTo({
                                       url: `../myGift/myGift`,
                                       success: function(res){
                                         // success
                                       }
                                     })
-                                  }, 1500)
+                                  // }, 1500)
                                   console.log('res: ', res)
                                 },error=>{
                                   console.log(error)
