@@ -401,9 +401,13 @@ Page({
       })
       uid = parseInt(options.user_id)
       if (typeof wx.getStorageSync('userInfo').id !== 'undefined') {
-        if(options.user_id!==wx.getStorageSync('userInfo').id) {
+        if (uid!==wx.getStorageSync('userInfo').id) {
           _this.setData({
             'add_filters.user_id':uid,
+            'filters.user_id': uid
+          })
+        }else{
+          _this.setData({
             'filters.user_id': uid
           })
         }
