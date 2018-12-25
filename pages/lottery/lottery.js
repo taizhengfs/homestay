@@ -257,7 +257,7 @@ Page({
                     title: '恭喜中奖',
                     content: `您获得了[${_this.data.ticket.name}]\n确认收货信息后，我们将为您送达`,
                     showCancel: false,
-                    confirmText:'填写收货地址',
+                    confirmText:'填写地址',
                     success: function(res) {
                       if (res.confirm) {
                         if(_this.data.express.consignee===0) {
