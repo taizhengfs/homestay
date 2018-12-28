@@ -60,7 +60,7 @@ module.exports = {
     return HOST_URI + POST_USER_INFO
   },
   getVersionNum() {
-    return '0.0.1'
+    return '0.0.7'
   },
   // 我的票券
   getUserTicketList() {
