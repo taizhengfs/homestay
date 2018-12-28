@@ -67,10 +67,25 @@ Page({
       wx.hideLoading()
       wx.stopPullDownRefresh()
       const {swiper, today, tomorrow} = res.data.data
+      var count = swiper.length
+      var newSwiper = []
+      for (var i = 0; i < count; i++) {
+        if(i==1){
+          var fc = {}
+          fc.appid = "wxd42b1d459e4c0008"
+          fc.id=0
+          fc.title = "蜂鸟记账"
+          fc.image = "//file.yinxinlife.com//static/images/files/cover/20181252/442d0d6d7898e6d849c501915208112c.jpeg?cut=w_900,h_480"
+          fc.wxa_link ="pages/details/index/main?channel=yinxinminsu1226"
+          fc.link = ""
+          newSwiper.push(fc)
+        }
+        newSwiper.push(swiper[i])
+      }
       _this.setData({
         today: today,
         tomorrow: tomorrow,
-        swiper: swiper
+        swiper: newSwiper
       })
     }, error => {
     })

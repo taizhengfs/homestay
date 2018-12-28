@@ -36,6 +36,9 @@
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": false
   },
+  "navigateToMiniProgramAppIdList": [
+    "wxd42b1d459e4c0008"
+  ],
   "tabBar": {
     "color": "#4C4C4C",
     "selectedColor": "#C12121",

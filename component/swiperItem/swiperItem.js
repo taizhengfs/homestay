@@ -61,11 +61,20 @@ Component({
     console.log(e)
       const dataset = e.currentTarget.dataset
       if(Object.keys(dataset).length!==0) {
-        const {link, wxa_link, id} = dataset
+        const {link, wxa_link, id,appid} = dataset
         if (wxa_link!=='') {
           if (util.isTabBar(wxa_link)) {
             wx.switchTab({
                 url: wxa_link
+            })
+          } else if (typeof appid !== 'undefined') {
+            wx.navigateToMiniProgram({
+              appId: appid,
+              path: wxa_link,
+              envVersion: 'release',
+              success(res) {
+              
+              }
             })
           } else {
             wx.navigateTo({
