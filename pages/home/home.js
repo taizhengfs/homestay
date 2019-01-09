@@ -72,11 +72,11 @@ Page({
       for (var i = 0; i < count; i++) {
         if(i==1){
           var fc = {}
-          fc.appid = "wxd42b1d459e4c0008"
-          fc.id=0
-          fc.title = "蜂鸟记账"
-          fc.image = "//file.yinxinlife.com//static/images/files/cover/20181252/442d0d6d7898e6d849c501915208112c.jpeg?cut=w_900,h_480"
-          fc.wxa_link ="pages/details/index/main?channel=yinxinminsu1226"
+          fc.appid = "wxa7053e55658fc6f3"
+          fc.id = 0
+          fc.title = "晓析心理"
+          fc.image = "//file.yinxinlife.com/static/images/files/cover/20190101/228316bcb23237e68394921c3cfaad0f.jpeg?cut=w_900,h_480"
+          fc.wxa_link = "page/index/index?ald_media_id=10274&ald_link_key=706bae7516ddae51"
           fc.link = ""
           newSwiper.push(fc)
         }
