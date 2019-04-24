@@ -155,10 +155,10 @@
   <view class='lottery__detail__block'>
     <view class='lottery__detail__title'>
       <view class='lottery__detail__title__l'>优惠说明</view>
-      <view class='lottery__detail__title__r' data-id="{{ticket.id}}" bindtap='jumpToRuleDetail'>
+      <!-- <view class='lottery__detail__title__r' data-id="{{ticket.id}}" bindtap='jumpToRuleDetail'>
         规则详情
         <view class='icon__arrow__right'></view>
-      </view>
+      </view> -->
     </view>
     <view class='lottery__rules__content'>
       <view class='lottery__rules__single'>使用时间:
