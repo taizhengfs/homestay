@@ -37,7 +37,7 @@
     "enablePullDownRefresh": false
   },
   "navigateToMiniProgramAppIdList": [
-    "wxa7053e55658fc6f3"
+   
   ],
   "tabBar": {
     "color": "#4C4C4C",
@@ -70,5 +70,6 @@
         "selectedIconPath": "./images/icon_user_a.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
