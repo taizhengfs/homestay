@@ -14,6 +14,8 @@
 	"libVersion": "2.0.4",
 	"appid": "wx0772d4e057278ee2",
 	"projectname": "Homestay",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
