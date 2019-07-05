@@ -19,7 +19,8 @@ Page({
     isShowCard:false,
     formateCode:'',
     isShowBar:false,
-    isShowDetails:false
+    isShowDetails:false,
+    hasPhone: true
   },
   toggleDetail() {
     this.setData({
@@ -51,11 +52,40 @@ Page({
   },
   showPaneCard(){
     let _this = this;
-    if(_this.data.user_ticket.use_status===3) {
-      _this.setData({
-        isShowCard: !_this.data.isShowCard
+    if (!_this.data.hasPhone) {
+      wx.navigateTo({
+        url: '../userInfo/userInfo'
       })
+    } else {
+      if(_this.data.user_ticket.use_status===3) {
+        _this.setData({
+          isShowCard: !_this.data.isShowCard
+        })
+      }
     }
+  },
+  getUserInfoDetail() {
+    var _this = this
+    wx.showLoading({
+      title: '加载中',
+    })
+    util._get(Api.getUserInfoDetail(), {}, res => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+      let ex = res.data.data
+      _this.setData({
+        userInfo: ex
+      })
+      if(ex.phone === '') {
+        _this.setData({
+          hasPhone: false
+        })
+      }
+      console.log('_this.data.hasPhone: ', _this.data.hasPhone)
+    }, error => {
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
   },
   postUserOffTicket(){
     let _this = this
@@ -168,7 +198,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getUserInfoDetail()
   },
 
   /**

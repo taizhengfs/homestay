@@ -136,7 +136,7 @@
   </view>
   <view class='bottom__bar' wx:if="{{isShowBar}}">
       <view class="form__submit {{user_ticket.use_status===3?'':'bg-grey'}}" bindtap='showPaneCard'>
-        {{user_ticket.use_status===3?'立即使用':user_ticket.use_status===4?'已使用':'已过期'}}
+        {{user_ticket.use_status===3?(hasPhone?'立即使用':'提供手机号码方能使用'):user_ticket.use_status===4?'已使用':'已过期'}}
       </view>
   </view>
 </view>
