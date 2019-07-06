@@ -6,7 +6,7 @@
       <view class='user-info__block__right'><image src='{{userDetail.avatar}}'></image></view>
     </view>
     <view class='user-info__block'>
-      <view class='user-info__block__left'>昵称</view>
+      <view class='user-info__block__left'>姓名</view>
       <view class='user-info__block__right'>{{!!userInfo.truename ? userInfo.truename : '暂无'}}</view>
     </view>
     <view class='user-info__block'>

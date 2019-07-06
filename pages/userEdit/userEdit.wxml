@@ -8,7 +8,7 @@
   </view>
   <view class='user__edit__main'>
     <view class='user__edit__block'>
-      <view class='user__edit__block__left'>昵称</view>
+      <view class='user__edit__block__left'>姓名</view>
       <view class='user__edit__block__right'>
         <input type='text' class='user__edit__input' bindinput="getName" value="{{filters.truename}}" placeholder-class="input__style" placeholder='请填写您的姓名'></input>
       </view>
