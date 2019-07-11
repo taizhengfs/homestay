@@ -51,7 +51,9 @@
               </view>
               <view class="home__activity__sub">
                 <view class="home__activity__sub__left">
-                    {{activityDesc}}
+                    <view class="home__activity__sub__left__main">
+                      {{activityDesc}}
+                    </view>
                 </view>
                 <view wx:if="{{!isSelf}}" class="home__activity__sub__right">
                     {{timeStatus===0
@@ -71,5 +73,5 @@
                 </block>
               </view>
         </button>
-      </form>
-  </view>
+    </form>
+</view>
