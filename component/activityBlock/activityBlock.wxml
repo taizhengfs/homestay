@@ -2,7 +2,7 @@
     <form name='activity_{{type}}' report-submit='true' bindsubmit="getFormId">
         <button class="fake-btn" form-type="submit">
             <view class="home__activity__main">
-                <image class="home__activity__main__cover" mode="widthFix" src="http:{{cover}}?x-oss-process=image/resize,m_fill,h_282,w_375"></image>
+                <image class="home__activity__main__cover" mode="widthFix" src="http:{{cover}}"></image>
                 <view class="home__activity__main__top">
                   <view class="home__type__tips">
                     <view class="home__type__tips__top">
